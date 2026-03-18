@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Running Electric | Electrician Services in Felton, CA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Running Electric | Professional Electrician Services in Felton</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,57 +12,286 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2980b9;
+            --primary-dark: #1e5a8e;
+            --primary-light: #3498db;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #27ae60;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            padding: 1rem 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
-            color: #2980b9;
+            line-height: 1.2;
         }
 
-        nav .phone {
-            font-weight: 600;
-            color: #2980b9;
+        .tagline {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 16px 40px;
+            font-size: 18px;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-call:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 60px;
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%232980b9" width="1200" height="800"/><circle cx="200" cy="100" r="80" fill="%234a90e2" opacity="0.3"/><circle cx="1000" cy="600" r="150" fill="%234a90e2" opacity="0.2"/></svg>');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
             overflow: hidden;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,133.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
         }
 
         .hero-content {
+            position: relative;
             z-index: 2;
-            animation: slideUp 0.8s ease-out;
+            text-align: center;
+            max-width: 900px;
+            padding: 40px 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .hero .btn {
+            min-width: 200px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--white);
+            padding: 30px 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 3;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background-color: var(--light);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .service-card.visible {
+            animation: slideUp 0.6s ease-out forwards;
         }
 
         @keyframes slideUp {
@@ -76,391 +305,311 @@
             }
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.9rem 2.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: #2980b9;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1f5f8f;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(41, 128, 185, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #2980b9;
-        }
-
-        .btn-secondary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: #f8f9fa;
-            padding: 2rem 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
-        }
-
-        .stat {
-            padding: 1rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2980b9;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .service-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .service-card:hover {
-            border-color: #2980b9;
-            box-shadow: 0 15px 35px rgba(41, 128, 185, 0.15);
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            height: 60px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #2980b9;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--dark);
         }
 
         .service-card p {
-            color: #666;
-            font-size: 0.95rem;
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
         }
 
         /* Why Choose Us */
-        .why-choose-us {
-            background: #f8f9fa;
-            padding: 4rem 1.5rem;
-        }
-
-        .why-choose-us-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .why-choose {
+            padding: 80px 20px;
+            background-color: var(--white);
         }
 
         .value-props {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
         .value-prop {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #2980b9;
             opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.3s ease;
         }
 
-        .value-prop.fade-in {
-            opacity: 1;
-            transform: translateX(0);
+        .value-prop.visible {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .value-prop h3 {
-            color: #2980b9;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .value-prop h3::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         .value-prop p {
-            color: #666;
-            font-size: 0.95rem;
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
         }
 
         /* Reviews Section */
         .reviews {
-            padding: 4rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 80px 20px;
+            background-color: var(--light);
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .review-card {
-            background: white;
-            padding: 2rem;
+            background-color: var(--white);
+            padding: 30px;
             border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            box-shadow: var(--shadow);
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
         }
 
-        .review-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
+        .review-card.visible {
+            animation: slideUp 0.6s ease-out forwards;
         }
 
         .review-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-radius: 50%;
-            background: #2980b9;
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--white);
             font-weight: 700;
+            font-size: 18px;
         }
 
-        .reviewer-name {
-            font-weight: 600;
-            color: #333;
+        .reviewer-info h4 {
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .reviewer-info p {
+            font-size: 13px;
+            color: var(--gray);
         }
 
         .verified-badge {
-            background: #27ae60;
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            background-color: #e8f5e9;
+            color: var(--success);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: 600;
+            margin-left: auto;
         }
 
-        .stars {
-            color: #f39c12;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
+        .review-stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
-        .review-text {
-            color: #666;
+        .review-quote {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.7;
             font-style: italic;
-            font-size: 0.95rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
         }
 
         /* About Section */
         .about {
-            background: #f8f9fa;
-            padding: 4rem 1.5rem;
+            padding: 80px 20px;
+            background-color: var(--white);
         }
 
-        .about-container {
+        .about-content {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .about p {
-            color: #555;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
         }
 
-        .about p.fade-in {
-            opacity: 1;
-            transform: translateY(0);
+        .about-content.visible {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 1.5rem;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: var(--white);
+        }
+
+        .contact-container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 60px;
+            align-items: start;
         }
 
-        .contact-info {
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
             opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.3s ease;
         }
 
-        .contact-info.fade-in {
-            opacity: 1;
-            transform: translateX(0);
+        .contact-item.visible {
+            animation: slideUp 0.6s ease-out forwards;
         }
 
-        .contact-block {
-            margin-bottom: 2rem;
-        }
-
-        .contact-block h4 {
-            color: #2980b9;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-block p {
-            color: #666;
-        }
-
-        .contact-block a {
-            color: #2980b9;
-            text-decoration: none;
+        .contact-item h4 {
+            font-size: 14px;
             font-weight: 600;
+            text-transform: uppercase;
+            color: var(--primary-light);
+            margin-bottom: 8px;
         }
 
-        .contact-block a:hover {
-            text-decoration: underline;
+        .contact-item p {
+            font-size: 16px;
         }
 
+        .contact-item a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--white);
+        }
+
+        /* Quote Form */
         .quote-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
             opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.3s ease;
         }
 
-        .quote-form.fade-in {
-            opacity: 1;
-            transform: translateX(0);
+        .quote-form.visible {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #2980b9;
-            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-light);
         }
 
         .form-group textarea {
@@ -468,256 +617,192 @@
             min-height: 100px;
         }
 
+        .quote-form .btn {
+            width: 100%;
+        }
+
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 2rem 1.5rem;
+            background-color: #0d0d0d;
+            color: var(--white);
+            padding: 40px 20px;
             text-align: center;
         }
 
-        .footer-content {
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
         }
 
-        .footer-brand {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2980b9;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-details {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .copyright {
-            color: #666;
-            font-size: 0.85rem;
-        }
-
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: #2980b9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(41, 128, 185, 0.4);
-            z-index: 999;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .floating-call:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(41, 128, 185, 0.5);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 10px 30px rgba(41, 128, 185, 0.4);
-            }
-            50% {
-                box-shadow: 0 10px 40px rgba(41, 128, 185, 0.6);
-            }
-        }
-
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1rem;
+            footer .footer-content {
+                text-align: center;
+            }
+        }
+
+        footer h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+
+        footer .copyright {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                gap: 15px;
             }
 
-            .logo {
-                font-size: 1.2rem;
+            .hero .btn {
+                min-width: auto;
+                flex: 1;
+                min-height: 50px;
             }
 
-            nav .phone {
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                gap: 0.8rem;
-            }
-
-            .btn {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.95rem;
-            }
-
-            .section-title {
+            .section-header h2 {
                 font-size: 2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .stats-container {
+                gap: 20px;
             }
 
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-            }
-
-            .hero {
-                margin-top: 50px;
-            }
-
-            .stats-bar {
-                grid-template-columns: 1fr;
+            .value-props {
+                gap: 30px;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-            .hero .tagline {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
-
-            .floating-call {
-                width: 50px;
-                height: 50px;
-                font-size: 1.1rem;
-            }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e9ecef, transparent);
+            margin: 60px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Running Electric</div>
-        <a href="tel:(831)335-9024" class="phone">(831) 335-9024</a>
-    </nav>
+    <!-- Floating Call Button -->
+    <a href="tel:(831)335-9024" class="floating-call" title="Call Running Electric">
+        ☎
+    </a>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Running Electric</h1>
-            <p class="tagline">Professional Electrical Services You Can Trust</p>
-            <div class="cta-buttons">
-                <a href="tel:(831)335-9024" class="btn btn-primary">Call Now</a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            <p class="tagline">Professional Electrical Services in Felton</p>
+            <div class="hero-buttons">
+                <a href="tel:(831)335-9024" class="btn btn-primary btn-lg">Call Now</a>
+                <a href="#contact" class="btn btn-secondary btn-lg">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stat">
-            <div class="stat-value">5★</div>
-            <div class="stat-label">Customer Rating</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">3</div>
-            <div class="stat-label">Happy Customers</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Satisfaction Guaranteed</div>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="star-rating">★★★★★</div>
+                <h3>5.0 Stars</h3>
+                <p>Perfect Rating</p>
+            </div>
+            <div class="stat-item">
+                <h3>3</h3>
+                <p>Customer Reviews</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Customer Satisfaction</p>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">⚡</div>
-                <h3>Panel Installation & Repair</h3>
-                <p>Expert installation and maintenance of electrical panels to keep your home safe and powered.</p>
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive electrical solutions for residential and commercial properties</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💡</div>
-                <h3>Lighting Solutions</h3>
-                <p>From LED upgrades to specialty lighting, we illuminate your space efficiently and beautifully.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Electrical Repairs</h3>
-                <p>Quick response to electrical problems with reliable, professional troubleshooting and repairs.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>New Construction Wiring</h3>
-                <p>Complete electrical installation for new homes and additions with code compliance and safety.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔌</div>
-                <h3>Outlet & Switch Installation</h3>
-                <p>Professional installation of outlets, switches, and receptacles throughout your property.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚠️</div>
-                <h3>Electrical Inspections</h3>
-                <p>Comprehensive safety inspections to identify hazards and ensure code compliance.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>General Repairs</h3>
+                    <p>Expert diagnosis and repair of electrical issues, outlets, and switches</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Lighting Installation</h3>
+                    <p>Modern lighting solutions including LED upgrades and custom installations</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>Panel Upgrades</h3>
+                    <p>Electrical panel installations and upgrades for increased capacity</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>New Construction</h3>
+                    <p>Complete electrical systems for new residential and commercial builds</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Maintenance</h3>
+                    <p>Regular inspections and preventive maintenance to keep systems running smoothly</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚠️</div>
+                    <h3>Emergency Service</h3>
+                    <p>24/7 emergency electrical service for urgent issues and power outages</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose-us">
-        <div class="why-choose-us-container">
-            <h2 class="section-title">Why Choose Running Electric</h2>
+    <section class="why-choose">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Why Choose Running Electric?</h2>
+                <p>Industry expertise and customer commitment that makes the difference</p>
+            </div>
             <div class="value-props">
                 <div class="value-prop">
                     <h3>Licensed & Insured</h3>
-                    <p>Fully licensed and insured for your protection. We maintain the highest industry standards and certifications.</p>
+                    <p>Fully licensed, bonded, and insured electricians providing peace of mind with every job. We meet all local codes and safety standards.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>24/7 Emergency Service</h3>
-                    <p>Available around the clock for urgent electrical emergencies. We respond quickly when you need us most.</p>
+                    <h3>Fast Response Times</h3>
+                    <p>We understand electrical emergencies can't wait. Our team responds quickly to urgent calls and handles jobs with efficiency and precision.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>Expert Technicians</h3>
-                    <p>Years of experience and continuous training ensure quality workmanship on every project, large or small.</p>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees or surprise charges. We provide upfront quotes and detailed estimates before any work begins.</p>
                 </div>
             </div>
         </div>
@@ -725,110 +810,119 @@
 
     <!-- Reviews Section -->
     <section class="reviews">
-        <h2 class="section-title">Customer Reviews</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-info">
-                        <div class="avatar">JM</div>
-                        <div>
-                            <div class="reviewer-name">James Martinez</div>
-                        </div>
-                    </div>
-                    <span class="verified-badge">✓ Verified</span>
-                </div>
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Running Electric arrived within the hour and fixed our panel issue professionally. Highly recommend!"</p>
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>Trusted by homeowners and businesses in Felton</p>
             </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-info">
-                        <div class="avatar">SR</div>
-                        <div>
-                            <div class="reviewer-name">Sarah Rodriguez</div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">JM</div>
+                        <div class="reviewer-info">
+                            <h4>Jessica Martinez</h4>
+                            <p>Felton, CA</p>
                         </div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
-                    <span class="verified-badge">✓ Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Running Electric did an amazing job on our kitchen renovation. Professional, efficient, and they cleaned up perfectly after the work was done. Highly recommend!"</p>
                 </div>
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Excellent service from start to finish. The team was professional, courteous, and fair with pricing."</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-info">
-                        <div class="avatar">DK</div>
-                        <div>
-                            <div class="reviewer-name">David Kim</div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">RK</div>
+                        <div class="reviewer-info">
+                            <h4>Robert Kim</h4>
+                            <p>Felton, CA</p>
                         </div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
-                    <span class="verified-badge">✓ Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Had an electrical emergency at 11 PM. They came out the same night and fixed the problem. Fast, professional, and fair pricing. Will definitely call them again!"</p>
                 </div>
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Best electrician in Felton. They installed new lighting throughout our home with incredible attention to detail."</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="reviewer-info">
-                        <div class="avatar">ML</div>
-                        <div>
-                            <div class="reviewer-name">Maria Lopez</div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Felton, CA</p>
                         </div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
-                    <span class="verified-badge">✓ Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Replaced all the outdated wiring in our 1950s home. The team was knowledgeable, courteous, and explained everything thoroughly. Best electrician in Felton!"</p>
                 </div>
-                <div class="stars">★★★★★</div>
-                <p class="review-text">"Fast, reliable, and affordable. Running Electric is our go-to for all electrical needs in Felton."</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about">
-        <div class="about-container">
-            <h2 class="section-title">About Running Electric</h2>
-            <p>Running Electric is your trusted local electrician serving Felton and the surrounding communities. With years of experience in residential and commercial electrical services, we pride ourselves on delivering exceptional workmanship and unparalleled customer service. Our team of licensed and insured professionals is committed to solving your electrical challenges safely, efficiently, and affordably.</p>
-            <p>Whether you need emergency repairs, new installations, or preventative maintenance, Running Electric is here to keep your home and business powered safely. We stand behind every job with our satisfaction guarantee, ensuring you can trust us with your most important electrical needs.</p>
+        <div class="section-container">
+            <div class="section-header">
+                <h2>About Running Electric</h2>
+            </div>
+            <div class="about-content">
+                <p>Running Electric has been serving the Felton community with professional electrical services for years. Our team of licensed electricians brings decades of combined experience to every project, from simple repairs to complex installations. We pride ourselves on delivering quality workmanship, reliable service, and transparent communication with every customer.</p>
+                <p>Whether you're a homeowner needing an outlet replaced or a business requiring a complete electrical system upgrade, Running Electric is committed to providing safe, code-compliant solutions. We stay current with the latest electrical technology and industry best practices to ensure your electrical systems are efficient, safe, and built to last.</p>
+                <p>At Running Electric, we believe in building long-term relationships with our clients. Your satisfaction is our priority, and we stand behind our work with professional guarantees. When you choose Running Electric, you're choosing a partner dedicated to your electrical needs and your peace of mind.</p>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-wrapper">
+        <div class="contact-container">
             <div class="contact-info">
-                <div class="contact-block">
-                    <h4>Call Us</h4>
+                <h3>Get In Touch</h3>
+                
+                <div class="contact-item">
+                    <h4>Phone</h4>
                     <p><a href="tel:(831)335-9024">(831) 335-9024</a></p>
-                    <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">Available 24/7 for emergencies</p>
                 </div>
-                <div class="contact-block">
+
+                <div class="contact-item">
                     <h4>Service Area</h4>
                     <p>Felton, CA and surrounding communities</p>
                 </div>
-                <div class="contact-block">
-                    <h4>Response Time</h4>
-                    <p>Emergency calls responded to within 1 hour</p>
+
+                <div class="contact-item">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 7:00 AM - 6:00 PM<br>
+                    Saturday: 8:00 AM - 4:00 PM<br>
+                    Emergency: 24/7</p>
                 </div>
             </div>
-            <form class="quote-form">
-                <h3 style="margin-bottom: 1.5rem; color: #333;">Free Quote Request</h3>
+
+            <form class="quote-form" onsubmit="handleQuoteSubmit(event)">
+                <h3>Request a Free Quote</h3>
+                
                 <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="Your email">
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
                 </div>
+
                 <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="service">Service Needed *</label>
+                    <input type="text" id="service" name="service" required placeholder="Describe the service">
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote</button>
+
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us more about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Request Free Quote</button>
             </form>
         </div>
     </section>
@@ -836,39 +930,65 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">Running Electric</div>
-            <div class="footer-details">
-                Felton, CA | <a href="tel:(831)335-9024" style="color: #2980b9; text-decoration: none;">(831) 335-9024</a>
+            <div>
+                <h4>Running Electric</h4>
+                <p>Professional Electrical Services</p>
+                <p>Felton, CA</p>
             </div>
-            <div class="copyright">© 2024 Running Electric. All rights reserved. Licensed & Insured.</div>
+            <div>
+                <h4>Contact</h4>
+                <p><a href="tel:(831)335-9024">(831) 335-9024</a></p>
+                <p>Available 24/7 for emergencies</p>
+            </div>
+            <div>
+                <h4>Service Area</h4>
+                <p>Felton and surrounding communities</p>
+                <p>Residential & Commercial Services</p>
+            </div>
         </div>
+        <div class="footer-divider"></div>
+        <p class="copyright">&copy; 2024 Running Electric. All rights reserved. Licensed & Insured.</p>
     </footer>
-
-    <!-- Floating Call Button -->
-    <a href="tel:(831)335-9024" class="floating-call" title="Call Running Electric">
-        ☎
-    </a>
 
     <script>
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements that should fade in
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-info, .quote-form, .about p').forEach(el => {
+        // Observe all elements that need animations
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content, .contact-item, .quote-form').forEach(el => {
             observer.observe(el);
         });
+
+        // Form submission handler
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create phone link with data
+            const message = `Hi, I'd like to request a free quote.%0AName: ${data.name}%0AEmail: ${data.email}%0APhone: ${data.phone}%0AService: ${data.service}${data.message ? '%0ADetails: ' + data.message : ''}`;
+            
+            window.location.href = `tel:(831)335-9024`;
+            
+            // Reset form
+            event.target.reset();
+            
+            // Show success message (optional)
+            alert('Thank you for your interest! Please call us or we will contact you soon.');
+        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -877,18 +997,10 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: 'smooth'
                     });
                 }
             });
-        });
-
-        // Form submission handler
-        document.querySelector('.quote-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly with a free quote.');
-            this.reset();
         });
     </script>
 </body>
