@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A to Z Home Specialist - Vacaville, CA Handyman Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+        }
+        nav {
+            background: #1a252f;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #3498db;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .testimonials {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .testimonial strong {
+            color: #3498db;
+        }
+        .stars {
+            color: #f39c12;
+            font-size: 1rem;
+        }
+        .cta {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        .cta:hover {
+            background: #2980b9;
+        }
+        .cta-primary {
+            background: #27ae60;
+        }
+        .cta-primary:hover {
+            background: #229954;
+        }
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .contact-info {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A to Z Home Specialist</h1>
+        <p>Complete Handyman Solutions in Vacaville, CA</p>
+    </header>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Customer Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>Your Local Handyman Expert</h2>
+            <p>From repairs to renovations — we handle it all with professional expertise</p>
+            <button class="cta cta-primary">Get Free Estimate</button>
+        </section>
+        
+        <section id="about">
+            <h2>About A to Z Home Specialist</h2>
+            <p>Matt brings years of hands-on experience to every project. Whether it's a small repair or a complete home improvement project, A to Z Home Specialist delivers quality workmanship and reliable service to homeowners throughout Vacaville.</p>
+            <p style="margin-top: 1rem;">With a 5-star reputation backed by 3 satisfied customers, we pride ourselves on attention to detail and customer satisfaction.</p>
+        </section>
+        
+        <section id="services">
+            <h2>Services We Offer</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>General Repairs</h3>
+                    <p>Drywall repair, door and window fixes, frame repairs, and more.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Installation Work</h3>
+                    <p>Shelving, fixtures, handles, locks, and cabinet installation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Painting & Finishing</h3>
+                    <p>Interior and exterior painting, staining, and touch-ups.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Maintenance</h3>
+                    <p>Regular maintenance and preventive repairs to keep your home in top shape.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Projects</h3>
+                    <p>Deck building, fence repair, outdoor structures, and more.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Emergency Repairs</h3>
+                    <p>Same-day service available for urgent home repair needs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="reviews">
+            <h2>Customer Reviews — 5 Stars</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p><strong>Excellent Work</strong> <span class="stars">★★★★★</span></p>
+                    <p>"Matt did an outstanding job on our bathroom renovation. Professional, clean, and finished ahead of schedule. Highly recommend!"</p>
+                </div>
+                <div class="testimonial">
+                    <p><strong>Very Professional</strong> <span class="stars">★★★★★</span></p>
+                    <p>"Great attention to detail. Fixed multiple issues around our house and everything looks perfect. Will definitely call him again."</p>
+                </div>
+                <div class="testimonial">
+                    <p><strong>Reliable and Trustworthy</strong> <span class="stars">★★★★★</span></p>
+                    <p>"Matt is responsive, reliable, and does quality work. He's become our go-to handyman for all home projects."</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Get Your Free Estimate</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> (707) 365-9164</p>
+                <p><strong>Service Area:</strong> Vacaville, CA and surrounding areas</p>
+                <p><strong>Hours:</strong> Monday - Friday 7am - 5pm, Saturday 8am - 2pm</p>
+            </div>
+            <button class="cta cta-primary">Request Free Quote</button>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 A to Z Home Specialist. All rights reserved.</p>
+        <p>Licensed Handyman | Serving Vacaville, CA | Free Estimates</p>
+    </footer>
+</body>
+</html>
