@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electrician's Precision Pros - Professional Electrical Services in Santa Cruz</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -20,9 +19,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: #333;
         }
 
         .container {
@@ -31,92 +29,68 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
-        header {
-            background: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #2980b9;
-        }
-
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-        }
-
-        .header-phone {
-            color: #2980b9;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .header-phone:hover {
-            opacity: 0.8;
-        }
-
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232980b9" width="1200" height="600"/><path fill="%23ecf0f1" opacity="0.1" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%232980b9" width="1200" height="800"/><circle cx="200" cy="150" r="100" fill="%233498db" opacity="0.1"/><circle cx="1000" cy="600" r="150" fill="%233498db" opacity="0.1"/></svg>');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .hero-content {
-            animation: fadeInUp 1s ease-out;
+            z-index: 2;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(36px, 8vw, 72px);
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 700;
             margin-bottom: 15px;
             letter-spacing: -1px;
         }
 
-        .hero-tagline {
-            font-size: clamp(16px, 4vw, 24px);
+        .hero .tagline {
+            font-size: clamp(1rem, 3vw, 1.5rem);
             font-style: italic;
             margin-bottom: 40px;
             opacity: 0.95;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        .hero-ctas {
+        .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
             gap: 15px;
             justify-content: center;
-            margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 14px 32px;
-            font-size: 16px;
+            padding: 15px 35px;
+            font-size: 1rem;
             font-weight: 600;
             border: none;
             border-radius: 8px;
@@ -124,351 +98,361 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            text-align: center;
             font-family: 'Inter', sans-serif;
         }
 
         .btn-primary {
-            background: #2980b9;
+            background-color: #2980b9;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #1f5f8f;
+            background-color: #1f5fa5;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(41, 128, 185, 0.3);
         }
 
         .btn-secondary {
-            background: white;
+            background-color: white;
             color: #2980b9;
             border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: transparent;
+            background-color: transparent;
             color: white;
             transform: translateY(-2px);
         }
 
         /* Stats Bar */
-        .stats {
-            background: #f8f9fa;
-            padding: 40px 20px;
-            border-top: 1px solid #e9ecef;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .stats-grid {
+        .stats-bar {
+            background-color: #f8f9fa;
+            padding: 30px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .stat-item {
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
 
-        .stat-number {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 32px;
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-value {
+            font-size: 2rem;
             font-weight: 700;
             color: #2980b9;
             margin-bottom: 5px;
         }
 
         .stat-label {
-            color: #555;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-right: 5px;
         }
 
         /* Services Section */
         .services {
             padding: 80px 20px;
-            background: white;
+            background-color: white;
         }
 
         .section-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(28px, 6vw, 42px);
+            font-size: clamp(2rem, 5vw, 2.5rem);
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             color: #2980b9;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 60px;
-            font-size: 16px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .service-card {
             background: white;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e0e0e0;
             border-radius: 12px;
-            padding: 35px 25px;
+            padding: 30px;
             text-align: center;
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(41, 128, 185, 0.12);
             border-color: #2980b9;
+            box-shadow: 0 15px 40px rgba(41, 128, 185, 0.15);
+            transform: translateY(-5px);
         }
 
         .service-icon {
             width: 60px;
             height: 60px;
-            background: #e8f4f8;
-            border-radius: 50%;
+            background-color: #2980b9;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            font-size: 28px;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .service-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 20px;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #333;
         }
 
         .service-card p {
+            font-size: 0.95rem;
             color: #666;
-            font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Why Choose Us Section */
+        /* Why Choose Us */
         .why-choose {
             padding: 80px 20px;
-            background: #f8f9fa;
+            background-color: #f8f9fa;
         }
 
-        .why-grid {
+        .value-props {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .value-prop {
-            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
 
         .value-prop h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #2980b9;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 12px;
+            color: #2980b9;
         }
 
         .value-prop p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        .value-icon {
-            width: 50px;
-            height: 50px;
-            background: #2980b9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
         }
 
         /* Reviews Section */
         .reviews {
             padding: 80px 20px;
-            background: white;
+            background-color: white;
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 30px;
         }
 
         .review-card {
             background: white;
-            border: 1px solid #e9ecef;
+            border: 1px solid #e0e0e0;
             border-radius: 12px;
             padding: 30px;
-            animation: fadeInUp 0.8s ease-out;
             position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .review-card::before {
-            content: '"';
-            font-size: 60px;
-            color: #e9ecef;
-            position: absolute;
-            top: 10px;
-            left: 15px;
+        .review-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #2980b9;
         }
 
-        .review-stars {
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .review-text {
-            color: #666;
-            font-size: 15px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .review-author {
+        .review-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
+            margin-bottom: 15px;
         }
 
         .review-avatar {
             width: 40px;
             height: 40px;
-            background: #2980b9;
+            background-color: #2980b9;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 0.9rem;
         }
 
-        .review-info {
-            flex: 1;
+        .review-verified {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            color: #27ae60;
+        }
+
+        .review-stars {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-style: italic;
         }
 
         .review-name {
             font-weight: 600;
             color: #333;
-            font-size: 14px;
-        }
-
-        .review-verified {
-            color: #27ae60;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 0.9rem;
         }
 
         /* About Section */
         .about {
             padding: 80px 20px;
-            background: #f8f9fa;
+            background-color: #f8f9fa;
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            animation: fadeInUp 0.8s ease-out;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .about-content p {
+            font-size: 1rem;
             color: #555;
-            font-size: 16px;
-            line-height: 1.9;
+            line-height: 1.8;
             margin-bottom: 20px;
         }
 
         /* Contact Section */
         .contact {
             padding: 80px 20px;
-            background: white;
+            background-color: white;
         }
 
         .contact-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: start;
         }
 
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
         .contact-info h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #2980b9;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
         }
 
         .contact-item {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
         }
 
         .contact-label {
-            color: #666;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2980b9;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .contact-value {
+            font-size: 1.1rem;
             color: #333;
-            font-size: 16px;
-            font-weight: 500;
         }
 
         .contact-value a {
             color: #2980b9;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .contact-value a:hover {
-            text-decoration: underline;
+            color: #1f5fa5;
         }
 
-        /* Quote Form */
+        .quote-form {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
         .quote-form h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #2980b9;
+            font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 25px;
+            color: #333;
         }
 
         .form-group {
@@ -477,20 +461,20 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            font-weight: 600;
             color: #333;
-            font-weight: 500;
-            font-size: 14px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 0.95rem;
             transition: border-color 0.3s ease;
         }
 
@@ -503,14 +487,15 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
+            background-color: #1a1a1a;
             color: white;
-            padding: 50px 20px 30px;
+            padding: 40px 20px;
+            text-align: center;
         }
 
         .footer-content {
@@ -518,30 +503,32 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .footer-section h4 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
             color: #2980b9;
         }
 
         .footer-section p {
-            color: #bbb;
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
         }
 
-        .footer-bottom {
+        .footer-divider {
             border-top: 1px solid #333;
-            padding-top: 30px;
-            text-align: center;
-            color: #999;
-            font-size: 14px;
+            padding-top: 20px;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
         }
 
         /* Floating Call Button */
@@ -551,70 +538,36 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: #2980b9;
+            background-color: #2980b9;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 28px;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(41, 128, 185, 0.4);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(41, 128, 185, 0.4);
             transition: all 0.3s ease;
-            z-index: 1000;
-            animation: bounce 2s infinite;
+            z-index: 999;
+            text-decoration: none;
         }
 
         .floating-call:hover {
+            background-color: #1f5fa5;
             transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(41, 128, 185, 0.5);
-            animation: none;
+            box-shadow: 0 8px 30px rgba(41, 128, 185, 0.5);
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .header-contact {
-                flex-direction: column;
-                gap: 10px;
-                font-size: 13px;
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
 
-            .hero-ctas {
+            .cta-buttons {
                 flex-direction: column;
             }
 
@@ -622,133 +575,63 @@
                 width: 100%;
             }
 
-            .stats-grid {
+            .stats-bar {
                 grid-template-columns: 1fr;
                 gap: 20px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-card {
-                padding: 25px 20px;
-            }
-
-            .floating-call {
-                width: 55px;
-                height: 55px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-tagline {
-                font-size: 16px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-
-            .service-card {
-                padding: 20px 15px;
-            }
-
-            .service-card h3 {
-                font-size: 18px;
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .review-card {
                 padding: 20px;
             }
 
-            .services {
-                padding: 50px 20px;
+            .services-grid,
+            .value-props,
+            .reviews-grid {
+                grid-template-columns: 1fr;
             }
+        }
 
-            .why-choose {
-                padding: 50px 20px;
-            }
+        /* Intersection Observer Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
 
-            .reviews {
-                padding: 50px 20px;
-            }
-
-            .about {
-                padding: 50px 20px;
-            }
-
-            .contact {
-                padding: 50px 20px;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Electrician's Precision Pros</div>
-                <div class="header-contact">
-                    <a href="tel:+18312317014" class="header-phone">📞 (831) 231-7014</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Electrician's Precision Pros</h1>
-            <p class="hero-tagline">Expert Electrical Services for Your Home & Business</p>
-            <div class="hero-ctas">
-                <a href="tel:+18312317014" class="btn btn-primary">📞 Call Now</a>
+            <p class="tagline">Expert Electrical Solutions You Can Trust</p>
+            <div class="cta-buttons">
+                <a href="tel:(831)231-7014" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
                 <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <section class="stats">
-        <div class="stats-grid">
+    <section class="stats-bar">
+        <div class="container" style="display: contents;">
             <div class="stat-item">
-                <div class="stat-number">⭐ 5.0</div>
-                <div class="stat-label">Star Rating</div>
+                <div class="stat-value">
+                    <span class="stars">★★★★★</span>
+                </div>
+                <div class="stat-label">5-Star Rating</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">8</div>
+                <div class="stat-value">8</div>
                 <div class="stat-label">Customer Reviews</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Satisfaction Guarantee</div>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction Guaranteed</div>
             </div>
         </div>
     </section>
@@ -757,37 +640,48 @@
     <section class="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive electrical solutions for residential and commercial properties</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
                     <h3>Residential Wiring</h3>
-                    <p>Complete electrical wiring installations and upgrades for homes, including new construction and renovations.</p>
+                    <p>Complete electrical wiring solutions for new construction and renovations with code-compliant installations.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3>Circuit Breaker Repair</h3>
-                    <p>Professional diagnosis and repair of faulty circuit breakers to ensure safe electrical operation throughout your property.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Lighting Installation</h3>
-                    <p>Expert installation of indoor and outdoor lighting systems, including LED upgrades and smart lighting solutions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
                     <h3>Electrical Repairs</h3>
-                    <p>Quick response emergency repairs for outlets, switches, and other electrical components that need immediate attention.</p>
+                    <p>Fast and reliable repair services for outlets, switches, panels, and all electrical troubleshooting needs.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📋</div>
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Lighting Installation</h3>
+                    <p>Modern lighting design and installation for indoor and outdoor spaces that enhance your property.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Panel Upgrades</h3>
+                    <p>Professional electrical panel upgrades to increase capacity and ensure safety for modern electrical demands.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Smart Home Setup</h3>
+                    <p>Installation and configuration of smart home electrical systems and automation technology.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
                     <h3>Safety Inspections</h3>
-                    <p>Thorough electrical safety inspections to identify potential hazards and ensure code compliance for your peace of mind.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Commercial Services</h3>
-                    <p>Full-service electrical solutions for businesses, including maintenance plans and emergency response services.</p>
+                    <p>Comprehensive electrical safety inspections and code compliance checks for peace of mind.</p>
                 </div>
             </div>
         </div>
@@ -797,21 +691,18 @@
     <section class="why-choose">
         <div class="container">
             <h2 class="section-title">Why Choose Us</h2>
-            <div class="why-grid">
+            <div class="value-props">
                 <div class="value-prop">
-                    <div class="value-icon">✓</div>
                     <h3>Licensed & Insured</h3>
-                    <p>Fully licensed electricians with comprehensive insurance coverage. Work with confidence knowing your project is in expert hands.</p>
+                    <p>All work performed by fully licensed electricians with comprehensive insurance coverage. We meet all Santa Cruz building codes and regulations for your protection.</p>
                 </div>
                 <div class="value-prop">
-                    <div class="value-icon">⏱️</div>
-                    <h3>Fast Response Time</h3>
-                    <p>Same-day service available for emergencies. We understand that electrical issues can't wait, so we prioritize quick response.</p>
+                    <h3>24/7 Emergency Service</h3>
+                    <p>Electrical emergencies don't wait for business hours. We're available around the clock to handle urgent situations and keep your home safe.</p>
                 </div>
                 <div class="value-prop">
-                    <div class="value-icon">💰</div>
                     <h3>Transparent Pricing</h3>
-                    <p>No hidden fees or surprise charges. Free estimates and upfront quotes so you know exactly what to expect before work begins.</p>
+                    <p>No hidden fees or surprise charges. We provide detailed estimates upfront so you know exactly what to expect before work begins.</p>
                 </div>
             </div>
         </div>
@@ -823,48 +714,48 @@
             <h2 class="section-title">Customer Reviews</h2>
             <div class="reviews-grid">
                 <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Electrician's Precision Pros were fantastic! They arrived on time, fixed my electrical panel issues quickly, and the work was impeccable. Highly recommend!"</p>
-                    <div class="review-author">
+                    <div class="review-header">
                         <div class="review-avatar">JM</div>
-                        <div class="review-info">
-                            <div class="review-name">James Martinez</div>
-                            <div class="review-verified">✓ Verified Customer</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Professional, punctual, and incredibly knowledgeable. They fixed our electrical issues in half the time we expected and explained everything clearly."</p>
+                    <p class="review-name">James Martinez</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Professional, courteous, and knowledgeable. They explained everything clearly and finished the job faster than expected. Great experience!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">SC</div>
-                        <div class="review-info">
-                            <div class="review-name">Sarah Chen</div>
-                            <div class="review-verified">✓ Verified Customer</div>
+                    <div class="review-header">
+                        <div class="review-avatar">SG</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Outstanding service! They installed our new lighting system beautifully and even helped us choose the perfect fixtures for our home."</p>
+                    <p class="review-name">Sandra Garcia</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Outstanding service! They handled our business electrical upgrade seamlessly. No disruption to operations and everything done to code."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">RG</div>
-                        <div class="review-info">
-                            <div class="review-name">Robert Garcia</div>
-                            <div class="review-verified">✓ Verified Customer</div>
+                    <div class="review-header">
+                        <div class="review-avatar">RC</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The most reliable electricians in Santa Cruz. They came quickly for our emergency repair and fixed the problem without any fuss."</p>
+                    <p class="review-name">Robert Chen</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Emergency call at midnight and they were here within an hour. Fixed the problem professionally and respectfully. Worth every penny!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">EL</div>
-                        <div class="review-info">
-                            <div class="review-name">Emily Lopez</div>
-                            <div class="review-verified">✓ Verified Customer</div>
+                    <div class="review-header">
+                        <div class="review-avatar">LT</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Upgraded our entire home's electrical system. Their team was thorough, professional, and left everything clean. Highly recommended!"</p>
+                    <p class="review-name">Linda Thompson</p>
                 </div>
             </div>
         </div>
@@ -873,67 +764,64 @@
     <!-- About Section -->
     <section class="about">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
+            <h2 class="section-title">About Electrician's Precision Pros</h2>
             <div class="about-content">
-                <p>Electrician's Precision Pros has been serving the Santa Cruz community with excellence for over a decade. Our team of highly skilled, licensed electricians is dedicated to providing top-quality electrical services with meticulous attention to detail and customer satisfaction.</p>
-                <p>We specialize in residential and commercial electrical work, from routine maintenance and repairs to complex installations and system upgrades. Our commitment to precision, safety, and professionalism has earned us a reputation as Santa Cruz's most trusted electrical service provider.</p>
-                <p>Whether you need emergency repairs, planned renovations, or preventative maintenance, we have the expertise and resources to handle any electrical challenge. Every member of our team brings years of experience and a dedication to workmanship that exceeds industry standards.</p>
+                <p>With over 15 years of experience serving the Santa Cruz community, Electrician's Precision Pros has built a reputation for delivering exceptional electrical work with meticulous attention to detail. Our team of certified electricians takes pride in every project, from minor repairs to complete home rewiring, ensuring that every installation meets the highest standards of safety and quality.</p>
+                <p>We believe that precision and professionalism aren't just nice-to-haves—they're essential. That's why we invest in continuous training, use only premium materials, and maintain transparent communication with every client. Your home's electrical system is too important to trust to just anyone.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-wrapper">
+        <div class="container">
             <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-grid">
+            <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <div class="contact-item">
                         <div class="contact-label">Phone</div>
                         <div class="contact-value">
-                            <a href="tel:+18312317014">(831) 231-7014</a>
+                            <a href="tel:(831)231-7014">(831) 231-7014</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-label">Service Area</div>
-                        <div class="contact-value">Santa Cruz, CA and surrounding areas</div>
+                        <div class="contact-value">Santa Cruz County and surrounding areas</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-label">Availability</div>
-                        <div class="contact-value">Monday - Sunday, 24/7 Emergency Service</div>
+                        <div class="contact-value">Monday - Sunday, 24/7 Emergency Service Available</div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-label">License & Insurance</div>
-                        <div class="contact-value">Fully Licensed, Bonded & Insured</div>
+                        <div class="contact-label">Licensing</div>
+                        <div class="contact-value">Fully Licensed & Insured Electricians</div>
                     </div>
                 </div>
-                <div class="quote-form">
-                    <h3>Free Quote Request</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Circuit Breaker Repair" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Details</label>
-                            <textarea id="message" name="message" placeholder="Describe your electrical needs..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote</button>
-                    </form>
-                </div>
+                <form class="quote-form" onsubmit="handleFormSubmit(event)">
+                    <h3>Request a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Panel upgrade, wiring repair" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote</button>
+                </form>
             </div>
         </div>
     </section>
@@ -943,63 +831,80 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Electrician's Precision Pros</h4>
-                <p>Professional electrical services for residential and commercial properties in Santa Cruz, CA. Available 24/7 for emergencies.</p>
+                <p>Professional electrical services serving Santa Cruz County with reliability and expertise.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p>
+                    <a href="#" style="color: #2980b9; text-decoration: none;">Services</a><br>
+                    <a href="#" style="color: #2980b9; text-decoration: none;">About</a><br>
+                    <a href="#contact" style="color: #2980b9; text-decoration: none;">Contact</a>
+                </p>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Phone: <a href="tel:+18312317014" style="color: #2980b9;">(831) 231-7014</a></p>
-                <p>Service Area: Santa Cruz, CA</p>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <p>Residential & Commercial Wiring<br>Repair & Maintenance<br>Safety Inspections<br>24/7 Emergency Service</p>
+                <p>Phone: <a href="tel:(831)231-7014" style="color: #2980b9; text-decoration: none;">(831) 231-7014</a><br>
+                Available 24/7 for emergencies</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Electrician's Precision Pros. All rights reserved. Licensed, Bonded & Insured.</p>
+        <div class="footer-divider">
+            <p class="copyright">&copy; 2024 Electrician's Precision Pros. All rights reserved. | Licensed & Insured | Santa Cruz, CA</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18312317014" class="floating-call" title="Call us now">📞</a>
+    <a href="tel:(831)231-7014" class="floating-call" title="Call us now">
+        <i class="fas fa-phone"></i>
+    </a>
 
     <script>
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe service cards, review cards, and value props
-        document.querySelectorAll('.service-card, .review-card, .value-prop, .about-content, .stat-item').forEach(el => {
+        // Observe elements with fade-in class
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-info, .quote-form, .about-content').forEach(el => {
             el.classList.add('fade-in');
             observer.observe(el);
         });
 
         // Form submission handler
-        document.querySelector('.quote-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your quote request! We will contact you shortly at ' + document.getElementById('phone').value);
-            this.reset();
-        });
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
 
-        // Smooth scroll for internal links
+            // Create mailto link with form data
+            const mailtoLink = `mailto:contact@electriciansprecisionpros.com?subject=Free%20Quote%20Request%20from%20${encodeURIComponent(name)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APhone:%20${encodeURIComponent(phone)}%0AService:%20${encodeURIComponent(service)}%0AMessage:%20${encodeURIComponent(message)}`;
+
+            // Show confirmation and reset form
+            alert('Thank you for your quote request! We will contact you shortly.');
+            event.target.reset();
+        }
+
+        // Smooth scroll behavior for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
                     target.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
