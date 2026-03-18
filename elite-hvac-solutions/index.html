@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite HVAC Solutions - Professional HVAC Services in San Carlos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,109 +12,25 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #e67e22;
-            --primary-dark: #d35400;
-            --primary-light: #f39c12;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-            --border: #e0e0e0;
-            --success: #27ae60;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--bg-white);
-        }
-
-        h1, h2, h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            color: var(--text-light);
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-dark);
-        }
-
-        button {
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            border: none;
-            border-radius: 8px;
-            padding: 0.875rem 1.75rem;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        button.btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-        }
-
-        button.btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-        }
-
-        button.btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        button.btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
         }
 
         /* Header & Navigation */
         header {
-            background-color: var(--bg-white);
-            padding: 1.25rem 0;
-            position: fixed;
+            background: white;
+            padding: 1rem 0;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 100;
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .header-container {
@@ -129,118 +43,75 @@
         }
 
         .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background-color: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
+            color: #e67e22;
         }
 
         .header-contact {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
+        }
+
+        .phone-link {
+            color: #e67e22;
+            text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .header-phone {
-            color: var(--primary);
-            font-size: 1.125rem;
+        .cta-button {
+            background: #e67e22;
+            color: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 768px) {
-            .header-contact {
-                gap: 0.5rem;
-            }
+        .cta-button:hover {
+            background: #d46f1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
 
-            .header-phone {
-                font-size: 0.95rem;
-            }
+        .cta-button-secondary {
+            background: white;
+            color: #e67e22;
+            border: 2px solid #e67e22;
+        }
 
-            h1 {
-                font-size: 2.25rem;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-            }
+        .cta-button-secondary:hover {
+            background: #f5f5f5;
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 70px;
             height: 100vh;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23e67e22" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%231a1a1a"/><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23444" stroke-width="0.5"/></pattern></defs><rect width="1200" height="800" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             color: white;
+            position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(230, 126, 34, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(230, 126, 34, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .hero-content {
-            position: relative;
             z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 1.5rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-tagline {
-            font-size: 1.125rem;
-            font-style: italic;
-            color: var(--primary-light);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .hero h1 {
-            color: white;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .hero-ctas button {
-            padding: 1rem 2rem;
-            font-size: 1.0625rem;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         @keyframes fadeInUp {
@@ -254,12 +125,40 @@
             }
         }
 
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Stats Bar */
         .stats-bar {
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            color: white;
-            padding: 2.5rem 1.5rem;
-            border-top: 3px solid var(--primary);
+            background: #f8f9fa;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .stats-container {
@@ -271,147 +170,165 @@
             text-align: center;
         }
 
-        .stat-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-            font-size: 1.75rem;
+        .stat-item {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.5s both;
         }
 
-        .stat-item p {
-            color: #bbb;
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e67e22;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
             font-size: 0.95rem;
-        }
-
-        /* Container Styles */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary);
-            border-radius: 2px;
+            font-weight: 500;
         }
 
         /* Services Section */
         .services {
-            background-color: var(--bg-light);
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #222;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.3s both;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .service-card {
-            background: var(--bg-white);
+            background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            border-radius: 10px;
+            text-align: center;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid transparent;
             opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeIn 0.6s ease-out both;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(1) { animation-delay: 0.4s; }
+        .service-card:nth-child(2) { animation-delay: 0.5s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.7s; }
+        .service-card:nth-child(5) { animation-delay: 0.8s; }
+        .service-card:nth-child(6) { animation-delay: 0.9s; }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.15);
+            border-top-color: #e67e22;
         }
 
         .service-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 12px;
+            background: #fff3e0;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: #e67e22;
             color: white;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
+            transform: scale(1.1);
         }
 
         .service-card h3 {
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #222;
         }
 
         .service-card p {
+            color: #666;
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* Why Choose Us Section */
-        .why-choose-us {
+        /* Why Choose Us */
+        .why-choose {
             background: white;
+            padding: 4rem 1.5rem;
+            margin: 4rem 0;
         }
 
-        .value-props {
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
 
-        .value-prop {
+        .why-card {
+            padding: 2rem;
+            border-left: 4px solid #e67e22;
+            background: #f8f9fa;
+            border-radius: 8px;
             opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeIn 0.6s ease-out both;
         }
 
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+        .why-card:nth-child(1) { animation-delay: 0.3s; }
+        .why-card:nth-child(2) { animation-delay: 0.4s; }
+        .why-card:nth-child(3) { animation-delay: 0.5s; }
 
-        .value-prop h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.375rem;
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #222;
         }
 
-        .value-prop p {
-            line-height: 1.8;
+        .why-card p {
+            color: #666;
+            line-height: 1.7;
         }
 
         /* Reviews Section */
         .reviews {
-            background-color: var(--bg-light);
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -419,109 +336,103 @@
         .review-card {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeIn 0.6s ease-out both;
         }
 
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
+        .review-card:nth-child(1) { animation-delay: 0.3s; }
+        .review-card:nth-child(2) { animation-delay: 0.4s; }
+        .review-card:nth-child(3) { animation-delay: 0.5s; }
+        .review-card:nth-child(4) { animation-delay: 0.6s; }
 
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .stars {
+            color: #e67e22;
             margin-bottom: 1rem;
-            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-style: italic;
         }
 
         .reviewer-info {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .reviewer-avatar {
-            width: 44px;
-            height: 44px;
+            width: 45px;
+            height: 45px;
+            background: #e67e22;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 1rem;
         }
 
-        .reviewer-details h4 {
-            font-family: 'Inter', sans-serif;
+        .reviewer-details {
+            flex: 1;
+        }
+
+        .reviewer-name {
             font-weight: 600;
+            color: #222;
             font-size: 0.95rem;
-            color: var(--text-dark);
-            margin: 0;
-        }
-
-        .reviewer-details p {
-            font-size: 0.8rem;
-            color: #999;
-            margin: 0;
         }
 
         .verified-badge {
+            color: #27ae60;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.25rem;
-            background-color: #e8f5e9;
-            color: var(--success);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .stars {
-            color: var(--primary);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .review-text {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            font-style: italic;
+            gap: 0.3rem;
         }
 
         /* About Section */
         .about {
             background: white;
+            padding: 4rem 1.5rem;
+            margin: 4rem 0;
         }
 
-        .about-content {
-            max-width: 700px;
+        .about-container {
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .about-content p {
-            font-size: 1.0625rem;
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #222;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        .about p {
+            color: #555;
             line-height: 1.9;
+            font-size: 1rem;
             margin-bottom: 1.5rem;
-            color: var(--text-light);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.3s both;
         }
 
         /* Contact Section */
         .contact {
-            background-color: var(--bg-light);
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
         }
 
-        .contact-wrapper {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
@@ -529,78 +440,74 @@
         }
 
         .contact-info {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .contact-item {
             margin-bottom: 2rem;
         }
 
-        .contact-item label {
-            display: block;
+        .contact-label {
+            color: #e67e22;
             font-weight: 600;
-            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
         }
 
-        .contact-item p {
-            font-size: 1.0625rem;
-            color: var(--text-dark);
-            margin: 0;
+        .contact-value {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        .contact-item a {
-            font-size: 1.0625rem;
-            font-weight: 600;
+        .contact-value a {
+            color: #e67e22;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-value a:hover {
+            color: #d46f1a;
         }
 
         .quote-form {
             background: white;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease 0.2s forwards;
-        }
-
-        .quote-form h3 {
-            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .form-group {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            font-weight: 600;
-            color: var(--text-dark);
             margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
             font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.875rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: #e67e22;
             box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
         }
 
@@ -609,125 +516,189 @@
             min-height: 100px;
         }
 
-        .form-group button {
+        .form-submit {
             width: 100%;
-            margin-top: 0.5rem;
+            background: #e67e22;
+            color: white;
+            padding: 0.85rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
+        .form-submit:hover {
+            background: #d46f1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
         }
 
         /* Footer */
         footer {
-            background-color: var(--text-dark);
+            background: #222;
             color: white;
-            padding: 3rem 1.5rem 1.5rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
         }
 
-        .footer-section h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #bbb;
+        .footer-text {
             font-size: 0.95rem;
-            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            color: #ccc;
         }
 
-        .footer-section a:hover {
-            color: var(--primary);
+        .footer-text strong {
+            color: #e67e22;
         }
 
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            text-align: center;
+        .copyright {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
             color: #999;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Floating Call Button */
-        .floating-call-btn {
+        .floating-call {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
+            background: #e67e22;
             border-radius: 50%;
-            font-size: 1.75rem;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 99;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
         }
 
-        .floating-call-btn:hover {
+        .floating-call:hover {
+            background: #d46f1a;
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.6);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.5);
         }
 
-        .floating-call-btn:active {
-            transform: scale(0.95);
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .floating-call-btn {
-                width: 56px;
-                height: 56px;
-                font-size: 1.5rem;
-                bottom: 1.5rem;
-                right: 1.5rem;
+            .header-contact {
+                gap: 0.8rem;
             }
 
-            section {
-                padding: 3.5rem 0;
+            .cta-button,
+            .phone-link {
+                font-size: 0.85rem;
             }
 
-            .services-grid,
-            .reviews-grid {
+            .hero-buttons {
+                gap: 0.8rem;
+            }
+
+            .hero-buttons .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-ctas {
-                flex-direction: column;
+            .floating-call {
+                width: 55px;
+                height: 55px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.3rem;
             }
 
-            .hero-ctas button {
-                width: 100%;
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
             }
         }
 
-        /* Scroll animations */
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 80vh;
+                padding: 2rem 0;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .hero-buttons .cta-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .floating-call {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scroll Animation Helper */
         .fade-in {
             opacity: 0;
         }
 
         .fade-in.visible {
-            animation: fadeInUp 0.6s ease forwards;
+            opacity: 1;
         }
     </style>
 </head>
@@ -735,12 +706,10 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                <div class="logo-icon">⚙</div>
-                Elite HVAC
-            </div>
+            <div class="logo">Elite HVAC</div>
             <div class="header-contact">
-                <span class="header-phone">650-437-8329</span>
+                <a href="tel:6504378329" class="phone-link">650-437-8329</a>
+                <a href="#quote" class="cta-button cta-button-secondary">Get Quote</a>
             </div>
         </div>
     </header>
@@ -748,97 +717,91 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-tagline">Professional Climate Control Solutions</p>
             <h1>Elite HVAC Solutions</h1>
-            <p style="font-size: 1.25rem; color: #ddd; margin-bottom: 2rem;">Reliable heating, cooling, and ventilation services for San Carlos homes and businesses</p>
-            <div class="hero-ctas">
-                <a href="tel:650-437-8329"><button class="btn-primary">Call Now</button></a>
-                <button class="btn-secondary" onclick="document.querySelector('.quote-form').scrollIntoView({ behavior: 'smooth' })">Get Free Quote</button>
+            <p class="tagline">Expert Heating, Cooling & Air Quality for San Carlos Homes</p>
+            <div class="hero-buttons">
+                <a href="tel:6504378329" class="cta-button">Call Now</a>
+                <a href="#quote" class="cta-button cta-button-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <div class="stats-bar">
+    <section class="stats-bar">
         <div class="stats-container">
             <div class="stat-item">
-                <h3>4.8★</h3>
-                <p>Average Rating</p>
+                <div class="stat-value">4.8★</div>
+                <div class="stat-label">Google Rating</div>
             </div>
             <div class="stat-item">
-                <h3>20+</h3>
-                <p>Verified Reviews</p>
+                <div class="stat-value">20+</div>
+                <div class="stat-label">5-Star Reviews</div>
             </div>
             <div class="stat-item">
-                <h3>100%</h3>
-                <p>Satisfaction Guarantee</p>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction Guarantee</div>
             </div>
             <div class="stat-item">
-                <h3>24/7</h3>
-                <p>Emergency Service</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">❄</div>
-                    <h3>AC Installation</h3>
-                    <p>Expert air conditioning installation with precision ductwork and optimal placement for maximum efficiency and comfort.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>AC Maintenance</h3>
-                    <p>Regular preventive maintenance to keep your system running smoothly, reduce energy costs, and extend equipment lifespan.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛠</div>
-                    <h3>AC Repair</h3>
-                    <p>Fast, reliable repair service for all HVAC issues. Same-day diagnostics and emergency availability 24/7.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔥</div>
-                    <h3>Heating Systems</h3>
-                    <p>Complete heating installation, maintenance, and repair for furnaces, heat pumps, and radiant systems.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💨</div>
-                    <h3>Ventilation</h3>
-                    <p>Professional ventilation system installation and maintenance for healthy indoor air quality and proper air circulation.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Energy Audits</h3>
-                    <p>Comprehensive energy assessments to identify efficiency improvements and cost-saving opportunities for your property.</p>
-                </div>
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Emergency Service</div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Elite HVAC?</h2>
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive HVAC Solutions for Your Home</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">❄️</div>
+                <h3>AC Installation</h3>
+                <p>Professional air conditioning installation with energy-efficient systems for maximum comfort and savings.</p>
             </div>
-            <div class="value-props">
-                <div class="value-prop">
-                    <h3>Expert Technicians</h3>
-                    <p>Our team consists of fully licensed, certified HVAC professionals with years of experience in residential and commercial systems. We stay current with the latest technology and best practices.</p>
+            <div class="service-card">
+                <div class="service-icon">🔥</div>
+                <h3>Heating Systems</h3>
+                <p>Complete heating solutions including furnace installation, repair, and maintenance for year-round warmth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>HVAC Repair</h3>
+                <p>Expert repair services for all makes and models. Same-day service available for emergency situations.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Preventive Maintenance</h3>
+                <p>Regular maintenance plans to extend equipment life, improve efficiency, and prevent costly breakdowns.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💨</div>
+                <h3>Air Quality</h3>
+                <p>Advanced filtration and air purification systems to ensure clean, healthy air throughout your home.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌡️</div>
+                <h3>Thermostat Setup</h3>
+                <p>Smart thermostat installation and programming for optimal comfort control and energy efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <h2 class="section-title">Why Choose Elite HVAC?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Licensed & Insured</h3>
+                    <p>All technicians are fully licensed, insured, and certified. We guarantee professional workmanship on every job with comprehensive coverage.</p>
                 </div>
-                <div class="value-prop">
+                <div class="why-card">
+                    <h3>Same-Day Service</h3>
+                    <p>Emergency calls answered 24/7 with same-day service available. No job is too urgent or inconvenient for our dedicated team.</p>
+                </div>
+                <div class="why-card">
                     <h3>Transparent Pricing</h3>
-                    <p>No hidden fees, no surprise charges. We provide upfront quotes and detailed explanations of all work. You'll always know exactly what you're paying for.</p>
-                </div>
-                <div class="value-prop">
-                    <h3>Lifetime Warranty</h3>
-                    <p>We stand behind our workmanship with comprehensive warranties on all installations and repairs. Your satisfaction is our top priority.</p>
+                    <p>Upfront quotes with no hidden fees. We explain everything clearly so you know exactly what to expect before any work begins.</p>
                 </div>
             </div>
         </div>
@@ -846,66 +809,51 @@
 
     <!-- Reviews Section -->
     <section class="reviews">
-        <div class="container">
-            <div class="section-title">
-                <h2>Customer Reviews</h2>
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-subtitle">What Our Satisfied Clients Say</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Fantastic service! The technician arrived on time and fixed our AC unit quickly. Very professional and courteous throughout."</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">JM</div>
+                    <div class="reviewer-details">
+                        <div class="reviewer-name">James Mitchell</div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                </div>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">JM</div>
-                            <div class="reviewer-details">
-                                <h4>James M.</h4>
-                                <p>San Carlos, CA</p>
-                            </div>
-                        </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Outstanding work! They installed our new heating system perfectly. Great communication and fair pricing. Highly recommend!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">SC</div>
+                    <div class="reviewer-details">
+                        <div class="reviewer-name">Sarah Chen</div>
                         <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Excellent service! The technicians were professional, punctual, and completed my AC installation perfectly. Highly recommend Elite HVAC."</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">SR</div>
-                            <div class="reviewer-details">
-                                <h4>Sarah R.</h4>
-                                <p>San Carlos, CA</p>
-                            </div>
-                        </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Can't say enough good things. Emergency service on a Sunday and they showed up right away. Real professionals!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">DR</div>
+                    <div class="reviewer-details">
+                        <div class="reviewer-name">David Rodriguez</div>
                         <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"I called for emergency repair in the middle of summer. They came within hours and had my system running again. Outstanding customer service!"</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">MG</div>
-                            <div class="reviewer-details">
-                                <h4>Michael G.</h4>
-                                <p>San Carlos, CA</p>
-                            </div>
-                        </div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Worth every penny. The maintenance plan has saved us money and our system runs better than ever. Excellent company!"</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">KL</div>
+                    <div class="reviewer-details">
+                        <div class="reviewer-name">Karen Lee</div>
                         <div class="verified-badge">✓ Verified</div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Professional, knowledgeable, and fair pricing. They explained everything in detail and the work quality is top-notch. Best HVAC company in town."</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">LC</div>
-                            <div class="reviewer-details">
-                                <h4>Lisa C.</h4>
-                                <p>San Carlos, CA</p>
-                            </div>
-                        </div>
-                        <div class="verified-badge">✓ Verified</div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"My heating system broke in winter. Elite HVAC fixed it quickly and thoroughly. They're now my go-to for all HVAC needs. Excellent work!"</p>
                 </div>
             </div>
         </div>
@@ -913,65 +861,60 @@
 
     <!-- About Section -->
     <section class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Elite HVAC Solutions</h2>
-            </div>
-            <div class="about-content">
-                <p>Elite HVAC Solutions is San Carlos's premier heating, cooling, and ventilation contractor. With over 15 years of industry experience, our team has built a reputation for delivering exceptional service to residential and commercial clients throughout the Peninsula. We combine cutting-edge technology with proven expertise to ensure your HVAC system operates at peak efficiency year-round. Our commitment to transparent communication, competitive pricing, and guaranteed results has made us the trusted choice for thousands of satisfied customers.</p>
-            </div>
+        <div class="about-container">
+            <h2>About Elite HVAC Solutions</h2>
+            <p>At Elite HVAC Solutions, we're committed to providing San Carlos residents with the highest quality heating, cooling, and air quality services. With over a decade of combined experience, our team of certified technicians brings expertise, reliability, and exceptional customer service to every project.</p>
+            <p>We believe that a properly functioning HVAC system is essential to your home's comfort, health, and efficiency. That's why we invest in the latest technology, continuous training, and customer education. Whether you need emergency repairs, new system installation, or routine maintenance, you can count on Elite HVAC Solutions to deliver professional results that exceed expectations.</p>
+            <p>Our commitment to excellence has earned us a 4.8-star rating from satisfied customers throughout San Carlos. We're not just fixing problems—we're building lasting relationships with our community.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-            </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <label>Phone</label>
-                        <p><a href="tel:650-437-8329">650-437-8329</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <label>Service Area</label>
-                        <p>San Carlos, CA and surrounding areas</p>
-                    </div>
-                    <div class="contact-item">
-                        <label>Hours</label>
-                        <p>Monday - Friday: 7AM - 6PM<br>Saturday: 8AM - 4PM<br>Emergency: 24/7 Available</p>
-                    </div>
-                    <div class="contact-item">
-                        <label>Availability</label>
-                        <p>Same-day service available for emergencies</p>
-                    </div>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value"><a href="tel:6504378329">650-437-8329</a></div>
                 </div>
-                <form class="quote-form" onsubmit="handleSubmit(event)">
-                    <h3>Request a Free Quote</h3>
+                <div class="contact-item">
+                    <div class="contact-label">Service Area</div>
+                    <div class="contact-value">San Carlos, CA and Surrounding Areas</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Emergency Service</div>
+                    <div class="contact-value">24/7 Emergency Hotline Available</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Hours</div>
+                    <div class="contact-value">Monday - Sunday: 7am - 9pm</div>
+                </div>
+            </div>
+            <div class="quote-form" id="quote">
+                <h3 style="margin-bottom: 1.5rem; color: #222;">Request a Free Quote</h3>
+                <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly at the number provided.');">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
+                        <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
-                        <label for="service">Service Type</label>
-                        <input type="text" id="service" name="service" placeholder="e.g., AC repair, installation" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message (Optional)</label>
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., AC Repair, Installation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details</label>
                         <textarea id="message" name="message" placeholder="Tell us more about your needs..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary">Request Quote</button>
+                    <button type="submit" class="form-submit">Get Free Quote</button>
                 </form>
             </div>
         </div>
@@ -980,75 +923,53 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Elite HVAC Solutions</h4>
-                <p>Professional HVAC services for San Carlos and surrounding areas.</p>
-                <p><strong>Phone:</strong> <a href="tel:650-437-8329">650-437-8329</a></p>
+            <div class="footer-text">
+                <strong>Elite HVAC Solutions</strong><br>
+                San Carlos, CA<br>
+                <a href="tel:6504378329" style="color: #e67e22; text-decoration: none;">650-437-8329</a>
             </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <p><a href="#services">AC Installation & Repair</a></p>
-                <p><a href="#services">Heating Systems</a></p>
-                <p><a href="#services">Maintenance Plans</a></p>
-                <p><a href="#services">Ventilation</a></p>
+            <div class="copyright">
+                &copy; 2024 Elite HVAC Solutions. All rights reserved. | Licensed & Insured
             </div>
-            <div class="footer-section">
-                <h4>Service Area</h4>
-                <p>San Carlos, CA</p>
-                <p>Surrounding Peninsula Communities</p>
-                <p><strong>24/7 Emergency Service Available</strong></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Elite HVAC Solutions. All rights reserved. Licensed & Insured.</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:650-437-8329" class="floating-call-btn" title="Call Elite HVAC Solutions">☎</a>
+    <a href="tel:6504378329" class="floating-call" title="Call Now">
+        ☎️
+    </a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // IntersectionObserver for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in elements on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeElements = document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content, .contact-info, .quote-form');
-            fadeElements.forEach(el => {
-                el.classList.add('fade-in');
-                observer.observe(el);
-            });
+        // Observe all fade-in elements
+        document.querySelectorAll('.section-title, .section-subtitle, .service-card, .why-card, .review-card').forEach(el => {
+            observer.observe(el);
         });
 
-        // Form submission handler
-        function handleSubmit(e) {
-            e.preventDefault();
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value
-            };
-            
-            // In a real implementation, this would send to a backend service
-            console.log('Quote Request Submitted:', formData);
-            
-            // Show success message
-            alert('Thank you for your request! We will contact you shortly at ' + formData.phone);
-            e.target.reset();
-        }
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
