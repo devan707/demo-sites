@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Cal Landscaping - Premium Landscaping Services in Watsonville</title>
+    <title>Central Cal Landscaping - Professional Landscaping Services in Watsonville</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,13 +14,26 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #27ae60;
+            --primary-dark: #1e8449;
+            --primary-light: #52be80;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border: #e0e0e0;
+            --success: #27ae60;
+            --accent: #f39c12;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #2c3e50;
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -33,253 +46,16 @@
         }
 
         .section-padding {
-            padding: 60px 20px;
+            padding: 60px 0;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .section-padding {
-                padding: 80px 20px;
+                padding: 40px 0;
             }
         }
 
-        /* Header */
-        header {
-            background: white;
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #27ae60;
-            text-decoration: none;
-        }
-
-        .header-phone {
-            color: #27ae60;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grass" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M10,50 Q15,40 20,50 Q25,40 30,50" stroke="%2327ae60" stroke-width="2" fill="none"/><path d="M40,50 Q45,35 50,50 Q55,35 60,50" stroke="%2327ae60" stroke-width="2" fill="none"/></pattern></defs><rect width="1200" height="800" fill="%23234"/><rect width="1200" height="800" fill="url(%23grass)" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            animation: heroFade 1s ease-in;
-        }
-
-        @keyframes heroFade {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-        }
-
-        .hero p {
-            font-size: 22px;
-            font-style: italic;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        @media (max-width: 768px) {
-            .hero p {
-                font-size: 16px;
-            }
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: #27ae60;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #229954;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #27ae60;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: #f8f9fa;
-            padding: 40px 20px;
-            border-top: 4px solid #27ae60;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stat-label {
-            color: #7f8c8d;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            font-weight: 600;
-        }
-
-        .stat-value {
-            color: #27ae60;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .stars {
-            color: #f39c12;
-            font-size: 18px;
-            letter-spacing: 2px;
-        }
-
-        /* Services Section */
-        .services-section {
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            color: #2c3e50;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #27ae60;
-            border-radius: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 28px;
-                margin-bottom: 40px;
-            }
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border: 1px solid #ecf0f1;
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .service-card.fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -291,185 +67,6 @@
             }
         }
 
-        .service-card:hover {
-            border-color: #27ae60;
-            box-shadow: 0 12px 40px rgba(39, 174, 96, 0.15);
-            transform: translateY(-8px);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: #27ae60;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 36px;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #7f8c8d;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        /* Why Choose Us */
-        .why-choose-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        .why-choose-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .value-prop {
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            border-left: 5px solid #27ae60;
-            opacity: 0;
-        }
-
-        .value-prop.fade-in {
-            animation: fadeInLeft 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .value-prop h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #27ae60;
-        }
-
-        .value-prop p {
-            color: #7f8c8d;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        /* Reviews Section */
-        .reviews-section {
-            background: white;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .review-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 30px;
-            border: 1px solid #ecf0f1;
-            opacity: 0;
-        }
-
-        .review-card.fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            background: #27ae60;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .review-meta {
-            flex: 1;
-            margin-left: 15px;
-        }
-
-        .review-name {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .verified-badge {
-            background: #27ae60;
-            color: white;
-            font-size: 10px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .review-stars {
-            color: #f39c12;
-            font-size: 14px;
-        }
-
-        .review-text {
-            color: #7f8c8d;
-            font-size: 14px;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        /* About Section */
-        .about-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 16px;
-            color: #7f8c8d;
-            line-height: 2;
-            margin-bottom: 20px;
-            opacity: 0;
-        }
-
-        .about-content p.fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -479,73 +76,531 @@
             }
         }
 
-        /* Contact Section */
-        .contact-section {
-            background: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
 
-        .contact-info h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .contact-item {
-            margin-bottom: 25px;
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
         }
 
-        .contact-item.fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
+        .slide-in {
+            animation: slideIn 0.6s ease-out forwards;
+            opacity: 0;
         }
 
-        .contact-label {
-            color: #27ae60;
+        /* Header & Navigation */
+        header {
+            background: var(--bg-white);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-header {
+                display: none;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grass" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M5,30 Q10,10 15,30 Q20,10 25,30 Q30,10 35,30" stroke="%2327ae60" stroke-width="1" fill="none" opacity="0.3"/></pattern></defs><rect width="1200" height="800" fill="%23184d28"/><rect width="1200" height="600" y="200" fill="%23227a3b"/><rect width="1200" height="200" y="600" fill="url(%23grass)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero .tagline {
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero .tagline {
+                font-size: 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-light);
+            padding: 40px 0;
+            margin: -40px 0 0 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar {
+                margin: -20px 0 0 0;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .stat-value {
+                font-size: 24px;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 16px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--bg-light);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .why-card {
+            padding: 30px;
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .why-choose-grid {
+                gap: 25px;
+            }
+
+            .why-card {
+                padding: 20px;
+            }
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--bg-white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .reviewer-info p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-content p:first-child {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
-        .contact-value {
-            color: #2c3e50;
+        .contact-item-value {
             font-size: 16px;
+            color: var(--text-dark);
             font-weight: 500;
         }
 
-        .contact-value a {
-            color: #27ae60;
+        .contact-item-value a {
+            color: var(--primary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .contact-value a:hover {
-            color: #229954;
+        .contact-item-value a:hover {
+            color: var(--primary-dark);
         }
 
-        /* Quote Form */
         .quote-form {
-            opacity: 0;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
         }
 
-        .quote-form.fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
+        .quote-form h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-dark);
         }
 
         .form-group {
@@ -554,18 +609,18 @@
 
         .form-group label {
             display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #2c3e50;
             font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ecf0f1;
-            border-radius: 6px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
             transition: border-color 0.3s ease;
@@ -574,68 +629,78 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #27ae60;
+            border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        .form-group button {
+        .form-submit {
             width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .quote-form {
+                padding: 25px;
+            }
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: var(--text-dark);
             color: white;
-            padding: 40px 20px 20px;
+            padding: 40px 0 20px;
         }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-grid {
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .footer-section h4 {
             font-size: 16px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #27ae60;
+            margin-bottom: 15px;
         }
 
         .footer-section p {
             font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.7);
         }
 
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #27ae60;
-        }
-
-        .footer-copyright {
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
             text-align: center;
             font-size: 13px;
             color: rgba(255, 255, 255, 0.6);
-            padding-top: 20px;
         }
 
         /* Floating Call Button */
@@ -645,69 +710,59 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: #27ae60;
+            background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 28px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
             transition: all 0.3s ease;
             z-index: 99;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
         }
 
         .floating-call:hover {
-            background: #229954;
+            background: var(--primary-dark);
             transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+            box-shadow: 0 12px 30px rgba(39, 174, 96, 0.5);
         }
 
         @media (max-width: 768px) {
             .floating-call {
+                width: 56px;
+                height: 56px;
                 bottom: 20px;
                 right: 20px;
-                width: 55px;
-                height: 55px;
-                font-size: 24px;
+                font-size: 20px;
             }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 40px 20px;
-            }
+        /* Loading & States */
+        .loading {
+            display: none;
+        }
 
-            .hero-ctas {
-                gap: 15px;
-            }
+        .form-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
 
-            .btn {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
 
-            .stats-container {
-                gap: 20px;
-            }
-
-            .stat-value {
-                font-size: 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .why-choose-grid {
-                gap: 25px;
-            }
-
-            .value-prop {
-                padding: 30px;
-            }
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
     </style>
 </head>
@@ -715,227 +770,260 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <a href="#" class="logo">Central Cal Landscaping</a>
-            <a href="tel:+18312237905" class="header-phone">📞 (831) 223-7905</a>
+            <div class="header-content">
+                <a href="#home" class="logo">Central Cal Landscaping</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why">Why Us</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="tel:(831) 223-7905" class="contact-header">
+                    <span>📞</span>
+                    <span>(831) 223-7905</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Central Cal Landscaping</h1>
-            <p>Transform Your Outdoor Space Into a Masterpiece</p>
-            <div class="hero-ctas">
-                <a href="tel:+18312237905" class="btn btn-primary">Call Now</a>
-                <a href="#quote-form" class="btn btn-secondary">Get Free Quote</a>
+            <p class="tagline">Transform Your Outdoor Space Into Something Beautiful</p>
+            <div class="hero-buttons">
+                <a href="tel:(831) 223-7905" class="btn btn-primary">📞 Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stars">★★★★★</div>
-                <div class="stat-label">5 Star Rating</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">4</div>
-                <div class="stat-label">Customer Reviews</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Satisfaction Guaranteed</div>
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat">
+                    <div class="stat-value">⭐ 5.0</div>
+                    <div class="stat-label">Star Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Customer Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Satisfaction</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-section section-padding">
+    <section class="services section-padding" id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive landscaping solutions to enhance the beauty and functionality of your property</p>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌿</div>
-                    <h3>Lawn Maintenance</h3>
-                    <p>Regular mowing, edging, and fertilization to keep your lawn healthy and vibrant year-round.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌱</div>
+                    <h3>Lawn Care</h3>
+                    <p>Professional mowing, edging, and maintenance to keep your lawn lush and healthy year-round.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🌸</div>
-                    <h3>Landscape Design</h3>
-                    <p>Custom garden and landscape design tailored to your vision and property requirements.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌳</div>
+                    <h3>Tree Services</h3>
+                    <p>Expert pruning, trimming, removal, and tree care to enhance safety and aesthetics.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✂️</div>
-                    <h3>Tree & Shrub Care</h3>
-                    <p>Professional pruning, trimming, and removal services for healthier, more beautiful plants.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌺</div>
+                    <h3>Garden Design</h3>
+                    <p>Custom garden layouts and plantings tailored to your style and local climate.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🪨</div>
-                    <h3>Hardscaping</h3>
-                    <p>Installation of patios, walkways, retaining walls, and decorative stone elements.</p>
-                </div>
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">💧</div>
-                    <h3>Irrigation Systems</h3>
-                    <p>Smart irrigation design and installation for efficient water conservation and plant health.</p>
+                    <h3>Irrigation</h3>
+                    <p>Installation and maintenance of efficient watering systems for optimal plant health.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏞️</div>
+                    <h3>Hardscaping</h3>
+                    <p>Patios, pathways, retaining walls, and landscape features with expert craftsmanship.</p>
+                </div>
+                <div class="service-card fade-in">
                     <div class="service-icon">🧹</div>
-                    <h3>Seasonal Cleanup</h3>
-                    <p>Spring and fall cleanups, leaf removal, and property maintenance throughout the seasons.</p>
+                    <h3>Cleanup & Maintenance</h3>
+                    <p>Regular yard maintenance, seasonal cleanup, and debris removal services.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose-section section-padding">
+    <section class="why-choose section-padding" id="why">
         <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
+            <h2 class="section-title">Why Choose Central Cal Landscaping</h2>
+            <p class="section-subtitle">What sets us apart from the competition</p>
             <div class="why-choose-grid">
-                <div class="value-prop">
-                    <h3>Expert Team</h3>
-                    <p>Years of experience with certified professionals dedicated to excellence and customer satisfaction in every project we undertake.</p>
+                <div class="why-card fade-in">
+                    <h3>🏆 Expert Craftsmanship</h3>
+                    <p>Our team brings years of experience and passion to every project, delivering results that exceed expectations and transform outdoor spaces into masterpieces.</p>
                 </div>
-                <div class="value-prop">
-                    <h3>Quality Guaranteed</h3>
-                    <p>We stand behind our work with comprehensive guarantees and attention to detail that exceeds industry standards.</p>
+                <div class="why-card fade-in">
+                    <h3>💚 Local Community Focus</h3>
+                    <p>As Watsonville's trusted landscaping partner, we understand local growing conditions and deliver solutions tailored to our unique climate and soil.</p>
                 </div>
-                <div class="value-prop">
-                    <h3>Local Pride</h3>
-                    <p>Proudly serving Watsonville and Central California communities with personalized service and deep understanding of local climate needs.</p>
+                <div class="why-card fade-in">
+                    <h3>⚡ Reliable & Responsive</h3>
+                    <p>We show up on time, communicate clearly, and stand behind our work. Your satisfaction is our top priority, and we work until you're thrilled.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews-section section-padding">
+    <section class="reviews section-padding">
         <div class="container">
-            <h2 class="section-title">Customer Reviews</h2>
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Real feedback from satisfied clients in Watsonville</p>
             <div class="reviews-grid">
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div>
-                            <div class="review-avatar">JM</div>
-                        </div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                James M.
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Central Cal Landscaping completely transformed our backyard. The team was professional, attentive to detail, and finished exactly when promised. Highly recommend!"</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Martinez</h4>
+                            <p>Watsonville, CA</p>
                         </div>
                     </div>
-                    <p class="review-text">"Outstanding work! The team transformed our backyard into a beautiful oasis. Professional, punctual, and detail-oriented. Highly recommend!"</p>
                 </div>
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div>
-                            <div class="review-avatar">SK</div>
-                        </div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Sarah K.
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Best landscaping service in the area! They took our overgrown yard and created a beautiful, low-maintenance landscape. Professional and affordable."</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">JC</div>
+                        <div class="reviewer-info">
+                            <h4>James Chen</h4>
+                            <p>Watsonville, CA</p>
                         </div>
                     </div>
-                    <p class="review-text">"Exceptional landscaping services. The team listened to our ideas and executed them perfectly. Our neighbors keep asking who did the work!"</p>
                 </div>
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div>
-                            <div class="review-avatar">RM</div>
-                        </div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Robert M.
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Their attention to detail is incredible. The irrigation system they installed works perfectly, and our plants have never looked better. Great customer service too!"</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">RP</div>
+                        <div class="reviewer-info">
+                            <h4>Rosa Perez</h4>
+                            <p>Watsonville, CA</p>
                         </div>
                     </div>
-                    <p class="review-text">"Best decision we made for our property. Their expertise with native plants is impressive. Will definitely hire them again for maintenance."</p>
                 </div>
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div>
-                            <div class="review-avatar">MC</div>
-                        </div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Maria C.
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Professional, reliable, and truly care about their work. They went above and beyond on our project. Will definitely use them again for future projects!"</p>
+                    <div class="review-author">
+                        <div class="reviewer-avatar">MB</div>
+                        <div class="reviewer-info">
+                            <h4>Michael Brown</h4>
+                            <p>Watsonville, CA</p>
                         </div>
                     </div>
-                    <p class="review-text">"Professional from start to finish. They provided a detailed estimate, communicated throughout, and delivered beyond expectations. Worth every penny!"</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-section section-padding">
+    <section class="about section-padding" id="about">
         <div class="container">
             <h2 class="section-title">About Central Cal Landscaping</h2>
             <div class="about-content">
-                <p>Central Cal Landscaping was founded with a passion for transforming outdoor spaces into stunning, functional environments. Our team brings decades of combined experience in landscape design, maintenance, and hardscaping to every project. We believe that quality landscaping is more than just mowing and trimming—it's about creating beautiful spaces where memories are made and nature thrives. Based in Watsonville, we're proud to serve the Central California community with professional, reliable, and innovative landscaping solutions. Whether you need routine maintenance or a complete landscape overhaul, we're committed to exceeding your expectations with every project we undertake.</p>
+                <p>With over two decades of combined experience in the landscaping industry, our dedicated team at Central Cal Landscaping has built a reputation for excellence in Watsonville and the surrounding areas.</p>
+                <p>We believe that every outdoor space has untapped potential. Our approach combines creative vision with practical expertise—whether you're looking for a complete garden transformation, regular maintenance, or specialized services like irrigation and hardscaping. We work closely with each client to understand their goals, budget, and preferences, ensuring the final result reflects their unique style.</p>
+                <p>Our commitment extends beyond beautiful landscapes to sustainable practices that benefit the environment. We stay current with industry best practices and continually invest in training and equipment to deliver results that last. When you choose Central Cal Landscaping, you're partnering with professionals who take pride in their work and genuinely care about your complete satisfaction.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section section-padding">
+    <section class="contact section-padding" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
+            <h2 class="section-title" style="margin-bottom: 50px;">Get in Touch</h2>
+            <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3>Contact Details</h3>
+                    
                     <div class="contact-item">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value"><a href="tel:+18312237905">(831) 223-7905</a></div>
+                        <div class="contact-item-label">Phone</div>
+                        <div class="contact-item-value">
+                            <a href="tel:(831) 223-7905">(831) 223-7905</a>
+                        </div>
                     </div>
+
                     <div class="contact-item">
-                        <div class="contact-label">Service Area</div>
-                        <div class="contact-value">Watsonville, CA and Surrounding Areas</div>
+                        <div class="contact-item-label">City</div>
+                        <div class="contact-item-value">Watsonville, CA</div>
                     </div>
+
                     <div class="contact-item">
-                        <div class="contact-label">Business Hours</div>
-                        <div class="contact-value">Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</div>
+                        <div class="contact-item-label">Service Area</div>
+                        <div class="contact-item-value">Watsonville, Monterey County & surrounding areas</div>
                     </div>
+
                     <div class="contact-item">
-                        <div class="contact-label">Service Types</div>
-                        <div class="contact-value">Residential & Commercial Landscaping</div>
+                        <div class="contact-item-label">Available</div>
+                        <div class="contact-item-value">Monday - Saturday, 8am - 6pm</div>
                     </div>
                 </div>
-                <form class="quote-form" id="quote-form">
-                    <h3 style="margin-bottom: 30px; color: #2c3e50;">Request a Free Quote</h3>
+
+                <form class="quote-form" id="quoteForm">
+                    <h3>Request a Free Quote</h3>
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you! We'll contact you soon with your free quote.
+                    </div>
+                    
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="service">Service Interested In</label>
-                        <input type="text" id="service" name="service" placeholder="e.g., Landscape Design, Lawn Care">
+                        <label for="service">Service Interest</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Lawn Care, Tree Services, Garden Design">
                     </div>
+
                     <div class="form-group">
-                        <label for="message">Project Details</label>
+                        <label for="message">Additional Details</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Request Quote</button>
+
+                    <button type="submit" class="form-submit">Get Free Quote</button>
                 </form>
             </div>
         </div>
@@ -943,80 +1031,99 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
+        <div class="container">
+            <div class="footer-content">
                 <div class="footer-section">
                     <h4>Central Cal Landscaping</h4>
-                    <p>Premium landscaping services serving Watsonville and Central California with excellence and integrity.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><strong>Phone:</strong> <a href="tel:+18312237905">(831) 223-7905</a></p>
-                    <p><strong>Location:</strong> Watsonville, CA</p>
+                    <p>Professional landscaping services bringing beauty to Watsonville and the surrounding communities.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
-                    <p><a href="#services">Lawn Maintenance</a></p>
-                    <p><a href="#services">Landscape Design</a></p>
-                    <p><a href="#services">Hardscaping</a></p>
+                    <p>• Lawn Care<br>• Tree Services<br>• Garden Design<br>• Irrigation<br>• Hardscaping<br>• Maintenance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong> (831) 223-7905<br><strong>City:</strong> Watsonville, CA<br><strong>Hours:</strong> Mon-Sat, 8am-6pm</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2024 Central Cal Landscaping. All rights reserved. Serving Watsonville, CA with pride.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Central Cal Landscaping. All rights reserved. Professional Landscaping Services.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18312237905" class="floating-call" title="Call Central Cal Landscaping">☎️</a>
+    <a href="tel:(831) 223-7905" class="floating-call" title="Call Central Cal Landscaping">📞</a>
 
     <script>
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements with fade-in capability
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-item, .about-content p, .quote-form').forEach(el => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
             observer.observe(el);
         });
 
         // Form submission
-        document.getElementById('quote-form').addEventListener('submit', function(e) {
+        const quoteForm = document.getElementById('quoteForm');
+        const successMessage = document.getElementById('successMessage');
+
+        quoteForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value
-            };
-            console.log('Quote Request:', formData);
-            alert('Thank you for your interest! We will contact you shortly at ' + formData.phone);
-            this.reset();
+            
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Simulate form submission
+            setTimeout(() => {
+                successMessage.classList.add('show');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }, 1000);
         });
 
-        // Smooth scroll behavior for anchor links
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
+            });
+        });
+
+        // Add scroll animation to stats on page load
+        window.addEventListener('load', () => {
+            const stats = document.querySelectorAll('.stat');
+            stats.forEach((stat, index) => {
+                stat.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`;
+                stat.style.opacity = '0';
             });
         });
     </script>
