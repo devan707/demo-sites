@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armbrust Landscape and Maintenance - Boulder Creek</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Armbrust Landscape and Maintenance | Professional Landscaping in Boulder Creek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,100 +13,151 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            overflow-x: hidden;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
         header {
             background: white;
-            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .header-content {
+        header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 15px 20px;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #27ae60;
+            text-decoration: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         .header-phone {
-            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             color: #27ae60;
-            text-decoration: none;
             font-weight: 600;
-            display: none;
+            text-decoration: none;
+            font-size: 15px;
         }
 
-        @media (min-width: 768px) {
-            .header-phone {
-                display: block;
-            }
+        .header-phone i {
+            font-size: 18px;
+        }
+
+        .header-phone:hover {
+            color: #229954;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #27ae60;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a5a3a 0%, #2d7a52 100%);
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0 50 Q25 30 50 50 T100 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%231a5a3a"/><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
             position: relative;
-            min-height: 500px;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%2327ae60" width="1200" height="800"/><path fill="%23229954" d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" opacity="0.1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
+            max-width: 700px;
+            padding: 20px;
+            animation: heroFadeIn 0.8s ease forwards;
         }
 
-        @keyframes fadeInUp {
+        @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -116,83 +166,40 @@
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 700;
             margin-bottom: 15px;
             line-height: 1.2;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: clamp(18px, 4vw, 24px);
             font-style: italic;
             margin-bottom: 40px;
+            font-weight: 300;
             opacity: 0.95;
-            font-weight: 400;
         }
 
         .hero-buttons {
             display: flex;
             gap: 15px;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
-        @media (min-width: 600px) {
-            .hero-buttons {
-                flex-direction: row;
-            }
-
-            .hero h1 {
-                font-size: 56px;
-            }
-        }
-
-        .btn {
-            padding: 15px 35px;
+        .hero .btn {
             font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: #27ae60;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1f8a4a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #27ae60;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
+            padding: 14px 36px;
         }
 
         /* Stats Bar */
         .stats-bar {
-            background: white;
-            padding: 40px 20px;
-            border-bottom: 1px solid #ecf0f1;
+            background-color: #27ae60;
+            color: white;
+            padding: 30px 20px;
         }
 
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .stats-bar .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
@@ -200,15 +207,18 @@
         }
 
         .stat-item {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
+            animation: slideUp 0.6s ease forwards;
         }
 
-        .stat-item:nth-child(1) { animation-delay: 0.1s; }
-        .stat-item:nth-child(2) { animation-delay: 0.2s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
 
-        @keyframes fadeIn {
+        .stat-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -220,16 +230,20 @@
         }
 
         .stat-number {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
-            color: #27ae60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             margin-bottom: 8px;
         }
 
         .stat-label {
             font-size: 14px;
-            color: #7f8c8d;
-            font-weight: 500;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Services Section */
@@ -238,17 +252,29 @@
             background: #f8f9fa;
         }
 
+        .services .container {
+            max-width: 1100px;
+        }
+
         .section-title {
             text-align: center;
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: #2c3e50;
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #27ae60;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -256,50 +282,59 @@
 
         .service-card {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #27ae60, #229954);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(39, 174, 96, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
         .service-icon {
-            font-size: 48px;
+            font-size: 50px;
+            color: #27ae60;
             margin-bottom: 20px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #e8f5e9;
-            border-radius: 8px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 70px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .service-card h3 {
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: 600;
             margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 700;
+            color: #333;
         }
 
         .service-card p {
-            font-size: 14px;
-            color: #7f8c8d;
-            line-height: 1.6;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
         }
 
         /* Why Choose Us */
@@ -308,34 +343,44 @@
             background: white;
         }
 
-        .value-props {
-            max-width: 1200px;
-            margin: 0 auto;
+        .why-choose .container {
+            max-width: 1100px;
+        }
+
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
+            margin-top: 50px;
         }
 
-        .value-prop {
-            opacity: 0;
-            transform: translateY(20px);
+        .why-item {
+            display: flex;
+            gap: 20px;
         }
 
-        .value-prop.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
+        .why-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
         }
 
-        .value-prop h3 {
-            font-size: 22px;
+        .why-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
             color: #27ae60;
-            margin-bottom: 15px;
-            font-weight: 700;
         }
 
-        .value-prop p {
-            color: #7f8c8d;
+        .why-content p {
+            color: #666;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -346,93 +391,91 @@
             background: #f8f9fa;
         }
 
-        .reviews-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .reviews .container {
+            max-width: 1100px;
+        }
+
+        .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
         .review-card {
             background: white;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            opacity: 0;
-            transform: translateY(20px);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        .review-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease;
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
         .review-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            margin-bottom: 15px;
         }
 
-        .review-avatar-section {
+        .review-stars {
+            color: #27ae60;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .verified-badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: #e8f5e9;
+            color: #27ae60;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-author {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
         .review-avatar {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #27ae60;
+            background: linear-gradient(135deg, #27ae60, #229954);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .review-name {
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .review-verified {
-            font-size: 12px;
-            color: #27ae60;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .verified-badge {
-            width: 16px;
-            height: 16px;
-            background: #27ae60;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        .stars {
-            color: #f39c12;
+            color: #333;
             font-size: 14px;
-            letter-spacing: 2px;
         }
 
-        .review-text {
-            color: #7f8c8d;
-            font-size: 14px;
-            line-height: 1.7;
-            font-style: italic;
+        .review-title {
+            font-size: 13px;
+            color: #999;
         }
 
         /* About Section */
@@ -441,17 +484,25 @@
             background: white;
         }
 
-        .about-content {
+        .about .container {
             max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-content {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #555;
         }
 
         .about-content p {
-            font-size: 16px;
-            line-height: 1.9;
-            color: #7f8c8d;
             margin-bottom: 20px;
+        }
+
+        .about-highlight {
+            color: #27ae60;
+            font-weight: 600;
         }
 
         /* Contact Section */
@@ -460,76 +511,63 @@
             background: #f8f9fa;
         }
 
-        .contact-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
+        .contact .container {
+            max-width: 1100px;
+        }
+
+        .contact-content {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 50px;
-        }
-
-        @media (min-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .contact-info {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .contact-info.visible {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.6s ease;
+            margin-top: 50px;
         }
 
         .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #2c3e50;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #27ae60;
         }
 
         .contact-item {
             margin-bottom: 25px;
         }
 
-        .contact-item-label {
+        .contact-label {
             font-size: 12px;
-            color: #95a5a6;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            color: #999;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .contact-item-content {
+        .contact-value {
             font-size: 16px;
-            color: #2c3e50;
+            color: #333;
             font-weight: 500;
-        }
-
-        .contact-item a {
-            color: #27ae60;
             text-decoration: none;
+            display: inline-block;
             transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: #1f8a4a;
+        .contact-value:hover {
+            color: #27ae60;
         }
 
         .quote-form {
-            opacity: 0;
-            transform: translateX(20px);
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .quote-form.visible {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.6s ease;
+        .quote-form h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #27ae60;
         }
 
         .form-group {
@@ -540,17 +578,17 @@
             display: block;
             font-size: 14px;
             font-weight: 600;
-            color: #2c3e50;
             margin-bottom: 8px;
+            color: #333;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ecf0f1;
+            border: 2px solid #e0e0e0;
             border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 14px;
             transition: border-color 0.3s ease;
         }
@@ -559,7 +597,6 @@
         .form-group textarea:focus {
             outline: none;
             border-color: #27ae60;
-            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
         }
 
         .form-group textarea {
@@ -573,140 +610,224 @@
 
         /* Footer */
         footer {
-            background: #1f2937;
+            background: #222;
             color: white;
-            padding: 40px 20px;
+            padding: 40px 20px 20px;
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-            text-align: left;
+        footer .container {
+            max-width: 600px;
         }
 
-        @media (min-width: 768px) {
-            .footer-content {
-                text-align: center;
-            }
-        }
-
-        .footer-section h4 {
-            margin-bottom: 12px;
-            color: #27ae60;
-            font-weight: 700;
-        }
-
-        .footer-section p {
+        .footer-info {
+            margin-bottom: 20px;
             font-size: 14px;
-            color: #d1d5db;
             line-height: 1.8;
         }
 
-        .footer-section a {
+        .footer-info a {
             color: #27ae60;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
         }
 
-        .footer-section a:hover {
-            color: #1f8a4a;
-        }
-
-        .footer-divider {
-            border-top: 1px solid #374151;
-            margin-top: 30px;
-            padding-top: 30px;
+        .footer-info a:hover {
+            text-decoration: underline;
         }
 
         .footer-copyright {
-            font-size: 14px;
-            color: #9ca3af;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #999;
         }
 
         /* Floating Call Button */
-        .floating-call-btn {
+        .floating-call {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
             background: #27ae60;
-            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             text-decoration: none;
-            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.4);
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            z-index: 99;
             transition: all 0.3s ease;
-            z-index: 50;
+            animation: floatUp 0.6s ease forwards;
         }
 
-        .floating-call-btn:hover {
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-call:hover {
+            background: #229954;
             transform: scale(1.1);
-            box-shadow: 0 8px 24px rgba(39, 174, 96, 0.5);
+            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
         }
 
-        @media (max-width: 600px) {
-            .floating-call-btn {
+        .floating-call:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                padding: 12px 20px;
+            }
+
+            .header-phone {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 80vh;
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                margin-bottom: 10px;
+            }
+
+            .hero p {
+                margin-bottom: 30px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .hero .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .stats-bar .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .why-grid {
+                gap: 30px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .quote-form {
+                padding: 30px 20px;
+            }
+
+            .floating-call {
                 bottom: 20px;
                 right: 20px;
                 width: 56px;
                 height: 56px;
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .services,
+            .why-choose,
+            .reviews,
+            .about,
+            .contact {
+                padding: 60px 20px;
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px;
-                min-height: 400px;
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .hero p {
                 font-size: 16px;
             }
 
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero .btn {
+                width: 100%;
+                text-align: center;
+            }
+
             .section-title {
-                font-size: 28px;
-                margin-bottom: 35px;
+                font-size: 26px;
+            }
+
+            .section-subtitle {
+                font-size: 15px;
             }
 
             .service-card {
-                padding: 30px;
+                padding: 25px 15px;
             }
 
-            .contact-wrapper {
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
+            .why-item {
+                gap: 15px;
             }
 
-            .hero p {
-                font-size: 14px;
-            }
-
-            .section-title {
+            .why-icon {
+                width: 50px;
+                height: 50px;
                 font-size: 24px;
             }
 
-            .stat-number {
-                font-size: 24px;
+            .contact-content {
+                gap: 20px;
+            }
+
+            .services,
+            .why-choose,
+            .reviews,
+            .about,
+            .contact {
+                padding: 50px 20px;
             }
         }
     </style>
@@ -714,9 +835,19 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">Armbrust</div>
-            <a href="tel:+18318188762" class="header-phone">(831) 818-8762</a>
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i> Armbrust
+            </a>
+            <div class="header-right">
+                <a href="tel:+18318188762" class="header-phone">
+                    <i class="fas fa-phone"></i>
+                    (831) 818-8762
+                </a>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -724,277 +855,287 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Armbrust Landscape and Maintenance</h1>
-            <p>Professional landscaping and maintenance services for Boulder Creek</p>
+            <p>Transform your outdoor space into a beautiful sanctuary</p>
             <div class="hero-buttons">
-                <a href="tel:+18318188762" class="btn btn-primary">Call Now</a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+                <a href="tel:+18318188762" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <button class="btn btn-secondary" onclick="document.querySelector('.contact').scrollIntoView({behavior: 'smooth'})">
+                    Get Free Quote
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">★★★★★</div>
-                <div class="stat-label">5-Star Rating</div>
+        <div class="container">
+            <div class="stat-item fade-in">
+                <div class="stat-number">
+                    <i class="fas fa-star"></i> 5.0
+                </div>
+                <div class="stat-label">Star Rating</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item fade-in">
                 <div class="stat-number">7</div>
-                <div class="stat-label">Customer Reviews</div>
+                <div class="stat-label">Happy Customers</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item fade-in">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Satisfaction Guarantee</div>
+                <div class="stat-label">Satisfaction Rate</div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title fade-in">Our Services</h2>
+            <p class="section-subtitle fade-in">Professional landscaping and maintenance solutions tailored to your needs</p>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌿</div>
-                    <h3>Lawn Care</h3>
-                    <p>Professional lawn mowing, fertilization, and weed control to keep your grass healthy and vibrant year-round.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Landscape Design</h3>
+                    <p>Custom landscape designs that enhance your property's curb appeal and functionality for years to come.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">✂️</div>
-                    <h3>Pruning & Trimming</h3>
-                    <p>Expert tree and shrub pruning to maintain plant health, shape, and aesthetic appeal of your landscape.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Lawn Maintenance</h3>
+                    <p>Regular mowing, edging, and trimming to keep your lawn healthy, lush, and looking pristine all season.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🪴</div>
-                    <h3>Landscaping Design</h3>
-                    <p>Custom landscape design that transforms your outdoor space into a beautiful, functional environment.</p>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-flower"></i>
+                    </div>
+                    <h3>Garden Care</h3>
+                    <p>Expert planting, weeding, and seasonal garden management to keep your beds vibrant and thriving.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🧹</div>
-                    <h3>Seasonal Cleanup</h3>
-                    <p>Complete yard cleanup services including leaf removal, debris clearing, and general maintenance.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌳</div>
-                    <h3>Tree Service</h3>
-                    <p>Professional tree removal, trimming, and stump grinding with safety and care for your property.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛣️</div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
                     <h3>Hardscaping</h3>
-                    <p>Installation of patios, walkways, retaining walls, and other structural landscape features.</p>
+                    <p>Professional installation of patios, pathways, and retaining walls for a polished outdoor living space.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Irrigation Systems</h3>
+                    <p>Modern irrigation installation and maintenance for efficient watering and beautiful year-round landscapes.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Seasonal Cleanup</h3>
+                    <p>Spring and fall cleanup services including debris removal, leaf management, and property preparation.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose" id="why-us">
+    <section class="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Choose Armbrust?</h2>
-            <div class="value-props">
-                <div class="value-prop">
-                    <h3>Trusted Local Experts</h3>
-                    <p>Serving Boulder Creek with professional landscape services. Our team brings years of experience and deep knowledge of local plants and conditions.</p>
+            <h2 class="section-title fade-in">Why Choose Armbrust?</h2>
+            <div class="why-grid">
+                <div class="why-item fade-in">
+                    <div class="why-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="why-content">
+                        <h3>Proven Expertise</h3>
+                        <p>Years of experience creating stunning outdoor spaces that exceed customer expectations and stand the test of time.</p>
+                    </div>
                 </div>
-                <div class="value-prop">
-                    <h3>Quality Workmanship</h3>
-                    <p>We pride ourselves on attention to detail and commitment to excellence. Every project is completed with care and precision.</p>
+                <div class="why-item fade-in">
+                    <div class="why-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="why-content">
+                        <h3>Customer Committed</h3>
+                        <p>Your satisfaction is our priority. We listen to your vision and deliver results that truly transform your property.</p>
+                    </div>
                 </div>
-                <div class="value-prop">
-                    <h3>Customer Focused</h3>
-                    <p>Your satisfaction is our priority. We work closely with you to understand your vision and deliver exceptional results.</p>
+                <div class="why-item fade-in">
+                    <div class="why-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="why-content">
+                        <h3>Reliable Service</h3>
+                        <p>Dependable, professional service you can count on. We show up on time, do the job right, and stand behind our work.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
+    <section class="reviews">
         <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="reviews-container">
-                <div class="review-card">
+            <h2 class="section-title fade-in">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="review-avatar-section">
-                            <div class="review-avatar">J</div>
-                            <div>
-                                <div class="review-name">James Mitchell</div>
-                                <div class="review-verified">
-                                    <span class="verified-badge">✓</span>
-                                    Verified Customer
-                                </div>
-                            </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Armbrust transformed our backyard completely. The team was professional, punctual, and delivered exceptional results. Highly recommend!"</p>
+                    <p class="review-text">"Armbrust completely transformed our backyard! The attention to detail was incredible and the team was professional throughout the entire process."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JM</div>
+                        <div>
+                            <div class="review-name">Jessica Martinez</div>
+                            <div class="review-title">Boulder Creek, CA</div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="review-avatar-section">
-                            <div class="review-avatar">M</div>
-                            <div>
-                                <div class="review-name">Maria Santos</div>
-                                <div class="review-verified">
-                                    <span class="verified-badge">✓</span>
-                                    Verified Customer
-                                </div>
-                            </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Best landscaping service in Boulder Creek. The attention to detail is impressive and they truly care about customer satisfaction."</p>
+                    <p class="review-text">"Best landscaping company in the area! Reliable, affordable, and they treat your property like it's their own. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">DB</div>
+                        <div>
+                            <div class="review-name">David Brooks</div>
+                            <div class="review-title">Boulder Creek, CA</div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="review-avatar-section">
-                            <div class="review-avatar">R</div>
-                            <div>
-                                <div class="review-name">Robert Chen</div>
-                                <div class="review-verified">
-                                    <span class="verified-badge">✓</span>
-                                    Verified Customer
-                                </div>
-                            </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Professional, reliable, and fantastic work. They've been maintaining our property for years and we couldn't be happier."</p>
+                    <p class="review-text">"Our landscaping looks amazing! The team showed up on time, worked efficiently, and cleaned up everything. Great communication throughout."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SR</div>
+                        <div>
+                            <div class="review-name">Sarah Richardson</div>
+                            <div class="review-title">Boulder Creek, CA</div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="review-card">
+                <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="review-avatar-section">
-                            <div class="review-avatar">S</div>
-                            <div>
-                                <div class="review-name">Sarah Thompson</div>
-                                <div class="review-verified">
-                                    <span class="verified-badge">✓</span>
-                                    Verified Customer
-                                </div>
-                            </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="verified-badge">
+                            <i class="fas fa-check-circle"></i> Verified
                         </div>
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"From the initial consultation to project completion, everything was handled with care and professionalism. Exceeded our expectations!"</p>
+                    <p class="review-text">"Professional, punctual, and passionate about their work. Armbrust took our overgrown yard and made it a beautiful outdoor oasis. Worth every penny!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MC</div>
+                        <div>
+                            <div class="review-name">Michael Chen</div>
+                            <div class="review-title">Boulder Creek, CA</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about">
         <div class="container">
-            <h2 class="section-title">About Armbrust</h2>
-            <div class="about-content">
-                <p>Armbrust Landscape and Maintenance is a locally-owned landscaping company serving the Boulder Creek community with dedication and expertise. Our team combines passion for outdoor spaces with professional horticultural knowledge to deliver exceptional results for every project.</p>
-                <p>With years of experience in landscape design, maintenance, and tree services, we've earned the trust of homeowners and businesses throughout the area. We believe in building lasting relationships with our clients by consistently delivering quality workmanship, reliable service, and competitive pricing. Whether you need regular maintenance, seasonal cleanup, or a complete landscape transformation, Armbrust is committed to exceeding your expectations.</p>
+            <h2 class="section-title fade-in">About Armbrust</h2>
+            <div class="about-content fade-in">
+                <p>Armbrust Landscape and Maintenance has been serving the Boulder Creek community with pride and dedication. Our team brings <span class="about-highlight">years of landscaping expertise</span> to every project, whether it's a simple lawn maintenance job or a complete landscape transformation.</p>
+                <p>We believe that your outdoor space should be a reflection of your personal style and a place where memories are made. That's why we work closely with each client to understand their vision and deliver exceptional results that exceed expectations.</p>
+                <p>Our commitment to <span class="about-highlight">quality workmanship, attention to detail, and customer service</span> has made us the trusted choice for landscape and maintenance services in Boulder Creek. We take pride in treating every property as if it were our own.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact">
         <div class="container">
-            <div class="contact-wrapper">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    
+                    <h3>Contact Information</h3>
                     <div class="contact-item">
-                        <div class="contact-item-label">Phone</div>
-                        <div class="contact-item-content">
-                            <a href="tel:+18318188762">(831) 818-8762</a>
-                        </div>
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+18318188762" class="contact-value">(831) 818-8762</a>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-item-label">Service Area</div>
-                        <div class="contact-item-content">Boulder Creek, CA and surrounding areas</div>
+                        <span class="contact-label">Service Area</span>
+                        <div class="contact-value">Boulder Creek, CA and surrounding areas</div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-item-label">Hours</div>
-                        <div class="contact-item-content">Monday - Saturday: 7AM - 6PM<br>Sunday: Closed</div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-label">Response Time</div>
-                        <div class="contact-item-content">Same-day quotes on most requests</div>
+                        <span class="contact-label">Hours</span>
+                        <div class="contact-value">Monday - Saturday: 7:00 AM - 6:00 PM<br>Sunday: By appointment</div>
                     </div>
                 </div>
-
-                <div class="quote-form">
+                <form class="quote-form">
                     <h3>Free Quote Request</h3>
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Lawn Care, Tree Service" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="details">Project Details</label>
-                            <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Request Free Quote</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Lawn Maintenance, Landscape Design">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Free Quote</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Armbrust Landscape</h4>
-                <p>Professional landscaping and maintenance services in Boulder Creek, CA.</p>
+        <div class="container">
+            <div class="footer-info">
+                <strong>Armbrust Landscape and Maintenance</strong><br>
+                Boulder Creek, CA<br>
+                <a href="tel:+18318188762">(831) 818-8762</a><br>
+                Professional Landscaping & Maintenance Services
             </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><a href="tel:+18318188762">(831) 818-8762</a></p>
-                <p>Boulder Creek, CA</p>
+            <div class="footer-copyright">
+                &copy; 2024 Armbrust Landscape and Maintenance. All rights reserved.
             </div>
-            <div class="footer-section">
-                <h4>Service Areas</h4>
-                <p>Boulder Creek<br>Surrounding Communities</p>
-            </div>
-        </div>
-        <div class="footer-divider">
-            <p class="footer-copyright">&copy; 2024 Armbrust Landscape and Maintenance. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18318188762" class="floating-call-btn" title="Call Now">📞</a>
+    <a href="tel:+18318188762" class="floating-call" title="Call (831) 818-8762">
+        <i class="fas fa-phone"></i>
+    </a>
 
     <script>
-        // Intersection Observer for animations
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1003,42 +1144,27 @@
             });
         }, observerOptions);
 
-        // Observe all elements that should animate on scroll
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-info, .quote-form').forEach(el => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const name = form.querySelector('#name').value;
-            const phone = form.querySelector('#phone').value;
-            const email = form.querySelector('#email').value;
-            const service = form.querySelector('#service').value;
-            
-            // Create mailto link with form data
-            const mailtoLink = `mailto:info@armbrustlandscape.com?subject=Quote Request from ${name}&body=Name: ${name}%0DPhone: ${phone}%0DEmail: ${email}%0DService: ${service}`;
-            
-            // Show confirmation and call
-            alert('Thank you for your quote request! We will contact you shortly at ' + phone);
-            
-            // Reset form
-            form.reset();
-            
-            // Optional: Open email client
-            // window.location.href = mailtoLink;
-        }
+        // Form submission
+        document.querySelector('.quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you soon with a free quote.');
+            this.reset();
+        });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for buttons
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
