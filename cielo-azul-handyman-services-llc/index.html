@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielo Azul Handyman Services LLC - Professional Remodeling in Watsonville</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,58 +12,54 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --primary: #34495e;
+            --primary-dark: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #95a5a6;
+            --white: #ffffff;
+            --success: #27ae60;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #2c3e50;
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* HEADER & NAVIGATION */
         header {
-            background: white;
-            padding: 1rem 1.5rem;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #34495e;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
 
-        .header-contact {
-            display: none;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .header-phone {
-            color: #34495e;
+        .nav-phone {
             font-weight: 600;
+            color: var(--accent);
             text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        @media (min-width: 768px) {
-            .header-contact {
-                display: flex;
-            }
+            font-size: 1.1rem;
         }
 
         /* HERO SECTION */
@@ -73,238 +67,203 @@
             position: relative;
             height: 100vh;
             min-height: 600px;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/><rect fill="%2334495e" opacity="0.1" width="1200" height="800"/><path fill="%23ecf0f1" d="M0 400 Q300 350 600 400 T1200 400 L1200 800 L0 800 Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         .hero-content {
-            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
             padding: 2rem;
             animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -1px;
-            line-height: 1.1;
         }
 
         .hero .tagline {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 4vw, 1.5rem);
             font-style: italic;
             margin-bottom: 2.5rem;
-            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 400;
         }
 
-        .hero-ctas {
+        .cta-buttons {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
             justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.05rem;
-            font-weight: 600;
+            padding: 0.9rem 2rem;
             border: none;
             border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s ease;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
-            background-color: #34495e;
-            color: white;
+            background: var(--accent);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background-color: #2c3e50;
+            background: #c0392b;
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(52, 73, 94, 0.3);
+            box-shadow: 0 8px 16px rgba(231, 76, 60, 0.3);
         }
 
         .btn-secondary {
-            background-color: white;
-            color: #34495e;
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background-color: #ecf0f1;
+            background: transparent;
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
-        }
-
-        @media (min-width: 768px) {
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.75rem;
-            }
-
-            .hero-ctas {
-                flex-direction: row;
-            }
         }
 
         /* STATS BAR */
         .stats-bar {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-            color: white;
-            padding: 2rem 1.5rem;
-            animation: fadeIn 1s ease-out 0.3s forwards;
-            opacity: 0;
-        }
-
-        .stats-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
+            background: var(--accent-light);
+            padding: 2rem;
             text-align: center;
         }
 
-        .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .stat-value {
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: var(--primary);
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
-        .star-rating {
-            color: #f1c40f;
-            margin-bottom: 0.25rem;
+        .star {
+            color: #f39c12;
+            margin-right: 0.25rem;
         }
 
         /* SERVICES SECTION */
         .services {
-            padding: 5rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .services-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .services-header h2 {
-            font-size: 2.5rem;
-            color: #34495e;
-            margin-bottom: 1rem;
-        }
-
-        .services-header p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            max-width: 600px;
+            padding: 4rem 2rem;
+            background: var(--white);
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             font-size: 2.5rem;
-            color: #34495e;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
             font-size: 1.1rem;
-            color: #7f8c8d;
         }
 
         .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         .service-card {
-            background: white;
-            padding: 2rem;
+            background: var(--white);
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             opacity: 0;
+        }
+
+        .service-card.visible {
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
         .service-card:hover {
-            transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(52, 73, 94, 0.15);
+            border-color: var(--primary);
+            transform: translateY(-4px);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
         }
 
         .service-card h3 {
             font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .service-card p {
-            color: #7f8c8d;
+            color: var(--text-light);
             font-size: 0.95rem;
         }
 
         /* WHY CHOOSE US */
         .why-choose {
-            padding: 5rem 1.5rem;
-            background: white;
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+            padding: 4rem 2rem;
         }
 
         .why-choose-content {
@@ -312,110 +271,60 @@
             margin: 0 auto;
         }
 
-        .why-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
         .value-props {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .value-props {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            margin-top: 3rem;
         }
 
         .value-prop {
-            padding: 2.5rem;
-            background: #f8f9fa;
-            border-left: 5px solid #34495e;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
             opacity: 0;
+        }
+
+        .value-prop.visible {
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop:hover {
-            background: white;
-            box-shadow: 0 8px 16px rgba(52, 73, 94, 0.12);
-            transform: translateY(-4px);
-        }
-
         .value-prop h3 {
-            font-size: 1.4rem;
-            color: #34495e;
-            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .value-prop p {
-            color: #7f8c8d;
+            color: var(--text-light);
             line-height: 1.7;
         }
 
         /* REVIEWS SECTION */
         .reviews {
-            padding: 5rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .reviews-content {
+            padding: 4rem 2rem;
+            background: var(--white);
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
         .reviews-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            margin-top: 3rem;
         }
 
         .review-card {
-            background: white;
+            background: var(--accent-light);
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
             opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .review-card:hover {
-            box-shadow: 0 12px 24px rgba(52, 73, 94, 0.15);
-            transform: translateY(-4px);
+        .review-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .review-header {
@@ -425,12 +334,12 @@
             margin-bottom: 1rem;
         }
 
-        .review-avatar {
+        .reviewer-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: #34495e;
-            color: white;
+            background: var(--primary);
+            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -438,152 +347,111 @@
             font-size: 1.2rem;
         }
 
-        .review-meta {
+        .reviewer-info {
             flex: 1;
         }
 
-        .review-name {
+        .reviewer-name {
             font-weight: 600;
-            color: #34495e;
-            margin-bottom: 0.25rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .review-stars {
-            color: #f1c40f;
-            font-size: 0.9rem;
+        .verified-badge {
+            background: var(--success);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
         }
 
-        .review-verified {
-            display: inline-block;
-            background: #d4edda;
-            color: #155724;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
+        .review-rating {
+            margin-bottom: 1rem;
         }
 
         .review-text {
-            color: #555;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
             font-style: italic;
-            line-height: 1.8;
-            border-left: 4px solid #34495e;
-            padding-left: 1.5rem;
         }
 
         /* ABOUT SECTION */
         .about {
-            padding: 5rem 1.5rem;
-            background: white;
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.05) 0%, rgba(102, 126, 234, 0.05) 100%);
+            padding: 4rem 2rem;
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        .about-content h2 {
-            font-size: 2.2rem;
-            color: #34495e;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p {
+        .about p {
             font-size: 1.05rem;
-            color: #555;
-            line-height: 1.9;
+            line-height: 1.8;
+            color: var(--text-dark);
             margin-bottom: 1.5rem;
-        }
-
-        .about-content p:last-child {
-            margin-bottom: 0;
+            text-align: justify;
         }
 
         /* CONTACT SECTION */
         .contact {
-            padding: 5rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .contact-content {
+            padding: 4rem 2rem;
+            background: var(--white);
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .contact-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .contact-grid {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .contact-info {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out 0.1s forwards;
+            margin-top: 3rem;
         }
 
         .contact-info h3 {
             font-size: 1.3rem;
-            color: #34495e;
+            color: var(--primary);
             margin-bottom: 1.5rem;
         }
 
         .contact-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .contact-item-label {
-            font-weight: 600;
-            color: #34495e;
+        .contact-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .contact-item a {
-            color: #34495e;
+        .contact-value {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: var(--primary);
             text-decoration: none;
-            font-size: 1.05rem;
             transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: #2c3e50;
-            text-decoration: underline;
-        }
-
-        .contact-item p {
-            color: #555;
-            font-size: 1rem;
+        .contact-value a:hover {
+            color: var(--accent);
         }
 
         .quote-form {
-            background: white;
-            padding: 2.5rem;
+            background: var(--accent-light);
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out 0.2s forwards;
-        }
-
-        .quote-form h3 {
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 1.5rem;
         }
 
         .form-group {
@@ -592,149 +460,101 @@
 
         .form-group label {
             display: block;
-            font-weight: 600;
-            color: #34495e;
             margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #34495e;
-            box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        .form-submit {
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
+        }
+
+        .btn-submit {
             width: 100%;
-            padding: 1rem;
-            background-color: #34495e;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .form-submit:hover {
-            background-color: #2c3e50;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(52, 73, 94, 0.3);
+            background: var(--accent);
+            color: var(--white);
         }
 
         /* FOOTER */
         footer {
-            background: #34495e;
-            color: white;
-            padding: 3rem 1.5rem 1.5rem;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
+            text-align: left;
             margin-bottom: 2rem;
         }
 
-        @media (min-width: 768px) {
-            .footer-content {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         .footer-section h4 {
-            font-size: 1.05rem;
             margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
-            text-align: center;
-            color: #bdc3c7;
+        .footer-section p {
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* FLOATING CALL BUTTON */
         .floating-call {
             position: fixed;
             bottom: 2rem;
-            right: 1.5rem;
+            right: 2rem;
             width: 60px;
             height: 60px;
-            background-color: #34495e;
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 16px rgba(52, 73, 94, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 999;
             text-decoration: none;
-            color: white;
+            color: var(--white);
             font-size: 1.5rem;
+            box-shadow: 0 8px 16px rgba(231, 76, 60, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
         }
 
         .floating-call:hover {
-            background-color: #2c3e50;
+            background: #c0392b;
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(52, 73, 94, 0.5);
-        }
-
-        @media (min-width: 768px) {
-            .floating-call {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-            }
+            box-shadow: 0 12px 24px rgba(231, 76, 60, 0.4);
         }
 
         /* ANIMATIONS */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -746,37 +566,97 @@
             }
         }
 
-        /* SCROLL ANIMATIONS */
-        .fade-in-on-scroll {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .floating-call {
+                width: 50px;
+                height: 50px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services,
+            .contact,
+            .reviews,
+            .about,
+            .why-choose {
+                padding: 2rem 1rem;
+            }
+
+            .services-grid,
+            .value-props,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* UTILITY */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        @media (max-width: 480px) {
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
-        <div class="header-content">
+        <nav>
             <div class="logo">Cielo Azul</div>
-            <div class="header-contact">
-                <a href="tel:(831)288-4062" class="header-phone">📞 (831) 288-4062</a>
-            </div>
-        </div>
+            <a href="tel:(831) 288-4062" class="nav-phone">(831) 288-4062</a>
+        </nav>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>Cielo Azul Handyman Services</h1>
-            <p class="tagline">Professional Remodeling & Repairs You Can Trust</p>
-            <div class="hero-ctas">
-                <a href="tel:(831)288-4062" class="btn btn-primary">📞 Call Now</a>
+            <h1>Cielo Azul Handyman Services LLC</h1>
+            <p class="tagline">Professional Remodeling & Home Services in Watsonville</p>
+            <div class="cta-buttons">
+                <a href="tel:(831) 288-4062" class="btn btn-primary">📞 Call Now</a>
                 <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
@@ -784,59 +664,58 @@
 
     <!-- STATS BAR -->
     <section class="stats-bar">
-        <div class="stats-content">
-            <div class="stat">
-                <div class="star-rating">⭐⭐⭐⭐⭐</div>
-                <div class="stat-value">5.0</div>
-                <div class="stat-label">Star Rating</div>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <div class="stat-label">5 Star Rating</div>
             </div>
-            <div class="stat">
-                <div class="stat-value">3</div>
-                <div class="stat-label">Customer Reviews</div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Reviews</div>
             </div>
-            <div class="stat">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Satisfaction Rate</div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction</div>
             </div>
         </div>
     </section>
 
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
-        <div class="services-header">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Complete solutions for all your remodeling and repair needs</p>
-        </div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive home remodeling and handyman solutions</p>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🔨</div>
+                <div class="service-icon">🏠</div>
                 <h3>Kitchen Remodeling</h3>
-                <p>Custom kitchen designs and renovations with quality craftsmanship and modern finishes.</p>
+                <p>Complete kitchen renovations with modern designs, new appliances, and functional layouts.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🚿</div>
-                <h3>Bathroom Renovation</h3>
-                <p>Transform your bathroom with new fixtures, tiling, and layout improvements.</p>
+                <h3>Bathroom Remodeling</h3>
+                <p>Transform your bathroom with updated fixtures, tiling, and modern amenities.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🪟</div>
-                <h3>Flooring Installation</h3>
-                <p>Professional installation of hardwood, tile, laminate, and vinyl flooring options.</p>
+                <h3>Drywall & Painting</h3>
+                <p>Professional drywall installation, repair, and high-quality interior painting services.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>Interior Painting</h3>
-                <p>High-quality interior painting with attention to detail and perfect finishes.</p>
+                <div class="service-icon">🔨</div>
+                <h3>General Handyman</h3>
+                <p>All your home repair needs from carpentry to plumbing to electrical work.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🪜</div>
-                <h3>Drywall & Repairs</h3>
-                <p>Drywall installation, patching, and repair services for any damage or renovation.</p>
+                <h3>Home Repairs</h3>
+                <p>Quick and efficient repairs for doors, fixtures, shelving, and more.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏗️</div>
-                <h3>General Handyman</h3>
-                <p>All-around handyman services including repairs, installations, and home improvements.</p>
+                <h3>Room Additions</h3>
+                <p>Expand your living space with custom room additions and structural improvements.</p>
             </div>
         </div>
     </section>
@@ -844,22 +723,19 @@
     <!-- WHY CHOOSE US -->
     <section class="why-choose" id="why-choose">
         <div class="why-choose-content">
-            <div class="why-header">
-                <h2 class="section-title">Why Choose Us</h2>
-                <p class="section-subtitle">Trusted by Watsonville for quality and reliability</p>
-            </div>
+            <h2 class="section-title">Why Choose Us</h2>
             <div class="value-props">
                 <div class="value-prop">
-                    <h3>⭐ Expert Craftsmanship</h3>
-                    <p>Years of experience delivering exceptional results on every project, regardless of size or complexity.</p>
+                    <h3>✓ Licensed & Insured</h3>
+                    <p>We're fully licensed, insured, and bonded. Your home and family are protected with our professional standards.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>🤝 Customer First</h3>
-                    <p>Your satisfaction is our priority. We communicate clearly and deliver on every promise we make.</p>
+                    <h3>✓ Expert Craftsmanship</h3>
+                    <p>Years of experience delivering exceptional quality on every project, large or small.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>💰 Competitive Pricing</h3>
-                    <p>Transparent pricing with no hidden fees. Free quotes so you know exactly what to expect.</p>
+                    <h3>✓ Transparent Pricing</h3>
+                    <p>No hidden fees, no surprises. Get detailed quotes upfront and honest communication throughout.</p>
                 </div>
             </div>
         </div>
@@ -867,64 +743,52 @@
 
     <!-- REVIEWS SECTION -->
     <section class="reviews" id="reviews">
-        <div class="reviews-content">
-            <div class="reviews-header">
-                <h2 class="section-title">Customer Reviews</h2>
-                <p class="section-subtitle">See what our satisfied clients have to say</p>
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">JM</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">
+                            James Martinez
+                            <span class="verified-badge">VERIFIED</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    ★★★★★
+                </div>
+                <p class="review-text">"Cielo Azul transformed our kitchen completely. The team was professional, on time, and the quality is outstanding. Highly recommend!"</p>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">JM</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                John Martinez
-                                <span class="review-verified">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">SR</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">
+                            Sarah Rodriguez
+                            <span class="verified-badge">VERIFIED</span>
                         </div>
                     </div>
-                    <p class="review-text">"Cielo Azul did an amazing job on our kitchen remodel. The team was professional, on-time, and the quality exceeded our expectations. Highly recommended!"</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">RS</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Rosa Santos
-                                <span class="review-verified">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-rating">
+                    ★★★★★
+                </div>
+                <p class="review-text">"Best handyman service in Watsonville. They fixed everything on our list and cleaned up beautifully. Will call them again!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">MG</div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-name">
+                            Michael Garcia
+                            <span class="verified-badge">VERIFIED</span>
                         </div>
                     </div>
-                    <p class="review-text">"We had them renovate our bathroom and the results are beautiful. Great attention to detail and they kept the workspace clean throughout the project."</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">DT</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                David Thompson
-                                <span class="review-verified">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Excellent service from start to finish. They quoted a fair price and delivered exactly what was promised. Will definitely call them again for future projects."</p>
+                <div class="review-rating">
+                    ★★★★★
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">ML</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Maria Lopez
-                                <span class="review-verified">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Very professional team. They transformed our living space with new flooring and paint. The quality of work is outstanding and worth every penny."</p>
-                </div>
+                <p class="review-text">"Our bathroom remodel exceeded all expectations. The attention to detail and customer service were exceptional from start to finish."</p>
             </div>
         </div>
     </section>
@@ -932,65 +796,60 @@
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="about-content">
-            <h2>About Cielo Azul</h2>
-            <p>Cielo Azul Handyman Services LLC has been serving Watsonville and the surrounding area with exceptional remodeling and repair solutions for years. Our team is dedicated to transforming homes and businesses with quality craftsmanship, attention to detail, and a commitment to customer satisfaction. Whether you need a complete kitchen renovation or simple repairs, we bring professionalism and expertise to every project.</p>
-            <p>We take pride in building lasting relationships with our clients by delivering outstanding results, maintaining transparent communication, and treating every home as if it were our own. Your vision is our mission, and we're here to make it a reality.</p>
+            <h2 class="section-title">About Cielo Azul</h2>
+            <p>Cielo Azul Handyman Services LLC has been serving the Watsonville community with pride and dedication. Our team of experienced professionals specializes in comprehensive home remodeling and handyman services that transform houses into dream homes. With a commitment to quality craftsmanship, transparent communication, and customer satisfaction, we've earned the trust of hundreds of homeowners throughout the region. Whether you're planning a major kitchen renovation, bathroom update, or need reliable general handyman services, our skilled team delivers results that exceed expectations. We pride ourselves on our attention to detail, professional conduct, and dedication to bringing your vision to life.</p>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
-        <div class="contact-content">
-            <div class="contact-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Ready to start your project? Contact us today for a free consultation</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-item-label">📞 Phone</div>
-                        <a href="tel:(831)288-4062">(831) 288-4062</a>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-label">📍 Service Area</div>
-                        <p>Watsonville, CA and surrounding communities</p>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-label">⏰ Availability</div>
-                        <p>Monday - Saturday, 8:00 AM - 6:00 PM</p>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <div class="contact-value">
+                        <a href="tel:(831) 288-4062">(831) 288-4062</a>
                     </div>
                 </div>
-                <form class="quote-form">
-                    <h3>Free Quote Request</h3>
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Type</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service...</option>
-                            <option value="kitchen">Kitchen Remodeling</option>
-                            <option value="bathroom">Bathroom Renovation</option>
-                            <option value="flooring">Flooring Installation</option>
-                            <option value="painting">Interior Painting</option>
-                            <option value="drywall">Drywall & Repairs</option>
-                            <option value="handyman">General Handyman</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Request Free Quote</button>
-                </form>
+                <div class="contact-item">
+                    <span class="contact-label">Service Area</span>
+                    <div class="contact-value">Watsonville, CA & Surrounding Areas</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Available</span>
+                    <div class="contact-value">Monday - Saturday, 7 AM - 6 PM</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Response Time</span>
+                    <div class="contact-value">Same Day Quote</div>
+                </div>
             </div>
+            <form class="quote-form" onsubmit="handleSubmit(event)">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Request Free Quote</h3>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <input type="text" id="service" name="service" placeholder="e.g., Kitchen Remodeling" required>
+                </div>
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Request Free Quote</button>
+            </form>
         </div>
     </section>
 
@@ -998,68 +857,78 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Cielo Azul</h4>
-                <p>Professional handyman and remodeling services in Watsonville, CA</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#home">Home</a><br>
-                <a href="#services">Services</a><br>
-                <a href="#reviews">Reviews</a><br>
-                <a href="#contact">Contact</a>
+                <h4>Cielo Azul Handyman</h4>
+                <p>Professional home remodeling and handyman services in Watsonville, CA.</p>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>📞 <a href="tel:(831)288-4062">(831) 288-4062</a></p>
-                <p>📍 Watsonville, CA</p>
+                <p>Phone: <a href="tel:(831) 288-4062" style="color: var(--accent);">(831) 288-4062</a></p>
+                <p>Location: Watsonville, CA</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p>Kitchen & Bathroom Remodeling</p>
+                <p>General Handyman Services</p>
+                <p>Home Repairs & Renovations</p>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="copyright">
             <p>&copy; 2024 Cielo Azul Handyman Services LLC. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- FLOATING CALL BUTTON -->
-    <a href="tel:(831)288-4062" class="floating-call" title="Call us now">☎️</a>
+    <a href="tel:(831) 288-4062" class="floating-call" title="Call Now">☎️</a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-on-scroll');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.services-header, .why-header, .reviews-header, .about-content, .contact-header').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .value-prop, .review-card').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
-        document.querySelector('.quote-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly with your free quote.');
-            e.target.reset();
-        });
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const details = document.getElementById('details').value;
 
-        // Smooth scroll for anchor links
+            // Create mailto link with form data
+            const subject = `Quote Request - ${service}`;
+            const body = `Name: ${name}%0DPhone: ${phone}%0DEmail: ${email}%0D%0DService: ${service}%0D%0DProject Details:%0D${details}`;
+            
+            // Alternatively, you could use this for a direct call/message
+            alert(`Thank you for your interest, ${name}! We'll contact you at ${phone} shortly.`);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
