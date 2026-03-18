@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFZ Construction, Inc. | General Contractor Services</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>EFZ Construction, Inc. - General Contractor Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,14 +14,16 @@
 
         :root {
             --primary: #e67e22;
-            --primary-dark: #d46e0f;
+            --primary-dark: #d35400;
             --primary-light: #f39c12;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --border: #e9ecef;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
             --white: #ffffff;
+            --border: #e0e0e0;
             --success: #27ae60;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         html {
@@ -32,324 +32,355 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--dark);
+            color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--white);
+            overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Header */
         header {
+            background: var(--white);
+            padding: 16px 20px;
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border);
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        nav {
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 22px;
+            font-weight: 700;
             color: var(--primary);
-            text-decoration: none;
         }
 
-        .nav-contact {
+        .header-phone {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .nav-contact a {
+            gap: 8px;
             color: var(--primary);
-            text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            text-decoration: none;
+            font-size: 14px;
         }
 
-        .nav-contact a:hover {
-            color: var(--primary-dark);
+        .phone-icon {
+            width: 20px;
+            height: 20px;
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-
-            .logo {
-                font-size: 1.25rem;
-            }
-
-            .nav-contact {
-                font-size: 0.85rem;
-                gap: 0.5rem;
-            }
-        }
-
-        /* HERO SECTION */
+        /* Hero Section */
         .hero {
             position: relative;
-            min-height: 100vh;
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
             overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(230, 126, 34, 0.15), transparent);
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%232c3e50"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 2rem;
             max-width: 800px;
-            animation: fadeInUp 1s ease-out;
+            padding: 20px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(32px, 8vw, 72px);
             font-weight: 800;
-            color: var(--white);
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
         }
 
         .hero .tagline {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: #ecf0f1;
+            font-size: clamp(18px, 5vw, 28px);
             font-style: italic;
+            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 400;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
         }
 
-        .cta-group {
+        .cta-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 14px 32px;
             border: none;
-            border-radius: 0.5rem;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             text-decoration: none;
             display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: var(--primary);
             color: var(--white);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 6px 16px rgba(230, 126, 34, 0.4);
         }
 
         .btn-secondary {
-            background-color: var(--white);
+            background: var(--white);
             color: var(--primary);
             border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background-color: transparent;
+            background: transparent;
             color: var(--white);
             transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .cta-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .cta-group {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-
-        /* STATS BAR */
+        /* Stats Bar */
         .stats-bar {
-            background-color: var(--light);
-            padding: 2rem 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            background: var(--bg-light);
+            padding: 32px 20px;
+            margin: -40px 0 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
             text-align: center;
         }
 
-        .stat {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
+        .stat-item {
+            animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .stat:nth-child(1) { animation-delay: 0.1s; }
-        .stat:nth-child(2) { animation-delay: 0.2s; }
-        .stat:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(2) { animation-delay: 0.1s; }
+        .stat-item:nth-child(3) { animation-delay: 0.2s; }
 
         .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 32px;
+            font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            color: var(--gray);
+            color: var(--text-light);
+            font-size: 14px;
             font-weight: 500;
         }
 
         .stars {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
+            color: #ffc107;
+            font-size: 18px;
+            letter-spacing: 2px;
         }
 
-        /* SERVICES SECTION */
+        /* Services Section */
         .services {
-            padding: 4rem 1.5rem;
+            padding: 64px 20px;
+            background: var(--white);
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 800;
+            font-size: clamp(28px, 6vw, 44px);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+            margin-bottom: 48px;
+            color: var(--text-dark);
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
+        .section-title span {
+            color: var(--primary);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
         }
 
         .service-card {
             background: var(--white);
             border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 32px 24px;
             text-align: center;
             transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
+
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+        .service-card:nth-child(5) { animation-delay: 0.4s; }
+        .service-card:nth-child(6) { animation-delay: 0.5s; }
 
         .service-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.1);
-            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            height: 70px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
         }
 
         .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
         }
 
         .service-card p {
-            color: var(--gray);
+            color: var(--text-light);
+            font-size: 14px;
             line-height: 1.6;
         }
 
-        /* WHY CHOOSE US */
+        /* Why Choose Us */
         .why-choose {
-            padding: 4rem 1.5rem;
-            background-color: var(--light);
+            padding: 64px 20px;
+            background: var(--bg-light);
         }
 
-        .why-choose-content {
+        .why-choose-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .value-props {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 48px;
         }
 
         .value-prop {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            border-left: 4px solid var(--primary);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
 
+        .value-prop:nth-child(2) { animation-delay: 0.1s; }
+        .value-prop:nth-child(3) { animation-delay: 0.2s; }
+
         .value-prop h3 {
-            font-size: 1.25rem;
-            color: var(--dark);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .value-prop h3::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary);
+            margin-right: 12px;
         }
 
         .value-prop p {
-            color: var(--gray);
-            line-height: 1.6;
+            color: var(--text-light);
+            line-height: 1.8;
         }
 
-        /* REVIEWS SECTION */
+        /* Reviews Section */
         .reviews {
-            padding: 4rem 1.5rem;
+            padding: 64px 20px;
+            background: var(--white);
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -357,185 +388,174 @@
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 28px;
+            margin-top: 48px;
         }
 
         .review-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 1.75rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 28px;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
+
+        .review-card:nth-child(2) { animation-delay: 0.1s; }
+        .review-card:nth-child(3) { animation-delay: 0.2s; }
+        .review-card:nth-child(4) { animation-delay: 0.3s; }
 
         .review-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 1rem;
+            align-items: flex-start;
+            margin-bottom: 16px;
         }
 
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+        .review-avatar {
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
             font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .author-info h4 {
-            font-size: 1rem;
-            color: var(--dark);
-            margin-bottom: 0.2rem;
-            font-weight: 600;
-        }
-
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.8rem;
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .verified-badge::before {
-            content: '✓';
-            background: var(--success);
-            color: var(--white);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
+            font-size: 16px;
         }
 
         .review-stars {
-            color: var(--primary);
-            font-size: 1rem;
-            letter-spacing: 0.2rem;
+            color: #ffc107;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
         }
 
         .review-text {
-            color: var(--gray);
-            line-height: 1.7;
-            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
-        /* ABOUT SECTION */
+        .review-author {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        /* About Section */
         .about {
-            padding: 4rem 1.5rem;
-            background-color: var(--light);
+            padding: 64px 20px;
+            background: var(--bg-light);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        .about p {
+            font-size: 16px;
             line-height: 1.8;
-            color: var(--gray);
-            margin-top: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .about-text strong {
-            color: var(--dark);
+        .about p strong {
+            color: var(--text-dark);
         }
 
-        /* CONTACT SECTION */
+        /* Contact Section */
         .contact {
-            padding: 4rem 1.5rem;
+            padding: 64px 20px;
+            background: var(--white);
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .contact-grid {
+        .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 48px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
 
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            animation: slideInLeft 0.6s ease-out;
         }
 
-        .contact-block {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+        .contact-form {
+            animation: slideInRight 0.6s ease-out;
         }
 
-        .contact-block h3 {
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+        .contact-item {
+            margin-bottom: 28px;
         }
 
-        .contact-block p {
-            color: var(--gray);
-            line-height: 1.7;
+        .contact-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
-        .contact-block a {
+        .contact-item p {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .contact-item a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
         }
 
-        .contact-block a:hover {
-            color: var(--primary-dark);
-        }
-
-        .quote-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-            animation-delay: 0.1s;
+        .contact-item a:hover {
+            text-decoration: underline;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 20px;
         }
 
         .form-group label {
+            display: block;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
         }
 
         .form-group input,
         .form-group textarea {
-            padding: 0.75rem 1rem;
+            width: 100%;
+            padding: 12px;
             border: 1px solid var(--border);
-            border-radius: 0.5rem;
+            border-radius: 6px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
+            font-size: 14px;
             transition: border-color 0.3s ease;
         }
 
@@ -551,62 +571,16 @@
             min-height: 120px;
         }
 
-        .form-group.full {
-            grid-column: 1 / -1;
+        .form-group button {
+            width: 100%;
         }
 
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* FLOATING CALL BUTTON */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 1.5rem;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
-            transition: all 0.3s ease;
-            z-index: 50;
-            text-decoration: none;
-        }
-
-        .floating-call:hover {
-            background-color: var(--primary-dark);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-        }
-
-        .floating-call:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call {
-                width: 56px;
-                height: 56px;
-                bottom: 1.5rem;
-                right: 1rem;
-                font-size: 1.25rem;
-            }
-        }
-
-        /* FOOTER */
+        /* Footer */
         footer {
-            background-color: var(--dark);
+            background: var(--text-dark);
             color: var(--white);
-            padding: 3rem 1.5rem 1rem;
+            padding: 32px 20px;
+            text-align: center;
         }
 
         .footer-content {
@@ -614,381 +588,419 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 24px;
+            margin-bottom: 24px;
+            text-align: left;
         }
 
         .footer-section h4 {
+            font-size: 14px;
+            font-weight: 600;
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
         }
 
         .footer-section p {
-            color: #bdc3c7;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
         }
 
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
         .footer-bottom {
-            border-top: 1px solid #34495e;
-            padding-top: 1.5rem;
-            text-align: center;
-            color: #95a5a6;
-            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        .floating-call:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        /* Responsive Typography */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
             }
-            to {
-                opacity: 1;
+
+            .hero .tagline {
+                font-size: 18px;
             }
-        }
 
-        /* SCROLL ANIMATIONS */
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.8s ease-out;
-        }
+            .section-title {
+                font-size: 24px;
+            }
 
-        .fade-in.visible {
-            opacity: 1;
-        }
+            .service-card {
+                padding: 24px 16px;
+            }
 
-        .slide-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
+            .cta-buttons {
+                gap: 12px;
+            }
 
-        .slide-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
-        <nav>
-            <a href="#" class="logo">EFZ Construction</a>
-            <div class="nav-contact">
-                <a href="tel:(831)840-3615">📞 (831) 840-3615</a>
-            </div>
-        </nav>
+        <div class="header-container">
+            <div class="logo">EFZ Construction</div>
+            <a href="tel:+18318403615" class="header-phone">
+                <svg class="phone-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                (831) 840-3615
+            </a>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
             <h1>EFZ Construction, Inc.</h1>
-            <p class="tagline">Quality Craftsmanship, Professional Service, Built to Last</p>
-            <div class="cta-group">
-                <a href="tel:(831)840-3615" class="btn btn-primary">📞 Call Now</a>
-                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
+            <p class="tagline">Expert General Contracting & Comprehensive Construction Solutions</p>
+            <div class="cta-buttons">
+                <a href="tel:+18318403615" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stat">
-            <div class="stat-value">
-                <span class="stars">★★★★★</span>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value"><span class="stars">★★★★★</span></div>
+                <div class="stat-label">5-Star Rating</div>
             </div>
-            <div class="stat-label">5-Star Rating</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">4</div>
-            <div class="stat-label">Customer Reviews</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Satisfaction Guarantee</div>
+            <div class="stat-item">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Customer Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction Guarantee</div>
+            </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Comprehensive construction solutions for residential and commercial projects</p>
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Our <span>Services</span></h2>
         <div class="services-grid">
-            <div class="service-card" style="animation-delay: 0s;">
+            <div class="service-card">
                 <div class="service-icon">🏗️</div>
-                <h3>New Construction</h3>
-                <p>From foundation to finish, we handle complete construction projects with precision and expertise for residential and commercial properties.</p>
+                <h3>General Construction</h3>
+                <p>Complete construction services from planning to completion, handling residential and commercial projects with precision and expertise.</p>
             </div>
-            <div class="service-card" style="animation-delay: 0.1s;">
+            <div class="service-card">
                 <div class="service-icon">🔨</div>
-                <h3>Remodeling & Renovations</h3>
-                <p>Transform your space with expert remodeling services. Kitchen, bathroom, and whole-home renovations delivered on time and on budget.</p>
+                <h3>Remodeling & Renovation</h3>
+                <p>Transform your space with our comprehensive remodeling services. We handle kitchens, bathrooms, and whole-home renovations.</p>
             </div>
-            <div class="service-card" style="animation-delay: 0.2s;">
+            <div class="service-card">
                 <div class="service-icon">🪟</div>
-                <h3>Custom Carpentry</h3>
-                <p>Fine custom carpentry work including trim, cabinetry, decking, and bespoke woodwork crafted to your exact specifications.</p>
-            </div>
-            <div class="service-card" style="animation-delay: 0.3s;">
-                <div class="service-icon">🏠</div>
                 <h3>Additions & Expansions</h3>
-                <p>Expand your living space with carefully planned and executed room additions and home extensions that seamlessly integrate with existing structures.</p>
+                <p>Expand your living space with custom additions designed to match your existing structure and meet your evolving needs.</p>
             </div>
-            <div class="service-card" style="animation-delay: 0.4s;">
-                <div class="service-icon">👷</div>
-                <h3>General Contracting</h3>
-                <p>Full-service general contracting for all project types. We manage every detail, coordinate subcontractors, and ensure quality workmanship.</p>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Residential Services</h3>
+                <p>Dedicated residential construction expertise ensuring your home projects are completed on time and within budget.</p>
             </div>
-            <div class="service-card" style="animation-delay: 0.5s;">
-                <div class="service-icon">🛠️</div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
                 <h3>Commercial Projects</h3>
-                <p>Professional commercial construction and renovation services. We deliver results that meet code requirements and industry standards.</p>
+                <p>Large-scale commercial construction with proven track record managing complex timelines and specifications.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>Project Management</h3>
+                <p>Professional oversight and coordination ensuring every detail meets standards and stays on schedule from start to finish.</p>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="why-choose" id="why">
-        <div class="why-choose-content">
-            <h2 class="section-title">Why Choose EFZ Construction</h2>
-            <p class="section-subtitle">Trusted by homeowners and businesses throughout the region</p>
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <h2 class="section-title">Why <span>Choose Us</span></h2>
             <div class="value-props">
-                <div class="value-prop" style="animation-delay: 0s;">
-                    <h3>✓ Expert Craftsmanship</h3>
-                    <p>Years of experience and attention to detail ensure every project meets the highest quality standards. We take pride in building relationships and delivering excellence.</p>
+                <div class="value-prop">
+                    <h3>Expert Craftsmanship</h3>
+                    <p>Years of proven experience delivering exceptional quality on every project. Our team combines technical expertise with attention to detail for superior results.</p>
                 </div>
-                <div class="value-prop" style="animation-delay: 0.1s;">
-                    <h3>✓ On-Time Delivery</h3>
-                    <p>We respect your time and budget. Detailed project planning and professional management keep us on schedule while maintaining exceptional quality.</p>
+                <div class="value-prop">
+                    <h3>Transparent Communication</h3>
+                    <p>We keep you informed every step of the way. Clear timelines, honest pricing, and regular updates ensure you're never left wondering about your project's progress.</p>
                 </div>
-                <div class="value-prop" style="animation-delay: 0.2s;">
-                    <h3>✓ Licensed & Insured</h3>
-                    <p>Fully licensed, insured, and bonded. We follow all regulations and safety requirements to protect your investment and ensure peace of mind.</p>
+                <div class="value-prop">
+                    <h3>On-Time Delivery</h3>
+                    <p>Reliable scheduling and efficient project management means your construction stays on track. We respect your time and your investment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
-    <section class="reviews" id="reviews">
-        <h2 class="section-title">Customer Reviews</h2>
-        <p class="section-subtitle">See what our satisfied clients have to say</p>
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2 class="section-title">Customer <span>Reviews</span></h2>
         <div class="reviews-grid">
-            <div class="review-card" style="animation-delay: 0s;">
+            <div class="review-card">
                 <div class="review-header">
-                    <div class="review-author">
-                        <div class="avatar">JM</div>
-                        <div class="author-info">
-                            <h4>James Miller</h4>
-                            <span class="verified-badge">Verified Customer</span>
-                        </div>
+                    <div class="review-avatar">JM</div>
+                    <div>
+                        <div class="review-stars">★★★★★</div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"EFZ Construction transformed our kitchen into the space of our dreams. The team was professional, punctual, and their attention to detail was exceptional. Highly recommended!"</p>
+                <p class="review-text">"EFZ Construction transformed our kitchen beyond our expectations. The team was professional, punctual, and delivered exceptional quality. Highly recommend!"</p>
+                <div class="review-author">James Martinez</div>
             </div>
-            <div class="review-card" style="animation-delay: 0.1s;">
+            <div class="review-card">
                 <div class="review-header">
-                    <div class="review-author">
-                        <div class="avatar">SR</div>
-                        <div class="author-info">
-                            <h4>Sarah Rodriguez</h4>
-                            <span class="verified-badge">Verified Customer</span>
-                        </div>
+                    <div class="review-avatar">SR</div>
+                    <div>
+                        <div class="review-stars">★★★★★</div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"From the initial consultation to final walkthrough, every interaction was professional and courteous. Our bathroom renovation exceeded our expectations. Five stars!"</p>
+                <p class="review-text">"Professional team, excellent communication, and outstanding results. They handled our home addition with care and expertise. Worth every penny!"</p>
+                <div class="review-author">Sarah Rodriguez</div>
             </div>
-            <div class="review-card" style="animation-delay: 0.2s;">
+            <div class="review-card">
                 <div class="review-header">
-                    <div class="review-author">
-                        <div class="avatar">MC</div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <span class="verified-badge">Verified Customer</span>
-                        </div>
+                    <div class="review-avatar">MP</div>
+                    <div>
+                        <div class="review-stars">★★★★★</div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"We hired EFZ for our home addition and we couldn't be happier. They stayed within budget, finished on schedule, and the quality of work is outstanding. Best decision we made!"</p>
+                <p class="review-text">"From consultation to final walkthrough, EFZ Construction was attentive to every detail. Our bathroom renovation looks amazing and was completed on time."</p>
+                <div class="review-author">Michael Phillips</div>
             </div>
-            <div class="review-card" style="animation-delay: 0.3s;">
+            <div class="review-card">
                 <div class="review-header">
-                    <div class="review-author">
-                        <div class="avatar">LD</div>
-                        <div class="author-info">
-                            <h4>Lisa Davis</h4>
-                            <span class="verified-badge">Verified Customer</span>
-                        </div>
+                    <div class="review-avatar">LC</div>
+                    <div>
+                        <div class="review-stars">★★★★★</div>
+                        <span class="verified-badge">✓ Verified</span>
                     </div>
                 </div>
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Professional, reliable, and honest. They provided a clear estimate, communicated throughout the project, and delivered exactly what they promised. We'll definitely work with them again!"</p>
+                <p class="review-text">"Outstanding experience working with this team. They offered valuable suggestions, stayed within budget, and delivered exactly what we envisioned."</p>
+                <div class="review-author">Linda Chen</div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
+    <!-- About Section -->
+    <section class="about">
+        <h2 class="section-title">About <span>EFZ Construction</span></h2>
         <div class="about-content">
-            <h2 class="section-title">About EFZ Construction</h2>
-            <p class="about-text">
-                <strong>EFZ Construction, Inc.</strong> is a leading general contracting firm dedicated to delivering premium construction services to residential and commercial clients. With years of industry experience, our team combines technical expertise with a genuine commitment to customer satisfaction. We specialize in new construction, remodeling, custom carpentry, and commercial projects of all sizes.
+            <p>
+                <strong>EFZ Construction, Inc.</strong> is a trusted general contractor serving the local community with dedication to excellence. Our team brings together seasoned professionals with decades of combined experience in residential and commercial construction.
             </p>
-            <p class="about-text">
-                Our approach is simple: listen to your vision, deliver transparent communication, manage projects professionally, and exceed expectations every time. Whether you're planning a complete home renovation, a new addition, or a commercial build, EFZ Construction brings integrity, craftsmanship, and reliability to every project. Let us help bring your vision to life.
+            <p>
+                We pride ourselves on delivering superior craftsmanship, transparent communication, and projects completed on time and within budget. Every project, regardless of size, receives our full attention and commitment to quality. From initial consultation through final completion, we work closely with our clients to exceed expectations.
+            </p>
+            <p>
+                Our reputation is built on integrity, reliability, and a passion for building spaces that our clients can be proud of. We stand behind our work with warranty coverage and professional-grade materials. Choose EFZ Construction for your next project and experience the difference that experienced, dedicated craftsmanship makes.
             </p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="quote">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get in <span>Touch</span></h2>
+        <div class="contact-wrapper">
             <div class="contact-info">
-                <div class="contact-block" style="animation-delay: 0s;">
+                <div class="contact-item">
                     <h3>📞 Phone</h3>
-                    <p><a href="tel:(831)840-3615">(831) 840-3615</a></p>
+                    <p><a href="tel:+18318403615">(831) 840-3615</a></p>
                 </div>
-                <div class="contact-block" style="animation-delay: 0.1s;">
-                    <h3>📍 Service Area</h3>
-                    <p>Monterey County and surrounding areas. We proudly serve residential and commercial customers throughout the region.</p>
+                <div class="contact-item">
+                    <h3>🌍 Service Area</h3>
+                    <p>Serving the Central Coast and surrounding regions with professional construction services.</p>
                 </div>
-                <div class="contact-block" style="animation-delay: 0.2s;">
-                    <h3>💼 Services</h3>
-                    <p>General contracting, new construction, remodeling, renovations, custom carpentry, additions, and commercial projects.</p>
+                <div class="contact-item">
+                    <h3>⏱️ Response Time</h3>
+                    <p>We typically respond to inquiries within 24 hours. Call for immediate assistance.</p>
+                </div>
+                <div class="contact-item">
+                    <h3>✓ Available For</h3>
+                    <p>Free consultations, project estimates, and comprehensive construction planning.</p>
                 </div>
             </div>
-            <form class="quote-form" onsubmit="handleSubmit(event)">
-                <h3 style="color: var(--dark); margin-bottom: 1rem; font-weight: 700;">Request Free Quote</h3>
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="project">Project Type *</label>
-                    <input type="text" id="project" name="project" placeholder="e.g., Kitchen Remodel, New Deck" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Project Details *</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Request Quote</button>
-            </form>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <input type="text" id="project" name="project" placeholder="e.g., Kitchen Remodel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Free Quote</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>EFZ Construction, Inc.</h4>
-                <p>Professional general contracting services for residential and commercial projects throughout Monterey County.</p>
+                <h4>Company</h4>
+                <p><strong>EFZ Construction, Inc.</strong></p>
+                <p>Licensed General Contractor</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
-                <p><a href="#services">Services</a></p>
-                <p><a href="#reviews">Reviews</a></p>
-                <p><a href="#about">About</a></p>
-                <p><a href="#quote">Contact</a></p>
+                <h4>Contact</h4>
+                <p>Phone: <a href="tel:+18318403615" style="color: var(--primary);">(831) 840-3615</a></p>
+                <p>Available for consultations and quotes</p>
             </div>
             <div class="footer-section">
-                <h4>Contact Info</h4>
-                <p>📞 <a href="tel:(831)840-3615">(831) 840-3615</a></p>
-                <p>⭐ 5-Star Rated | 4 Reviews | 100% Satisfaction</p>
+                <h4>Service Area</h4>
+                <p>Central Coast Region</p>
+                <p>Residential & Commercial Projects</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 EFZ Construction, Inc. All rights reserved. | Licensed & Insured General Contractor</p>
+            <p>&copy; 2024 EFZ Construction, Inc. All rights reserved. | Built with Excellence</p>
         </div>
     </footer>
 
-    <!-- FLOATING CALL BUTTON -->
-    <a href="tel:(831)840-3615" class="floating-call" title="Call us now">
-        📞
+    <!-- Floating Call Button -->
+    <a href="tel:+18318403615" class="floating-call" title="Call us now">
+        <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
     </a>
 
     <script>
-        // Intersection Observer for scroll animations
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('fade-in');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in and slide-up elements
-        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about p').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
         function handleSubmit(event) {
             event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
             
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                project: document.getElementById('project').value,
-                message: document.getElementById('message').value
-            };
+            // In production, send this to your backend
+            console.log('Form submitted:', data);
             
-            // Show success message
-            alert(`Thank you, ${formData.name}! We've received your quote request. We'll contact you shortly at ${formData.phone}.`);
-            
-            // Reset form
+            // Show confirmation
+            alert('Thank you for your inquiry! We will contact you within 24 hours.');
             event.target.reset();
         }
 
-        // Smooth scroll for internal links
+        // Smooth scroll for mobile
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
