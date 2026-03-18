@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Cal Landscaping - Premium Landscaping Services in Watsonville</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 20px;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 80px 20px;
+            }
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        .header-phone {
+            color: #27ae60;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grass" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M10,50 Q15,40 20,50 Q25,40 30,50" stroke="%2327ae60" stroke-width="2" fill="none"/><path d="M40,50 Q45,35 50,50 Q55,35 60,50" stroke="%2327ae60" stroke-width="2" fill="none"/></pattern></defs><rect width="1200" height="800" fill="%23234"/><rect width="1200" height="800" fill="url(%23grass)" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            animation: heroFade 1s ease-in;
+        }
+
+        @keyframes heroFade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        .hero p {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #27ae60;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            border-top: 4px solid #27ae60;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            color: #27ae60;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #27ae60;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #ecf0f1;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .service-card.fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            border-color: #27ae60;
+            box-shadow: 0 12px 40px rgba(39, 174, 96, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #27ae60;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Why Choose Us */
+        .why-choose-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .value-prop {
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            border-left: 5px solid #27ae60;
+            opacity: 0;
+        }
+
+        .value-prop.fade-in {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .value-prop h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #27ae60;
+        }
+
+        .value-prop p {
+            color: #7f8c8d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #ecf0f1;
+            opacity: 0;
+        }
+
+        .review-card.fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .review-meta {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-badge {
+            background: #27ae60;
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .review-stars {
+            color: #f39c12;
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: #7f8c8d;
+            line-height: 2;
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+
+        .about-content p.fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            opacity: 0;
+        }
+
+        .contact-item.fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .contact-label {
+            color: #27ae60;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: #27ae60;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #229954;
+        }
+
+        /* Quote Form */
+        .quote-form {
+            opacity: 0;
+        }
+
+        .quote-form.fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ecf0f1;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #27ae60;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #27ae60;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            padding-top: 20px;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .floating-call:hover {
+            background: #229954;
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 40px 20px;
+            }
+
+            .hero-ctas {
+                gap: 15px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-choose-grid {
+                gap: 25px;
+            }
+
+            .value-prop {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Central Cal Landscaping</a>
+            <a href="tel:+18312237905" class="header-phone">📞 (831) 223-7905</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Central Cal Landscaping</h1>
+            <p>Transform Your Outdoor Space Into a Masterpiece</p>
+            <div class="hero-ctas">
+                <a href="tel:+18312237905" class="btn btn-primary">Call Now</a>
+                <a href="#quote-form" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stars">★★★★★</div>
+                <div class="stat-label">5 Star Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Customer Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction Guaranteed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Lawn Maintenance</h3>
+                    <p>Regular mowing, edging, and fertilization to keep your lawn healthy and vibrant year-round.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌸</div>
+                    <h3>Landscape Design</h3>
+                    <p>Custom garden and landscape design tailored to your vision and property requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Tree & Shrub Care</h3>
+                    <p>Professional pruning, trimming, and removal services for healthier, more beautiful plants.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪨</div>
+                    <h3>Hardscaping</h3>
+                    <p>Installation of patios, walkways, retaining walls, and decorative stone elements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Irrigation Systems</h3>
+                    <p>Smart irrigation design and installation for efficient water conservation and plant health.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>Seasonal Cleanup</h3>
+                    <p>Spring and fall cleanups, leaf removal, and property maintenance throughout the seasons.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="why-choose-grid">
+                <div class="value-prop">
+                    <h3>Expert Team</h3>
+                    <p>Years of experience with certified professionals dedicated to excellence and customer satisfaction in every project we undertake.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>Quality Guaranteed</h3>
+                    <p>We stand behind our work with comprehensive guarantees and attention to detail that exceeds industry standards.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>Local Pride</h3>
+                    <p>Proudly serving Watsonville and Central California communities with personalized service and deep understanding of local climate needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-avatar">JM</div>
+                        </div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                James M.
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Outstanding work! The team transformed our backyard into a beautiful oasis. Professional, punctual, and detail-oriented. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-avatar">SK</div>
+                        </div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Sarah K.
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Exceptional landscaping services. The team listened to our ideas and executed them perfectly. Our neighbors keep asking who did the work!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-avatar">RM</div>
+                        </div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Robert M.
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best decision we made for our property. Their expertise with native plants is impressive. Will definitely hire them again for maintenance."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-avatar">MC</div>
+                        </div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Maria C.
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Professional from start to finish. They provided a detailed estimate, communicated throughout, and delivered beyond expectations. Worth every penny!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title">About Central Cal Landscaping</h2>
+            <div class="about-content">
+                <p>Central Cal Landscaping was founded with a passion for transforming outdoor spaces into stunning, functional environments. Our team brings decades of combined experience in landscape design, maintenance, and hardscaping to every project. We believe that quality landscaping is more than just mowing and trimming—it's about creating beautiful spaces where memories are made and nature thrives. Based in Watsonville, we're proud to serve the Central California community with professional, reliable, and innovative landscaping solutions. Whether you need routine maintenance or a complete landscape overhaul, we're committed to exceeding your expectations with every project we undertake.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value"><a href="tel:+18312237905">(831) 223-7905</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Service Area</div>
+                        <div class="contact-value">Watsonville, CA and Surrounding Areas</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Business Hours</div>
+                        <div class="contact-value">Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Service Types</div>
+                        <div class="contact-value">Residential & Commercial Landscaping</div>
+                    </div>
+                </div>
+                <form class="quote-form" id="quote-form">
+                    <h3 style="margin-bottom: 30px; color: #2c3e50;">Request a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Landscape Design, Lawn Care">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Central Cal Landscaping</h4>
+                    <p>Premium landscaping services serving Watsonville and Central California with excellence and integrity.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong> <a href="tel:+18312237905">(831) 223-7905</a></p>
+                    <p><strong>Location:</strong> Watsonville, CA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p><a href="#services">Lawn Maintenance</a></p>
+                    <p><a href="#services">Landscape Design</a></p>
+                    <p><a href="#services">Hardscaping</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 Central Cal Landscaping. All rights reserved. Serving Watsonville, CA with pride.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+18312237905" class="floating-call" title="Call Central Cal Landscaping">☎️</a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in capability
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-item, .about-content p, .quote-form').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            console.log('Quote Request:', formData);
+            alert('Thank you for your interest! We will contact you shortly at ' + formData.phone);
+            this.reset();
+        });
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
