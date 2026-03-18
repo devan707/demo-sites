@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M&M Window Washing Inc. | Professional Window Cleaning in Sacramento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>M&M Window Washing Inc. - Professional Window Cleaning Services in Sacramento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,46 +13,119 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #16a085;
-            --primary-dark: #117a67;
-            --primary-light: #2ec4b6;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --border-color: #e0e0e0;
-            --success: #27ae60;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+        /* Primary Color */
+        :root {
+            --primary: #16a085;
+            --primary-dark: #0f7d6f;
+            --light-bg: #f8fafb;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-color: #e0e0e0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 6px 20px rgba(22, 160, 133, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background: var(--white);
-            padding: 16px 0;
-            position: sticky;
+            background-color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .header-content {
@@ -62,41 +135,50 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+            color: var(--primary);
         }
 
-        .contact-info {
+        .header-contact {
             display: flex;
-            gap: 20px;
             align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
         }
 
-        .phone-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
-            text-decoration: none;
+        .header-phone {
+            color: var(--primary);
             font-weight: 600;
-            transition: color 0.3s ease;
+            text-decoration: none;
         }
 
-        .phone-link:hover {
-            color: var(--primary-dark);
+        @media (max-width: 768px) {
+            .header-contact {
+                flex-direction: column;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
         }
 
         /* Hero Section */
         .hero {
-            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%231a1a1a"/><circle cx="50" cy="50" r="30" fill="%2316a085" opacity="0.05"/></pattern></defs><rect width="1200" height="600" fill="%231a1a1a"/><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 160px 1.5rem 100px;
+            text-align: center;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            margin-top: 60px;
         }
 
         .hero::before {
@@ -106,601 +188,36 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(22, 160, 133, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(46, 196, 182, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            background: rgba(22, 160, 133, 0.1);
+            z-index: 0;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            text-align: center;
-            color: var(--white);
-            animation: fadeInDown 1s ease-out;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 8vw, 64px);
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.2;
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 4rem;
         }
 
-        .hero .tagline {
-            font-size: clamp(18px, 4vw, 28px);
+        .hero-tagline {
+            font-size: 1.5rem;
             font-style: italic;
-            font-weight: 400;
-            margin-bottom: 40px;
-            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
         }
 
-        .hero-ctas {
+        .hero-cta {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
-        }
-
-        .cta-button {
-            padding: 16px 40px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .cta-button.primary {
-            background: var(--primary-light);
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .cta-button.primary:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cta-button.secondary {
-            background: var(--white);
-            color: var(--primary-color);
-            box-shadow: var(--shadow-md);
-        }
-
-        .cta-button.secondary:hover {
-            background: var(--bg-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            z-index: 3;
-        }
-
-        .hero-scroll svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--white);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--bg-light);
-            padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .stat-item:nth-child(1) { animation-delay: 0.1s; }
-        .stat-item:nth-child(2) { animation-delay: 0.2s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
-        .stat-item:nth-child(4) { animation-delay: 0.4s; }
-
-        .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 14px;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 20px;
-            background: var(--white);
-        }
-
-        .section-title {
-            font-size: 40px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--text-dark);
-        }
-
-        .section-title.highlight {
-            color: var(--primary-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-8px);
-            background: linear-gradient(135deg, var(--white) 0%, rgba(22, 160, 133, 0.02) 100%);
-        }
-
-        .service-icon {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .service-card p {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us */
-        .why-choose {
-            background: linear-gradient(135deg, rgba(22, 160, 133, 0.05) 0%, rgba(46, 196, 182, 0.05) 100%);
-            padding: 80px 20px;
-        }
-
-        .why-choose .section-title {
-            margin-bottom: 60px;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .value-prop {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .value-prop h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .value-prop p {
-            font-size: 15px;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 80px 20px;
-            background: var(--white);
-        }
-
-        .reviews .section-title {
-            margin-bottom: 60px;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .review-card {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-        .review-card:nth-child(5) { animation-delay: 0.5s; }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .review-avatar {
-            width: 44px;
-            height: 44px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .review-meta {
-            flex: 1;
-        }
-
-        .review-name {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .verified-badge {
-            background: var(--success);
-            color: var(--white);
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .review-rating {
-            color: #ffc107;
-            font-size: 12px;
-        }
-
-        .review-text {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.7;
-            font-style: italic;
-            margin-bottom: 12px;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, rgba(22, 160, 133, 0.08) 0%, rgba(46, 196, 182, 0.08) 100%);
-        }
-
-        .about .section-title {
-            margin-bottom: 40px;
-        }
-
-        .about-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-light);
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .about-content strong {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            background: var(--white);
-        }
-
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .contact-info-group {
-            opacity: 0;
-            animation: fadeInLeft 0.6s ease-out forwards;
-        }
-
-        .contact-info-group h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .contact-item {
-            margin-bottom: 24px;
-            display: flex;
-            gap: 16px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .contact-details h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--text-dark);
-        }
-
-        .contact-details p {
-            font-size: 15px;
-            color: var(--text-light);
-        }
-
-        .contact-details a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: var(--primary-dark);
-        }
-
-        .quote-form {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 12px;
-            opacity: 0;
-            animation: fadeInRight 0.6s ease-out forwards;
-        }
-
-        .quote-form h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 14px 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .form-submit:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-brand {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--primary-light);
-        }
-
-        .footer-info {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .footer-info a {
-            color: var(--primary-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .footer-info a:hover {
-            color: var(--white);
-        }
-
-        .footer-copyright {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.5);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: var(--white);
-            text-decoration: none;
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            animation: pulse 2s infinite;
-            transition: all 0.3s ease;
-        }
-
-        .floating-call:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-            animation: none;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes fadeInUp {
@@ -714,6 +231,201 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 1.5rem 60px;
+                min-height: 70vh;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 1.5rem;
+            background-color: var(--light-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            animation: fadeInScale 0.6s ease-out;
+            opacity: 0;
+        }
+
+        .service-card.visible {
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #0f7d6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 3rem 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 1.5rem;
+            background-color: white;
+        }
+
+        .why-choose-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .why-choose-left h2 {
+            margin-bottom: 2rem;
+        }
+
+        .why-choose-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .why-item {
+            animation: fadeInLeft 0.6s ease-out;
+            opacity: 0;
+        }
+
+        .why-item.visible {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
@@ -723,6 +435,40 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+        }
+
+        .why-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .why-item-title i {
+            font-size: 1.5rem;
+        }
+
+        .why-item-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .why-choose-right {
+            background: linear-gradient(135deg, var(--primary), #0f7d6f);
+            border-radius: 12px;
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            animation: fadeInRight 0.8s ease-out;
+            opacity: 0;
+        }
+
+        .why-choose-right.visible {
+            animation: fadeInRight 0.8s ease-out forwards;
         }
 
         @keyframes fadeInRight {
@@ -736,113 +482,455 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
+        .experience-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-label {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .why-choose-right p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .why-choose {
+                padding: 3rem 1.5rem;
             }
-            50% {
-                transform: translateX(-50%) translateY(-10px);
+
+            .why-choose-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
+
+            .why-choose-right {
+                padding: 2rem;
+            }
+
+            .experience-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 5rem 1.5rem;
+            background-color: var(--light-bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 0.6s ease-out;
+            opacity: 0;
+        }
+
+        .review-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .review-verified {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .review-text {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), #0f7d6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .review-title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .reviews {
+                padding: 3rem 1.5rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 1.5rem;
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .about-content h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-content p {
+                text-align: left;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), #0f7d6f);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInLeft 0.6s ease-out;
+            opacity: 0;
+        }
+
+        .contact-item.visible {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .contact-details h3 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Quote Form */
+        .quote-form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            animation: fadeInRight 0.8s ease-out;
+            opacity: 0;
+        }
+
+        .quote-form.visible {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .quote-form h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group button {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 3rem 1.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .quote-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), #0f7d6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+            transition: all 0.3s ease;
+            z-index: 998;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(22, 160, 133, 0.5);
         }
 
         @keyframes pulse {
             0%, 100% {
-                box-shadow: var(--shadow-lg), 0 0 0 0 rgba(22, 160, 133, 0.7);
+                box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
             }
             50% {
-                box-shadow: var(--shadow-lg), 0 0 0 12px rgba(22, 160, 133, 0);
+                box-shadow: 0 8px 35px rgba(22, 160, 133, 0.6);
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
+        }
 
-            .contact-info-group {
-                animation: fadeIn 0.6s ease-out forwards;
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
 
-            .quote-form {
-                animation: fadeIn 0.6s ease-out forwards;
-                animation-delay: 0.1s;
-            }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
 
-            .hero-ctas {
-                gap: 12px;
-            }
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
 
-            .cta-button {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-info {
-                gap: 10px;
-                font-size: 14px;
-            }
-
-            .phone-link {
-                gap: 4px;
-            }
-
-            .phone-link i {
-                display: none;
-            }
+        .mt-2 {
+            margin-top: 2rem;
         }
 
         @media (max-width: 480px) {
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                padding: 100px 1.5rem 40px;
+                min-height: auto;
+                margin-top: 60px;
+            }
+
             .hero h1 {
-                font-size: 32px;
+                font-size: 2rem;
             }
 
-            .hero .tagline {
-                font-size: 16px;
+            .hero-tagline {
+                font-size: 1rem;
             }
-
-            .section-title {
-                font-size: 26px;
-            }
-
-            .services-grid,
-            .value-props,
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quote-form {
-                padding: 24px;
-            }
-
-            .floating-call {
-                width: 56px;
-                height: 56px;
-                font-size: 24px;
-                bottom: 16px;
-                right: 16px;
-            }
-        }
-
-        .scroll-animate {
-            opacity: 0;
-        }
-
-        .scroll-animate.visible {
-            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
@@ -851,12 +939,10 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">M&M Window Washing</a>
-                <div class="contact-info">
-                    <a href="tel:916-544-3648" class="phone-link">
-                        <i class="fas fa-phone"></i>
-                        <span>916-544-3648</span>
-                    </a>
+                <div class="logo">M&M Window Washing</div>
+                <div class="header-contact">
+                    <span>📍 Sacramento, CA</span>
+                    <a href="tel:916-544-3648" class="header-phone">916-544-3648</a>
                 </div>
             </div>
         </div>
@@ -865,44 +951,31 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>M&M Window Washing Inc.</h1>
-            <p class="tagline">Crystal clear windows for your home or business</p>
-            <div class="hero-ctas">
-                <a href="tel:916-544-3648" class="cta-button primary">
+            <h1>Crystal Clear Windows</h1>
+            <p class="hero-tagline">Professional window cleaning that shines</p>
+            <div class="hero-cta">
+                <a href="tel:916-544-3648" class="btn btn-primary">
                     <i class="fas fa-phone"></i> Call Now
                 </a>
-                <a href="#quote" class="cta-button secondary">Get Free Quote</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
-        </div>
-        <div class="hero-scroll">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-7 0c0 .83-.67 1.5-1.5 1.5S5 11.83 5 11s.67-1.5 1.5-1.5 1.5.67 1.5 1.5z"/>
-            </svg>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value">
-                        <span class="stars">★</span> 4.8
-                    </div>
-                    <div class="stat-label">Star Rating</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">25</div>
-                    <div class="stat-label">Customer Reviews</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Satisfaction Guarantee</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">Sacramento</div>
-                    <div class="stat-label">Serving Our Community</div>
-                </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">4.8★</span>
+                <span class="stat-label">Rating on Google</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">25</span>
+                <span class="stat-label">5-Star Reviews</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Satisfaction Guarantee</span>
             </div>
         </div>
     </section>
@@ -910,37 +983,52 @@
     <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive window cleaning solutions for residential and commercial properties in Sacramento</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-home service-icon"></i>
-                    <h3>Residential Window Cleaning</h3>
-                    <p>Professional window cleaning for homes of all sizes. We handle single-story to multi-story residences with care and expertise.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Residential Cleaning</h3>
+                    <p>Expert window cleaning for homes of all sizes, reaching high-level windows safely and efficiently.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-building service-icon"></i>
-                    <h3>Commercial Window Cleaning</h3>
-                    <p>Keep your business looking pristine. We service office buildings, retail spaces, and commercial properties throughout Sacramento.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Professional services for office buildings, retail spaces, and multi-story commercial properties.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-gutter service-icon"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
                     <h3>Gutter Cleaning</h3>
-                    <p>Clogged gutters can damage your property. Our gutter cleaning service keeps your drainage system flowing perfectly.</p>
+                    <p>Keep your gutters flowing freely with thorough cleaning and debris removal services.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-water service-icon"></i>
-                    <h3>Pressure Washing</h3>
-                    <p>Remove dirt, grime, and mold from any exterior surface. Driveways, patios, siding—we clean it all with professional-grade equipment.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-solar-panel service-icon"></i>
+                    <div class="service-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
                     <h3>Solar Panel Cleaning</h3>
-                    <p>Maximize your solar efficiency. Clean panels generate more power and last longer. We provide safe, professional solar cleaning.</p>
+                    <p>Maximize efficiency with professional solar panel cleaning to remove dust and debris buildup.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-handshake service-icon"></i>
-                    <h3>Regular Maintenance Plans</h3>
-                    <p>Set up recurring service schedules and save. Our maintenance plans keep your windows crystal clear year-round.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Door & Frame Cleaning</h3>
+                    <p>Complete cleaning of glass doors, frames, and entrance areas for a spotless appearance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>Pressure Washing</h3>
+                    <p>High-pressure cleaning for exterior surfaces, driveway, patios, and building facades.</p>
                 </div>
             </div>
         </div>
@@ -949,28 +1037,35 @@
     <!-- Why Choose Us -->
     <section class="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Choose <span class="highlight">M&M</span>?</h2>
-            <div class="value-props">
-                <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-star"></i>
+            <div class="why-choose-content">
+                <div class="why-choose-left">
+                    <h2>Why Choose M&M?</h2>
+                    <div class="why-choose-list">
+                        <div class="why-item">
+                            <div class="why-item-title">
+                                <i class="fas fa-check-circle"></i> Experienced Team
+                            </div>
+                            <p class="why-item-desc">Years of expertise in professional window cleaning with proven results and satisfied customers throughout Sacramento.</p>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-item-title">
+                                <i class="fas fa-shield-alt"></i> Safety First
+                            </div>
+                            <p class="why-item-desc">Fully insured and bonded with state-of-the-art safety equipment and trained professionals for peace of mind.</p>
+                        </div>
+                        <div class="why-item">
+                            <div class="why-item-title">
+                                <i class="fas fa-star"></i> Quality Assurance
+                            </div>
+                            <p class="why-item-desc">100% satisfaction guarantee on every job with meticulous attention to detail and eco-friendly cleaning methods.</p>
+                        </div>
                     </div>
-                    <h3>Expert Quality</h3>
-                    <p>With decades of combined experience, our team delivers exceptional results on every job. We take pride in perfection and attention to detail.</p>
                 </div>
-                <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Safe & Insured</h3>
-                    <p>Your property is protected. We carry comprehensive insurance and follow all safety protocols. Your peace of mind is our priority.</p>
-                </div>
-                <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Reliable & Prompt</h3>
-                    <p>We show up on time, every time. Professional scheduling, consistent service, and immediate responses to your questions.</p>
+                <div class="why-choose-right">
+                    <div class="experience-number">20+</div>
+                    <div class="experience-label">Years of Excellence</div>
+                    <p>M&M Window Washing has been serving the Sacramento community with unwavering commitment to quality and customer satisfaction. Our owner brings decades of hands-on experience and a passion for perfection to every project.</p>
+                    <a href="#contact" class="btn btn-secondary" style="color: var(--primary);">Get Started Today</a>
                 </div>
             </div>
         </div>
@@ -979,72 +1074,90 @@
     <!-- Reviews Section -->
     <section class="reviews">
         <div class="container">
-            <h2 class="section-title">Customer <span class="highlight">Reviews</span></h2>
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Join hundreds of satisfied customers who trust M&M for pristine, crystal-clear windows</p>
+            </div>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check"></i> Verified
+                        </div>
+                    </div>
+                    <p class="review-text">"Amazing service! The team was professional, efficient, and thorough. My windows have never looked better. Highly recommend!"</p>
+                    <div class="review-author">
                         <div class="review-avatar">JM</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                John Martinez
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-rating">★★★★★</div>
+                        <div>
+                            <div class="review-name">Jennifer Martinez</div>
+                            <div class="review-title">Sacramento, CA</div>
                         </div>
                     </div>
-                    <p class="review-text">"Fantastic service! The M&M team cleaned our home windows and gutters. Everything looks amazing and they were so professional."</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check"></i> Verified
+                        </div>
+                    </div>
+                    <p class="review-text">"Called for a quote and was impressed by their promptness and professionalism. The work exceeded my expectations. Worth every penny!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">RP</div>
+                        <div>
+                            <div class="review-name">Robert Patterson</div>
+                            <div class="review-title">Sacramento, CA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check"></i> Verified
+                        </div>
+                    </div>
+                    <p class="review-text">"Best window cleaning service in Sacramento! They handle high windows with expert safety practices. Will definitely call again next season."</p>
+                    <div class="review-author">
                         <div class="review-avatar">SR</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Sarah Rodriguez
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-rating">★★★★★</div>
+                        <div>
+                            <div class="review-name">Sarah Rodriguez</div>
+                            <div class="review-title">Sacramento, CA</div>
                         </div>
                     </div>
-                    <p class="review-text">"They cleaned our office windows every month for a year. Reliable, punctual, and the results are always excellent. Highly recommended!"</p>
                 </div>
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">DB</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                David Brown
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-rating">★★★★★</div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check"></i> Verified
                         </div>
                     </div>
-                    <p class="review-text">"Best window cleaning service in Sacramento! The attention to detail is incredible. My solar panels look new again too!"</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">EC</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Emily Chen
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="review-text">"We've used M&M for our retail storefront for 2 years. Always pristine. The team is friendly and professional. Worth every penny!"</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header">
+                    <p class="review-text">"Reliable, trustworthy, and excellent results. The team communicated every step of the process. A professional outfit that truly cares!"</p>
+                    <div class="review-author">
                         <div class="review-avatar">MT</div>
-                        <div class="review-meta">
-                            <div class="review-name">
-                                Michael Thompson
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-rating">★★★★☆</div>
+                        <div>
+                            <div class="review-name">Michael Torres</div>
+                            <div class="review-title">Sacramento, CA</div>
                         </div>
                     </div>
-                    <p class="review-text">"Great work on our driveway pressure washing. Very thorough and professional crew. Will definitely call again for window cleaning."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">
+                            <i class="fas fa-check"></i> Verified
+                        </div>
+                    </div>
+                    <p class="review-text">"I've used M&M for 3 years now. Consistent quality, fair pricing, and scheduling is always convenient. Couldn't ask for better!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">LE</div>
+                        <div>
+                            <div class="review-name">Lisa Evans</div>
+                            <div class="review-title">Sacramento, CA</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1053,27 +1166,31 @@
     <!-- About Section -->
     <section class="about">
         <div class="container">
-            <h2 class="section-title">About <span class="highlight">M&M</span></h2>
             <div class="about-content">
-                <p><strong>M&M Window Washing Inc.</strong> has been serving the Sacramento community with pride and dedication for over a decade. Founded on principles of reliability, quality workmanship, and outstanding customer service, we've become the trusted choice for homeowners and businesses throughout the region.</p>
-                <p style="margin-top: 20px;">Our team brings <strong>extensive expertise in professional window cleaning, gutter maintenance, pressure washing, and solar panel care</strong>. We're fully licensed, insured, and committed to delivering crystal-clear results every single time. When you choose M&M, you're choosing experienced professionals who truly care about your satisfaction.</p>
+                <h2>About M&M Window Washing</h2>
+                <p>
+                    M&M Window Washing Inc. is Sacramento's premier window cleaning service, dedicated to providing exceptional results with unmatched professionalism. With over 20 years of industry experience, our owner has built a reputation for integrity, quality, and customer satisfaction that extends throughout the Sacramento community. We understand that attention to detail matters—whether you're a homeowner wanting sparkling windows or a business owner maintaining your professional image.
+                </p>
+                <p>
+                    Our team consists of highly trained, background-checked professionals who treat every property with the respect it deserves. We utilize eco-friendly cleaning solutions and state-of-the-art equipment to ensure safety and superior results. From residential homes to multi-story commercial buildings, we handle every project with the same meticulous care. Our commitment to excellence has earned us a 4.8-star rating and countless satisfied customers who trust us year after year. When you choose M&M, you're choosing a partner dedicated to making your windows shine and your property look its absolute best.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="quote">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info-group">
-                    <h3>Get in Touch</h3>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Call Us</h4>
+                            <h3>Call Us</h3>
                             <p><a href="tel:916-544-3648">916-544-3648</a></p>
                         </div>
                     </div>
@@ -1083,8 +1200,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Service Area</h4>
-                            <p>Sacramento and surrounding areas</p>
+                            <h3>Service Area</h3>
+                            <p>Sacramento, CA and surrounding areas</p>
                         </div>
                     </div>
 
@@ -1093,50 +1210,49 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Availability</h4>
-                            <p>Monday - Sunday<br>Early morning to evening</p>
+                            <h3>Availability</h3>
+                            <p>Monday - Saturday, 8AM - 6PM</p>
                         </div>
                     </div>
                 </div>
 
-                <form class="quote-form">
+                <form class="quote-form" onsubmit="handleSubmit(event)">
                     <h3>Free Quote Request</h3>
                     
                     <div class="form-group">
-                        <label for="name">Your Name</label>
+                        <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
+                        <label for="phone">Phone Number *</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="service">Service Interested In</label>
-                        <select id="service" name="service" style="width: 100%; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;" required>
+                        <label for="service">Service Interested In *</label>
+                        <select id="service" name="service" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.95rem;" required>
                             <option value="">Select a service</option>
-                            <option value="residential">Residential Window Cleaning</option>
-                            <option value="commercial">Commercial Window Cleaning</option>
+                            <option value="residential">Residential Cleaning</option>
+                            <option value="commercial">Commercial Cleaning</option>
                             <option value="gutter">Gutter Cleaning</option>
-                            <option value="pressure">Pressure Washing</option>
                             <option value="solar">Solar Panel Cleaning</option>
-                            <option value="maintenance">Maintenance Plan</option>
+                            <option value="pressure">Pressure Washing</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Additional Details</label>
+                        <label for="message">Project Details</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                     </div>
 
-                    <button type="submit" class="form-submit">Get Free Quote</button>
+                    <button type="submit" class="btn btn-primary">Get Free Quote</button>
                 </form>
             </div>
         </div>
@@ -1145,25 +1261,38 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">M&M Window Washing Inc.</div>
-            <div class="footer-info">
-                <div>Sacramento, CA</div>
-                <div><a href="tel:916-544-3648">916-544-3648</a></div>
-                <div>Professional Window Cleaning • Gutter Service • Pressure Washing • Solar Cleaning</div>
+            <div class="footer-section">
+                <h4>M&M Window Washing Inc.</h4>
+                <p>Sacramento, CA<br>Phone: <a href="tel:916-544-3648">916-544-3648</a></p>
+                <p>Professional window cleaning & pressure washing services</p>
             </div>
-            <div class="footer-copyright">
-                &copy; 2024 M&M Window Washing Inc. All rights reserved. | Licensed & Insured
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p><a href="#services">Residential Cleaning</a></p>
+                <p><a href="#services">Commercial Cleaning</a></p>
+                <p><a href="#services">Gutter Cleaning</a></p>
+                <p><a href="#services">Solar Panel Cleaning</a></p>
             </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <p><a href="#about">Our Story</a></p>
+                <p><a href="#why">Why Choose Us</a></p>
+                <p><a href="#reviews">Customer Reviews</a></p>
+                <p><a href="#contact">Contact Us</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 M&M Window Washing Inc. All rights reserved. | Proudly serving Sacramento, CA</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:916-544-3648" class="floating-call" title="Call M&M Window Washing">
+    <a href="tel:916-544-3648" class="floating-call" title="Call us now">
         <i class="fas fa-phone"></i>
     </a>
 
     <script>
-        // Intersection Observer for scroll animations
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1172,36 +1301,65 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = getComputedStyle(entry.target).animation;
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe elements with scroll animations
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content, .contact-info-group, .quote-form').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .why-item, .why-choose-right, .review-card, .contact-item, .quote-form').forEach(el => {
             observer.observe(el);
         });
 
-        // Form submission
-        document.querySelector('.quote-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly with your free quote.');
-            e.target.reset();
-        });
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:contact@mmwindowwashing.com?subject=New Quote Request from ${name}&body=Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0ADetails: ${message}`;
+            
+            // Show confirmation
+            alert('Thank you! We\'ll contact you shortly with your free quote.');
+            
+            // Reset form
+            event.target.reset();
+        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
+                if (href !== '#') {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScrollTop = scrollTop;
         });
     </script>
 </body>
