@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comfort Mechanical Service Inc. - HVAC Contractor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #2c3e50;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text: #34495e;
+            --border: #bdc3c7;
+            --success: #27ae60;
         }
 
         html {
@@ -19,481 +31,505 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
             line-height: 1.6;
-            color: #333;
             overflow-x: hidden;
         }
 
-        :root {
-            --primary-color: #e67e22;
-            --primary-dark: #d35400;
-            --primary-light: #f39c12;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-            --border-color: #e0e0e0;
-            --success-color: #27ae60;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--secondary);
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--text-dark);
+            line-height: 1.3;
         }
 
-        .section-title span {
-            color: var(--primary-color);
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
         }
 
-        /* Header & Navigation */
-        header {
-            background: var(--bg-white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        h2 {
+            font-size: clamp(1.75rem, 6vw, 2.5rem);
+            margin-bottom: 1rem;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+        h3 {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            margin-bottom: 0.75rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .phone-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .phone-link:hover {
-            color: var(--primary-dark);
-        }
-
-        .phone-link i {
-            font-size: 1.2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><path fill="%23e67e22" opacity="0.1" d="M0 300Q300 200 600 300T1200 300L1200 600L0 600Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 35px;
-            border: none;
-            border-radius: 8px;
+        p {
             font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
             display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
-            background: var(--primary-color);
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--primary-color);
-            border: 2px solid white;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-secondary:hover {
-            background: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-block {
+            width: 100%;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--light);
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                height: 80vh;
+                min-height: 400px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero .btn {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         /* Stats Bar */
         .stats-bar {
-            background: var(--bg-light);
-            padding: 40px 0;
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
+            background-color: var(--white);
+            border-top: 4px solid var(--primary);
+            padding: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-item {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: center;
-            animation: fadeIn 0.8s ease-out;
         }
 
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+        .stat-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            color: var(--text-light);
+        .stat-item p {
+            color: var(--text);
+            margin: 0;
             font-size: 0.95rem;
         }
 
-        .stars {
-            color: var(--primary-color);
-            margin-bottom: 5px;
+        .rating {
+            color: #f39c12;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
         }
 
         /* Services Section */
         .services {
-            background: var(--bg-white);
+            background-color: var(--light);
+        }
+
+        .services .container {
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .service-card {
-            background: var(--bg-light);
-            padding: 35px;
+            background-color: var(--white);
+            padding: 2rem;
             border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             opacity: 0;
         }
 
         .service-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(230, 126, 34, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(-5deg) scale(1.1);
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+            margin-bottom: 1rem;
         }
 
         .service-card p {
-            color: var(--text-light);
+            color: var(--text);
+            margin-bottom: 0;
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         /* Why Choose Us */
-        .why-choose {
-            background: var(--bg-light);
+        .why-choose-us {
+            background-color: var(--white);
         }
 
-        .why-grid {
+        .value-props {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .why-item {
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary-color);
+        .value-prop {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.05), rgba(230, 126, 34, 0.1));
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
             opacity: 0;
         }
 
-        .why-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+        .value-prop h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
 
-        .why-item p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .why-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .value-prop p {
+            color: var(--text);
+            margin-bottom: 0;
         }
 
         /* Reviews Section */
         .reviews {
-            background: var(--bg-white);
+            background-color: var(--light);
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .review-card {
-            background: var(--bg-light);
-            padding: 30px;
+            background-color: var(--white);
+            padding: 2rem;
             border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             opacity: 0;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .review-info h4 {
-            margin-bottom: 5px;
-            color: var(--text-dark);
-        }
-
-        .review-verified {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.85rem;
-            color: var(--success-color);
         }
 
         .review-stars {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            color: #f39c12;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
         .review-text {
-            color: var(--text-light);
-            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
             line-height: 1.8;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.8rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .verified-badge::before {
+            content: '✓';
+            font-weight: 700;
         }
 
         /* About Section */
         .about {
-            background: var(--bg-light);
+            background-color: var(--white);
         }
 
         .about-content {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
-            text-align: center;
             opacity: 0;
         }
 
         .about-content p {
             font-size: 1.05rem;
-            color: var(--text-light);
             line-height: 1.9;
-            margin-bottom: 20px;
+            color: var(--text);
         }
 
-        .about-content p:first-child {
-            font-weight: 500;
-            color: var(--text-dark);
+        .about-content strong {
+            color: var(--primary);
         }
 
         /* Contact Section */
         .contact {
-            background: var(--bg-white);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--white);
         }
 
-        .contact-wrapper {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
-        .contact-info-block h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--text-dark);
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
         .contact-item {
-            margin-bottom: 30px;
-            opacity: 0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
         }
 
-        .contact-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1rem;
+        .contact-item-icon {
+            min-width: 30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(230, 126, 34, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
         }
 
-        .contact-item p {
-            color: var(--text-light);
+        .contact-item-text {
+            flex: 1;
         }
 
-        .contact-item a {
-            color: var(--primary-color);
-            text-decoration: none;
+        .contact-item-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-value {
+            font-size: 1.1rem;
             font-weight: 600;
+            color: var(--white);
+        }
+
+        .contact-item-value a {
+            color: var(--white);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .contact-item a:hover {
-            color: var(--primary-dark);
-        }
-
-        .service-areas {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .service-areas h4 {
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .service-areas p {
-            color: var(--text-light);
-            line-height: 1.8;
+        .contact-item-value a:hover {
+            color: var(--primary);
         }
 
         /* Quote Form */
-        .quote-form {
-            background: var(--bg-light);
-            padding: 35px;
-            border-radius: 12px;
-            opacity: 0;
-        }
-
         .quote-form h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--text-dark);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: var(--text-dark);
+            margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--white);
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
+            padding: 0.875rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
         }
 
         .form-group textarea {
@@ -501,112 +537,102 @@
             min-height: 120px;
         }
 
-        .form-group button {
-            width: 100%;
-            padding: 14px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
+        .form-group select {
             cursor: pointer;
-            transition: background 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .form-group button:hover {
-            background: var(--primary-dark);
+        .form-group select option {
+            background-color: var(--secondary);
+            color: var(--white);
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 40px 0 20px;
+            background-color: #1a252f;
+            color: var(--light);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 4px solid var(--primary);
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 30px;
+            margin-bottom: 1rem;
         }
 
-        .footer-section h4 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
+        .footer-business-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
         }
 
-        .footer-section p {
-            opacity: 0.8;
-            line-height: 1.8;
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            font-size: 0.9rem;
         }
 
-        .footer-section a {
-            color: white;
+        .footer-contact a {
+            color: var(--light);
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            opacity: 1;
+        .footer-contact a:hover {
+            color: var(--primary);
         }
 
-        .footer-bottom {
-            text-align: center;
-            opacity: 0.8;
+        .footer-copyright {
+            color: rgba(236, 240, 241, 0.7);
+            font-size: 0.85rem;
+            margin-top: 1rem;
         }
 
         /* Floating Call Button */
-        .floating-call {
+        .floating-call-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 2rem;
+            right: 2rem;
             width: 60px;
             height: 60px;
-            background: var(--primary-color);
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
-            transition: all 0.3s ease;
-            z-index: 50;
-            text-decoration: none;
-            color: white;
             font-size: 1.5rem;
-            animation: pulse 2s infinite;
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
         }
 
-        .floating-call:hover {
-            background: var(--primary-dark);
+        .floating-call-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(230, 126, 34, 0.5);
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.6);
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
-            }
-            50% {
-                box-shadow: 0 5px 30px rgba(230, 126, 34, 0.6);
+        .floating-call-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 600px) {
+            .floating-call-btn {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 56px;
+                height: 56px;
+                font-size: 1.3rem;
             }
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -618,142 +644,50 @@
             }
         }
 
-        @keyframes slideInLeft {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
             }
         }
 
         .fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .phone-link .phone-text {
-                display: none;
-            }
-
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .floating-call {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-
-            .hero {
-                min-height: 500px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
+        .mt-1 {
+            margin-top: 0.5rem;
+        }
 
-            .hero .tagline {
-                font-size: 1rem;
-            }
+        .mt-2 {
+            margin-top: 1rem;
+        }
 
-            .section-title {
-                font-size: 1.5rem;
-            }
+        .mt-3 {
+            margin-top: 1.5rem;
+        }
 
-            .services-grid,
-            .why-grid,
-            .reviews-grid,
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-            }
-
-            .stat-value {
-                font-size: 1.6rem;
-            }
+        .mb-0 {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Comfort Mechanical</a>
-                <div class="contact-info">
-                    <a href="tel:+18319008973" class="phone-link">
-                        <i class="fas fa-phone"></i>
-                        <span class="phone-text">(831) 900-8973</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
             <h1>Comfort Mechanical Service Inc.</h1>
-            <p class="tagline">Professional HVAC Solutions You Can Trust</p>
+            <p class="tagline">Expert HVAC Solutions for Your Home</p>
             <div class="hero-buttons">
-                <a href="tel:+18319008973" class="btn btn-primary">Call Now</a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+                <a href="tel:(831)900-8973" class="btn btn-primary">Call Now</a>
+                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
@@ -763,284 +697,235 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="stat-value">5.0</div>
-                    <div class="stat-label">Star Rating</div>
+                    <h3><span class="rating">★★★★★</span></h3>
+                    <p>5-Star Rating</p>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">4</div>
-                    <div class="stat-label">Customer Reviews</div>
+                    <h3>4</h3>
+                    <p>Customer Reviews</p>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Satisfaction Guarantee</div>
+                    <h3>100%</h3>
+                    <p>Satisfaction Guaranteed</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services section" id="services">
+    <section class="services">
         <div class="container">
-            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive HVAC solutions for residential and commercial needs</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-wind"></i>
-                    </div>
+                    <div class="service-icon">❄️</div>
                     <h3>AC Installation</h3>
-                    <p>Professional air conditioning installation for maximum efficiency and comfort in your home.</p>
+                    <p>Professional air conditioning installation with precision and expertise to keep your home cool year-round.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-fan"></i>
-                    </div>
-                    <h3>AC Repair</h3>
-                    <p>Expert repairs for all AC brands and models. Fast response times and honest diagnostics.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
+                    <div class="service-icon">🔧</div>
                     <h3>AC Maintenance</h3>
-                    <p>Regular maintenance plans to keep your system running smoothly and prevent costly breakdowns.</p>
+                    <p>Regular maintenance keeps your system running efficiently and prevents costly repairs down the line.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>Heating Systems</h3>
-                    <p>Furnace installation, repair, and maintenance to ensure warmth throughout the winter months.</p>
+                    <div class="service-icon">🛠️</div>
+                    <h3>AC Repair</h3>
+                    <p>Same-day repairs for broken or underperforming air conditioning units by certified technicians.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-snowflake"></i>
-                    </div>
-                    <h3>Heat Pump Services</h3>
-                    <p>Energy-efficient heat pump installation and maintenance for year-round comfort.</p>
+                    <div class="service-icon">🔥</div>
+                    <h3>Heating Installation</h3>
+                    <p>Modern heating systems installed with care to ensure warmth and comfort throughout winter months.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Air Quality</h3>
-                    <p>Improve indoor air quality with our filtration and ventilation solutions.</p>
+                    <div class="service-icon">📋</div>
+                    <h3>Heating Service</h3>
+                    <p>Comprehensive heating service including tune-ups, repairs, and emergency heating solutions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💨</div>
+                    <h3>Ductwork Solutions</h3>
+                    <p>Expert ductwork installation, cleaning, and repair to optimize air flow throughout your property.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose section" id="why-us">
+    <section class="why-choose-us">
         <div class="container">
-            <h2 class="section-title">Why <span>Choose Us</span></h2>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Licensed & Certified</h3>
-                    <p>All our technicians are fully licensed, certified, and continually trained on the latest HVAC systems to deliver superior service.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="value-props">
+                <div class="value-prop">
                     <h3>24/7 Emergency Service</h3>
-                    <p>We're available around the clock for emergency repairs. Don't let a broken HVAC system ruin your comfort.</p>
+                    <p>We understand HVAC emergencies can happen anytime. Our team is available round-the-clock to help you when you need it most.</p>
                 </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Honest, Upfront Pricing</h3>
-                    <p>No hidden fees or surprise charges. We provide transparent estimates before starting any work.</p>
+                <div class="value-prop">
+                    <h3>Certified Technicians</h3>
+                    <p>All our technicians are fully licensed and certified with years of hands-on experience in HVAC installation, repair, and maintenance.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, no surprises. We provide detailed quotes upfront so you know exactly what to expect before work begins.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="reviews section" id="reviews">
+    <!-- Customer Reviews -->
+    <section class="reviews">
         <div class="container">
-            <h2 class="section-title">Customer <span>Reviews</span></h2>
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>Trusted by homeowners in our community</p>
+            </div>
             <div class="reviews-grid">
                 <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">JM</div>
-                        <div>
-                            <h4>John Martinez</h4>
-                            <div class="review-verified">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Comfort Mechanical Service Inc. installed our new AC system and the work was flawless. Highly professional team!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <div class="author-avatar">JM</div>
+                            <div>
+                                <div class="author-name">James Martinez</div>
+                                <div class="verified-badge">Verified Customer</div>
                             </div>
                         </div>
                     </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Comfort Mechanical arrived promptly and fixed my AC unit in just two hours. Professional, friendly, and fair pricing. Highly recommended!"</p>
                 </div>
-
                 <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">SC</div>
-                        <div>
-                            <h4>Sarah Chen</h4>
-                            <div class="review-verified">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best HVAC service in the area. Fast response, fair pricing, and expert technicians. Will definitely call again!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <div class="author-avatar">SC</div>
+                            <div>
+                                <div class="author-name">Sarah Chen</div>
+                                <div class="verified-badge">Verified Customer</div>
                             </div>
                         </div>
                     </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"The team explained everything they were doing and why. Transparent, knowledgeable, and they treated my home with respect. Best service experience."</p>
                 </div>
-
                 <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">DG</div>
-                        <div>
-                            <h4>David Garcia</h4>
-                            <div class="review-verified">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Had an emergency heating issue and they came out same day. Professional, courteous, and got the job done right."</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <div class="author-avatar">RG</div>
+                            <div>
+                                <div class="author-name">Robert Garcia</div>
+                                <div class="verified-badge">Verified Customer</div>
                             </div>
                         </div>
                     </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Called for an emergency furnace repair in December and they came the same day. Saved us from a freezing night. Exceptional service!"</p>
                 </div>
-
                 <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">RL</div>
-                        <div>
-                            <h4>Rachel Lopez</h4>
-                            <div class="review-verified">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Verified</span>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The team explained everything clearly and offered maintenance packages that save us money. Excellent service overall!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <div class="author-avatar">LP</div>
+                            <div>
+                                <div class="author-name">Lisa Park</div>
+                                <div class="verified-badge">Verified Customer</div>
                             </div>
                         </div>
                     </div>
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">"Got their annual maintenance plan and it's worth every penny. They remind me when service is due and keep everything running perfectly."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about section" id="about">
+    <section class="about">
         <div class="container">
-            <h2 class="section-title">About <span>Comfort Mechanical</span></h2>
+            <div class="section-title">
+                <h2>About Our Team</h2>
+            </div>
             <div class="about-content">
-                <p>With over two decades of experience in HVAC services, Comfort Mechanical Service Inc. has built a reputation for excellence, reliability, and customer satisfaction in our community.</p>
-                <p>Our team of highly trained technicians is dedicated to providing top-quality heating, cooling, and air quality solutions. We treat every customer's home as if it were our own, delivering honest service with professionalism and integrity.</p>
-                <p>Whether you need a simple repair, new installation, or preventive maintenance, we're committed to keeping your home comfortable year-round at competitive prices you can trust.</p>
+                <p>
+                    <strong>Comfort Mechanical Service Inc.</strong> has been serving the HVAC needs of our community with dedication and expertise for years. Our team of certified technicians brings decades of combined experience to every project, whether it's a simple maintenance call or a complete system installation.
+                </p>
+                <p>
+                    We believe in building lasting relationships with our customers by delivering exceptional workmanship, transparent communication, and reliable service. Every member of our team is committed to ensuring your home stays comfortable year-round. From initial consultation to final inspection, we handle every detail with the professionalism and care your family deserves.
+                </p>
+                <p>
+                    Your comfort is our priority, and your satisfaction is guaranteed. When you choose Comfort Mechanical Service Inc., you're choosing peace of mind.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact section" id="contact">
+    <section class="contact" id="quote">
         <div class="container">
-            <h2 class="section-title">Get in <span>Touch</span></h2>
-            <div class="contact-wrapper">
-                <div class="contact-info-block">
+            <h2 style="color: var(--white); text-align: center; margin-bottom: 0.5rem;">Get In Touch</h2>
+            <p style="color: var(--light); text-align: center; margin-bottom: 3rem;">Contact us today for a free quote or to schedule your service</p>
+            <div class="contact-grid">
+                <div class="contact-info">
                     <h3>Contact Information</h3>
-                    
                     <div class="contact-item">
-                        <h4><i class="fas fa-phone"></i> Phone</h4>
-                        <p><a href="tel:+18319008973">(831) 900-8973</a></p>
+                        <div class="contact-item-icon">📞</div>
+                        <div class="contact-item-text">
+                            <div class="contact-item-label">Phone</div>
+                            <div class="contact-item-value"><a href="tel:(831)900-8973">(831) 900-8973</a></div>
+                        </div>
                     </div>
-
                     <div class="contact-item">
-                        <h4><i class="fas fa-map-marker-alt"></i> Service Area</h4>
-                        <p>We proudly serve the Monterey County area and surrounding communities with professional HVAC services.</p>
+                        <div class="contact-item-icon">🕐</div>
+                        <div class="contact-item-text">
+                            <div class="contact-item-label">Availability</div>
+                            <div class="contact-item-value">24/7 Emergency Service</div>
+                        </div>
                     </div>
-
                     <div class="contact-item">
-                        <h4><i class="fas fa-clock"></i> Availability</h4>
-                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Emergency Service: 24/7</p>
-                    </div>
-
-                    <div class="service-areas">
-                        <h4>Service Areas</h4>
-                        <p>Monterey • Carmel • Pacific Grove • Seaside • Marina • Salinas • Capitola • Santa Cruz and surrounding areas</p>
+                        <div class="contact-item-icon">🌍</div>
+                        <div class="contact-item-text">
+                            <div class="contact-item-label">Service Area</div>
+                            <div class="contact-item-value">Local & Surrounding Areas</div>
+                        </div>
                     </div>
                 </div>
-
-                <form class="quote-form" onsubmit="handleSubmit(event)">
-                    <h3>Request a Free Quote</h3>
-                    
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service">Service Needed *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service...</option>
-                            <option value="ac-installation">AC Installation</option>
-                            <option value="ac-repair">AC Repair</option>
-                            <option value="ac-maintenance">AC Maintenance</option>
-                            <option value="heating">Heating Systems</option>
-                            <option value="heat-pump">Heat Pump Services</option>
-                            <option value="air-quality">Air Quality</option>
-                            <option value="emergency">Emergency Service</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your HVAC needs..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit">Request Free Quote</button>
-                    </div>
-                </form>
+                <div class="quote-form">
+                    <h3>Free Quote Request</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="ac-installation">AC Installation</option>
+                                <option value="ac-repair">AC Repair</option>
+                                <option value="ac-maintenance">AC Maintenance</option>
+                                <option value="heating-installation">Heating Installation</option>
+                                <option value="heating-service">Heating Service</option>
+                                <option value="ductwork">Ductwork Solutions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your HVAC needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Get Your Free Quote</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1049,42 +934,30 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Comfort Mechanical Service Inc.</h4>
-                    <p>Your trusted HVAC contractor serving Monterey County with professional heating and cooling solutions.</p>
+                <div class="footer-business-name">Comfort Mechanical Service Inc.</div>
+                <div class="footer-contact">
+                    <a href="tel:(831)900-8973">(831) 900-8973</a>
+                    <span>•</span>
+                    <span>HVAC Services</span>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <p><a href="#services">Services</a></p>
-                    <p><a href="#why-us">Why Choose Us</a></p>
-                    <p><a href="#reviews">Reviews</a></p>
-                    <p><a href="#contact">Contact</a></p>
+                <div class="footer-copyright">
+                    &copy; 2024 Comfort Mechanical Service Inc. All rights reserved.
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><strong>Phone:</strong> <a href="tel:+18319008973">(831) 900-8973</a></p>
-                    <p><strong>Service Hours:</strong><br>Mon-Fri: 8 AM - 6 PM<br>Sat: 9 AM - 4 PM<br>Emergency: 24/7</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Comfort Mechanical Service Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18319008973" class="floating-call" title="Call now">
-        <i class="fas fa-phone"></i>
-    </a>
+    <a href="tel:(831)900-8973" class="floating-call-btn" title="Call Comfort Mechanical Service Inc.">☎️</a>
 
     <script>
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
@@ -1093,40 +966,31 @@
             });
         }, observerOptions);
 
-        // Observe elements with animation classes
-        document.querySelectorAll('.service-card, .why-item, .review-card, .about-content, .contact-item, .quote-form').forEach(el => {
+        // Observe all elements that need animation
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content').forEach(el => {
             observer.observe(el);
         });
 
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Simulate form submission
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Create phone call with form data in URL (for demo)
-            const name = formData.get('name');
-            const phone = formData.get('phone');
-            const service = formData.get('service');
-            
-            // Show success message
-            alert(`Thank you, ${name}! We'll contact you at ${phone} soon to discuss your ${service} needs.`);
-            
-            // Reset form
-            form.reset();
+        // Form submission handling
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your interest! We will contact you shortly with your free quote.');
+                form.reset();
+            });
         }
 
-        // Smooth scroll behavior for navigation links
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
+                if (href !== '#') {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
