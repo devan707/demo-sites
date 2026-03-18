@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Angelo Roofing | Expert Roofing Services in Santa Cruz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #e67e22;
+            --primary-dark: #d35400;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .phone-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background-image: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.9) 100%), 
+                              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%232c3e50"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            color: var(--white);
+            padding: 6rem 1.5rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 8rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .btn {
+                padding: 1.2rem 2.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* STATS BAR */
+        .stats {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 4rem 1.5rem;
+            background: var(--bg-light);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card h3 {
+            color: var(--text-dark);
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto;
+            color: var(--white);
+        }
+
+        @media (min-width: 768px) {
+            .services {
+                padding: 5rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* WHY CHOOSE US */
+        .why-choose {
+            padding: 4rem 1.5rem;
+            background: var(--white);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .value-prop-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+            color: var(--white);
+        }
+
+        .value-prop h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .why-choose {
+                padding: 5rem 2rem;
+            }
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 4rem 1.5rem;
+            background: var(--bg-light);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            position: relative;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .review-rating {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            display: inline-block;
+            background: var(--success);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .reviews {
+                padding: 5rem 2rem;
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 4rem 1.5rem;
+            background: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            color: var(--text-light);
+            line-height: 1.9;
+            font-size: 1rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .about {
+                padding: 5rem 2rem;
+            }
+
+            .about-content {
+                text-align: left;
+                font-size: 1.05rem;
+            }
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--text-dark) 0%, #34495e 100%);
+            color: var(--white);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .quote-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .quote-form h3 {
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.3);
+        }
+
+        .quote-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .quote-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (min-width: 768px) {
+            .contact {
+                padding: 5rem 2rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quote-form {
+                padding: 2.5rem;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a252f;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding: 2.5rem;
+            }
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 99;
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .floating-call:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .floating-call {
+                bottom: 2.5rem;
+                right: 2.5rem;
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">A Angelo <span>Roofing</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose">Why Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:+18314278334" class="phone-header">📞 (831) 427-8334</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A Angelo Roofing</h1>
+            <p>Professional roofing solutions you can trust</p>
+            <div class="cta-buttons">
+                <a href="tel:+18314278334" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3><span class="stars">★★★★★</span></h3>
+                <p>5 Star Rating</p>
+            </div>
+            <div class="stat-item">
+                <h3>6</h3>
+                <p>Customer Reviews</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Customer Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card" style="animation-delay: 0.1s;">
+                    <div class="service-icon">🏠</div>
+                    <h3>Roof Installation</h3>
+                    <p>New roof installations with premium materials and expert craftsmanship for long-lasting protection.</p>
+                </div>
+                <div class="service-card" style="animation-delay: 0.2s;">
+                    <div class="service-icon">🔧</div>
+                    <h3>Roof Repair</h3>
+                    <p>Fast and reliable repairs for leaks, damaged shingles, and structural issues. Same-day service available.</p>
+                </div>
+                <div class="service-card" style="animation-delay: 0.3s;">
+                    <div class="service-icon">🧹</div>
+                    <h3>Roof Maintenance</h3>
+                    <p>Regular maintenance to extend your roof's lifespan and prevent costly damage down the road.</p>
+                </div>
+                <div class="service-card" style="animation-delay: 0.4s;">
+                    <div class="service-icon">☔</div>
+                    <h3>Leak Detection</h3>
+                    <p>Advanced leak detection technology to identify problems before they cause major damage.</p>
+                </div>
+                <div class="service-card" style="animation-delay: 0.5s;">
+                    <div class="service-icon">🌪️</div>
+                    <h3>Storm Damage Repair</h3>
+                    <p>Emergency storm damage restoration to get your roof back to perfect condition quickly.</p>
+                </div>
+                <div class="service-card" style="animation-delay: 0.6s;">
+                    <div class="service-icon">📋</div>
+                    <h3>Roof Inspection</h3>
+                    <p>Comprehensive inspections to assess your roof's condition and identify potential issues early.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose <span>A Angelo</span></h2>
+            <div class="value-props">
+                <div class="value-prop" style="animation-delay: 0.1s;">
+                    <div class="value-prop-icon">⭐</div>
+                    <h3>Trusted Experts</h3>
+                    <p>Years of roofing experience with a proven track record of quality work and satisfied customers throughout Santa Cruz.</p>
+                </div>
+                <div class="value-prop" style="animation-delay: 0.2s;">
+                    <div class="value-prop-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>We use only the highest quality materials and proven roofing techniques to ensure your roof lasts for decades.</p>
+                </div>
+                <div class="value-prop" style="animation-delay: 0.3s;">
+                    <div class="value-prop-icon">🤝</div>
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our priority. We provide transparent pricing, timely service, and exceptional customer care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Customer <span>Reviews</span></h2>
+            <div class="reviews-grid">
+                <div class="review-card" style="animation-delay: 0.1s;">
+                    <div class="review-header">
+                        <div class="review-avatar">JM</div>
+                        <div>
+                            <h4>James M.</h4>
+                            <div class="review-rating">★★★★★</div>
+                            <div class="verified-badge">✓ Verified</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"A Angelo Roofing did an exceptional job on our roof replacement. The team was professional, punctual, and took great care to protect our property. Highly recommended!"</p>
+                </div>
+                <div class="review-card" style="animation-delay: 0.2s;">
+                    <div class="review-header">
+                        <div class="review-avatar">SR</div>
+                        <div>
+                            <h4>Sarah R.</h4>
+                            <div class="review-rating">★★★★★</div>
+                            <div class="verified-badge">✓ Verified</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Quick response time and excellent service. They found and fixed our leak issue immediately. The team was courteous and left our home clean. Five stars!"</p>
+                </div>
+                <div class="review-card" style="animation-delay: 0.3s;">
+                    <div class="review-header">
+                        <div class="review-avatar">MC</div>
+                        <div>
+                            <h4>Michael C.</h4>
+                            <div class="review-rating">★★★★★</div>
+                            <div class="verified-badge">✓ Verified</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best roofing contractor in Santa Cruz! The workmanship is outstanding, and they stand behind their work. Fair pricing with no hidden costs. Will definitely use again."</p>
+                </div>
+                <div class="review-card" style="animation-delay: 0.4s;">
+                    <div class="review-header">
+                        <div class="review-avatar">LP</div>
+                        <div>
+                            <h4>Lisa P.</h4>
+                            <div class="review-rating">★★★★★</div>
+                            <div class="verified-badge">✓ Verified</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Professional from start to finish! Angelo and his team repaired our storm damage perfectly. The quality is exceptional and they were incredibly communicative throughout."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About <span>A Angelo</span></h2>
+            <div class="about-content">
+                <p><strong>A Angelo Roofing</strong> is Santa Cruz's trusted roofing specialist, providing expert services to residential and commercial properties since serving the community with dedication to quality and integrity.</p>
+                <p>Angelo and his team bring years of hands-on roofing experience to every project. They're committed to delivering superior craftsmanship, using only premium materials, and treating every customer's home with the same care they'd give their own. From new installations to repairs and maintenance, A Angelo Roofing handles it all with professionalism and attention to detail.</p>
+                <p>When you choose A Angelo Roofing, you're choosing a local expert who understands Santa Cruz's unique weather challenges and building needs. The team's reputation is built on reliability, transparent communication, and 100% customer satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white); margin-bottom: 1rem;">Get in <span>Touch</span></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+18314278334">(831) 427-8334</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Service Area</h3>
+                        <p>Santa Cruz and surrounding areas</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>⏱️ Available</h3>
+                        <p>Monday - Friday: 7:00 AM - 5:00 PM<br>Saturday: 8:00 AM - 2:00 PM<br>Emergency services available</p>
+                    </div>
+                </div>
+                <form class="quote-form" onsubmit="handleSubmit(event)">
+                    <h3>Free Quote Request</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Roof Repair, Installation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Free Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>A Angelo Roofing</strong></p>
+        <p>Serving Santa Cruz, CA</p>
+        <p>📞 <a href="tel:+18314278334" style="color: var(--primary-color);">(831) 427-8334</a></p>
+        <div class="copyright">
+            <p>&copy; 2024 A Angelo Roofing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:+18314278334" class="floating-call" title="Call A Angelo Roofing">📞</a>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with animation-delay or service-card class
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content, .contact-info, .quote-form').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Create WhatsApp message or email fallback
+            const phoneNumber = '18314278334';
+            const text = `Hello! I would like to request a free quote.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nService: ${service}\nDetails: ${message}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+            
+            // Open WhatsApp or email
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            event.target.reset();
+            alert('Thank you! Your message has been sent. Please check WhatsApp or we\'ll contact you shortly.');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
