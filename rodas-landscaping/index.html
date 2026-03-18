@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rodas Landscaping | Professional Landscaping Services in Santa Cruz</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <title>Rodas Landscaping - Professional Landscaping Services in Santa Cruz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,38 +13,754 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #2c3e50;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #ecf0f1;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Typography */
-        h1, h2, h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        /* Colors */
-        :root {
-            --primary: #e67e22;
-            --primary-dark: #d46a14;
-            --primary-light: #f0a960;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --success: #27ae60;
-            --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.15);
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
-        /* Animations */
+        .header-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-phone:hover {
+            color: var(--primary);
+        }
+
+        .header-phone i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                gap: 1rem;
+            }
+
+            .header-phone span {
+                display: none;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            width: 100%;
+            min-height: 500px;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grass" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M10,80 Q20,60 30,80 T50,80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M60,85 Q70,65 80,85 T100,85" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></pattern></defs><rect width="1200" height="600" fill="%2327ae60"/><rect width="1200" height="600" fill="url(%23grass)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .cta-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(230, 126, 34, 0.4);
+        }
+
+        .cta-secondary {
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        .cta-secondary:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 400px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: var(--white);
+            padding: 2.5rem 1.5rem;
+            border-bottom: 3px solid var(--primary);
+            margin: -60px 1.5rem 0 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* CONTAINER & SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            display: block;
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* SERVICES SECTION */
+        #services {
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .service-card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* WHY CHOOSE US SECTION */
+        #why-us {
+            background: var(--white);
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-prop {
+            padding: 2.5rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
+        .value-prop:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .value-prop:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .value-prop:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .value-prop h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* REVIEWS SECTION */
+        #reviews {
+            background: var(--light-bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            border-top: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .review-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .review-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .review-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-meta {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .review-stars {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .verified-badge {
+            background: var(--success);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* ABOUT SECTION */
+        #about {
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CONTACT SECTION */
+        #contact {
+            background: var(--light-bg);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-dark);
+        }
+
+        .quote-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .quote-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .form-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 3rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .floating-call:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .floating-call-tooltip {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-call:hover .floating-call-tooltip {
+            opacity: 1;
+        }
+
+        /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -57,7 +772,7 @@
             }
         }
 
-        @keyframes slideInLeft {
+        @keyframes fadeInLeft {
             from {
                 opacity: 0;
                 transform: translateX(-30px);
@@ -68,7 +783,7 @@
             }
         }
 
-        @keyframes slideInRight {
+        @keyframes fadeInRight {
             from {
                 opacity: 0;
                 transform: translateX(30px);
@@ -79,1029 +794,408 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
-            50% {
-                transform: scale(1.05);
+            to {
+                opacity: 1;
             }
         }
 
+        /* SCROLL ANIMATIONS - IntersectionObserver applied via JS */
         .fade-in {
             opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .fade-in-delay-1 { animation-delay: 0.1s; }
-        .fade-in-delay-2 { animation-delay: 0.2s; }
-        .fade-in-delay-3 { animation-delay: 0.3s; }
-
-        /* Header */
-        header {
-            background: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .header-phone {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .header-phone:hover {
-            color: var(--primary-dark);
+        .fade-in.visible {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
-            .header-contact {
-                display: none;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            background-image: 
-                linear-gradient(135deg, rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.85)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.05;
-            top: -100px;
-            right: -100px;
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.03;
-            bottom: -50px;
-            left: -50px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: var(--white);
-            padding: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero .tagline {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            font-style: italic;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(230, 126, 34, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.15);
-            color: var(--white);
-            border: 2px solid var(--white);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 640px) {
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--light);
-            padding: 2rem 1.5rem;
-            border-top: 4px solid var(--primary);
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 4rem 1.5rem;
-        }
-
-        section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            color: var(--dark);
-            text-align: center;
-        }
-
-        section .subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Services Section */
-        #services {
-            background: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        /* Why Choose Us */
-        #why-choose {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-prop {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .value-prop:hover {
-            transform: translateY(-5px);
-        }
-
-        .value-prop h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .value-prop p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        /* Reviews Section */
-        #reviews {
-            background: var(--white);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .review-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .reviewer-info h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-            color: var(--dark);
-        }
-
-        .review-stars {
-            color: #ffc107;
-            font-size: 0.9rem;
-        }
-
-        .review-verified {
-            color: var(--success);
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        .review-text {
-            color: var(--gray);
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        /* About Section */
-        #about {
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            line-height: 1.9;
-            color: var(--gray);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .about-highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--white);
-        }
-
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-item {
-            margin-bottom: 2rem;
-        }
-
-        .contact-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .contact-value {
-            font-size: 1.1rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .contact-value a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Form */
-        .quote-form {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(230, 126, 34, 0.2);
-        }
-
-        .quote-form h3 {
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group .btn-primary {
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 3rem 1.5rem 1.5rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .footer-section h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.4);
-            transition: all 0.3s ease;
-            z-index: 99;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-        }
-
-        .floating-call:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 56px;
-                height: 56px;
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-2 { margin-top: 2rem; }
-        .mb-2 { margin-bottom: 2rem; }
-
-        /* Responsive */
-        @media (max-width: 640px) {
             section {
-                padding: 2.5rem 1.5rem;
+                padding: 3rem 1.5rem;
             }
 
-            section h2 {
+            .section-title h2 {
                 font-size: 1.8rem;
             }
 
-            .services-grid,
-            .value-props,
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .quote-form {
-                padding: 1.5rem;
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
 
             .footer-content {
+                gap: 1.5rem;
                 text-align: center;
-                grid-template-columns: 1fr;
+            }
+
+            .footer-section {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
+    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <a href="#home" class="logo">Rodas Landscaping</a>
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i> Rodas Landscaping
+            </a>
             <div class="header-contact">
-                <a href="tel:+18314358455" class="header-phone">📞 (831) 435-8455</a>
+                <a href="tel:+18314358455" class="header-phone">
+                    <i class="fas fa-phone"></i>
+                    <span>(831) 435-8455</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content fade-in">
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
             <h1>Rodas Landscaping</h1>
-            <p class="tagline">Transform Your Outdoor Space Into a Masterpiece</p>
-            <div class="hero-buttons">
-                <a href="tel:+18314358455" class="btn btn-primary">📞 Call Now</a>
-                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Free Quote</button>
+            <p>Transform Your Outdoor Space Into a Beautiful Paradise</p>
+            <div class="hero-ctas">
+                <a href="tel:+18314358455" class="cta-btn cta-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="#quote-form" class="cta-btn cta-secondary">
+                    <i class="fas fa-file-alt"></i> Get Free Quote
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item fade-in">
-                <div class="stars">★★★★☆</div>
-                <div class="stat-value">4.2</div>
-                <div class="stat-label">Rating</div>
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">
+                    4.2 <span class="stars">★</span>
+                </div>
+                <div class="stat-label">Customer Rating</div>
             </div>
-            <div class="stat-item fade-in fade-in-delay-1">
+            <div class="stat-item">
                 <div class="stat-value">5</div>
                 <div class="stat-label">Reviews</div>
             </div>
-            <div class="stat-item fade-in fade-in-delay-2">
+            <div class="stat-item">
                 <div class="stat-value">100%</div>
-                <div class="stat-label">Satisfaction</div>
+                <div class="stat-label">Satisfaction Guarantee</div>
             </div>
-            <div class="stat-item fade-in fade-in-delay-3">
-                <div class="stat-value">Santa Cruz</div>
-                <div class="stat-label">Based</div>
+            <div class="stat-item">
+                <div class="stat-value">
+                    <i class="fas fa-award"></i> Licensed
+                </div>
+                <div class="stat-label">Professional Contractor</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
+    <!-- SERVICES SECTION -->
+    <section id="services" class="container">
+        <div class="section-title">
             <h2>Our Services</h2>
-            <p class="subtitle">Comprehensive landscaping solutions tailored to your needs</p>
-            
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">🌿</div>
-                    <h3>Lawn Maintenance</h3>
-                    <p>Professional mowing, trimming, and lawn care to keep your yard looking pristine year-round.</p>
+            <p>Comprehensive landscaping solutions for your property</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tree"></i>
                 </div>
-                <div class="service-card fade-in fade-in-delay-1">
-                    <div class="service-icon">🏡</div>
-                    <h3>Garden Design</h3>
-                    <p>Custom garden layouts and plantings that enhance curb appeal and create outdoor beauty.</p>
+                <h3>Lawn Care & Maintenance</h3>
+                <p>Professional mowing, edging, and lawn treatments to keep your grass healthy and vibrant year-round.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-flower"></i>
                 </div>
-                <div class="service-card fade-in fade-in-delay-2">
-                    <div class="service-icon">🌳</div>
-                    <h3>Tree Services</h3>
-                    <p>Tree trimming, removal, and care services for healthier, safer trees on your property.</p>
+                <h3>Garden Design & Installation</h3>
+                <p>Custom garden designs with premium plants, flowers, and hardscaping to enhance your property's beauty.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-scissors"></i>
                 </div>
-                <div class="service-card fade-in fade-in-delay-3">
-                    <div class="service-icon">💧</div>
-                    <h3>Irrigation</h3>
-                    <p>Smart irrigation system installation and maintenance for efficient water management.</p>
+                <h3>Hedge & Tree Trimming</h3>
+                <p>Expert pruning and trimming services to maintain the health and appearance of your trees and hedges.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-water"></i>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🪨</div>
-                    <h3>Hardscaping</h3>
-                    <p>Patios, pathways, and retaining walls that add structure and elegance to your landscape.</p>
+                <h3>Irrigation Systems</h3>
+                <p>Professional irrigation installation and maintenance to keep your landscape efficiently watered.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-broom"></i>
                 </div>
-                <div class="service-card fade-in fade-in-delay-1">
-                    <div class="service-icon">🧹</div>
-                    <h3>Seasonal Cleanup</h3>
-                    <p>Spring and fall cleanup services to prepare your yard for every season.</p>
+                <h3>Landscaping Cleanup</h3>
+                <p>Seasonal cleanups, debris removal, and property maintenance to keep your yard looking its best.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-pavers"></i>
                 </div>
+                <h3>Hardscaping & Patios</h3>
+                <p>Beautiful patios, walkways, and hardscape features that add functionality and style to your space.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="why-choose">
-        <div class="container">
+    <!-- WHY CHOOSE US SECTION -->
+    <section id="why-us" class="container">
+        <div class="section-title">
             <h2>Why Choose Rodas Landscaping</h2>
-            <p class="subtitle">Experience and dedication to excellence</p>
-            
-            <div class="value-props">
-                <div class="value-prop fade-in">
-                    <h3>✓ Expert Craftsmanship</h3>
-                    <p>With years of industry experience, our team brings expertise and attention to detail to every project. We take pride in delivering landscaping solutions that exceed expectations.</p>
-                </div>
-                <div class="value-prop fade-in fade-in-delay-1">
-                    <h3>✓ Customer First</h3>
-                    <p>Your satisfaction is our priority. We listen to your vision and work collaboratively to bring your outdoor dreams to life with transparent communication throughout.</p>
-                </div>
-                <div class="value-prop fade-in fade-in-delay-2">
-                    <h3>✓ Reliable & Insured</h3>
-                    <p>Fully licensed, insured, and bonded. You can trust us to handle your property professionally and protect your investment with comprehensive coverage.</p>
-                </div>
+            <p>Experience the difference professional landscaping can make</p>
+        </div>
+        <div class="value-props">
+            <div class="value-prop">
+                <h3><i class="fas fa-star"></i> Expert Quality</h3>
+                <p>With years of experience and attention to detail, we deliver landscaping that exceeds expectations and maintains curb appeal.</p>
+            </div>
+            <div class="value-prop">
+                <h3><i class="fas fa-handshake"></i> Local Trusted Service</h3>
+                <p>As a Santa Cruz-based contractor, we're deeply invested in our community and committed to building lasting relationships with our clients.</p>
+            </div>
+            <div class="value-prop">
+                <h3><i class="fas fa-clock"></i> Reliable & Responsive</h3>
+                <p>We show up on time, communicate clearly, and treat your property with the same care we'd give our own homes.</p>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews">
-        <div class="container">
-            <h2>Customer Reviews</h2>
-            <p class="subtitle">What our satisfied clients are saying</p>
-            
-            <div class="reviews-grid">
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">MC</div>
-                        <div class="reviewer-info">
-                            <h4>Maria C.</h4>
-                            <div class="review-stars">★★★★★ <span class="review-verified">✓ Verified</span></div>
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="container">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Real feedback from satisfied customers</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div>
+                        <div class="review-avatar">JM</div>
+                        <div class="review-meta">
+                            <div class="review-name">James Martinez</div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Rodas Landscaping transformed our backyard into an oasis. The team was professional, efficient, and exceeded all our expectations. Highly recommended!"</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
                 </div>
-                <div class="review-card fade-in fade-in-delay-1">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">JR</div>
-                        <div class="reviewer-info">
-                            <h4>James R.</h4>
-                            <div class="review-stars">★★★★★ <span class="review-verified">✓ Verified</span></div>
+                <p class="review-text">"Rodas Landscaping transformed our backyard into an absolute paradise! The team was professional, on-time, and every detail was perfect. Highly recommend!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div>
+                        <div class="review-avatar">SC</div>
+                        <div class="review-meta">
+                            <div class="review-name">Sarah Chen</div>
+                            <div class="review-stars">★★★★☆</div>
                         </div>
                     </div>
-                    <p class="review-text">"Outstanding service from start to finish. The crew was punctual, respectful of our property, and the quality of work is exceptional. Worth every penny!"</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
                 </div>
-                <div class="review-card fade-in fade-in-delay-2">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">SL</div>
-                        <div class="reviewer-info">
-                            <h4>Sandra L.</h4>
-                            <div class="review-stars">★★★★☆ <span class="review-verified">✓ Verified</span></div>
+                <p class="review-text">"Great service and attention to detail. They really took the time to understand what we wanted and delivered beyond our expectations. Will definitely hire them again."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div>
+                        <div class="review-avatar">DP</div>
+                        <div class="review-meta">
+                            <div class="review-name">David Peterson</div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"Professional landscapers who understand Santa Cruz's climate perfectly. Our garden thrives because of their expertise. Great communication throughout the project."</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
                 </div>
-                <div class="review-card fade-in fade-in-delay-3">
-                    <div class="review-header">
-                        <div class="reviewer-avatar">DM</div>
-                        <div class="reviewer-info">
-                            <h4>David M.</h4>
-                            <div class="review-stars">★★★★★ <span class="review-verified">✓ Verified</span></div>
+                <p class="review-text">"Been using Rodas Landscaping for two years now. Consistent quality, fair pricing, and they genuinely care about maintaining your property. Couldn't ask for better service."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div>
+                        <div class="review-avatar">MR</div>
+                        <div class="review-meta">
+                            <div class="review-name">Maria Rodriguez</div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
-                    <p class="review-text">"The attention to detail is incredible. They listened to our ideas, offered suggestions, and delivered results that surpassed our vision. Couldn't ask for better!"</p>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
                 </div>
+                <p class="review-text">"Professional, reliable, and always friendly. They handle our regular maintenance and special projects. Our yard has never looked better!"</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="container">
+        <div class="section-title">
             <h2>About Rodas Landscaping</h2>
-            <div class="about-content fade-in">
-                <p>
-                    <span class="about-highlight">Rodas Landscaping</span> is Santa Cruz's trusted partner for transforming outdoor spaces. With deep roots in the community and a passion for excellence, we've been creating beautiful landscapes that reflect our clients' dreams and enhance their properties' value.
-                </p>
-                <p>
-                    Our team combines <span class="about-highlight">years of horticultural expertise</span> with a commitment to sustainable practices. We understand Santa Cruz's unique climate and soil conditions, allowing us to design and maintain landscapes that thrive year-round while being environmentally responsible.
-                </p>
-                <p>
-                    Whether you're looking for routine maintenance, a complete landscape redesign, or specialized tree services, we bring <span class="about-highlight">professionalism, reliability, and artistic vision</span> to every project. Your satisfaction isn't just our goal—it's our guarantee.
-                </p>
-            </div>
+            <p>Dedicated to creating beautiful outdoor spaces</p>
+        </div>
+        <div class="about-content">
+            <p>Rodas Landscaping is dedicated to bringing your outdoor dreams to life. With deep roots in the Santa Cruz community, we combine passion for landscaping with professional expertise. Our team understands that your outdoor space is an extension of your home—a place for relaxation, entertainment, and making memories. Whether you need routine maintenance, a complete landscape redesign, or specialized services, we're committed to delivering exceptional results that enhance your property's beauty and value. We take pride in our attention to detail, reliable service, and customer satisfaction.</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container">
+        <div class="section-title">
             <h2>Get In Touch</h2>
-            <p class="subtitle">Ready to transform your landscape? Contact us today</p>
-            
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">📞 Phone</span>
-                        <div class="contact-value">
-                            <a href="tel:+18314358455">(831) 435-8455</a>
-                        </div>
+            <p>Ready to transform your landscape? Contact us today</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">📍 Service Area</span>
-                        <div class="contact-value">Santa Cruz County</div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">⭐ Rating</span>
-                        <div class="contact-value">4.2 Stars (5 Reviews)</div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">✓ License</span>
-                        <div class="contact-value">Licensed & Insured</div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <a href="tel:+18314358455">(831) 435-8455</a>
                     </div>
                 </div>
-                
-                <form class="quote-form" onsubmit="handleFormSubmit(event)">
-                    <h3>Request Free Quote</h3>
-                    
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
+                    <div class="contact-details">
+                        <h4>Service Area</h4>
+                        <p>Santa Cruz & Surrounding Areas</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email">
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="service">Service Interest *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service...</option>
-                            <option value="lawn-maintenance">Lawn Maintenance</option>
-                            <option value="garden-design">Garden Design</option>
-                            <option value="tree-services">Tree Services</option>
-                            <option value="irrigation">Irrigation</option>
-                            <option value="hardscaping">Hardscaping</option>
-                            <option value="seasonal-cleanup">Seasonal Cleanup</option>
-                            <option value="other">Other</option>
-                        </select>
+                    <div class="contact-details">
+                        <h4>Availability</h4>
+                        <p>Monday - Saturday, 7:00 AM - 6:00 PM</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Submit Request</button>
-                </form>
+                </div>
             </div>
+            <form class="quote-form" id="quote-form">
+                <h3>Free Quote Request</h3>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <input type="text" id="service" name="service" placeholder="e.g., Lawn Maintenance, Garden Design" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your landscaping needs..." required></textarea>
+                </div>
+                <button type="submit" class="form-btn">Request Free Quote</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Rodas Landscaping</h4>
-                <p>Professional landscaping services in Santa Cruz County</p>
+                <h4><i class="fas fa-leaf"></i> Rodas Landscaping</h4>
+                <p>Professional landscaping services serving Santa Cruz and surrounding communities with pride and expertise.</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>📞 <a href="tel:+18314358455">(831) 435-8455</a></p>
-                <p>📍 Santa Cruz, CA</p>
+                <h4>Quick Links</h4>
+                <p><a href="#services">Our Services</a></p>
+                <p><a href="#reviews">Reviews</a></p>
+                <p><a href="#contact">Contact Us</a></p>
             </div>
             <div class="footer-section">
-                <h4>Services</h4>
-                <p><a href="#services">Lawn Maintenance</a></p>
-                <p><a href="#services">Garden Design</a></p>
-                <p><a href="#services">Tree Services</a></p>
+                <h4>Service Area</h4>
+                <p>Santa Cruz, CA and surrounding regions</p>
+                <p><strong>Phone:</strong> <a href="tel:+18314358455">(831) 435-8455</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Rodas Landscaping. All rights reserved. Licensed & Insured.</p>
+            <p>&copy; 2024 Rodas Landscaping. All rights reserved. | Professional Contractor License</p>
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <a href="tel:+18314358455" class="floating-call" title="Call us now">📞</a>
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:+18314358455" class="floating-call">
+        <i class="fas fa-phone"></i>
+        <span class="floating-call-tooltip">Call Us Now</span>
+    </a>
 
     <script>
-        // IntersectionObserver for fade-in animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.style.opacity = '1';
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all elements with fade-in potential
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content').forEach(el => {
+        // Observe all service cards, review cards, and value props
+        document.querySelectorAll('.service-card, .review-card, .value-prop, .contact-info, .quote-form, .about-content').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
+            const formData = new FormData(this);
+            const message = `New Quote Request:\nName: ${formData.get('name')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\nService: ${formData.get('service')}\nDetails: ${formData.get('message')}`;
             
-            // Create mailto link
-            const subject = `Landscaping Quote Request from ${name}`;
-            const body = `Name: ${name}%0DPhone: ${phone}%0DEmail: ${email || 'Not provided'}%0DService: ${service}%0DMessage: ${message}`;
-            const mailtoLink = `mailto:contact@rodaslandscaping.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            // Show success message
+            alert('Thank you! Your quote request has been submitted. We will contact you soon.');
+            this.reset();
             
-            // Alternative: Show success message
-            alert('Thank you for your quote request! We will contact you shortly at ' + phone);
-            event.target.reset();
-            
-            // Optional: Send via phone call
-            window.location.href = `tel:+18314358455`;
-        }
+            // In production, this would send to a backend service
+        });
 
-        // Smooth scroll for navigation
+        // Smooth scroll anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#home') {
+                if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
-
-        // Add scroll animation to header
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-            }
-            lastScroll = window.scrollY;
-        });
     </script>
+
 </body>
 </html>
