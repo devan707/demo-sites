@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffelt Construction | Professional Building Services in Watsonville</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #34495e;
+            --accent-color: #e74c3c;
+            --light-gray: #f8f9fa;
+            --border-gray: #e0e0e0;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 4vw, 28px);
+            font-style: italic;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--light-gray);
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .stat-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .stat-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--light-gray);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            background-color: var(--white);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 80px 20px;
+            background-color: var(--light-gray);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-prop {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .value-prop:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-prop h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 20px;
+            background-color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .review-verified {
+            font-size: 12px;
+            color: #27ae60;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .review-stars {
+            color: #f39c12;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .about-content strong {
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .quote-form {
+            background-color: var(--light-gray);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                text-align: center;
+            }
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(231, 76, 60, 0.4);
+            transition: var(--transition);
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(231, 76, 60, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .services,
+            .why-choose,
+            .reviews,
+            .about,
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+            <a href="#" class="logo">Coffelt Construction</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Coffelt Construction</h1>
+            <p>Professional Building Solutions for Watsonville</p>
+            <div class="cta-buttons">
+                <a href="tel:(831)728-3518" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <div class="stat-content">
+                    <div class="stars">★★★★☆</div>
+                    <h3>4.2 Rating</h3>
+                </div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-content">
+                    <h3>6 Reviews</h3>
+                    <p>From Satisfied Customers</p>
+                </div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="stat-content">
+                    <h3>100% Satisfaction</h3>
+                    <p>Guaranteed Quality Work</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏗️</div>
+                    <h3>New Construction</h3>
+                    <p>Complete new building projects from foundation to finish. We deliver exceptional quality on time and within budget.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔨</div>
+                    <h3>Remodeling</h3>
+                    <p>Transform your space with professional remodeling services. Kitchen, bathroom, and whole-home renovations available.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Work</h3>
+                    <p>Specialized commercial construction services for businesses. We understand the unique demands of commercial projects.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🧱</div>
+                    <h3>Repairs & Restoration</h3>
+                    <p>Expert repairs and restoration services for damaged structures. We restore buildings to their original quality.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🪟</div>
+                    <h3>Additions</h3>
+                    <p>Expand your property with quality additions. We seamlessly integrate new spaces with existing structures.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>Consultation</h3>
+                    <p>Expert consultation for your construction project. We help you plan and execute your vision perfectly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose" id="why-us">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Choose Coffelt Construction</h2>
+            <div class="why-grid">
+                <div class="value-prop fade-in">
+                    <h3>Trusted Expertise</h3>
+                    <p>With years of experience in the Watsonville area, we've built a reputation for excellence. Our team brings proven expertise to every project, ensuring superior results.</p>
+                </div>
+                <div class="value-prop fade-in">
+                    <h3>Transparent Communication</h3>
+                    <p>We believe in clear, honest communication throughout every project. You'll always know what to expect with regular updates and responsive customer service.</p>
+                </div>
+                <div class="value-prop fade-in">
+                    <h3>Quality Craftsmanship</h3>
+                    <p>We don't cut corners. Every detail matters. Our commitment to quality craftsmanship means your project will stand the test of time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title fade-in">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">MJ</div>
+                        <div class="review-meta">
+                            <div class="review-name">Maria Johnson</div>
+                            <div class="review-verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Coffelt Construction completely transformed our kitchen. The team was professional, punctual, and the attention to detail was amazing. Highly recommend!"</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">RP</div>
+                        <div class="review-meta">
+                            <div class="review-name">Robert Patterson</div>
+                            <div class="review-verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Our bathroom renovation was handled with care and expertise. They met all deadlines and the final result exceeded our expectations. Great team!"</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">SC</div>
+                        <div class="review-meta">
+                            <div class="review-name">Sarah Chen</div>
+                            <div class="review-verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★☆</div>
+                    <p class="review-text">"Professional and reliable. They handled our home addition project seamlessly. Communication was excellent throughout the entire process."</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">DM</div>
+                        <div class="review-meta">
+                            <div class="review-name">David Martinez</div>
+                            <div class="review-verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Outstanding workmanship and customer service. The team treated our home like their own. We're extremely satisfied with the results!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Coffelt Construction</h2>
+            <div class="about-content fade-in">
+                <p>
+                    <strong>Coffelt Construction</strong> is a dedicated building and construction company serving the Watsonville community with pride and commitment. Our team brings years of combined experience in residential and commercial construction projects of all sizes.
+                </p>
+                <p>
+                    We believe that every project, regardless of size, deserves our full attention and expertise. From initial consultation to final walkthrough, we maintain the highest standards of professionalism and craftsmanship. Our goal is not just to build—it's to create spaces where families thrive and businesses flourish.
+                </p>
+                <p>
+                    We're proud to have earned the trust of Watsonville residents and local businesses through our unwavering commitment to quality, reliability, and customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info fade-in">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <label>Phone</label>
+                        <p><a href="tel:(831)728-3518" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">(831) 728-3518</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Service Area</label>
+                        <p>Watsonville, CA and surrounding communities</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Hours</label>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: By Appointment<br>Sunday: Closed</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Email</label>
+                        <p><a href="mailto:info@coffeltconstruction.com" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">info@coffeltconstruction.com</a></p>
+                    </div>
+                </div>
+
+                <div class="quote-form fade-in">
+                    <h3>Request Free Quote</h3>
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Type</label>
+                            <input type="text" id="project" name="project" placeholder="e.g., Kitchen Remodel, New Addition">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Get Free Quote</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Coffelt Construction</h4>
+                <p>Professional construction and building services in Watsonville, CA.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: <a href="tel:(831)728-3518" style="color: var(--white); text-decoration: none;">(831) 728-3518</a><br>
+                Watsonville, CA</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#services" style="color: var(--white); text-decoration: none;">Services</a><br>
+                <a href="#contact" style="color: var(--white); text-decoration: none;">Contact</a><br>
+                <a href="#reviews" style="color: var(--white); text-decoration: none;">Reviews</a></p>
+            </div>
+        </div>
+        <div class="footer-divider">
+            <p>&copy; 2024 Coffelt Construction. All rights reserved. | License #[License Number]</p>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:(831)728-3518" class="floating-call" title="Call Coffelt Construction">
+        ☎️
+    </a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Form submission handler
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                project: document.getElementById('project').value,
+                message: document.getElementById('message').value
+            };
+
+            // In a real implementation, this would send data to a server
+            console.log('Quote Request:', formData);
+            
+            // Show success message
+            alert('Thank you for your quote request! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
