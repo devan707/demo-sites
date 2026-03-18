@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coastal Mountain Handyman - Professional Home Services</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Coastal Mountain Handyman | Professional Handyman Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,103 +12,69 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
             color: #2c3e50;
-            background-color: #f8f9fa;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Typography */
-        h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
+        :root {
+            --primary: #34495e;
+            --primary-light: #5d7a94;
+            --primary-dark: #1e293b;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --white: #ffffff;
+            --text: #2c3e50;
+            --border: #bdc3c7;
         }
 
-        h2 {
-            font-size: clamp(1.75rem, 6vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #34495e;
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #34495e;
-            margin-bottom: 0.5rem;
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #555;
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.875rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            text-align: center;
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
 
-        .btn-primary {
-            background-color: #34495e;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #2c3e50;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(52, 73, 94, 0.2);
-        }
-
-        .btn-secondary {
-            background-color: white;
-            color: #34495e;
-            border: 2px solid #34495e;
-        }
-
-        .btn-secondary:hover {
-            background-color: #34495e;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .btn-cta {
-            background-color: #e74c3c;
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-cta:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
-        }
-
-        /* Header */
+        /* HEADER & NAVIGATION */
         header {
-            background-color: white;
-            padding: 1rem 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .header-container {
@@ -124,120 +88,118 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #34495e;
+            color: var(--primary);
         }
 
         .header-contact {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #34495e;
         }
 
-        .header-contact a {
-            color: #34495e;
-            text-decoration: none;
+        .phone-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.75rem;
         }
 
-        @media (max-width: 768px) {
-            .header-contact {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            position: relative;
-            height: 90vh;
-            min-height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(52, 73, 94, 0.85), rgba(30, 41, 59, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f5f5f5" width="1200" height="600"/><path fill="%23e8e8e8" d="M0 300L50 280L100 320L150 280L200 300L250 270L300 310L350 280L400 300L450 250L500 300L550 280L600 310L650 280L700 300L750 270L800 310L850 280L900 300L950 250L1000 300L1050 280L1100 310L1150 280L1200 300V600H0Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--white);
+            position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(52, 73, 94, 0.75);
-            z-index: 1;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
+            max-width: 800px;
             padding: 2rem;
-            max-width: 900px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero h1 {
-            color: white;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
 
         .hero-tagline {
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
             font-style: italic;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.95);
-            animation: fadeInUp 0.8s ease 0.2s both;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
         }
 
-        .hero-buttons {
+        .cta-group {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
         }
 
-        .hero .btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+        .btn {
+            padding: 0.95rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-block;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
 
-        @media (max-width: 640px) {
-            .hero {
-                height: 70vh;
-                min-height: 400px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .hero .btn {
-                width: 100%;
-            }
+        .btn-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
         }
 
-        /* Stats Bar */
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* STATS BAR */
         .stats-bar {
-            background-color: white;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .stats-container {
@@ -250,14 +212,14 @@
         }
 
         .stat-item {
-            animation: fadeInUp 0.6s ease;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .stat-value {
-            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             font-weight: 700;
-            color: #34495e;
-            margin-bottom: 0.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
@@ -268,260 +230,294 @@
 
         .stars {
             color: #f39c12;
-            letter-spacing: 0.2em;
+            margin-right: 0.5rem;
         }
 
-        /* Container */
-        .container {
+        /* SERVICES SECTION */
+        .services {
+            padding: 4rem 1rem;
+            background: #f9fafb;
+        }
+
+        .section-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
         }
 
-        /* Section */
-        section {
-            padding: 4rem 1.5rem;
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
-        section.light {
-            background-color: white;
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
         }
 
-        section.gray {
-            background-color: #f8f9fa;
-        }
-
-        /* Services Section */
         .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(52, 73, 94, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #34495e 0%, #5d7a94 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* WHY CHOOSE US */
+        .why-choose {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            transition: all 0.4s ease;
+        }
+
+        .why-card:hover {
+            background: #f9fafb;
+            padding-left: 2.5rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .why-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 4rem 1rem;
+            background: #f9fafb;
+        }
+
+        .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .service-card {
-            background-color: white;
+        .review-card {
+            background: var(--white);
             padding: 2rem;
-            border-radius: 0.75rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #34495e;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(52, 73, 94, 0.15);
-            border-top-color: #e74c3c;
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .service-icon {
-            font-size: 3rem;
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 1rem;
         }
 
-        .service-card h3 {
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* Why Choose Us */
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .value-prop {
-            padding: 2rem;
-            border-radius: 0.75rem;
-            background: linear-gradient(135deg, rgba(52, 73, 94, 0.05) 0%, rgba(52, 73, 94, 0.02) 100%);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop h3 {
-            color: #34495e;
-            margin-bottom: 0.75rem;
-            font-size: 1.35rem;
-        }
-
-        .value-prop p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .review-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .review-stars {
-            color: #f39c12;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.15em;
-        }
-
-        .review-text {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            line-height: 1.8;
-        }
-
-        .review-author {
+        .reviewer-info {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .review-avatar {
+        .reviewer-avatar {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-color: #34495e;
-            color: white;
+            background: linear-gradient(135deg, #34495e 0%, #5d7a94 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--white);
             font-weight: 700;
             font-size: 1rem;
         }
 
-        .review-info h4 {
-            font-size: 0.95rem;
-            color: #34495e;
-            margin-bottom: 0.2rem;
+        .reviewer-meta {
+            display: flex;
+            flex-direction: column;
         }
 
-        .review-verified {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.8rem;
-            color: #27ae60;
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .verified-badge {
+            font-size: 0.75rem;
+            background: #d4edda;
+            color: #155724;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
             font-weight: 600;
         }
 
-        /* About Section */
+        .review-stars {
+            color: #f39c12;
+            font-size: 0.95rem;
+        }
+
+        .review-text {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+
         .about-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
         }
 
         .about-content p {
             font-size: 1.05rem;
-            line-height: 1.9;
             color: #555;
+            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
         .about-highlight {
-            color: #34495e;
+            color: var(--primary);
             font-weight: 600;
         }
 
-        /* Contact Section */
+        /* CONTACT SECTION */
+        .contact {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #34495e 0%, #5d7a94 100%);
+            color: var(--white);
+        }
+
         .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
         }
 
         .contact-info h3 {
-            margin-bottom: 1.5rem;
             font-size: 1.3rem;
+            margin-bottom: 2rem;
         }
 
         .contact-item {
             margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
         }
 
-        .contact-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .contact-label {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+        .contact-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
         }
 
-        .contact-value {
+        .contact-text p {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #34495e;
         }
 
-        .contact-value a {
-            color: #34495e;
+        .contact-text a {
+            color: var(--white);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
-        .contact-value a:hover {
-            color: #e74c3c;
+        .contact-text a:hover {
+            text-decoration: underline;
         }
 
-        .contact-form {
-            background-color: #f8f9fa;
+        .quote-form {
+            background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
-            border-radius: 0.75rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease 0.1s forwards;
+            border-radius: 12px;
+            color: var(--text);
+        }
+
+        .quote-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
@@ -532,16 +528,16 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #34495e;
             font-size: 0.95rem;
+            color: var(--primary);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.75rem 1rem;
             border: 1px solid #ddd;
-            border-radius: 0.4rem;
+            border-radius: 6px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
             transition: border-color 0.3s ease;
@@ -550,32 +546,38 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #34495e;
+            border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
         .form-submit {
             width: 100%;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.95rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        .form-submit:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 3rem 1.5rem 2rem;
-            margin-top: 4rem;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
         .footer-content {
@@ -585,151 +587,142 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+            text-align: left;
         }
 
         .footer-section h4 {
-            font-size: 1.1rem;
             margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .footer-section p,
         .footer-section a {
             font-size: 0.95rem;
-            line-height: 1.8;
             color: #bdc3c7;
             text-decoration: none;
+            line-height: 1.8;
         }
 
         .footer-section a:hover {
-            color: #ecf0f1;
+            color: var(--white);
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #bdc3c7;
             font-size: 0.9rem;
-            color: #95a5a6;
         }
 
-        /* Floating Call Button */
+        /* FLOATING CALL BUTTON */
         .floating-call {
             position: fixed;
             bottom: 2rem;
-            right: 1.5rem;
+            right: 2rem;
             width: 60px;
             height: 60px;
-            background-color: #e74c3c;
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
             text-decoration: none;
-            color: white;
-            font-size: 1.5rem;
             box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+            animation: pulse 2s infinite;
+            z-index: 1000;
             transition: all 0.3s ease;
-            z-index: 50;
         }
 
         .floating-call:hover {
-            background-color: #c0392b;
             transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(231, 76, 60, 0.6);
+            box-shadow: 0 6px 30px rgba(231, 76, 60, 0.5);
         }
 
-        @media (max-width: 640px) {
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
             .floating-call {
                 bottom: 1.5rem;
-                right: 1rem;
+                right: 1.5rem;
                 width: 55px;
                 height: 55px;
-                font-size: 1.3rem;
+                font-size: 1.5rem;
+            }
+
+            .header-contact {
+                font-size: 0.85rem;
             }
         }
 
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            section {
-                padding: 2.5rem 1rem;
-            }
-
-            h2 {
-                margin-bottom: 0.75rem;
-            }
-
-            .services-grid {
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
-            .service-card {
-                padding: 1.5rem;
+            .hero h1 {
+                margin-bottom: 0.8rem;
             }
 
-            .value-props {
-                gap: 1.5rem;
-            }
-
-            .value-prop {
-                padding: 1.5rem;
-            }
-
-            .reviews-grid {
-                gap: 1.5rem;
-            }
-
-            .review-card {
-                padding: 1.5rem;
+            .hero-tagline {
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">Coastal Mountain Handyman</div>
-            <div class="header-contact">
-                <span>📞</span>
-                <a href="tel:(831)252-1170">(831) 252-1170</a>
-            </div>
+            <div class="logo">🏠 Coastal Mountain Handyman</div>
+            <a href="tel:(831)252-1170" class="header-contact">
+                <span class="phone-icon">☎</span>
+                (831) 252-1170
+            </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
         <div class="hero-content">
             <h1>Coastal Mountain Handyman</h1>
-            <p class="hero-tagline">Professional Home Repairs & Maintenance You Can Trust</p>
-            <div class="hero-buttons">
-                <a href="tel:(831)252-1170" class="btn btn-cta">
-                    📞 Call Now
-                </a>
-                <a href="#quote" class="btn btn-secondary">
-                    Get Free Quote
-                </a>
+            <p class="hero-tagline">Your Trusted Local Experts for Every Home Repair & Maintenance Need</p>
+            <div class="cta-group">
+                <a href="tel:(831)252-1170" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
+    <!-- STATS BAR -->
+    <section class="stats-bar">
         <div class="stats-container">
             <div class="stat-item">
-                <div class="stat-value"><span class="stars">★★★★★</span> 4.8</div>
+                <div class="stat-value"><span class="stars">★★★★★</span>4.8</div>
                 <div class="stat-label">Star Rating</div>
             </div>
             <div class="stat-item">
@@ -741,269 +734,292 @@
                 <div class="stat-label">Satisfaction Guaranteed</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value">15+</div>
-                <div class="stat-label">Years Experience</div>
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Customer Support</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Services Section -->
-    <section class="gray">
-        <div class="container">
-            <h2>Our Services</h2>
-            <p>From minor repairs to complete renovations, we handle all your home maintenance needs with expertise and professionalism.</p>
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">We handle all your home maintenance and repair needs with professionalism and care</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🔧</div>
                     <h3>General Repairs</h3>
-                    <p>Fix leaks, replace fixtures, repair damage, and solve common household problems quickly and efficiently.</p>
+                    <p>From leaky faucets to broken fixtures, we fix it all. No job too small or too large for our experienced team.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🪛</div>
-                    <h3>Installation</h3>
-                    <p>Professional installation of shelving, towel racks, mirrors, and other fixtures with precision and care.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚪</div>
-                    <h3>Door & Window Work</h3>
-                    <p>Repair, replacement, and maintenance of doors and windows to improve security and energy efficiency.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🧹</div>
+                    <div class="service-icon">🪟</div>
                     <h3>Drywall & Painting</h3>
-                    <p>Expert drywall repair, patching, taping, and professional interior/exterior painting services.</p>
+                    <p>Professional interior and exterior painting, drywall installation, and repairs to refresh your home's appearance.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛁</div>
-                    <h3>Bathroom Repairs</h3>
-                    <p>Comprehensive bathroom maintenance including fixtures, faucets, caulking, and tile work.</p>
+                    <div class="service-icon">🪜</div>
+                    <h3>Carpentry</h3>
+                    <p>Custom woodwork, shelving, decking, and structural repairs. Expert craftsmanship in every project.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Maintenance Plans</h3>
-                    <p>Regular maintenance programs to prevent issues and keep your home in top condition year-round.</p>
+                    <div class="service-icon">⚡</div>
+                    <h3>Electrical Work</h3>
+                    <p>Licensed electrical services including outlet installation, lighting upgrades, and troubleshooting.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3>Plumbing Services</h3>
+                    <p>Expert plumbing solutions for leaks, clogs, installations, and repairs. Quick response times guaranteed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛏️</div>
+                    <h3>Handyman Maintenance</h3>
+                    <p>Regular maintenance plans to keep your home in top condition. Preventative care that saves you money.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="light">
-        <div class="container">
-            <h2>Why Choose Us</h2>
-            <div class="value-props">
-                <div class="value-prop">
-                    <h3>Licensed & Insured</h3>
-                    <p>Fully licensed, bonded, and insured for your complete peace of mind. We maintain the highest industry standards.</p>
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="why-choose">
+        <div class="section-container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <h3>🎯 Reliable & Trustworthy</h3>
+                    <p>With years of experience serving the coastal mountain community, we've built our reputation on honest work and fair pricing. Your satisfaction is our priority.</p>
                 </div>
-                <div class="value-prop">
-                    <h3>Rapid Response</h3>
-                    <p>Quick turnaround times and flexible scheduling. We show up on time, every time, with all necessary equipment.</p>
+                <div class="why-card fade-in">
+                    <h3>⚡ Fast & Professional</h3>
+                    <p>We respect your time. Our team arrives promptly, works efficiently, and leaves your space clean. Professional service, every single time.</p>
                 </div>
-                <div class="value-prop">
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden fees or surprise charges. Free estimates and honest quotes. You'll know the cost before work begins.</p>
+                <div class="why-card fade-in">
+                    <h3>💰 Competitive Pricing</h3>
+                    <p>Get quality workmanship without breaking the bank. We offer free estimates and transparent pricing with no hidden fees or surprises.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="gray">
-        <div class="container">
-            <h2>About Coastal Mountain Handyman</h2>
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="section-container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JM</div>
+                            <div class="reviewer-meta">
+                                <span class="reviewer-name">James Martinez</span>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"Outstanding work! They fixed my deck and painted the exterior in just two days. Professional, clean, and reasonably priced. Highly recommend!"</p>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SL</div>
+                            <div class="reviewer-meta">
+                                <span class="reviewer-name">Sarah Lopez</span>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"Fantastic service from start to finish. They provided a detailed estimate, stuck to their timeline, and the craftsmanship is impeccable. Will definitely call again!"</p>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">DC</div>
+                            <div class="reviewer-meta">
+                                <span class="reviewer-name">David Chen</span>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"Had multiple repairs done around the house. Everyone from the phone call to the final walkthrough was professional and courteous. Five stars all the way!"</p>
+                </div>
+
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MK</div>
+                            <div class="reviewer-meta">
+                                <span class="reviewer-name">Maria Kovac</span>
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"What a relief to find honest, skilled handymen! They tackled every task on my list with attention to detail. No shortcuts, no excuses—just quality work."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <h2 class="section-title">About Our Team</h2>
             <div class="about-content">
                 <p>
-                    With <span class="about-highlight">over 15 years of experience</span> serving the coastal mountain community, we've built our reputation on reliability, quality workmanship, and customer satisfaction. Our team of skilled professionals takes pride in every project, whether it's a quick fix or a complete renovation.
+                    At <span class="about-highlight">Coastal Mountain Handyman</span>, we're passionate about helping homeowners maintain and improve their properties. Our team consists of skilled, experienced professionals who take pride in delivering exceptional results on every project, no matter the size.
                 </p>
                 <p>
-                    We understand that your home is your most valuable asset. That's why we treat every job with the attention to detail and care it deserves. From emergency repairs to planned maintenance, <span class="about-highlight">we're here to keep your home in perfect condition</span>.
+                    For years, we've served the local community with integrity, reliability, and outstanding craftsmanship. We believe in building lasting relationships with our customers by providing transparent communication, fair pricing, and work that speaks for itself. Whether you need a quick repair or a complete renovation, we're here to help transform your house into the home of your dreams.
                 </p>
                 <p>
-                    Our commitment to excellence means listening to your needs, providing honest advice, and delivering results that exceed expectations. Join hundreds of satisfied homeowners who trust Coastal Mountain Handyman with their home care.
+                    When you call <span class="about-highlight">Coastal Mountain Handyman</span>, you're getting more than just a service provider—you're getting a trusted partner invested in your home's success and your complete satisfaction.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="light">
-        <div class="container">
-            <h2>Customer Reviews</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Excellent work! Fixed our leaky faucet and installed new shelving. Professional, punctual, and reasonably priced. Highly recommended!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">JS</div>
-                        <div class="review-info">
-                            <h4>John S.</h4>
-                            <div class="review-verified">✓ Verified Customer</div>
-                        </div>
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">☎</div>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p><a href="tel:(831)252-1170">(831) 252-1170</a></p>
                     </div>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Had an emergency with our bathroom. They came out same day and fixed everything. Outstanding service and attention to detail!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">MR</div>
-                        <div class="review-info">
-                            <h4>Maria R.</h4>
-                            <div class="review-verified">✓ Verified Customer</div>
-                        </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>Service Area</h4>
+                        <p>Coastal Mountain Region & Surrounding Communities</p>
                     </div>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Replaced multiple interior doors and painted two rooms. The quality of work is exceptional. Fair pricing with no surprises!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">DC</div>
-                        <div class="review-info">
-                            <h4>David C.</h4>
-                            <div class="review-verified">✓ Verified Customer</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Called for a drywall repair after water damage. They fixed it beautifully and the painting blend is perfect. Top-notch work!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">SL</div>
-                        <div class="review-info">
-                            <h4>Sarah L.</h4>
-                            <div class="review-verified">✓ Verified Customer</div>
-                        </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div class="contact-text">
+                        <h4>Hours</h4>
+                        <p>Available 24/7 for Emergency Services</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="gray">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">
-                            <a href="tel:(831)252-1170">(831) 252-1170</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Service Area</div>
-                        <div class="contact-value">
-                            Coastal Mountain Region & Surrounding Communities
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Hours</div>
-                        <div class="contact-value">
-                            Monday - Saturday: 7:00 AM - 6:00 PM<br>
-                            Sunday: By Appointment
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Response Time</div>
-                        <div class="contact-value">
-                            Same-day estimates and emergency repairs available
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="quote">
+            <div class="quote-form">
+                <h3>Request a Free Quote</h3>
+                <form id="quoteForm">
                     <div class="form-group">
-                        <label for="name">Your Name</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
+
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
+
                     <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+
                     <div class="form-group">
                         <label for="service">Service Needed</label>
-                        <input type="text" id="service" name="service" placeholder="What can we help you with?" required>
+                        <input type="text" id="service" name="service" placeholder="e.g., Drywall repair, plumbing" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="details">Additional Details</label>
-                        <textarea id="details" name="details" placeholder="Tell us more about your project..."></textarea>
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary form-submit">Request Free Quote</button>
+
+                    <button type="submit" class="form-submit">Get Your Free Quote</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Coastal Mountain Handyman</h4>
-                <p>Your trusted local handyman for all home repair and maintenance needs. Licensed, insured, and committed to excellence.</p>
+                <p>Professional home repair and maintenance services you can trust.</p>
             </div>
             <div class="footer-section">
-                <h4>Services</h4>
-                <p>General Repairs<br>Installation<br>Door & Window Work<br>Drywall & Painting<br>Bathroom Repairs<br>Maintenance Plans</p>
+                <h4>Quick Links</h4>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#reviews">Reviews</a></p>
+                <p><a href="#contact">Contact</a></p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p><strong>Phone:</strong> <a href="tel:(831)252-1170">(831) 252-1170</a><br>
-                <strong>Hours:</strong> Mon-Sat 7AM-6PM<br>
-                <strong>Service Area:</strong> Coastal Mountain Region</p>
+                <h4>Contact Info</h4>
+                <p><a href="tel:(831)252-1170">(831) 252-1170</a></p>
+                <p>Available 24/7 for Emergencies</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Coastal Mountain Handyman. All rights reserved. | Licensed • Bonded • Insured</p>
+            <p>&copy; 2024 Coastal Mountain Handyman. All rights reserved. | Licensed & Insured</p>
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <a href="tel:(831)252-1170" class="floating-call" title="Call Now">
-        ☎️
-    </a>
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:(831)252-1170" class="floating-call" title="Call us now">☎</a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in, .service-card, .value-prop, .review-card, .about-content, .contact-info, .contact-form, .stat-item').forEach(element => {
-            observer.observe(element);
+        // Observe all service cards, why cards, and review cards
+        document.querySelectorAll('.service-card, .why-card, .review-card, .stat-item').forEach(el => {
+            observer.observe(el);
         });
 
-        // Form submission handling
-        const form = document.querySelector('.contact-form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your interest! We will contact you soon to provide your free quote.');
-                form.reset();
-            });
-        }
+        // FORM SUBMISSION
+        const quoteForm = document.getElementById('quoteForm');
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(quoteForm);
+            const name = formData.get('name');
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:?subject=Quote Request from ${name}&body=Name: ${name}%0DPhone: ${formData.get('phone')}%0DEmail: ${formData.get('email')}%0DService: ${formData.get('service')}%0DDetails: ${formData.get('message')}`;
+            
+            // For demo purposes, show confirmation
+            alert(`Thank you, ${name}! We'll contact you soon to provide your free quote.`);
+            quoteForm.reset();
+        });
 
-        // Smooth scroll for anchor links
+        // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
