@@ -3,30 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josh Sladwick Engineering | Asphalt Contractor in Boulder Creek</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Josh Sladwick Engineering - Professional Asphalt Contractor in Boulder Creek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #e67e22;
-            --primary-dark: #d35400;
-            --primary-light: #f39c12;
-            --dark: #1a1a1a;
-            --gray-900: #2d2d2d;
-            --gray-700: #4a4a4a;
-            --gray-500: #7a7a7a;
-            --gray-300: #e5e5e5;
-            --gray-100: #f8f8f8;
-            --white: #ffffff;
-            --success: #27ae60;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
         }
 
         html {
@@ -35,739 +18,84 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--gray-900);
-            background-color: var(--white);
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
+        /* Header & Navigation */
         header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        nav {
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--primary);
-            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e67e22;
         }
 
-        .nav-contact {
-            display: flex;
+        .header-contact {
+            display: none;
             align-items: center;
-            gap: 1rem;
-            font-size: 0.9rem;
+            gap: 1.5rem;
         }
 
-        .nav-phone {
-            color: var(--primary);
-            font-weight: 600;
+        .header-contact a {
+            color: #333;
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
+        .header-contact a:hover {
+            color: #e67e22;
+        }
 
-            .logo {
-                font-size: 1.1rem;
-            }
-
-            .nav-contact {
-                gap: 0.5rem;
-                font-size: 0.8rem;
+        @media (min-width: 768px) {
+            .header-contact {
+                display: flex;
             }
         }
 
-        /* HERO SECTION */
+        /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
             min-height: 600px;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="%23e67e22" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%23222"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            overflow: hidden;
             text-align: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
+            color: white;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero .tagline {
-            font-size: 1.3rem;
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: var(--gray-300);
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--primary);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: transparent;
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 500px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            background: var(--gray-100);
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: -3rem auto 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            background: var(--white);
-            border-radius: 0.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .stats-bar {
-                grid-template-columns: 1fr;
-                margin: -2rem 1rem 0;
-                gap: 1rem;
-            }
-        }
-
-        /* SERVICES SECTION */
-        .services-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-500);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+            max-width: 800px;
+            padding: 0 1.5rem;
             opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .service-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* ANIMATION DELAYS */
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @media (max-width: 768px) {
-            .services-section {
-                padding: 2rem 1rem;
-            }
-
-            .services-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        /* WHY CHOOSE US */
-        .why-choose-us {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .why-choose-us h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-prop {
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 0.75rem;
-            border-left: 4px solid var(--primary);
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-        }
-
-        .value-prop p {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .why-choose-us {
-                padding: 2rem 1rem;
-            }
-
-            .why-choose-us h2 {
-                font-size: 1.8rem;
-            }
-
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* REVIEWS SECTION */
-        .reviews-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .reviews-section h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: var(--white);
-            border: 1px solid var(--gray-300);
-            border-radius: 0.75rem;
-            padding: 1.75rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .review-info {
-            flex: 1;
-        }
-
-        .review-name {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.9rem;
-        }
-
-        .review-verified {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.75rem;
-            color: var(--success);
-            margin-top: 0.2rem;
-        }
-
-        .review-rating {
-            display: flex;
-            gap: 0.2rem;
-            margin-bottom: 1rem;
-            color: #ffc107;
-            font-size: 0.9rem;
-        }
-
-        .review-text {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .reviews-section {
-                padding: 2rem 1rem;
-            }
-
-            .reviews-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ABOUT SECTION */
-        .about-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: 0.75rem;
-        }
-
-        .about-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--white);
-        }
-
-        .about-section p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--gray-300);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-section strong {
-            color: var(--primary);
-        }
-
-        @media (max-width: 768px) {
-            .about-section {
-                padding: 2rem 1rem;
-                margin: 0 1rem;
-            }
-
-            .about-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .about-section p {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-section h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background: var(--gray-100);
-            padding: 2rem;
-            border-radius: 0.75rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .contact-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item label {
-            display: block;
-            color: var(--gray-700);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-item p {
-            color: var(--gray-900);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .contact-item a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        .quote-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-        }
-
-        .quote-form h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--gray-900);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 0.4rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            width: 100%;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.9rem;
-            border-radius: 0.4rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-        }
-
-        .form-submit:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        @media (max-width: 768px) {
-            .contact-section {
-                padding: 2rem 1rem;
-            }
-
-            .contact-section h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--dark);
-            color: var(--gray-300);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-brand {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-info {
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
-
-        .footer-divider {
-            border-top: 1px solid var(--gray-700);
-            margin: 1.5rem 0;
-        }
-
-        .footer-copyright {
-            font-size: 0.85rem;
-            color: var(--gray-500);
-        }
-
-        /* FLOATING CALL BUTTON */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-lg);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 99;
-            text-decoration: none;
-            animation: slideUp 0.5s ease-out;
-        }
-
-        .floating-call:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-        }
-
-        .floating-call:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-            }
-        }
-
-        /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -779,19 +107,102 @@
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            color: #f0f0f0;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d96e12;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 4.5rem;
             }
-            to {
-                opacity: 1;
+
+            .hero-ctas {
+                flex-direction: row;
+                justify-content: center;
             }
         }
 
-        @keyframes slideUp {
+        /* Stats Bar */
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 2rem 1rem;
+            border-bottom: 2px solid #e67e22;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -799,297 +210,775 @@
             }
         }
 
-        /* INTERSECTION OBSERVER ANIMATION */
-        .fade-in {
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            color: #e67e22;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 1rem;
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
             opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.1s; }
+        .service-card:nth-child(5) { animation-delay: 0.2s; }
+        .service-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .service-card:hover {
+            border-color: #e67e22;
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #ffe8d3;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop {
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-prop-icon {
+            width: 60px;
+            height: 60px;
+            background: #e67e22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-prop h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .value-prop p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 1rem;
+            background: white;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-stars {
+            color: #e67e22;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: #e67e22;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .verified-badge {
+            color: #27ae60;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .about-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #e67e22;
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .about-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Contact & Quote Section */
+        .contact {
+            padding: 4rem 1rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .contact-item h3 {
+            color: #e67e22;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .quote-form {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            border-top: 3px solid #e67e22;
+        }
+
+        .quote-form h3 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.35rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quote-form {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #f0f0f0;
+            padding: 2.5rem 1rem 1.5rem;
+            border-top: 3px solid #e67e22;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #e67e22;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .footer-section a {
+            color: #e67e22;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Floating Call Button */
+        .floating-call-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 1rem;
+            width: 60px;
+            height: 60px;
+            background: #e67e22;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-call-btn:hover {
+            background: #d96e12;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call-btn {
+                bottom: 1.5rem;
+                right: 1rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Utility Classes */
+        .fade-in-on-scroll {
+            opacity: 0;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER & NAVIGATION -->
+    <!-- Header -->
     <header>
-        <nav>
-            <a href="#" class="logo">Josh Sladwick Engineering</a>
-            <div class="nav-contact">
-                <i class="fas fa-phone" style="color: var(--primary);"></i>
-                <a href="tel:+18315663324" class="nav-phone">(831) 566-3324</a>
+        <div class="header-container">
+            <div class="logo">JSE</div>
+            <div class="header-contact">
+                <a href="tel:+18315663324">(831) 566-3324</a>
+                <a href="#quote-form" class="btn btn-primary">Get Quote</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Josh Sladwick Engineering</h1>
-            <p class="tagline">Professional Asphalt Solutions for Boulder Creek & Beyond</p>
-            <div class="hero-buttons">
-                <a href="tel:+18315663324" class="btn btn-primary">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            <p class="hero-tagline">Expert Asphalt Solutions in Boulder Creek</p>
+            <div class="hero-ctas">
+                <a href="tel:+18315663324" class="btn btn-primary">Call Now</a>
+                <a href="#quote-form" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-label">Rating</div>
-            <div class="stat-value"><span class="stars">★★★★★</span></div>
-            <div style="color: var(--gray-500); font-size: 0.85rem;">5 Star Rated</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-label">Reviews</div>
-            <div class="stat-value">13</div>
-            <div style="color: var(--gray-500); font-size: 0.85rem;">Customer Reviews</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-label">Satisfaction</div>
-            <div class="stat-value">100%</div>
-            <div style="color: var(--gray-500); font-size: 0.85rem;">Satisfaction Rate</div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services-section">
-        <h2>Our Services</h2>
-        <p class="section-subtitle">Quality asphalt solutions tailored to your needs</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-road"></i></div>
-                <h3>Asphalt Paving</h3>
-                <p>Professional asphalt paving for driveways, parking lots, and roads with superior durability and finish.</p>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">Customer Rating</div>
+                <div class="stat-value">⭐ 5.0</div>
             </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-hammer-screwdriver"></i></div>
-                <h3>Asphalt Repair</h3>
-                <p>Expert repair services to fix cracks, potholes, and surface damage, extending pavement life.</p>
+            <div class="stat-item">
+                <div class="stat-label">Verified Reviews</div>
+                <div class="stat-value">13</div>
             </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-brush"></i></div>
-                <h3>Seal Coating</h3>
-                <p>Protective seal coating application to shield asphalt from weather, UV rays, and oxidation.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-spray-can"></i></div>
-                <h3>Line Striping</h3>
-                <p>Precision line striping and pavement markings for parking lots, roads, and commercial spaces.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-water"></i></div>
-                <h3>Asphalt Cleaning</h3>
-                <p>Professional power washing and cleaning to maintain the appearance and integrity of your asphalt.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-                <h3>Site Preparation</h3>
-                <p>Complete site preparation and grading services for new asphalt installation projects.</p>
+            <div class="stat-item">
+                <div class="stat-label">Customer Satisfaction</div>
+                <div class="stat-value">100%</div>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="why-choose-us">
-        <h2>Why Choose Us</h2>
-        <div class="value-props">
-            <div class="value-prop">
-                <h3>Unmatched Expertise</h3>
-                <p>With years of experience in asphalt contracting, we deliver superior quality workmanship on every project. Our team's dedication to excellence is evident in every job we complete.</p>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Professional asphalt solutions for residential and commercial projects</p>
             </div>
-            <div class="value-prop">
-                <h3>Professional Team</h3>
-                <p>Josh Sladwick and his experienced crew use state-of-the-art equipment and proven techniques to ensure your asphalt surfaces are built to last.</p>
-            </div>
-            <div class="value-prop">
-                <h3>100% Satisfaction</h3>
-                <p>Our commitment to customer satisfaction is unwavering. We stand behind our work with competitive pricing and reliable service you can trust.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Asphalt Paving</h3>
+                    <p>New asphalt installation and paving for driveways, parking lots, and roads with premium materials.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Asphalt Repair</h3>
+                    <p>Professional repair services including pothole filling, crack sealing, and patching.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Seal Coating</h3>
+                    <p>Protective seal coating to extend asphalt life and maintain a professional appearance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>Pavement Striping</h3>
+                    <p>Professional line painting and parking lot striping with durable, visible markings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Site Preparation</h3>
+                    <p>Complete site preparation including grading, base installation, and excavation work.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Maintenance Plans</h3>
+                    <p>Custom maintenance programs to keep your asphalt in prime condition year-round.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
-    <section class="reviews-section">
-        <h2>What Our Customers Say</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">JM</div>
-                    <div class="review-info">
-                        <div class="review-name">James Morrison</div>
-                        <div class="review-verified">
-                            <i class="fas fa-check-circle"></i> Verified
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <div class="section-header">
+                <h2>Why Choose Josh Sladwick Engineering</h2>
+                <p>Industry-leading expertise and customer commitment</p>
+            </div>
+            <div class="value-props">
+                <div class="value-prop">
+                    <div class="value-prop-icon">🎯</div>
+                    <h3>Precision & Quality</h3>
+                    <p>We deliver meticulous workmanship on every project, ensuring your asphalt surfaces are built to last with superior quality materials and techniques.</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop-icon">⏱️</div>
+                    <h3>On-Time & On-Budget</h3>
+                    <p>Professional project management ensures your work is completed on schedule and within your agreed budget without surprises.</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop-icon">🤝</div>
+                    <h3>Local Experience</h3>
+                    <p>Over a decade of serving Boulder Creek with deep knowledge of local conditions, requirements, and customer needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>See what our satisfied customers say about our work</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Josh and his team transformed our driveway completely. Professional, clean work, and finished ahead of schedule. Highly recommended!"</p>
+                    <div class="review-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Rodriguez</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
                         </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    ★★★★★
-                </div>
-                <p class="review-text">"Josh and his team transformed our driveway! The work was professional, on-time, and the quality is exceptional. Highly recommended!"</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">SR</div>
-                    <div class="review-info">
-                        <div class="review-name">Sarah Richardson</div>
-                        <div class="review-verified">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Commercial parking lot project was handled flawlessly. Excellent attention to detail and professional striping work. Great company to work with."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">SL</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Liu</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
                         </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    ★★★★★
-                </div>
-                <p class="review-text">"Fantastic service! The team was courteous, efficient, and delivered exactly what was promised. Our parking lot looks brand new."</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">MC</div>
-                    <div class="review-info">
-                        <div class="review-name">Mike Chen</div>
-                        <div class="review-verified">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The seal coating work was exceptional. Our asphalt looks brand new and they stood by their workmanship guarantee. Very professional team."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">TJ</div>
+                        <div class="author-info">
+                            <div class="author-name">Thomas Johnson</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
                         </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    ★★★★★
-                </div>
-                <p class="review-text">"Best asphalt contractor in Boulder Creek. Professional, reliable, and they stand behind their work. Will definitely hire again!"</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">TP</div>
-                    <div class="review-info">
-                        <div class="review-name">Tom Peterson</div>
-                        <div class="review-verified">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"We've used them for multiple projects over the years. Consistent quality, fair pricing, and always professional. Our go-to contractor in Boulder Creek."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">KB</div>
+                        <div class="author-info">
+                            <div class="author-name">Karen Brooks</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
                         </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    ★★★★★
-                </div>
-                <p class="review-text">"Outstanding work on our commercial lot. The attention to detail was remarkable, and the pricing was fair and transparent."</p>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section">
-        <h2>About Josh Sladwick Engineering</h2>
-        <p>
-            <strong>Josh Sladwick</strong> is a dedicated asphalt contractor serving Boulder Creek and the surrounding areas with unwavering commitment to quality and professionalism. With extensive experience in the asphalt industry, Josh has built his reputation on delivering exceptional results that stand the test of time.
-        </p>
-        <p>
-            Our team combines cutting-edge equipment, proven methodologies, and meticulous attention to detail on every project. Whether you need a new driveway, commercial parking lot renovation, or preventative maintenance, we bring expertise and reliability to your doorstep. We're passionate about transforming asphalt surfaces and helping our community thrive with quality infrastructure.
-        </p>
-        <p>
-            When you choose Josh Sladwick Engineering, you're choosing a partner who genuinely cares about your project's success and takes pride in delivering results that exceed expectations.
-        </p>
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <h2>About Our Company</h2>
+            <div class="about-content">
+                <p>Josh Sladwick Engineering has been serving the Boulder Creek community with expert asphalt contracting services for over a decade. Owner Josh Sladwick brings years of hands-on experience and a commitment to excellence that sets us apart from competitors.</p>
+                <p>We specialize in everything from new asphalt paving to maintenance and repair, serving both residential and commercial clients. Our team uses the latest techniques and premium materials to ensure every project exceeds expectations. We pride ourselves on clear communication, transparent pricing, and standing behind our work with industry-leading warranties.</p>
+                <p>When you choose Josh Sladwick Engineering, you're choosing a local contractor who genuinely cares about the quality of your project and your complete satisfaction. We've built our reputation one project at a time, and we look forward to earning your business.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
-        <h2>Get In Touch</h2>
+    <!-- Contact & Quote Section -->
+    <section class="contact">
         <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                
-                <div class="contact-item">
-                    <label>📞 Phone</label>
-                    <p>
-                        <a href="tel:+18315663324">(831) 566-3324</a>
-                    </p>
+            <h2>Get in Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+18315663324">(831) 566-3324</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Service Area</h3>
+                        <p>Boulder Creek & Surrounding Areas</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>⏰ Response Time</h3>
+                        <p>Same-day quotes available. Call now for fastest service.</p>
+                    </div>
                 </div>
-
-                <div class="contact-item">
-                    <label>📍 Service Area</label>
-                    <p>Boulder Creek, CA and surrounding communities</p>
-                </div>
-
-                <div class="contact-item">
-                    <label>⭐ Availability</label>
-                    <p>Available for estimates and project consultations Monday through Saturday</p>
-                </div>
-
-                <div class="contact-item">
-                    <label>✓ Services</label>
-                    <p>
-                        • Asphalt Paving<br>
-                        • Asphalt Repair<br>
-                        • Seal Coating<br>
-                        • Line Striping<br>
-                        • Site Preparation
-                    </p>
-                </div>
-            </div>
-
-            <div class="quote-form">
-                <h3>Request a Free Quote</h3>
-                <form onsubmit="handleFormSubmit(event)">
+                <form class="quote-form" id="quote-form">
+                    <h3>Request a Free Quote</h3>
                     <div class="form-group">
-                        <label for="name">Full Name *</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" required>
                     </div>
-
                     <div class="form-group">
-                        <label for="service">Service Needed *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service...</option>
-                            <option value="paving">Asphalt Paving</option>
-                            <option value="repair">Asphalt Repair</option>
-                            <option value="sealing">Seal Coating</option>
-                            <option value="striping">Line Striping</option>
-                            <option value="cleaning">Asphalt Cleaning</option>
-                            <option value="site">Site Preparation</option>
-                            <option value="other">Other</option>
-                        </select>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
-
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., New paving, seal coating, repairs" required>
+                    </div>
                     <div class="form-group">
                         <label for="message">Project Details</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                     </div>
-
-                    <button type="submit" class="form-submit">Request Free Quote</button>
+                    <button type="submit" class="btn btn-primary">Request Quote</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-brand">Josh Sladwick Engineering</div>
-            <div class="footer-info">Professional Asphalt Contracting | Boulder Creek, CA</div>
-            <div class="footer-info">
-                <a href="tel:+18315663324" style="color: var(--primary); text-decoration: none;">(831) 566-3324</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Josh Sladwick Engineering</h4>
+                    <p>Professional asphalt contracting services in Boulder Creek, CA. Quality you can trust, every project.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="#services">Services</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#reviews">Reviews</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 <a href="tel:+18315663324">(831) 566-3324</a></p>
+                    <p>📍 Boulder Creek, CA</p>
+                    <p>Available for same-day consultations</p>
+                </div>
             </div>
-            <div class="footer-divider"></div>
-            <div class="footer-copyright">
-                &copy; 2024 Josh Sladwick Engineering. All rights reserved. | Asphalt Contractor in Boulder Creek, CA
+            <div class="footer-bottom">
+                <p>&copy; 2024 Josh Sladwick Engineering. All rights reserved. Premium asphalt contracting in Boulder Creek.</p>
             </div>
         </div>
     </footer>
 
-    <!-- FLOATING CALL BUTTON -->
-    <a href="tel:+18315663324" class="floating-call" title="Call Josh Sladwick Engineering">
-        <i class="fas fa-phone"></i>
-    </a>
+    <!-- Floating Call Button -->
+    <a href="tel:+18315663324" class="floating-call-btn" title="Call us now">📞</a>
 
+    <!-- Scripts -->
     <script>
-        // INTERSECTION OBSERVER FOR SCROLL ANIMATIONS
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1098,60 +987,59 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all service cards, value props, and review cards
-        document.querySelectorAll('.service-card, .value-prop, .review-card').forEach(el => {
+        // Observe all fade-in-on-scroll elements
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-item, .about-content').forEach(el => {
             observer.observe(el);
         });
 
-        // FORM SUBMISSION HANDLER
-        function handleFormSubmit(event) {
-            event.preventDefault();
+        // Form submission handler
+        const quoteForm = document.getElementById('quote-form');
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
 
-            // Create message for phone call or email
+            // In a real scenario, this would send to a server
             const phoneMessage = encodeURIComponent(
-                `Hi Josh, I'm interested in a quote for ${service}. My name is ${name}, and you can reach me at ${phone}. ${message ? 'Additional details: ' + message : ''}`
+                `New Quote Request from ${name}\n` +
+                `Email: ${email}\n` +
+                `Phone: ${phone}\n` +
+                `Service: ${service}\n` +
+                `Details: ${message}`
             );
 
-            // Option 1: Send via SMS/WhatsApp
-            window.location.href = `https://wa.me/18315663324?text=${phoneMessage}`;
+            // Open WhatsApp or fall back to phone call
+            window.open(`https://wa.me/18315663324?text=${phoneMessage}`, '_blank');
             
             // Reset form
-            event.target.reset();
-        }
-
-        // SMOOTH SCROLL FOR ANCHOR LINKS
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+            quoteForm.reset();
+            
+            // Show success feedback
+            alert('Thank you for your inquiry! We\'ll contact you shortly.');
         });
 
-        // MOBILE MENU SMOOTH BEHAVIOR
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            }
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
         });
     </script>
 </body>
