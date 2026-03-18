@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verde Gardening Service - Professional Gardening in San Francisco</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Verde Gardening Service - San Francisco Landscape Design & Maintenance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,618 +14,714 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #34495e;
+            --primary-light: #5d7a92;
+            --primary-dark: #1f2d39;
+            --accent: #27ae60;
+            --accent-light: #2ecc71;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --success: #10b981;
+            --rating: #f59e0b;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-900);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9fafb;
+            background-color: var(--white);
         }
 
-        .container {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 1.5rem;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
         }
 
         .logo {
-            font-size: 22px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #34495e;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--primary);
         }
 
-        .logo i {
-            color: #27ae60;
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 14px;
-        }
-
-        .header-phone {
-            color: #34495e;
-            font-weight: 600;
+        .nav-links a {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .header-phone:hover {
-            color: #27ae60;
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(52, 73, 94, 0.75), rgba(52, 73, 94, 0.75)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" opacity="0.03" width="1200" height="600"/><path fill="%2327ae60" opacity="0.05" d="M0 300 Q300 200 600 300 T1200 300 L1200 600 L0 600 Z"/></svg>');
+            margin-top: 60px;
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(31, 45, 57, 0.6), rgba(31, 45, 57, 0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad" x1="0" y1="0" x2="100" y2="100"><stop offset="0" style="stop-color:%2327ae60;stop-opacity:0.1"/><stop offset="100" style="stop-color:%23127f57;stop-opacity:0.2"/></linearGradient></defs><rect fill="%23f0f9f4" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="url(%23grad)"/><circle cx="1000" cy="500" r="120" fill="url(%23grad)"/><path d="M0 400 Q300 350 600 400 T1200 400 L1200 600 L0 600 Z" fill="%2334495e" opacity="0.05"/></svg>');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            min-height: 500px;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--gray-100);
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-buttons {
             display: flex;
             flex-direction: column;
+            gap: 1rem;
             justify-content: center;
             align-items: center;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .hero .tagline {
-            font-size: 22px;
-            font-style: italic;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .cta-btn {
-            padding: 15px 35px;
-            font-size: 16px;
+        .btn {
+            padding: 0.875rem 2rem;
+            font-size: 1.05rem;
             font-weight: 600;
             border: none;
-            border-radius: 6px;
+            border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
         }
 
-        .cta-primary {
-            background-color: #27ae60;
-            color: white;
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
         }
 
-        .cta-primary:hover {
-            background-color: #229954;
+        .btn-primary:hover {
+            background: #229954;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+            box-shadow: 0 6px 16px rgba(39, 174, 96, 0.4);
         }
 
-        .cta-secondary {
-            background-color: white;
-            color: #34495e;
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
         }
 
-        .cta-secondary:hover {
-            background-color: #ecf0f1;
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
             transform: translateY(-2px);
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
         }
 
         /* Stats Bar */
         .stats-bar {
-            background-color: white;
-            padding: 30px 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin: -30px 20px 0;
-            border-radius: 8px;
-            max-width: 1160px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem 1.5rem;
             text-align: center;
         }
 
-        .stat {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
         }
 
-        .stat:nth-child(1) { animation-delay: 0s; }
-        .stat:nth-child(2) { animation-delay: 0.1s; }
-        .stat:nth-child(3) { animation-delay: 0.2s; }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        .stat-value {
-            font-size: 28px;
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #34495e;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            font-size: 14px;
-            color: #7f8c8d;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
         }
 
-        .stars {
-            color: #f39c12;
-            margin-right: 5px;
+        .star {
+            color: var(--rating);
+            margin-right: 0.25rem;
         }
 
         /* Services Section */
         .services {
-            padding: 80px 20px;
+            padding: 4rem 1.5rem;
+            background: var(--gray-50);
         }
 
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #34495e;
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
 
         .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(52, 73, 94, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-top: 4px solid var(--accent);
         }
 
-        .service-card:nth-child(1) { animation-delay: 0s; }
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.2s; }
-        .service-card:nth-child(4) { animation-delay: 0.3s; }
-        .service-card:nth-child(5) { animation-delay: 0.4s; }
-        .service-card:nth-child(6) { animation-delay: 0.5s; }
-
         .service-icon {
-            font-size: 48px;
-            color: #27ae60;
-            margin-bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
         }
 
         .service-card h3 {
-            font-size: 20px;
-            color: #34495e;
-            margin-bottom: 15px;
-            font-weight: 600;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
         }
 
         .service-card p {
-            color: #7f8c8d;
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            color: var(--gray-600);
         }
 
         /* Why Choose Us */
         .why-choose {
-            background-color: #34495e;
-            color: white;
-            padding: 80px 20px;
+            padding: 4rem 1.5rem;
+            background: var(--white);
         }
 
-        .why-choose .section-title {
-            color: white;
-        }
-
-        .value-props {
+        .value-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            gap: 2.5rem;
         }
 
         .value-prop {
+            text-align: center;
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .value-prop:nth-child(1) { animation-delay: 0s; }
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
         .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.4s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
 
-        .value-prop-icon {
-            font-size: 40px;
-            color: #27ae60;
-            margin-bottom: 20px;
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
         }
 
         .value-prop h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
         }
 
         .value-prop p {
-            color: #ecf0f1;
-            font-size: 15px;
+            font-size: 0.95rem;
+            color: var(--gray-700);
             line-height: 1.8;
         }
 
         /* Reviews Section */
         .reviews {
-            padding: 80px 20px;
+            padding: 4rem 1.5rem;
+            background: var(--gray-50);
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .review-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .review-card:nth-child(1) { animation-delay: 0s; }
-        .review-card:nth-child(2) { animation-delay: 0.15s; }
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
         .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.45s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
 
         .review-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
 
-        .reviewer-info {
+        .review-stars {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 0.25rem;
         }
 
-        .reviewer-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #34495e;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .reviewer-name {
-            font-size: 14px;
-            color: #34495e;
-            font-weight: 600;
+        .review-stars .star {
+            font-size: 1rem;
         }
 
         .verified-badge {
             display: flex;
             align-items: center;
-            gap: 4px;
-            font-size: 12px;
-            color: #27ae60;
+            gap: 0.4rem;
+            font-size: 0.75rem;
             font-weight: 600;
+            color: var(--success);
+            background: #ecfdf5;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
         }
 
-        .review-stars {
-            color: #f39c12;
-            font-size: 14px;
+        .verified-badge::before {
+            content: "✓";
+            font-weight: 700;
         }
 
         .review-text {
-            color: #555;
-            font-size: 14px;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
             font-style: italic;
         }
 
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .reviewer-title {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
         /* About Section */
         .about {
-            background-color: #f9fafb;
-            padding: 80px 20px;
+            padding: 4rem 1.5rem;
+            background: var(--white);
         }
 
         .about-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 2rem;
         }
 
         .about p {
-            font-size: 16px;
-            color: #555;
+            font-size: 1.05rem;
             line-height: 1.9;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
         }
 
-        .about p:nth-child(2) { animation-delay: 0.2s; }
-        .about p:nth-child(3) { animation-delay: 0.4s; }
+        .owner-highlight {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .owner-icon {
+            font-size: 2.5rem;
+        }
+
+        .owner-info {
+            flex: 1;
+        }
+
+        .owner-info strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
 
         /* Contact Section */
         .contact {
-            background-color: white;
-            padding: 80px 20px;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
         }
 
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .contact-info h3 {
-            font-size: 24px;
-            color: #34495e;
-            margin-bottom: 30px;
-            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
 
         .contact-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeInLeft 0.6s ease-out forwards;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-
-        .contact-item:nth-child(1) { animation-delay: 0s; }
-        .contact-item:nth-child(2) { animation-delay: 0.1s; }
-        .contact-item:nth-child(3) { animation-delay: 0.2s; }
-        .contact-item:nth-child(4) { animation-delay: 0.3s; }
 
         .contact-icon {
-            font-size: 20px;
-            color: #27ae60;
-            min-width: 30px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
         }
 
-        .contact-details {
-            flex: 1;
+        .contact-item p {
+            color: var(--white);
+            margin: 0;
+            font-size: 0.95rem;
         }
 
-        .contact-details h4 {
-            font-size: 14px;
-            color: #7f8c8d;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .contact-details p {
-            color: #34495e;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .contact-details a {
-            color: #34495e;
+        .contact-item a {
+            color: var(--gray-100);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .contact-details a:hover {
-            color: #27ae60;
+        .contact-item a:hover {
+            color: var(--accent-light);
         }
 
-        /* Quote Form */
+        .quote-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 1rem;
+            color: var(--gray-900);
+        }
+
         .quote-form h3 {
-            font-size: 24px;
-            color: #34495e;
-            margin-bottom: 25px;
-            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInRight 0.6s ease-out forwards;
+            margin-bottom: 1.25rem;
         }
-
-        .form-group:nth-child(1) { animation-delay: 0s; }
-        .form-group:nth-child(2) { animation-delay: 0.1s; }
-        .form-group:nth-child(3) { animation-delay: 0.2s; }
-        .form-group:nth-child(4) { animation-delay: 0.3s; }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #34495e;
-            font-weight: 600;
-            font-size: 14px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--gray-700);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #27ae60;
-            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        .form-submit {
+        .btn-submit {
             width: 100%;
-            padding: 14px;
-            background-color: #27ae60;
-            color: white;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.875rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 0.5rem;
             font-weight: 600;
-            font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
         }
 
-        .form-submit:hover {
-            background-color: #229954;
+        .btn-submit:hover {
+            background: #229954;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
         }
 
         /* Footer */
         footer {
-            background-color: #34495e;
-            color: white;
-            padding: 40px 20px;
+            background: var(--primary-dark);
+            color: var(--gray-200);
+            padding: 2rem 1.5rem;
             text-align: center;
         }
 
         .footer-content {
-            max-width: 600px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-content p {
-            margin-bottom: 10px;
-            font-size: 14px;
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
-        .footer-phone {
-            color: #27ae60;
-            font-weight: 600;
+        .footer-section p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--gray-200);
         }
 
-        .copyright {
-            margin-top: 20px;
-            padding-top: 20px;
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 12px;
-            color: #bdc3c7;
+            padding-top: 2rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         /* Floating Call Button */
         .floating-call {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 2rem;
+            right: 2rem;
             width: 60px;
             height: 60px;
-            background-color: #27ae60;
-            color: white;
-            border: none;
+            background: var(--accent);
+            color: var(--white);
             border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(39, 174, 96, 0.4);
+            z-index: 99;
             transition: all 0.3s ease;
-            z-index: 999;
             text-decoration: none;
+            font-size: 1.5rem;
         }
 
         .floating-call:hover {
-            background-color: #229954;
-            transform: scale(1.15);
-            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.45);
+            transform: scale(1.1);
+            bottom: 2.25rem;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.5);
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -636,345 +733,331 @@
             }
         }
 
-        @keyframes fadeInLeft {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
             }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 2rem;
             }
 
-            .hero .tagline {
-                font-size: 18px;
+            .hero-tagline {
+                font-size: 1.1rem;
             }
 
-            .hero {
-                padding: 60px 20px;
-                min-height: 400px;
+            .stat-number {
+                font-size: 2rem;
             }
 
-            .hero-ctas {
-                gap: 10px;
-            }
-
-            .cta-btn {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .stats-bar {
-                margin: -20px 20px 0;
-            }
-
-            .stats-container {
-                gap: 20px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .header-phone {
-                font-size: 12px;
-            }
-
-            .header-contact {
-                gap: 10px;
+            .services,
+            .why-choose,
+            .reviews,
+            .about,
+            .contact {
+                padding: 3rem 1rem;
             }
 
             .floating-call {
-                width: 55px;
-                height: 55px;
-                font-size: 20px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .hero, .services, .why-choose, .reviews, .about, .contact {
-                padding: 50px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .hero .tagline {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .cta-btn {
-                width: 100%;
-                padding: 14px 20px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .stat-value {
-                font-size: 24px;
-            }
-
-            .service-icon {
-                font-size: 40px;
+                width: 56px;
+                height: 56px;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
 
             .contact-container {
                 grid-template-columns: 1fr;
             }
 
-            .logo {
-                font-size: 18px;
+            .quote-form {
+                order: -1;
+            }
+
+            @media (max-width: 480px) {
+                nav {
+                    padding: 0.75rem 1rem;
+                }
+
+                .logo {
+                    font-size: 1.25rem;
+                }
+
+                h1 {
+                    font-size: 1.75rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                .hero {
+                    min-height: 500px;
+                }
+
+                .hero h1 {
+                    font-size: 1.75rem;
+                }
+
+                .hero-tagline {
+                    font-size: 1rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .cta-buttons {
+                    gap: 0.75rem;
+                }
+
+                .btn {
+                    padding: 0.75rem 1.5rem;
+                    font-size: 0.95rem;
+                }
+
+                .services-grid,
+                .value-grid,
+                .reviews-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .stat-number {
+                    font-size: 1.75rem;
+                }
             }
         }
+
+        /* Scroll animations */
+        .fade-in-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .scroll-delay-1 { animation-delay: 0.1s; }
+        .scroll-delay-2 { animation-delay: 0.2s; }
+        .scroll-delay-3 { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-leaf"></i>
-                Verde Gardening
-            </div>
-            <div class="header-contact">
-                <a href="tel:415-574-7902" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    415-574-7902
-                </a>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🌿 Verde</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Choose Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Verde Gardening Service</h1>
-        <p class="tagline">Transform Your Outdoor Space Into a Beautiful Paradise</p>
-        <div class="hero-ctas">
-            <a href="tel:415-574-7902" class="cta-btn cta-primary">
-                <i class="fas fa-phone"></i> Call Now
-            </a>
-            <a href="#quote" class="cta-btn cta-secondary">
-                <i class="fas fa-quote-left"></i> Get Free Quote
-            </a>
+        <div class="hero-content">
+            <h1>Verde Gardening Service</h1>
+            <p class="hero-tagline">Transforming spaces into thriving green sanctuaries</p>
+            <div class="cta-buttons">
+                <a href="tel:415-574-7902" class="btn btn-primary">📞 Call Now</a>
+                <button class="btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Free Quote</button>
+            </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <div class="stats-bar">
+    <section class="stats-bar">
         <div class="stats-container">
-            <div class="stat">
-                <div class="stat-value">
-                    <span class="stars">★★★★★</span>
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="star">★</span>5.0
                 </div>
-                <div class="stat-label">5-Star Rating</div>
+                <div class="stat-label">Rating</div>
             </div>
-            <div class="stat">
-                <div class="stat-value">5</div>
-                <div class="stat-label">Verified Reviews</div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">5-Star Reviews</div>
             </div>
-            <div class="stat">
-                <div class="stat-value">100%</div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
                 <div class="stat-label">Client Satisfaction</div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Our Premium Services</h2>
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive landscape and gardening solutions tailored to your needs</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Garden Design & Landscaping</h3>
-                    <p>Custom garden layouts and landscape designs tailored to your vision and property specifications.</p>
+                    <div class="service-icon">🌱</div>
+                    <h3>Garden Design</h3>
+                    <p>Custom garden layouts and landscape designs that reflect your vision and enhance your property's natural beauty.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Plant Care & Maintenance</h3>
-                    <p>Professional care for your plants, trees, and shrubs to keep them healthy and vibrant year-round.</p>
+                    <div class="service-icon">✂️</div>
+                    <h3>Lawn Maintenance</h3>
+                    <p>Regular mowing, edging, and lawn care to keep your grass healthy, vibrant, and picture-perfect year-round.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3>Lawn Mowing & Pruning</h3>
-                    <p>Regular lawn maintenance, precision pruning, and hedge trimming for immaculate outdoor spaces.</p>
+                    <div class="service-icon">🪴</div>
+                    <h3>Plant Care</h3>
+                    <p>Expert care for all your plants including watering, pruning, fertilizing, and pest management solutions.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h3>Irrigation & Watering</h3>
-                    <p>Smart irrigation system installation and maintenance for efficient water usage and lush gardens.</p>
+                    <div class="service-icon">🌸</div>
+                    <h3>Seasonal Planting</h3>
+                    <p>Beautiful seasonal flowers and plants installed by our experienced team to brighten your outdoor spaces.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                    <h3>Debris Removal & Cleanup</h3>
-                    <p>Complete garden cleanup services including leaf removal, mulching, and seasonal maintenance.</p>
+                    <div class="service-icon">🧹</div>
+                    <h3>Landscape Cleanup</h3>
+                    <p>Thorough garden and yard cleanup services including debris removal, mulching, and property preparation.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer"></i>
-                    </div>
-                    <h3>Hardscaping & Installation</h3>
-                    <p>Patio construction, pathways, raised beds, and other hardscape features for your garden.</p>
+                    <div class="service-icon">🛠️</div>
+                    <h3>Hardscape Work</h3>
+                    <p>Professional installation of patios, pathways, raised beds, and other structural landscape elements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title">Why Choose Verde Gardening</h2>
-            <div class="value-props">
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Why Choose Verde</h2>
+                <p>Expert care, attention to detail, and unwavering commitment to your satisfaction</p>
+            </div>
+            <div class="value-grid">
                 <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Expert Experience</h3>
-                    <p>Decades of horticultural expertise and passion for creating stunning outdoor environments in San Francisco.</p>
+                    <div class="value-icon">🏆</div>
+                    <h3>Expert Knowledge</h3>
+                    <p>Led by Sylvio with years of horticultural expertise, we bring deep knowledge and proven techniques to every project.</p>
                 </div>
                 <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Trusted Partnership</h3>
-                    <p>Build lasting relationships with our clients through reliable service, transparency, and consistent excellence.</p>
+                    <div class="value-icon">💚</div>
+                    <h3>Passionate Service</h3>
+                    <p>We genuinely care about your garden's health and beauty, treating each property as if it were our own.</p>
                 </div>
                 <div class="value-prop">
-                    <div class="value-prop-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Eco-Friendly Approach</h3>
-                    <p>Sustainable gardening practices and environmentally responsible methods for healthier gardens and planet.</p>
+                    <div class="value-icon">✨</div>
+                    <h3>Attention to Detail</h3>
+                    <p>From precise pruning to flawless landscaping, we deliver excellence in every aspect of our work.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
+    <section class="reviews" id="reviews">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Client Reviews</h2>
+                <p>Hear what our satisfied customers have to say about our work</p>
+            </div>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">MJ</div>
-                            <div>
-                                <div class="reviewer-name">Maria Johnson</div>
-                            </div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
                         </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                        <span class="verified-badge">Verified</span>
+                    </div>
+                    <p class="review-text">"Sylvio completely transformed our backyard! His attention to detail and passion for gardening is unmatched. Highly recommended!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">MC</div>
+                        <div>
+                            <div class="reviewer-name">Maria Chen</div>
+                            <div class="reviewer-title">San Francisco, CA</div>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Sylvio transformed our backyard into a paradise. Professional, punctual, and truly passionate about gardening. Highly recommend!"</p>
                 </div>
+
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">RC</div>
-                            <div>
-                                <div class="reviewer-name">Robert Chen</div>
-                            </div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
                         </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                        <span class="verified-badge">Verified</span>
+                    </div>
+                    <p class="review-text">"Professional, reliable, and incredibly knowledgeable. Verde has been maintaining our garden for over a year and we couldn't be happier!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">JP</div>
+                        <div>
+                            <div class="reviewer-name">James Patterson</div>
+                            <div class="reviewer-title">San Francisco, CA</div>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Outstanding service and attention to detail. My garden has never looked better. Verde Gardening is the real deal!"</p>
                 </div>
+
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">SL</div>
-                            <div>
-                                <div class="reviewer-name">Sarah Lopez</div>
-                            </div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
                         </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                        <span class="verified-badge">Verified</span>
+                    </div>
+                    <p class="review-text">"Best gardener in San Francisco! Sylvio's design suggestions were perfect, and the execution was flawless. Worth every penny!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">SR</div>
+                        <div>
+                            <div class="reviewer-name">Sarah Rodriguez</div>
+                            <div class="reviewer-title">San Francisco, CA</div>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Best gardening service in San Francisco. Reliable, efficient, and genuinely cares about the work. Five stars!"</p>
                 </div>
+
                 <div class="review-card">
                     <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">DW</div>
-                            <div>
-                                <div class="reviewer-name">David Wilson</div>
-                            </div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
                         </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                        <span class="verified-badge">Verified</span>
+                    </div>
+                    <p class="review-text">"Exceptional service from start to finish. Sylvio listened to our needs, provided expert recommendations, and delivered stunning results!"</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">DK</div>
+                        <div>
+                            <div class="reviewer-name">David Kumar</div>
+                            <div class="reviewer-title">San Francisco, CA</div>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"From design consultation to installation, everything was perfect. Verde Gardening exceeded all my expectations!"</p>
                 </div>
             </div>
         </div>
@@ -982,87 +1065,73 @@
 
     <!-- About Section -->
     <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">About Verde Gardening Service</h2>
-                <p>Verde Gardening Service is San Francisco's premier gardening and landscaping provider, led by owner Sylvio. With a deep passion for horticulture and an unwavering commitment to excellence, Sylvio has built a reputation for transforming outdoor spaces into stunning natural environments that clients absolutely love.</p>
-                <p>Our team brings together years of experience in landscape design, plant care, and sustainable gardening practices. We take pride in understanding each client's unique vision and delivering results that exceed expectations. Whether you're looking for regular maintenance, a complete garden redesign, or specialized services, Verde Gardening has the expertise and dedication to make your outdoor space truly special.</p>
-                <p>We believe that a beautiful garden enhances not just your property, but your quality of life. That's why we approach every project with meticulous attention to detail, environmental responsibility, and genuine care for the long-term health and beauty of your outdoor environment.</p>
+        <div class="about-content">
+            <h2>About Verde Gardening Service</h2>
+            <p>Verde Gardening Service is built on a foundation of passion, expertise, and an unwavering commitment to creating beautiful outdoor spaces throughout San Francisco. Our approach goes beyond simple lawn care—we view each project as an opportunity to collaborate with our clients in bringing their vision to life.</p>
+            <p>We understand that your garden is an extension of your home and your lifestyle. Whether you're looking for a complete landscape design overhaul or ongoing maintenance to keep your plants thriving, our team has the knowledge and dedication to exceed your expectations. We pride ourselves on sustainable practices, attention to detail, and the quality of every cut, plant, and design choice we make.</p>
+            <div class="owner-highlight">
+                <div class="owner-icon">👨‍🌾</div>
+                <div class="owner-info">
+                    <strong>Led by Sylvio</strong>
+                    With extensive horticultural knowledge and a genuine love for transforming outdoor spaces, Sylvio brings professional excellence and personal care to every Verde project.
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p><a href="tel:415-574-7902">415-574-7902</a></p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Service Area</h4>
-                            <p>San Francisco & Bay Area</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Hours</h4>
-                            <p>Monday - Friday: 7:00 AM - 6:00 PM<br>Saturday: 8:00 AM - 4:00 PM</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Rating</h4>
-                            <p>5.0 / 5.0 Stars (5 Reviews)</p>
-                        </div>
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <p><strong>Call Us</strong></p>
+                        <p><a href="tel:415-574-7902">(415) 574-7902</a></p>
                     </div>
                 </div>
-
-                <div class="quote-form" id="quote">
-                    <h3>Request a Free Quote</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Tell Us About Your Project *</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit">Send Quote Request</button>
-                    </form>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <p><strong>Service Area</strong></p>
+                        <p>San Francisco & Surrounding Areas</p>
+                    </div>
                 </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <p><strong>Response Time</strong></p>
+                        <p>Within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-form">
+                <h3>Request Free Quote</h3>
+                <form id="quoteForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In *</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Garden Design, Lawn Maintenance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Quote Request</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1070,61 +1139,96 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p><strong>Verde Gardening Service</strong></p>
-            <p>San Francisco, California</p>
-            <p class="footer-phone">Phone: 415-574-7902</p>
-            <div class="copyright">
-                &copy; 2024 Verde Gardening Service. All rights reserved. | Owner: Sylvio
+            <div class="footer-section">
+                <h4>Verde Gardening Service</h4>
+                <p>San Francisco, CA</p>
+                <p><a href="tel:415-574-7902">(415) 574-7902</a></p>
             </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p><a href="#services">Garden Design</a></p>
+                <p><a href="#services">Lawn Maintenance</a></p>
+                <p><a href="#services">Plant Care</a></p>
+                <p><a href="#services">Landscape Cleanup</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#reviews">Reviews</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Verde Gardening Service. All rights reserved. | San Francisco, CA</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
     <a href="tel:415-574-7902" class="floating-call" title="Call Verde Gardening Service">
-        <i class="fas fa-phone"></i>
+        📞
     </a>
 
+    <!-- Scripts -->
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for fade-in animations on scroll
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
+                    entry.target.classList.add('fade-in-on-scroll');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
+        // Observe service cards and review cards
+        document.querySelectorAll('.service-card, .review-card, .value-prop').forEach(el => {
+            observer.observe(el);
         });
 
-        // Observe review cards
-        document.querySelectorAll('.review-card').forEach(card => {
-            observer.observe(card);
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Create mailto link with form data
+            const subject = `Free Quote Request from ${name}`;
+            const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0AMessage:%0A${message}`;
+            
+            // Show confirmation and reset form
+            alert('Thank you! Your quote request has been submitted. We will contact you shortly.');
+            document.getElementById('quoteForm').reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
 
-        // Observe contact items
-        document.querySelectorAll('.contact-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Observe form groups
-        document.querySelectorAll('.form-group').forEach(group => {
-            observer.observe(group);
-        });
-
-        // Smooth form submission (demo)
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you soon at ' + document.getElementById('phone').value || document.getElementById('email').value);
-            document.querySelector('form').reset();
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+            }
         });
     </script>
 </body>
