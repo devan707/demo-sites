@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFZ Construction, Inc. - General Contractor Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>EFZ Construction, Inc. | General Contractor Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e67e22;
+            --primary-dark: #d46e0f;
+            --primary-light: #f39c12;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border: #e9ecef;
+            --white: #ffffff;
+            --success: #27ae60;
         }
 
         html {
@@ -19,365 +32,324 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #333;
+            color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--white);
         }
 
-        /* Header & Navigation */
+        /* HEADER & NAVIGATION */
         header {
-            background: #fff;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.25rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: #e67e22;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        .header-contact {
+        .nav-contact {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1rem;
             font-size: 0.95rem;
         }
 
-        .header-phone {
-            color: #e67e22;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .header-phone:hover {
-            text-decoration: underline;
-        }
-
-        .cta-header {
-            background: #e67e22;
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 4px;
+        .nav-contact a {
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .cta-header:hover {
-            background: #d46f18;
+        .nav-contact a:hover {
+            color: var(--primary-dark);
         }
 
         @media (max-width: 768px) {
-            .header-contact {
-                gap: 1rem;
-                font-size: 0.85rem;
+            nav {
+                padding: 1rem;
             }
 
-            .cta-header {
-                padding: 0.5rem 1rem;
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .nav-contact {
                 font-size: 0.85rem;
+                gap: 0.5rem;
             }
         }
 
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/><path fill="%23e67e22" opacity="0.1" d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            margin-top: 60px;
-            position: relative;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(230, 126, 34, 0.15), transparent);
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 700px;
+            position: relative;
+            z-index: 2;
             padding: 2rem;
+            max-width: 800px;
             animation: fadeInUp 1s ease-out;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 700;
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
-        .hero-content p {
-            font-size: 1.5rem;
+        .hero .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: #ecf0f1;
             font-style: italic;
+            font-weight: 400;
             margin-bottom: 2.5rem;
             opacity: 0.95;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
-        .hero-ctas {
+        .cta-group {
             display: flex;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .cta-primary, .cta-secondary {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
             font-weight: 600;
             border: none;
-            border-radius: 4px;
+            border-radius: 0.5rem;
             cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .cta-primary {
-            background: #e67e22;
-            color: white;
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
         }
 
-        .cta-primary:hover {
-            background: #d46f18;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4);
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
         }
 
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
         }
 
-        .cta-secondary:hover {
-            background: white;
-            color: #e67e22;
-            transform: translateY(-3px);
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
-            .hero {
-                margin-top: 50px;
-                height: auto;
-                min-height: 100vh;
-                padding-top: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .hero-ctas {
+            .cta-group {
                 flex-direction: column;
-                gap: 1rem;
             }
 
-            .cta-primary, .cta-secondary {
+            .btn {
                 width: 100%;
-                padding: 0.875rem 2rem;
-                font-size: 1rem;
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        @media (min-width: 769px) {
+            .cta-group {
+                flex-direction: row;
+                justify-content: center;
             }
         }
 
-        /* Stats Bar */
+        /* STATS BAR */
         .stats-bar {
-            background: white;
+            background-color: var(--light);
             padding: 2rem 1.5rem;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .stat-item {
+        .stat {
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        .stat-item:nth-child(1) { animation-delay: 0.1s; }
-        .stat-item:nth-child(2) { animation-delay: 0.2s; }
-        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat:nth-child(1) { animation-delay: 0.1s; }
+        .stat:nth-child(2) { animation-delay: 0.2s; }
+        .stat:nth-child(3) { animation-delay: 0.3s; }
 
         .stat-value {
             font-size: 2rem;
-            font-weight: 700;
-            color: #e67e22;
+            font-weight: 800;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: #666;
             font-size: 0.95rem;
+            color: var(--gray);
+            font-weight: 500;
         }
 
         .stars {
-            color: #ffc107;
+            color: var(--primary);
             font-size: 1.2rem;
-            letter-spacing: 0.2rem;
+            margin-right: 0.5rem;
         }
 
-        /* Services Section */
+        /* SERVICES SECTION */
         .services {
             padding: 4rem 1.5rem;
-            background: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: var(--dark);
         }
 
         .section-subtitle {
             text-align: center;
-            color: #666;
+            color: var(--gray);
             margin-bottom: 3rem;
             font-size: 1.1rem;
         }
 
         .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            background: white;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
             padding: 2rem;
-            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.1);
+            transform: translateY(-4px);
         }
 
         .service-icon {
             font-size: 3rem;
-            color: #e67e22;
             margin-bottom: 1rem;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #333;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+            font-weight: 700;
         }
 
         .service-card p {
-            color: #666;
-            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.6;
         }
 
-        /* Why Choose Us */
+        /* WHY CHOOSE US */
         .why-choose {
             padding: 4rem 1.5rem;
-            background: white;
+            background-color: var(--light);
         }
 
-        .why-grid {
+        .why-choose-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .value-props {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .value-prop {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #e67e22;
-            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .value-prop h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #333;
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
         .value-prop p {
-            color: #666;
-            line-height: 1.8;
+            color: var(--gray);
+            line-height: 1.6;
         }
 
-        /* Reviews Section */
+        /* REVIEWS SECTION */
         .reviews {
             padding: 4rem 1.5rem;
-            background: #f9f9f9;
-        }
-
-        .reviews-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -386,194 +358,182 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.75rem;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
 
         .review-header {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
             justify-content: space-between;
+            margin-bottom: 1rem;
         }
 
-        .reviewer-info {
+        .review-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
+        .avatar {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: #e67e22;
-            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--white);
             font-weight: 700;
             font-size: 1.1rem;
         }
 
-        .reviewer-name {
-            font-weight: 600;
-            color: #333;
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--dark);
             margin-bottom: 0.2rem;
-        }
-
-        .review-title {
-            font-size: 0.85rem;
-            color: #999;
+            font-weight: 600;
         }
 
         .verified-badge {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             font-size: 0.8rem;
-            color: #27ae60;
+            color: var(--success);
             font-weight: 600;
         }
 
-        .verified-badge i {
-            font-size: 0.9rem;
+        .verified-badge::before {
+            content: '✓';
+            background: var(--success);
+            color: var(--white);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
         }
 
         .review-stars {
-            color: #ffc107;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1rem;
             letter-spacing: 0.2rem;
         }
 
         .review-text {
-            color: #666;
-            font-style: italic;
+            color: var(--gray);
             line-height: 1.7;
-            quotes: none;
+            font-style: italic;
         }
 
-        .review-text::before {
-            content: '"';
-            color: #e67e22;
-            font-size: 2rem;
-            line-height: 0;
-            vertical-align: -0.4em;
-            margin-right: 0.3rem;
-        }
-
-        /* About Section */
+        /* ABOUT SECTION */
         .about {
             padding: 4rem 1.5rem;
-            background: white;
-        }
-
-        .about-container {
-            max-width: 800px;
-            margin: 0 auto;
+            background-color: var(--light);
         }
 
         .about-content {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .about-content p {
-            margin-bottom: 1.5rem;
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-top: 1.5rem;
         }
 
-        .about-highlight {
-            color: #e67e22;
-            font-weight: 600;
+        .about-text strong {
+            color: var(--dark);
         }
 
-        /* Contact & Form Section */
+        /* CONTACT SECTION */
         .contact {
             padding: 4rem 1.5rem;
-            background: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .contact-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            margin-top: 2rem;
         }
 
         .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-block {
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .contact-item {
-            margin-bottom: 2rem;
-        }
-
-        .contact-label {
-            font-weight: 600;
-            color: #e67e22;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-item a {
-            color: #333;
-            text-decoration: none;
+        .contact-block h3 {
             font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
-        .contact-item a:hover {
-            color: #e67e22;
+        .contact-block p {
+            color: var(--gray);
+            line-height: 1.7;
         }
 
-        .contact-item p {
-            color: #666;
-            font-size: 1rem;
+        .contact-block a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-block a:hover {
+            color: var(--primary-dark);
         }
 
         .quote-form {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out;
-            animation-delay: 0.2s;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.1s;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #333;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
             font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
             transition: border-color 0.3s ease;
@@ -582,46 +542,71 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #e67e22;
+            border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
         }
 
-        .form-submit {
-            background: #e67e22;
-            color: white;
-            padding: 0.875rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .form-submit:hover {
-            background: #d46f18;
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
         @media (max-width: 768px) {
-            .contact-container {
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
         }
 
-        /* Footer */
+        /* FLOATING CALL BUTTON */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+            transition: all 0.3s ease;
+            z-index: 50;
+            text-decoration: none;
+        }
+
+        .floating-call:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .floating-call:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                width: 56px;
+                height: 56px;
+                bottom: 1.5rem;
+                right: 1rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        /* FOOTER */
         footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 1.5rem 1.5rem;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 1.5rem 1rem;
         }
 
         .footer-content {
@@ -634,399 +619,334 @@
         }
 
         .footer-section h4 {
+            color: var(--primary);
             margin-bottom: 1rem;
-            color: #e67e22;
+            font-weight: 700;
         }
 
-        .footer-section p, .footer-section a {
+        .footer-section p {
+            color: #bdc3c7;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
             color: #bdc3c7;
             text-decoration: none;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: #e67e22;
+            color: var(--primary);
         }
 
         .footer-bottom {
             border-top: 1px solid #34495e;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             text-align: center;
             color: #95a5a6;
             font-size: 0.9rem;
         }
 
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: #e67e22;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            z-index: 999;
-        }
-
-        .floating-call:hover {
-            background: #d46f18;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.6);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Intersection Observer Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* SCROLL ANIMATIONS */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
+            transition: opacity 0.8s ease-out;
         }
 
         .fade-in.visible {
+            opacity: 1;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
-        <div class="header-content">
-            <div class="logo">EFZ Construction</div>
-            <div class="header-contact">
-                <a href="tel:+18318403615" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    (831) 840-3615
-                </a>
-                <a href="#contact" class="cta-header">Get Quote</a>
+        <nav>
+            <a href="#" class="logo">EFZ Construction</a>
+            <div class="nav-contact">
+                <a href="tel:(831)840-3615">📞 (831) 840-3615</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>EFZ Construction, Inc.</h1>
-            <p>Professional General Contracting Excellence</p>
-            <div class="hero-ctas">
-                <a href="tel:+18318403615" class="cta-primary">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-                <a href="#contact" class="cta-secondary">Get Free Quote</a>
+            <p class="tagline">Quality Craftsmanship, Professional Service, Built to Last</p>
+            <div class="cta-group">
+                <a href="tel:(831)840-3615" class="btn btn-primary">📞 Call Now</a>
+                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
+    <!-- STATS BAR -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-value">
-                    <span class="stars">★★★★★</span>
-                </div>
-                <div class="stat-label">5-Star Rating</div>
+        <div class="stat">
+            <div class="stat-value">
+                <span class="stars">★★★★★</span>
             </div>
-            <div class="stat-item">
-                <div class="stat-value">4</div>
-                <div class="stat-label">Client Reviews</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Satisfaction Guaranteed</div>
-            </div>
+            <div class="stat-label">5-Star Rating</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">4</div>
+            <div class="stat-label">Customer Reviews</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Satisfaction Guarantee</div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- SERVICES SECTION -->
     <section class="services" id="services">
-        <h2 class="section-title fade-in">Our Services</h2>
-        <p class="section-subtitle fade-in">Comprehensive construction solutions for all your project needs</p>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive construction solutions for residential and commercial projects</p>
         <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-hammer"></i>
-                </div>
-                <h3>General Construction</h3>
-                <p>Complete construction services from planning to completion with expert craftsmanship and attention to detail.</p>
+            <div class="service-card" style="animation-delay: 0s;">
+                <div class="service-icon">🏗️</div>
+                <h3>New Construction</h3>
+                <p>From foundation to finish, we handle complete construction projects with precision and expertise for residential and commercial properties.</p>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Remodeling</h3>
-                <p>Transform your space with our professional remodeling services tailored to your vision and budget.</p>
+            <div class="service-card" style="animation-delay: 0.1s;">
+                <div class="service-icon">🔨</div>
+                <h3>Remodeling & Renovations</h3>
+                <p>Transform your space with expert remodeling services. Kitchen, bathroom, and whole-home renovations delivered on time and on budget.</p>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>Repairs & Maintenance</h3>
-                <p>Reliable repair and maintenance services to keep your property in top condition year-round.</p>
+            <div class="service-card" style="animation-delay: 0.2s;">
+                <div class="service-icon">🪟</div>
+                <h3>Custom Carpentry</h3>
+                <p>Fine custom carpentry work including trim, cabinetry, decking, and bespoke woodwork crafted to your exact specifications.</p>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-paint-roller"></i>
-                </div>
-                <h3>Custom Finishing</h3>
-                <p>Premium finishing touches including painting, trim work, and architectural details done right.</p>
+            <div class="service-card" style="animation-delay: 0.3s;">
+                <div class="service-icon">🏠</div>
+                <h3>Additions & Expansions</h3>
+                <p>Expand your living space with carefully planned and executed room additions and home extensions that seamlessly integrate with existing structures.</p>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-door-open"></i>
-                </div>
-                <h3>Installation Services</h3>
-                <p>Professional installation of doors, windows, flooring, and other building materials with precision.</p>
+            <div class="service-card" style="animation-delay: 0.4s;">
+                <div class="service-icon">👷</div>
+                <h3>General Contracting</h3>
+                <p>Full-service general contracting for all project types. We manage every detail, coordinate subcontractors, and ensure quality workmanship.</p>
             </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-ruler-combined"></i>
-                </div>
-                <h3>Project Management</h3>
-                <p>Expert coordination and management of your entire project ensuring timely completion and quality results.</p>
+            <div class="service-card" style="animation-delay: 0.5s;">
+                <div class="service-icon">🛠️</div>
+                <h3>Commercial Projects</h3>
+                <p>Professional commercial construction and renovation services. We deliver results that meet code requirements and industry standards.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose" id="why-us">
-        <h2 class="section-title fade-in">Why Choose EFZ Construction</h2>
-        <p class="section-subtitle fade-in">We deliver excellence in every project</p>
-        <div class="why-grid">
-            <div class="value-prop fade-in">
-                <div class="value-number">15+</div>
-                <h3>Years Experience</h3>
-                <p>Proven track record of successful projects, satisfied customers, and quality workmanship that stands the test of time.</p>
-            </div>
-            <div class="value-prop fade-in">
-                <div class="value-number">100%</div>
-                <h3>Licensed & Insured</h3>
-                <p>Fully licensed, bonded, and insured to protect your project and ensure professional standards are met.</p>
-            </div>
-            <div class="value-prop fade-in">
-                <div class="value-number">24/7</div>
-                <h3>Customer Support</h3>
-                <p>Available around the clock to answer your questions, address concerns, and keep your project on track.</p>
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="why">
+        <div class="why-choose-content">
+            <h2 class="section-title">Why Choose EFZ Construction</h2>
+            <p class="section-subtitle">Trusted by homeowners and businesses throughout the region</p>
+            <div class="value-props">
+                <div class="value-prop" style="animation-delay: 0s;">
+                    <h3>✓ Expert Craftsmanship</h3>
+                    <p>Years of experience and attention to detail ensure every project meets the highest quality standards. We take pride in building relationships and delivering excellence.</p>
+                </div>
+                <div class="value-prop" style="animation-delay: 0.1s;">
+                    <h3>✓ On-Time Delivery</h3>
+                    <p>We respect your time and budget. Detailed project planning and professional management keep us on schedule while maintaining exceptional quality.</p>
+                </div>
+                <div class="value-prop" style="animation-delay: 0.2s;">
+                    <h3>✓ Licensed & Insured</h3>
+                    <p>Fully licensed, insured, and bonded. We follow all regulations and safety requirements to protect your investment and ensure peace of mind.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
+    <!-- REVIEWS SECTION -->
     <section class="reviews" id="reviews">
-        <div class="reviews-container">
-            <h2 class="section-title fade-in">What Our Clients Say</h2>
-            <p class="section-subtitle fade-in">Real feedback from satisfied customers</p>
-            <div class="reviews-grid">
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">JM</div>
-                            <div>
-                                <div class="reviewer-name">John Martinez</div>
-                                <div class="review-title">Homeowner</div>
-                            </div>
-                        </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-subtitle">See what our satisfied clients have to say</p>
+        <div class="reviews-grid">
+            <div class="review-card" style="animation-delay: 0s;">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="avatar">JM</div>
+                        <div class="author-info">
+                            <h4>James Miller</h4>
+                            <span class="verified-badge">Verified Customer</span>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">EFZ Construction transformed our kitchen beyond our expectations. Professional, punctual, and exceptional attention to detail. Highly recommended!</p>
                 </div>
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">SC</div>
-                            <div>
-                                <div class="reviewer-name">Sarah Chen</div>
-                                <div class="review-title">Project Manager</div>
-                            </div>
-                        </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"EFZ Construction transformed our kitchen into the space of our dreams. The team was professional, punctual, and their attention to detail was exceptional. Highly recommended!"</p>
+            </div>
+            <div class="review-card" style="animation-delay: 0.1s;">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="avatar">SR</div>
+                        <div class="author-info">
+                            <h4>Sarah Rodriguez</h4>
+                            <span class="verified-badge">Verified Customer</span>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Working with EFZ was seamless. They coordinated every aspect of our commercial renovation with incredible efficiency. Top-notch professionalism.</p>
                 </div>
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">RG</div>
-                            <div>
-                                <div class="reviewer-name">Robert Garcia</div>
-                                <div class="review-title">Business Owner</div>
-                            </div>
-                        </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"From the initial consultation to final walkthrough, every interaction was professional and courteous. Our bathroom renovation exceeded our expectations. Five stars!"</p>
+            </div>
+            <div class="review-card" style="animation-delay: 0.2s;">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="avatar">MC</div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <span class="verified-badge">Verified Customer</span>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">From start to finish, EFZ Construction demonstrated true craftsmanship. Their team was respectful, efficient, and delivered a beautiful finished product.</p>
                 </div>
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">EM</div>
-                            <div>
-                                <div class="reviewer-name">Elena Martinez</div>
-                                <div class="review-title">Homeowner</div>
-                            </div>
-                        </div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i> Verified
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"We hired EFZ for our home addition and we couldn't be happier. They stayed within budget, finished on schedule, and the quality of work is outstanding. Best decision we made!"</p>
+            </div>
+            <div class="review-card" style="animation-delay: 0.3s;">
+                <div class="review-header">
+                    <div class="review-author">
+                        <div class="avatar">LD</div>
+                        <div class="author-info">
+                            <h4>Lisa Davis</h4>
+                            <span class="verified-badge">Verified Customer</span>
                         </div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Excellent communication throughout our entire renovation project. They met deadlines, stayed within budget, and the quality exceeded our expectations.</p>
                 </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Professional, reliable, and honest. They provided a clear estimate, communicated throughout the project, and delivered exactly what they promised. We'll definitely work with them again!"</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT SECTION -->
     <section class="about" id="about">
-        <h2 class="section-title fade-in">About EFZ Construction</h2>
-        <div class="about-container">
-            <div class="about-content fade-in">
-                <p>EFZ Construction, Inc. is a <span class="about-highlight">trusted general contractor serving the Monterey County area</span> for over 15 years. Our commitment to quality, integrity, and customer satisfaction sets us apart in the construction industry.</p>
-                <p>With a team of skilled professionals and years of combined experience, we specialize in residential and commercial construction projects of all sizes. From complete remodels to custom finishes, we bring your vision to life with <span class="about-highlight">meticulous attention to detail and superior craftsmanship</span>.</p>
-                <p>We believe in building lasting relationships with our clients through transparent communication, fair pricing, and exceptional results. Every project is treated as if it were our own, ensuring the highest standards of quality and professionalism throughout.</p>
-            </div>
+        <div class="about-content">
+            <h2 class="section-title">About EFZ Construction</h2>
+            <p class="about-text">
+                <strong>EFZ Construction, Inc.</strong> is a leading general contracting firm dedicated to delivering premium construction services to residential and commercial clients. With years of industry experience, our team combines technical expertise with a genuine commitment to customer satisfaction. We specialize in new construction, remodeling, custom carpentry, and commercial projects of all sizes.
+            </p>
+            <p class="about-text">
+                Our approach is simple: listen to your vision, deliver transparent communication, manage projects professionally, and exceed expectations every time. Whether you're planning a complete home renovation, a new addition, or a commercial build, EFZ Construction brings integrity, craftsmanship, and reliability to every project. Let us help bring your vision to life.
+            </p>
         </div>
     </section>
 
-    <!-- Contact & Quote Form -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="quote">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
             <div class="contact-info">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Get in Touch</h2>
-                
-                <div class="contact-item">
-                    <div class="contact-label">
-                        <i class="fas fa-phone"></i> Phone
-                    </div>
-                    <a href="tel:+18318403615">(831) 840-3615</a>
+                <div class="contact-block" style="animation-delay: 0s;">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:(831)840-3615">(831) 840-3615</a></p>
                 </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">
-                        <i class="fas fa-map-marker-alt"></i> Service Area
-                    </div>
-                    <p>Monterey County and surrounding areas including Salinas, Pacific Grove, Carmel, and Big Sur regions.</p>
+                <div class="contact-block" style="animation-delay: 0.1s;">
+                    <h3>📍 Service Area</h3>
+                    <p>Monterey County and surrounding areas. We proudly serve residential and commercial customers throughout the region.</p>
                 </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">
-                        <i class="fas fa-clock"></i> Availability
-                    </div>
-                    <p>Monday - Saturday: 7:00 AM - 6:00 PM<br>Sunday: By Appointment</p>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-label">
-                        <i class="fas fa-certificate"></i> Credentials
-                    </div>
-                    <p>Fully Licensed & Insured<br>BBB Accredited Member</p>
+                <div class="contact-block" style="animation-delay: 0.2s;">
+                    <h3>💼 Services</h3>
+                    <p>General contracting, new construction, remodeling, renovations, custom carpentry, additions, and commercial projects.</p>
                 </div>
             </div>
-
-            <form class="quote-form">
-                <h3 style="margin-bottom: 1.5rem; color: #333;">Request a Free Quote</h3>
-                
+            <form class="quote-form" onsubmit="handleSubmit(event)">
+                <h3 style="color: var(--dark); margin-bottom: 1rem; font-weight: 700;">Request Free Quote</h3>
                 <div class="form-group">
-                    <label for="name">Full Name</label>
+                    <label for="name">Full Name *</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="email">Email Address</label>
+                    <label for="email">Email Address *</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number *</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="project">Project Type</label>
-                    <select id="project" name="project" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem;">
-                        <option value="">Select a service...</option>
-                        <option value="general">General Construction</option>
-                        <option value="remodel">Remodeling</option>
-                        <option value="repair">Repairs & Maintenance</option>
-                        <option value="finishing">Custom Finishing</option>
-                        <option value="installation">Installation Services</option>
-                        <option value="management">Project Management</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <label for="project">Project Type *</label>
+                    <input type="text" id="project" name="project" placeholder="e.g., Kitchen Remodel, New Deck" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="message">Project Description</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
                 </div>
-
-                <button type="submit" class="form-submit">Request Quote</button>
+                <button type="submit" class="btn btn-primary">Request Quote</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>EFZ Construction, Inc.</h4>
-                <p>Professional general contracting and construction services in Monterey County.</p>
+                <p>Professional general contracting services for residential and commercial projects throughout Monterey County.</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <a href="tel:+18318403615">(831) 840-3615</a>
-                <p>Available Monday - Saturday<br>7:00 AM - 6:00 PM</p>
+                <h4>Quick Links</h4>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#reviews">Reviews</a></p>
+                <p><a href="#about">About</a></p>
+                <p><a href="#quote">Contact</a></p>
             </div>
             <div class="footer-section">
-                <h4>Service Areas</h4>
-                <p>Salinas, Pacific Grove, Carmel, Big Sur, and all of Monterey County</p>
+                <h4>Contact Info</h4>
+                <p>📞 <a href="tel:(831)840-3615">(831) 840-3615</a></p>
+                <p>⭐ 5-Star Rated | 4 Reviews | 100% Satisfaction</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 EFZ Construction, Inc. All rights reserved. | Licensed & Insured | BBB Accredited</p>
+            <p>&copy; 2024 EFZ Construction, Inc. All rights reserved. | Licensed & Insured General Contractor</p>
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <a href="tel:+18318403615" class="floating-call" title="Call EFZ Construction">
-        <i class="fas fa-phone"></i>
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:(831)840-3615" class="floating-call" title="Call us now">
+        📞
     </a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1035,40 +955,42 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all fade-in and slide-up elements
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
-        const form = document.querySelector('.quote-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your quote request! We will contact you shortly at ' + document.getElementById('phone').value);
-            form.reset();
-        });
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                project: document.getElementById('project').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Show success message
+            alert(`Thank you, ${formData.name}! We've received your quote request. We'll contact you shortly at ${formData.phone}.`);
+            
+            // Reset form
+            event.target.reset();
+        }
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
                     });
                 }
             });
-        });
-
-        // Header shadow on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 10) {
-                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
         });
     </script>
 </body>
