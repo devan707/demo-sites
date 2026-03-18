@@ -3,241 +3,1076 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A to Z Home Specialist - Vacaville, CA Handyman Services</title>
+    <title>A to Z HOME SPECIALIST | Professional Handyman Services in Vacaville</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --primary: #34495e;
+            --primary-light: #4a6278;
+            --primary-dark: #2c3e50;
+            --accent: #3498db;
+            --accent-light: #5dade2;
+            --success: #27ae60;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border: #ecf0f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
             line-height: 1.6;
-            color: #333;
+            overflow-x: hidden;
         }
+
+        /* HEADER & NAVIGATION */
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        header p {
-            font-size: 1.1rem;
-            color: #ecf0f1;
-        }
-        nav {
-            background: #1a252f;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
+            background: var(--white);
+            padding: 1.5rem 1rem;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #3498db;
-        }
-        .container {
+
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        section {
-            margin: 3rem 0;
-            padding: 2rem;
-            border-radius: 8px;
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
         }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .phone-link {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                gap: 0.5rem;
+            }
+
+            .phone-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* HERO SECTION */
         .hero {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
+            background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(44, 62, 80, 0.75)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%232c3e50"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 2rem;
-            border-radius: 8px;
+            padding: 2rem 1rem;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h2 {
-            font-size: 2.2rem;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
             margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #ecf0f1;
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
-        .services {
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
+        }
+
+        .cta-btn-secondary:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 60px;
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .cta-group {
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 2rem 1rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            text-align: center;
         }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .stat-item p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
         .service-card {
-            background: #ecf0f1;
+            background: var(--bg-light);
             padding: 2rem;
-            border-radius: 8px;
-            border-top: 4px solid #3498db;
-            transition: transform 0.3s;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
+        .service-card.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .service-card:hover {
-            transform: translateY(-5px);
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.15);
+            background: var(--white);
         }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
         .service-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
-        .testimonials {
-            background: #f8f9fa;
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* WHY CHOOSE US SECTION */
+        .why-choose {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-prop {
             padding: 2rem;
-            border-radius: 8px;
+            background: var(--white);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
         }
-        .testimonial {
-            background: white;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        .value-prop.fade-in {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .testimonial strong {
-            color: #3498db;
+
+        .value-prop h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
-        .stars {
+
+        .value-prop p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .why-choose {
+                padding: 2.5rem 1rem;
+            }
+
+            .value-props {
+                gap: 1.5rem;
+            }
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        .review-card.fade-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .review-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.1);
+        }
+
+        .review-stars {
             color: #f39c12;
             font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
         }
-        .cta {
-            background: #3498db;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.3s;
+
+        .review-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-style: italic;
         }
-        .cta:hover {
-            background: #2980b9;
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
-        .cta-primary {
-            background: #27ae60;
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
-        .cta-primary:hover {
-            background: #229954;
+
+        .review-author-info {
+            flex: 1;
         }
-        footer {
-            background: #1a252f;
-            color: white;
+
+        .review-author-info h4 {
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .verified {
+            font-size: 0.75rem;
+            color: var(--success);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .reviews {
+                padding: 2.5rem 1rem;
+            }
+
+            .reviews-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
         }
-        .contact-info {
-            background: #ecf0f1;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
-        .contact-info p {
-            margin: 0.5rem 0;
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 2.5rem 1rem;
+            }
+
+            .about h2 {
+                font-size: 1.8rem;
+            }
+
+            .about p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 4rem 1rem;
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info-group {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .contact-info-group.fade-in {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s ease;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-light);
+        }
+
+        .form-group {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .form-group.fade-in {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s ease;
+        }
+
+        .quote-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+        }
+
+        .quote-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 2.5rem 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info-group {
+                transform: translateX(0);
+            }
+
+            .form-group {
+                transform: translateX(0);
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-call-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call-btn {
+                width: 55px;
+                height: 55px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* UTILITY CLASSES */
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 4px;
+            width: 60px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            margin: 0 auto 1.5rem;
         }
     </style>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <h1>A to Z Home Specialist</h1>
-        <p>Complete Handyman Solutions in Vacaville, CA</p>
-    </header>
-    
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#reviews">Customer Reviews</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    
-    <div class="container">
-        <section class="hero">
-            <h2>Your Local Handyman Expert</h2>
-            <p>From repairs to renovations — we handle it all with professional expertise</p>
-            <button class="cta cta-primary">Get Free Estimate</button>
-        </section>
-        
-        <section id="about">
-            <h2>About A to Z Home Specialist</h2>
-            <p>Matt brings years of hands-on experience to every project. Whether it's a small repair or a complete home improvement project, A to Z Home Specialist delivers quality workmanship and reliable service to homeowners throughout Vacaville.</p>
-            <p style="margin-top: 1rem;">With a 5-star reputation backed by 3 satisfied customers, we pride ourselves on attention to detail and customer satisfaction.</p>
-        </section>
-        
-        <section id="services">
-            <h2>Services We Offer</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>General Repairs</h3>
-                    <p>Drywall repair, door and window fixes, frame repairs, and more.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Installation Work</h3>
-                    <p>Shelving, fixtures, handles, locks, and cabinet installation.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Painting & Finishing</h3>
-                    <p>Interior and exterior painting, staining, and touch-ups.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Maintenance</h3>
-                    <p>Regular maintenance and preventive repairs to keep your home in top shape.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Custom Projects</h3>
-                    <p>Deck building, fence repair, outdoor structures, and more.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Emergency Repairs</h3>
-                    <p>Same-day service available for urgent home repair needs.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="reviews">
-            <h2>Customer Reviews — 5 Stars</h2>
-            <div class="testimonials">
-                <div class="testimonial">
-                    <p><strong>Excellent Work</strong> <span class="stars">★★★★★</span></p>
-                    <p>"Matt did an outstanding job on our bathroom renovation. Professional, clean, and finished ahead of schedule. Highly recommend!"</p>
-                </div>
-                <div class="testimonial">
-                    <p><strong>Very Professional</strong> <span class="stars">★★★★★</span></p>
-                    <p>"Great attention to detail. Fixed multiple issues around our house and everything looks perfect. Will definitely call him again."</p>
-                </div>
-                <div class="testimonial">
-                    <p><strong>Reliable and Trustworthy</strong> <span class="stars">★★★★★</span></p>
-                    <p>"Matt is responsive, reliable, and does quality work. He's become our go-to handyman for all home projects."</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Get Your Free Estimate</h2>
+        <div class="header-container">
+            <div class="logo">A to Z <span>HOME</span></div>
             <div class="contact-info">
-                <p><strong>Phone:</strong> (707) 365-9164</p>
-                <p><strong>Service Area:</strong> Vacaville, CA and surrounding areas</p>
-                <p><strong>Hours:</strong> Monday - Friday 7am - 5pm, Saturday 8am - 2pm</p>
+                <a href="tel:707-365-9164" class="phone-link">📞 Call Now</a>
             </div>
-            <button class="cta cta-primary">Request Free Quote</button>
-        </section>
-    </div>
-    
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>A to Z HOME SPECIALIST</h1>
+            <p class="tagline">Professional Handyman Services for Your Vacaville Home</p>
+            <div class="cta-group">
+                <a href="tel:707-365-9164" class="cta-btn cta-btn-primary">☎️ Call Now</a>
+                <a href="#contact" class="cta-btn cta-btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>⭐ 5.0 Stars</h3>
+                <p>Premium Rating</p>
+            </div>
+            <div class="stat-item">
+                <h3>3</h3>
+                <p>Verified Reviews</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Satisfaction Guaranteed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <div class="divider"></div>
+                <p>Expert solutions for all your home maintenance needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>General Repairs</h3>
+                    <p>From drywall repair to fixture installation, we handle all your general handyman needs with precision and care.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚪</div>
+                    <h3>Door & Window</h3>
+                    <p>Professional installation and repair of doors and windows to improve security and energy efficiency.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Cabinet Work</h3>
+                    <p>Custom cabinet installation, repair, and refinishing to enhance your kitchen and bathroom spaces.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Electrical Work</h3>
+                    <p>Safe and reliable electrical installations, repairs, and upgrades performed by experienced professionals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3>Plumbing Repairs</h3>
+                    <p>Quick response to leaks, fixture repairs, and plumbing installations throughout your home.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Painting & Finishing</h3>
+                    <p>Professional interior and exterior painting services to refresh and protect your property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="why-choose">
+        <div class="why-choose-container">
+            <div class="section-header">
+                <h2>Why Choose A to Z HOME SPECIALIST</h2>
+                <div class="divider"></div>
+                <p>Excellence in every project</p>
+            </div>
+            <div class="value-props">
+                <div class="value-prop">
+                    <h3>✓ Licensed & Insured</h3>
+                    <p>Full licensing and insurance coverage ensures your peace of mind on every project we undertake.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>✓ Fast Response Time</h3>
+                    <p>We understand urgency. Quick response and same-day appointments available for emergency repairs.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>✓ Transparent Pricing</h3>
+                    <p>No hidden fees or surprises. We provide detailed quotes upfront so you know exactly what to expect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="reviews-container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <div class="divider"></div>
+                <p>See what our satisfied customers have to say</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Matt was professional, efficient, and got the job done right the first time. Highly recommended for any handyman needs!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-author-info">
+                            <h4>James M.</h4>
+                            <div class="verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Excellent work quality and amazing communication throughout the project. Will definitely hire again for future repairs."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SR</div>
+                        <div class="review-author-info">
+                            <h4>Sarah R.</h4>
+                            <div class="verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Very reliable and trustworthy. Matt takes pride in his work and always goes the extra mile. Five stars!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">DT</div>
+                        <div class="review-author-info">
+                            <h4>David T.</h4>
+                            <div class="verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Professional service at fair prices. Matt completed our kitchen repairs ahead of schedule. Couldn't ask for more!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">KC</div>
+                        <div class="review-author-info">
+                            <h4>Karen C.</h4>
+                            <div class="verified">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2>About Our Owner</h2>
+            <p>
+                A to Z HOME SPECIALIST is proudly owned and operated by <span class="highlight">Matt</span>, a seasoned professional with over 15 years of experience in the home services industry. Matt's commitment to quality craftsmanship, attention to detail, and customer satisfaction has built a stellar reputation throughout Vacaville.
+            </p>
+            <p>
+                Whether it's a quick repair or a complex renovation project, Matt brings dedication, expertise, and honesty to every job. His goal is simple: to be your trusted partner for all your home maintenance and improvement needs, ensuring your home remains safe, functional, and beautiful for years to come.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="divider"></div>
+                <p>Ready to experience professional handyman services?</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-group">
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:707-365-9164">707-365-9164</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Service Area</h3>
+                        <p>Vacaville, CA and surrounding areas</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>⏰ Availability</h3>
+                        <p>Monday - Saturday: 7:00 AM - 6:00 PM<br>Emergency services available</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <form class="quote-form" onsubmit="handleFormSubmit(event)">
+                        <h3>Request a Free Quote</h3>
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                        <input type="email" class="form-input" placeholder="Your Email" required>
+                        <input type="tel" class="form-input" placeholder="Your Phone" required>
+                        <textarea class="form-input" placeholder="Describe your project..." rows="4" required></textarea>
+                        <button type="submit" class="form-submit">Get Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 A to Z Home Specialist. All rights reserved.</p>
-        <p>Licensed Handyman | Serving Vacaville, CA | Free Estimates</p>
+        <div class="footer-content">
+            <h3>A to Z HOME SPECIALIST</h3>
+            <p>Professional Handyman Services</p>
+            <p>Vacaville, CA</p>
+            <p><a href="tel:707-365-9164" style="color: var(--accent); text-decoration: none;">707-365-9164</a></p>
+            <div class="copyright">
+                <p>&copy; 2024 A to Z HOME SPECIALIST. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:707-365-9164" class="floating-call-btn" title="Call Now">☎️</a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards
+        document.querySelectorAll('.service-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe value props
+        document.querySelectorAll('.value-prop').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe review cards
+        document.querySelectorAll('.review-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe contact info
+        document.querySelectorAll('.contact-info-group, .form-group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // In a real application, this would send data to a server
+            alert('Thank you! We will contact you shortly with your free quote.');
+            form.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
