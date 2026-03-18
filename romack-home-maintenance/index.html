@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romack Home Maintenance - Vacaville, CA Veteran-Owned Handyman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+        }
+        .veteran-badge {
+            display: inline-block;
+            background: #d4a017;
+            color: #1e3a5f;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        nav {
+            background: #1a2d42;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #d4a017;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3a5f 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #2a5298;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+        .testimonials {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2a5298;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .testimonial strong {
+            color: #2a5298;
+        }
+        .stars {
+            color: #f39c12;
+            font-size: 1rem;
+        }
+        .cta {
+            background: #2a5298;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        .cta:hover {
+            background: #1e3a5f;
+        }
+        .cta-primary {
+            background: #d4a017;
+            color: #1e3a5f;
+        }
+        .cta-primary:hover {
+            background: #b8860b;
+        }
+        footer {
+            background: #1a2d42;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .contact-info {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            color: #2a5298;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Romack Home Maintenance</h1>
+        <p>Professional Handyman Services in Vacaville, CA</p>
+        <div class="veteran-badge">★ Veteran-Owned Business ★</div>
+    </header>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Customer Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h2>Quality Home Maintenance You Can Trust</h2>
+            <p>Veteran-owned and operated. Serving Vacaville with professional, reliable handyman services.</p>
+            <button class="cta cta-primary">Get Free Estimate</button>
+        </section>
+        
+        <section id="about">
+            <h2>About Romack Home Maintenance</h2>
+            <p>Robert founded Romack Home Maintenance with a commitment to quality workmanship and honest service. As a proud veteran, he brings discipline, integrity, and attention to detail to every project.</p>
+            <p style="margin-top: 1rem;">With a 4.9-star rating and 39 customer reviews, Romack Home Maintenance has earned the trust of homeowners throughout Vacaville. Whether it's a small repair or a major project, we deliver results.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">39</div>
+                    <p>5-Star Reviews</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.9★</div>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <p>Customer Satisfaction</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services">
+            <h2>Comprehensive Home Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>General Repairs</h3>
+                    <p>Drywall, doors, windows, frames, and structural repairs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Installation</h3>
+                    <p>Shelving, fixtures, handles, locks, and cabinet work.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Painting</h3>
+                    <p>Interior and exterior painting with professional finish.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bathroom & Kitchen</h3>
+                    <p>Updates, repairs, and renovations for kitchens and bathrooms.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Outdoor Work</h3>
+                    <p>Decks, fences, patios, and outdoor structure repairs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Emergency Service</h3>
+                    <p>Same-day service available for urgent home repairs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="reviews">
+            <h2>Customer Reviews — 4.9 Stars (39 Reviews)</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p><strong>Outstanding Service</strong> <span class="stars">★★★★★</span></p>
+                    <p>"Robert is a true professional. He took time to understand our needs, provided fair pricing, and completed the work with excellence. Highly recommended!"</p>
+                </div>
+                <div class="testimonial">
+                    <p><strong>Veteran Reliability</strong> <span class="stars">★★★★★</span></p>
+                    <p>"It's clear Robert takes pride in his work. He was on time, clean, professional, and the results are excellent. We've used him multiple times."</p>
+                </div>
+                <div class="testimonial">
+                    <p><strong>Best Handyman in Town</strong> <span class="stars">★★★★★</span></p>
+                    <p>"Robert fixed everything we asked for and more. Great attention to detail, honest communication, and fair prices. A truly trustworthy contractor."</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Schedule Your Free Estimate</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> (707) 317-8126</p>
+                <p><strong>Service Area:</strong> Vacaville, CA and surrounding communities</p>
+                <p><strong>Hours:</strong> Monday - Saturday 7am - 6pm</p>
+            </div>
+            <button class="cta cta-primary">Request Free Quote</button>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Romack Home Maintenance. All rights reserved.</p>
+        <p>Veteran-Owned | Licensed Handyman | Vacaville, CA | Free Estimates</p>
+    </footer>
+</body>
+</html>
