@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallatin Asphalt Inc - Professional Paving Contractor | Watsonville</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gallatin Asphalt Inc - Professional Paving Contractor in Watsonville</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,106 +14,661 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #e67e22;
-            --primary-dark: #d35400;
-            --primary-light: #f39c12;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --text: #333333;
-            --border: #e0e0e0;
-            --success: #27ae60;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
-            background-color: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .primary-color {
+            color: #e67e22;
         }
 
         /* Header & Navigation */
         header {
-            background-color: var(--dark);
-            color: #fff;
-            padding: 1rem;
+            background: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
+            color: #1a1a1a;
         }
 
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-size: 0.9rem;
+        .logo span {
+            color: #e67e22;
         }
 
-        .header-phone {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
+        .phone-header {
+            color: #e67e22;
             font-weight: 600;
-            transition: color 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .header-phone:hover {
-            color: var(--primary-light);
+        @media (max-width: 768px) {
+            .phone-header {
+                font-size: 14px;
+            }
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(230,126,34,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
             position: relative;
-            overflow: hidden;
-            min-height: 100vh;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23666" width="1200" height="600"/><path fill="%23999" d="M0 300 Q300 200 600 300 T1200 300 L1200 600 L0 600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #fff;
-            padding: 2rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            color: white;
+            overflow: hidden;
         }
 
         .hero-content {
-            position: relative;
             z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d46a0f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #e67e22;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #e67e22;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #e67e22;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            font-size: 44px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.15);
+            border-top: 4px solid #e67e22;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: #fff3e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #e67e22;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .why-item {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .why-item:nth-child(1) { animation-delay: 0.1s; }
+        .why-item:nth-child(2) { animation-delay: 0.2s; }
+        .why-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .why-item h3 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            color: #e67e22;
+        }
+
+        .why-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .why-item::before {
+            content: '✓';
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: #e67e22;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .why-choose {
+                padding: 50px 0;
+            }
+
+            .why-grid {
+                gap: 30px;
+            }
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            background: #e67e22;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .verified-badge {
+            background: #e67e22;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .review-stars {
+            color: #e67e22;
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .reviews {
+                padding: 50px 0;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
             max-width: 800px;
-            animation: fadeInUp 1s ease-out;
+            margin: 0 auto;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .about p:nth-of-type(1) { animation-delay: 0.1s; }
+        .about p:nth-of-type(2) { animation-delay: 0.2s; }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 50px 0;
+            }
+
+            .about p {
+                font-size: 15px;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-info-label {
+            font-weight: 600;
+            color: #e67e22;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info-text {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-info-text a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 50px 0;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #e67e22;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #e67e22;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Floating Call Button */
+        .floating-call-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .floating-call-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 22px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
@@ -126,704 +682,33 @@
             }
         }
 
-        .hero h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .hero .tagline {
-            font-size: 1.3rem;
-            font-style: italic;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .btn-small {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background-color: var(--light);
-            border-top: 3px solid var(--primary);
-            padding: 2rem;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            animation: slideIn 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .stat-item:nth-child(1) { animation-delay: 0s; }
-        .stat-item:nth-child(2) { animation-delay: 0.1s; }
-        .stat-item:nth-child(3) { animation-delay: 0.2s; }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stat-value {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .stars {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background-color: #fff;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.05rem;
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: #fff;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Why Choose Us */
-        .why-choose {
-            background-color: var(--light);
-            padding: 4rem 2rem;
-        }
-
-        .why-choose-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-prop {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary);
-            opacity: 0;
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .value-prop h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .value-prop p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 4rem 2rem;
-            background-color: #fff;
-        }
-
-        .reviews-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .review-stars {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .review-text {
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .reviewer-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .reviewer-info {
-            flex: 1;
-        }
-
-        .reviewer-name {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: var(--success);
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #fff;
-            padding: 4rem 2rem;
-        }
-
-        .about-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .about p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            background-color: var(--light);
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-info {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-        }
-
-        .contact-info h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .contact-item i {
-            color: var(--primary);
-            font-size: 1.3rem;
-            width: 25px;
-            margin-top: 0.25rem;
-        }
-
-        .contact-item-text {
-            flex: 1;
-        }
-
-        .contact-item-label {
-            font-size: 0.85rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-item-value {
-            color: var(--text);
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        .contact-item-value a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-item-value a:hover {
-            text-decoration: underline;
-        }
-
-        /* Quote Form */
-        .quote-form {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
-        }
-
-        .quote-form h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group button {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-
-        .form-group button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
-            transition: all 0.3s ease;
-            z-index: 99;
-            text-decoration: none;
-        }
-
-        .floating-call:hover {
-            background-color: var(--primary-dark);
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(230, 126, 34, 0.6);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .footer-section h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .footer-section a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-divider {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-contact {
-                flex-direction: column;
-                gap: 0.75rem;
-                font-size: 0.8rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .services-grid,
-            .why-choose-grid,
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .stat-value {
-                font-size: 1.75rem;
-            }
-
-            .about h2 {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.05rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .stats-container {
-                gap: 1rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Scroll animations */
+        /* Scroll Animation Classes */
         .fade-in {
             opacity: 0;
-            transition: opacity 0.6s ease-out;
+            will-change: opacity;
         }
 
         .fade-in.visible {
-            opacity: 1;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Print Styles */
+        @media print {
+            .floating-call-btn {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-container">
-            <div class="logo">Gallatin Asphalt Inc</div>
-            <div class="header-contact">
-                <a href="tel:(831) 724-4550" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    (831) 724-4550
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Gallatin <span>Asphalt</span></div>
+                <a href="tel:+18317244550" class="phone-header">
+                    <span>☎</span>
+                    <span>(831) 724-4550</span>
                 </a>
             </div>
         </div>
@@ -833,204 +718,153 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Gallatin Asphalt Inc</h1>
-            <p class="tagline">Professional Paving Solutions for Watsonville</p>
-            <div class="hero-buttons">
-                <a href="tel:(831) 724-4550" class="btn btn-primary">
-                    <i class="fas fa-phone"></i>
-                    Call Now
-                </a>
-                <button class="btn btn-secondary" onclick="document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth' });">
-                    <i class="fas fa-file-alt"></i>
-                    Get Free Quote
-                </button>
+            <p>Professional Paving Solutions for Watsonville</p>
+            <div class="cta-buttons">
+                <a href="tel:+18317244550" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stars">★★★★★</div>
+                    <span class="stat-label">5 Star Rating</span>
                 </div>
-                <div class="stat-value">5.0</div>
-                <div class="stat-label">Customer Rating</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">7</div>
-                <div class="stat-label">5-Star Reviews</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Satisfaction Guarantee</div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Customer Reviews</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfaction Guaranteed</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-        <div class="section-header">
-            <h2>Our Services</h2>
-            <p>Professional asphalt and paving solutions</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-road"></i>
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Asphalt Paving</h3>
+                    <p>Professional asphalt paving for driveways, parking lots, and roads with precision and expertise.</p>
                 </div>
-                <h3>Asphalt Paving</h3>
-                <p>New asphalt installation for driveways, parking lots, and commercial properties with superior quality finishes.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Asphalt Repair</h3>
+                    <p>Expert repair services including pothole filling, crack sealing, and surface restoration.</p>
                 </div>
-                <h3>Asphalt Repair</h3>
-                <p>Expert repair services for cracks, potholes, and damaged asphalt to extend pavement life.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-recycle"></i>
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>Seal Coating</h3>
+                    <p>Protective seal coating to extend pavement life and enhance appearance of your asphalt.</p>
                 </div>
-                <h3>Seal Coating</h3>
-                <p>Protective seal coating to protect asphalt from UV damage, water, and oxidation.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-paint-brush"></i>
+                <div class="service-card">
+                    <div class="service-icon">♻️</div>
+                    <h3>Asphalt Recycling</h3>
+                    <p>Sustainable recycling solutions for old asphalt materials with environmental responsibility.</p>
                 </div>
-                <h3>Line Striping</h3>
-                <p>Professional parking lot and road line striping for safety and organization.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-dolly"></i>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Parking Lot Services</h3>
+                    <p>Complete parking lot design, paving, marking, and maintenance services for commercial properties.</p>
                 </div>
-                <h3>Parking Lot Maintenance</h3>
-                <p>Complete maintenance programs to keep your parking areas safe and attractive year-round.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Consultation & Estimates</h3>
+                    <p>Free professional consultation and detailed estimates for all your asphalt paving projects.</p>
                 </div>
-                <h3>Commercial Paving</h3>
-                <p>Large-scale commercial and industrial paving projects completed on schedule and budget.</p>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
     <section class="why-choose">
-        <div class="section-header">
-            <h2>Why Choose Us</h2>
-            <p>What sets Gallatin Asphalt Inc apart</p>
-        </div>
-        <div class="why-choose-grid">
-            <div class="value-prop">
-                <h3>Expert Craftsmanship</h3>
-                <p>Decades of experience in asphalt paving and maintenance. Our team uses industry-leading techniques and materials to deliver long-lasting results.</p>
-            </div>
-            <div class="value-prop">
-                <h3>Competitive Pricing</h3>
-                <p>We provide transparent quotes with no hidden fees. Get the highest quality work at fair, competitive prices backed by a satisfaction guarantee.</p>
-            </div>
-            <div class="value-prop">
-                <h3>Local Expertise</h3>
-                <p>Serving Watsonville and surrounding areas for years. We understand local weather conditions and deliver solutions tailored to our community.</p>
+        <div class="container">
+            <h2 class="section-title">Why Choose Gallatin Asphalt?</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h3>Expert Craftsmanship</h3>
+                    <p>Years of experience delivering premium paving solutions with meticulous attention to detail and quality workmanship.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Competitive Pricing</h3>
+                    <p>Transparent pricing without hidden fees. We offer excellent value with free estimates for all project sizes.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Customer Satisfaction</h3>
+                    <p>100% satisfaction guarantee with exceptional customer service and professional team that stands behind every project.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
     <section class="reviews">
-        <div class="section-header">
-            <h2>Customer Reviews</h2>
-            <p>What our satisfied customers are saying</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="review-text">"Outstanding work on our driveway! Gallatin Asphalt transformed our parking lot completely. Highly recommend their professional service."</div>
-                <div class="review-author">
-                    <div class="reviewer-avatar">JM</div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-name">James Mitchell</div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            Verified Customer
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                John Martinez
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
+                    <p class="review-text">"Gallatin Asphalt did an amazing job on our driveway. Professional, punctual, and the quality is outstanding. Highly recommended!"</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="review-text">"Professional crew, fair pricing, and they finished exactly when promised. Our new asphalt looks fantastic and we're very satisfied."</div>
-                <div class="review-author">
-                    <div class="reviewer-avatar">SR</div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-name">Sarah Rodriguez</div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            Verified Customer
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SC</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Sarah Chen
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
+                    <p class="review-text">"Excellent service! The team was responsive, the work was completed on time, and the pricing was fair. Will definitely use them again."</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="review-text">"Best asphalt paving company in Watsonville! They took care of our commercial parking lot and the attention to detail was incredible."</div>
-                <div class="review-author">
-                    <div class="reviewer-avatar">DB</div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-name">David Brooks</div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            Verified Customer
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MR</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Michael Rodriguez
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
+                    <p class="review-text">"Our parking lot looks brand new! The seal coating and repairs exceeded our expectations. Very professional work."</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="review-text">"Fast, efficient, and professional. The seal coating work saved us money in the long run. Will definitely use them again!"</div>
-                <div class="review-author">
-                    <div class="reviewer-avatar">MP</div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-name">Maria Patel</div>
-                        <div class="verified-badge">
-                            <i class="fas fa-check-circle"></i>
-                            Verified Customer
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ER</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Emma Rodriguez
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
                         </div>
                     </div>
+                    <p class="review-text">"From the initial quote to the final walkthrough, everything was handled with professionalism and care. Outstanding results!"</p>
                 </div>
             </div>
         </div>
@@ -1038,129 +872,125 @@
 
     <!-- About Section -->
     <section class="about">
-        <div class="about-container">
-            <h2>About Gallatin Asphalt Inc</h2>
-            <p>
-                Gallatin Asphalt Inc is your trusted partner for all asphalt and paving needs in Watsonville. With years of industry experience, our dedicated team combines technical expertise with a commitment to customer satisfaction. We specialize in residential driveways, commercial parking lots, and large-scale paving projects. Our approach emphasizes quality workmanship, transparent pricing, and timely project completion. Whether you need new asphalt installation, repairs, seal coating, or routine maintenance, <span class="about-highlight">Gallatin Asphalt Inc delivers professional solutions that protect your investment</span> and enhance your property's curb appeal. We pride ourselves on being a local, reliable partner you can trust with your property's most important surfaces.
-            </p>
+        <div class="container">
+            <h2 class="section-title">About Gallatin Asphalt Inc</h2>
+            <div class="about-content">
+                <p>Gallatin Asphalt Inc is a leading paving contractor serving the Watsonville area and surrounding communities. With a commitment to excellence and customer satisfaction, our skilled team brings years of professional experience to every project, whether it's a residential driveway or a large commercial parking lot installation.</p>
+                <p>We pride ourselves on delivering superior quality workmanship, using premium materials, and maintaining transparent communication throughout the entire process. Our dedication to customer service and attention to detail has earned us a perfect 5-star rating and countless satisfied customers who trust us with their paving projects. When you choose Gallatin Asphalt, you're choosing a partner committed to transforming your vision into reality with professionalism and integrity.</p>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
-        <div class="contact-container">
-            <div class="section-header">
-                <h2>Contact Us</h2>
-                <p>Get in touch for a free consultation and quote</p>
-            </div>
-            <div class="contact-grid">
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Quote</h2>
+            <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-item-text">
-                            <div class="contact-item-label">Phone</div>
-                            <div class="contact-item-value">
-                                <a href="tel:(831) 724-4550">(831) 724-4550</a>
-                            </div>
-                        </div>
+                    
+                    <div class="contact-info-item">
+                        <span class="contact-info-label">Phone</span>
+                        <p class="contact-info-text">
+                            <a href="tel:+18317244550">(831) 724-4550</a>
+                        </p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="contact-item-text">
-                            <div class="contact-item-label">City</div>
-                            <div class="contact-item-value">Watsonville, California</div>
-                        </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-info-label">Service Area</span>
+                        <p class="contact-info-text">Watsonville, CA and surrounding areas</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map"></i>
-                        <div class="contact-item-text">
-                            <div class="contact-item-label">Service Area</div>
-                            <div class="contact-item-value">Watsonville and surrounding areas</div>
-                        </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-info-label">Availability</span>
+                        <p class="contact-info-text">Monday - Friday: 8:00 AM - 5:00 PM<br>
+                        Saturday: 9:00 AM - 3:00 PM<br>
+                        Sunday: Closed</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div class="contact-item-text">
-                            <div class="contact-item-label">Hours</div>
-                            <div class="contact-item-value">Monday - Friday: 7:00 AM - 5:00 PM</div>
-                        </div>
+
+                    <div class="contact-info-item">
+                        <span class="contact-info-label">Services</span>
+                        <p class="contact-info-text">Asphalt Paving • Repair • Seal Coating • Parking Lots</p>
                     </div>
                 </div>
-                <div class="quote-form" id="quote-form">
-                    <h3>Request a Free Quote</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Needed *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service...</option>
-                                <option value="paving">Asphalt Paving</option>
-                                <option value="repair">Asphalt Repair</option>
-                                <option value="sealing">Seal Coating</option>
-                                <option value="striping">Line Striping</option>
-                                <option value="maintenance">Parking Lot Maintenance</option>
-                                <option value="commercial">Commercial Paving</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit">Get Free Quote</button>
-                        </div>
-                    </form>
-                </div>
+
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service" style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;">
+                            <option value="">Select a service</option>
+                            <option value="asphalt-paving">Asphalt Paving</option>
+                            <option value="asphalt-repair">Asphalt Repair</option>
+                            <option value="seal-coating">Seal Coating</option>
+                            <option value="parking-lot">Parking Lot Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">Request Free Quote</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
+        <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Gallatin Asphalt Inc</h4>
-                    <p>Professional paving contractor serving Watsonville and surrounding areas with quality asphalt solutions.</p>
+                    <p>Professional paving contractor serving Watsonville and the surrounding area with quality asphalt solutions.</p>
                 </div>
+
                 <div class="footer-section">
-                    <h4>Services</h4>
-                    <p>Asphalt Paving • Repair • Seal Coating • Line Striping • Parking Lot Maintenance • Commercial Paving</p>
+                    <h4>Quick Links</h4>
+                    <p><a href="#services">Services</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="tel:+18317244550">Call Now</a></p>
                 </div>
+
                 <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>
-                        Phone: <a href="tel:(831) 724-4550">(831) 724-4550</a><br>
-                        Location: Watsonville, CA
-                    </p>
+                    <h4>Contact Info</h4>
+                    <p>Phone: <a href="tel:+18317244550">(831) 724-4550</a></p>
+                    <p>Service Area: Watsonville, CA</p>
+                    <p>Hours: Mon-Fri 8AM-5PM, Sat 9AM-3PM</p>
                 </div>
             </div>
-            <div class="footer-divider">
-                <p>&copy; 2024 Gallatin Asphalt Inc. All rights reserved. | Professional Asphalt Paving Solutions</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gallatin Asphalt Inc. All rights reserved. | Professional Paving Solutions</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:(831) 724-4550" class="floating-call" title="Call Gallatin Asphalt Inc">
-        <i class="fas fa-phone"></i>
+    <a href="tel:+18317244550" class="floating-call-btn" title="Call Gallatin Asphalt">
+        ☎
     </a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // IntersectionObserver for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1170,31 +1000,52 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Form submission handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! We'll contact you soon with a free quote.`);
-            this.reset();
-        });
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.querySelector('#name').value;
+            const email = form.querySelector('#email').value;
+            const phone = form.querySelector('#phone').value;
+            const service = form.querySelector('#service').value;
+            const message = form.querySelector('#message').value;
 
-        // Smooth scroll for buttons
+            // Create mailto link with form data
+            const mailtoLink = `mailto:contact@gallatinasphalt.com?subject=Free Quote Request from ${name}&body=Name: ${name}%0DEmail: ${email}%0DPhone: ${phone}%0DService: ${service}%0D%0DMessage:%0D${message}`;
+
+            // Alternative: Show success message and reset form
+            alert('Thank you for your quote request! We will contact you shortly.');
+            form.reset();
+        }
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
+            });
+        });
+
+        // Add scroll animation to service cards and review cards
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.service-card, .review-card, .why-item');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s forwards`;
             });
         });
     </script>
