@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Carpets and Floors - Premium Carpet Store in Watsonville</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary: #34495e;
+            --accent: #e74c3c;
+            --light-bg: #f8f9fa;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(52, 73, 94, 0.75);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle cx="100" cy="100" r="80" fill="%23764ba2" opacity="0.5"/><circle cx="1100" cy="500" r="120" fill="%23667eea" opacity="0.3"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats {
+            background: white;
+            padding: 30px 20px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stat-value {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--light-bg);
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-prop {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .value-prop h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .value-prop::before {
+            content: '✓';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .review-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .review-stars {
+            color: #f39c12;
+            font-size: 0.85rem;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .contact-info {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quote Form */
+        .quote-form {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .quote-form h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 25px rgba(231, 76, 60, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+            text-decoration: none;
+            font-size: 1.8rem;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(231, 76, 60, 0.6);
+        }
+
+        @media (max-width: 480px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 50px 15px;
+            }
+
+            .quote-form {
+                padding: 25px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Rainbow Carpets and Floors</h1>
+            <p class="tagline">Premium carpeting and flooring solutions for your home</p>
+            <div class="cta-buttons">
+                <a href="tel:(831)728-3131" class="btn btn-primary">
+                    <i class="fas fa-phone" style="margin-right: 8px;"></i> Call Now
+                </a>
+                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value">
+                    <span class="stars">★★★★★</span> 4.6
+                </div>
+                <div class="stat-label">Customer Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Customer Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">Watsonville</div>
+                <div class="stat-label">Serving Our Community</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Complete flooring solutions for every room in your home</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-carpet"></i>
+                </div>
+                <h3>Carpet Installation</h3>
+                <p>Professional carpet installation with precision and attention to detail for a perfect finish.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <h3>Carpet Cleaning</h3>
+                <p>Deep cleaning services using advanced equipment to restore your carpets to like-new condition.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-wood"></i>
+                </div>
+                <h3>Hardwood Floors</h3>
+                <p>Premium hardwood flooring options with expert installation and finishing services available.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Laminate Flooring</h3>
+                <p>Durable laminate options that look beautiful and withstand heavy foot traffic.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tiles"></i>
+                </div>
+                <h3>Tile Installation</h3>
+                <p>Expert tile installation for kitchens, bathrooms, and entryways with flawless precision.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <h3>Repair & Restoration</h3>
+                <p>Expert repair and restoration services to extend the life of your existing flooring.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-choose">
+        <h2 class="section-title">Why Choose Rainbow Carpets and Floors?</h2>
+        <p class="section-subtitle">Trusted by Watsonville families for quality and service</p>
+        <div class="value-props">
+            <div class="value-prop">
+                <h3>Expert Craftsmanship</h3>
+                <p>With years of experience, our team delivers exceptional quality on every project, ensuring your flooring looks and lasts beautifully.</p>
+            </div>
+            <div class="value-prop">
+                <h3>Competitive Pricing</h3>
+                <p>We offer premium flooring solutions at fair prices. Get a free quote today and see why we're the best value in Watsonville.</p>
+            </div>
+            <div class="value-prop">
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our priority. We stand behind our work with guaranteed quality and responsive customer service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-subtitle">See what our satisfied customers have to say</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">JM</div>
+                    <div class="review-meta">
+                        <div class="review-name">
+                            James Martinez
+                            <span class="review-badge">Verified</span>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"Absolutely fantastic service! The team installed beautiful new carpet in our living room. Professional, efficient, and they cleaned up perfectly. Highly recommend!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">SR</div>
+                    <div class="review-meta">
+                        <div class="review-name">
+                            Sarah Rodriguez
+                            <span class="review-badge">Verified</span>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"Rainbow Carpets helped us choose the perfect flooring for our new kitchen. Their expertise made the decision easy, and the installation was flawless."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">DB</div>
+                    <div class="review-meta">
+                        <div class="review-name">
+                            David Brown
+                            <span class="review-badge">Verified</span>
+                        </div>
+                        <div class="review-stars">★★★★☆</div>
+                    </div>
+                </div>
+                <p class="review-text">"Great quality flooring and very reasonable pricing. The team was punctual and professional throughout the entire installation process."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">MK</div>
+                    <div class="review-meta">
+                        <div class="review-name">
+                            Maria Kim
+                            <span class="review-badge">Verified</span>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">"We had our carpets cleaned and the difference is incredible! The stains are gone and everything looks fresh. Will definitely use them again!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about">
+        <h2 class="section-title">About Rainbow Carpets and Floors</h2>
+        <div class="about-content">
+            <p>Rainbow Carpets and Floors has been serving the Watsonville community with pride and dedication. Our team of experienced flooring professionals is committed to delivering exceptional quality and outstanding customer service on every project, large or small.</p>
+            <p>We understand that your flooring is more than just a practical element of your home—it's part of your lifestyle. That's why we take the time to listen to your needs, offer expert recommendations, and execute installations with precision and care. From premium carpet selection to expert hardwood installation, we have the expertise to transform any space.</p>
+            <p>Our reputation is built on honest pricing, transparent communication, and a genuine commitment to customer satisfaction. When you choose Rainbow Carpets and Floors, you're choosing a team that treats your home like their own.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:(831)728-3131">(831) 728-3131</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Watsonville, CA</p>
+                        <p>Serving the Central Coast</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div>
+                        <h4>Service Area</h4>
+                        <p>Watsonville and surrounding areas in Santa Cruz County</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quote-form" id="quote">
+                <h3>Get Your Free Quote</h3>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Carpet Installation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Request Free Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Rainbow Carpets and Floors</h3>
+            <p>Watsonville, CA</p>
+            <p><a href="tel:(831)728-3131" style="color: #ecf0f1; text-decoration: none;">(831) 728-3131</a></p>
+            <div class="copyright">
+                <p>&copy; 2024 Rainbow Carpets and Floors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:(831)728-3131" class="floating-call" title="Call Rainbow Carpets and Floors">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with fade-in class
+        document.querySelectorAll('.service-card, .stat-item, .value-prop, .review-card, .about-content p, .contact-info, .quote-form').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Log form data (in production, send to server)
+            console.log('Quote Request:', data);
+            
+            // Show success message
+            alert('Thank you for your quote request! We will contact you shortly at ' + data.phone);
+            event.target.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
