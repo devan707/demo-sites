@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician's Precision Pros - Santa Cruz Electrical Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .phone-header {
+            display: none;
+            color: #2980b9;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            .phone-header {
+                display: block;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 24px;
+            font-style: italic;
+            color: #bbb;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .cta-primary {
+            background: #2980b9;
+            color: #fff;
+        }
+
+        .cta-primary:hover {
+            background: #1e5fa8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(41, 128, 185, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .cta-secondary:hover {
+            background: #fff;
+            color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero-tagline {
+                font-size: 18px;
+            }
+            .cta-group {
+                flex-direction: column;
+            }
+            .cta-btn {
+                width: 100%;
+            }
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 40px 0;
+            border-bottom: 3px solid #2980b9;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            margin-bottom: 8px;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #2980b9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            border-color: #2980b9;
+            box-shadow: 0 15px 40px rgba(41, 128, 185, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            color: #2980b9;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* WHY CHOOSE US SECTION */
+        .why-choose {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-prop {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-prop-icon {
+            font-size: 54px;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .value-prop h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .value-prop p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #2980b9;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #2980b9;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #27ae60;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .verified-badge i {
+            font-size: 14px;
+        }
+
+        .review-card p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-content strong {
+            color: #2980b9;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-item label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #1e5fa8;
+        }
+
+        /* FORM */
+        .quote-form {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-submit:hover {
+            background: #1e5fa8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-content strong {
+            color: #2980b9;
+        }
+
+        .footer-copyright {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #2980b9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(41, 128, 185, 0.4);
+            transition: all 0.3s ease;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .floating-call:hover {
+            background: #1e5fa8;
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(41, 128, 185, 0.5);
+        }
+
+        .floating-call:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 22px;
+            }
+        }
+
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* UTILITY */
+        .scroll-hidden {
+            overflow: hidden;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Electrician's Precision Pros</a>
+                <a href="tel:(831)231-7014" class="phone-header">(831) 231-7014</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Electrician's Precision Pros</h1>
+            <p class="hero-tagline">Expert electrical solutions for Santa Cruz homes and businesses</p>
+            <div class="cta-group">
+                <a href="tel:(831)231-7014" class="cta-btn cta-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="#quote" class="cta-btn cta-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar" id="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="star-rating">★★★★★</div>
+                    <div class="stat-number">5.0</div>
+                    <div class="stat-label">Star Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Customer Reviews</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-lightbulb service-icon"></i>
+                    <h3>Residential Wiring</h3>
+                    <p>Professional installation and repair of residential electrical systems with safety and code compliance as our priority.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry service-icon"></i>
+                    <h3>Commercial Solutions</h3>
+                    <p>Comprehensive electrical services for businesses including maintenance, upgrades, and emergency repairs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-plug service-icon"></i>
+                    <h3>Panel Upgrades</h3>
+                    <p>Modernize your electrical panel to support today's power demands with safe, efficient upgrades.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt service-icon"></i>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency electrical repair service to keep your home and business running safely.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-sun service-icon"></i>
+                    <h3>Solar Installation</h3>
+                    <p>Expert solar panel installation and electrical integration for sustainable energy solutions.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home service-icon"></i>
+                    <h3>Home Inspections</h3>
+                    <p>Thorough electrical inspections to identify potential issues before they become costly problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose" id="why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Precision Pros</h2>
+            <div class="value-props">
+                <div class="value-prop">
+                    <i class="fas fa-award value-prop-icon"></i>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed, bonded, and insured professionals with years of industry experience and expertise.</p>
+                </div>
+                <div class="value-prop">
+                    <i class="fas fa-clock value-prop-icon"></i>
+                    <h3>Fast Response</h3>
+                    <p>Same-day service availability with quick response times to keep your electrical systems running smoothly.</p>
+                </div>
+                <div class="value-prop">
+                    <i class="fas fa-handshake value-prop-icon"></i>
+                    <h3>Customer First</h3>
+                    <p>Transparent pricing, honest assessments, and dedicated customer service every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p>"Fantastic work! The team was professional, on-time, and fixed our electrical issues perfectly. Highly recommend!"</p>
+                    <div class="review-name">James M.</div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        Verified Customer
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SC</div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p>"Called for an emergency repair on Sunday night. They responded immediately and resolved the issue within an hour!"</p>
+                    <div class="review-name">Sarah C.</div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        Verified Customer
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RP</div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p>"The solar installation team was knowledgeable, efficient, and transparent about costs. Best decision ever!"</p>
+                    <div class="review-name">Robert P.</div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        Verified Customer
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MK</div>
+                        <div class="review-stars">★★★★★</div>
+                    </div>
+                    <p>"Professional, courteous, and fair pricing. They explained everything clearly and cleaned up afterward. Five stars!"</p>
+                    <div class="review-name">Maria K.</div>
+                    <div class="verified-badge">
+                        <i class="fas fa-check-circle"></i>
+                        Verified Customer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p>
+                    <strong>Electrician's Precision Pros</strong> has been serving the Santa Cruz community with exceptional electrical services for over a decade. Our team of certified, licensed electricians brings precision, professionalism, and reliability to every project, whether it's a simple repair or a complex installation.
+                </p>
+                <p>
+                    We believe in transparent communication, upfront pricing, and delivering solutions that exceed expectations. From residential homes to commercial properties, we pride ourselves on our attention to detail, safety compliance, and commitment to customer satisfaction that has earned us a perfect 5-star rating.
+                </p>
+                <p>
+                    When you choose <strong>Precision Pros</strong>, you're choosing electricians who care about quality workmanship and building lasting relationships with our community.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="quote">
+        <div class="container">
+            <h2 class="section-title">Contact & Free Quote</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <label>Phone</label>
+                        <p>
+                            <a href="tel:(831)231-7014">(831) 231-7014</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Service Area</label>
+                        <p>Santa Cruz County and surrounding areas</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Hours</label>
+                        <p>
+                            Monday - Friday: 7:00 AM - 6:00 PM<br>
+                            Saturday: 8:00 AM - 4:00 PM<br>
+                            Emergency: 24/7 Available
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <label>Why Request a Quote?</label>
+                        <p>Get a free, no-obligation estimate for your electrical project. Our team will assess your needs and provide transparent pricing with detailed recommendations.</p>
+                    </div>
+                </div>
+
+                <div class="quote-form">
+                    <h3>Request Free Quote</h3>
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <input type="text" id="service" name="service" placeholder="e.g., Panel Upgrade, Wiring, Emergency Repair" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="details">Project Details</label>
+                            <textarea id="details" name="details" placeholder="Describe your electrical needs..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Get Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Electrician's Precision Pros</strong></p>
+                <p>Santa Cruz, CA</p>
+                <p><strong>Phone:</strong> <a href="tel:(831)231-7014" style="color: #2980b9;">(831) 231-7014</a></p>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Electrician's Precision Pros. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:(831)231-7014" class="floating-call" title="Call Now">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .service-card, .review-card, .value-prop, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handling
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const details = document.getElementById('details').value;
+
+            // Format message for WhatsApp or email
+            const message = `Hello! I would like a free quote for your electrical services.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`;
+
+            // You can integrate this with your backend or email service
+            alert('Thank you for your inquiry! We will contact you shortly at ' + phone);
+            this.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in class to elements on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('section').forEach(section => {
+                section.querySelectorAll('p, h2, h3').forEach(el => {
+                    if (!el.closest('.service-card') && !el.closest('.review-card') && !el.closest('.value-prop')) {
+                        el.classList.add('fade-in');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
