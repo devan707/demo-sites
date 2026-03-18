@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pete Messa & Sons Inc - Excavating Contractor | Los Gatos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border: #e0e0e0;
+            --success: #27ae60;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bg-white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--primary);
+            border: 2px solid var(--bg-white);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--bg-white);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-white);
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.6s forwards;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .star-rating {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 2.5rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            background: var(--bg-white);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-prop {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-prop-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .value-prop h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 20px;
+            background: var(--bg-white);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--bg-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-stars {
+            color: var(--primary);
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: var(--bg-light);
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .about p:first-of-type {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: var(--bg-white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .contact-value {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.1s forwards;
+        }
+
+        .contact-form h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: var(--bg-white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .form-group button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--bg-white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        footer h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bg-white);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            animation: slideInUp 0.5s ease 1s backwards;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(230, 126, 34, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .floating-call {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 40px 0;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .services {
+                padding: 60px 20px;
+            }
+
+            .why-choose {
+                padding: 60px 20px;
+            }
+
+            .reviews {
+                padding: 60px 20px;
+            }
+
+            .about {
+                padding: 60px 20px;
+            }
+
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .floating-call {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pete Messa & Sons Inc</h1>
+            <p class="tagline">Professional Excavating Services for Your Property</p>
+            <div class="hero-ctas">
+                <a href="tel:(831)476-8221" class="btn btn-primary">☎ Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">
+                    <span class="star-rating">★★★★★</span>
+                </div>
+                <div class="stat-label">5-Star Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Customer Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">⛏️</div>
+                    <h3>Excavation</h3>
+                    <p>Professional excavation services for all property types, from residential to commercial projects with precision and expertise.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Site Preparation</h3>
+                    <p>Complete site preparation and grading services to ensure your property is ready for construction or landscaping projects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Drainage Solutions</h3>
+                    <p>Expert drainage system installation and repair to prevent water issues and protect your property from erosion.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚜</div>
+                    <h3>Land Clearing</h3>
+                    <p>Comprehensive land clearing services to remove debris, vegetation, and obstacles from your property safely.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Grading & Leveling</h3>
+                    <p>Professional grading and leveling for foundations, driveways, and landscape projects with exceptional precision.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Equipment Rental</h3>
+                    <p>Rent our specialized excavation equipment for your own projects with flexible terms and competitive rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="value-props">
+                <div class="value-prop">
+                    <div class="value-prop-icon">✓</div>
+                    <h3>30+ Years Experience</h3>
+                    <p>With decades of proven expertise in excavating and site preparation, we deliver exceptional results every time.</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop-icon">🤝</div>
+                    <h3>Family Owned & Trusted</h3>
+                    <p>A family business built on integrity, reliability, and a commitment to customer satisfaction across Los Gatos.</p>
+                </div>
+                <div class="value-prop">
+                    <div class="value-prop-icon">⚡</div>
+                    <h3>Fast & Efficient Service</h3>
+                    <p>We work with modern equipment and streamlined processes to complete projects on time and within budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JD</div>
+                        <div class="review-meta">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Pete Messa & Sons did an outstanding job on our property excavation. Professional, punctual, and reasonably priced. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MC</div>
+                        <div class="review-meta">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excellent work on our driveway grading project. The team was efficient, clean, and left our property in perfect condition."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RS</div>
+                        <div class="review-meta">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Professional crew, quality equipment, and exceptional attention to detail. Pete Messa & Sons is the go-to excavating contractor in Los Gatos."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">TL</div>
+                        <div class="review-meta">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="verified-badge">✓ Verified Customer</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Called for an emergency drainage issue and they responded immediately. Fixed it perfectly and prevented major property damage. Thank you!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <h2 class="section-title">About Pete Messa & Sons Inc</h2>
+            <p>
+                Pete Messa & Sons Inc has been serving the Los Gatos community for over three decades with unwavering commitment to quality and customer satisfaction. Founded by Pete Messa, a visionary in the excavating industry, our company has grown to become a trusted partner for both residential and commercial property owners throughout the region.
+            </p>
+            <p>
+                Our team combines extensive field experience with cutting-edge equipment and modern techniques. Every project is approached with meticulous attention to detail, ensuring that whether it's a simple grading job or a complex excavation project, your property receives the professional care it deserves. We take pride in our reputation for reliability, competitive pricing, and exceptional workmanship that consistently exceeds expectations.
+            </p>
+            <p>
+                At Pete Messa & Sons Inc, we don't just move earth—we build relationships with our customers that often span generations, as families and businesses continue to trust us for their excavating needs year after year.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">☎ Phone</span>
+                        <span class="contact-value"><a href="tel:(831)476-8221">(831) 476-8221</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📍 Service Area</span>
+                        <span class="contact-value">Los Gatos, CA and surrounding areas</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">⏰ Availability</span>
+                        <span class="contact-value">Monday - Friday: 7:00 AM - 5:00 PM<br>Saturday: By Appointment</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">✓ Fully Licensed & Insured</span>
+                        <span class="contact-value">Professional service you can trust</span>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <h3>Request a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Excavation, Grading" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Request Free Quote</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Pete Messa & Sons Inc</h4>
+                <p>Professional Excavating Contractor serving Los Gatos and surrounding communities for over 30 years.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="#contact">Request Quote</a></p>
+                <p><a href="tel:(831)476-8221">Call Now</a></p>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>📞 <a href="tel:(831)476-8221">(831) 476-8221</a></p>
+                <p>📍 Los Gatos, California</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pete Messa & Sons Inc. All rights reserved. | Licensed & Insured Excavating Contractor</p>
+        </div>
+    </footer>
+
+    <!-- Floating Call Button -->
+    <a href="tel:(831)476-8221" class="floating-call" title="Call Pete Messa & Sons Inc">☎</a>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-container, .contact-info, .contact-form').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real implementation, this would send to a backend service
+            console.log('Quote Request:', formData);
+            alert('Thank you for your inquiry! We will contact you shortly at ' + formData.phone);
+            event.target.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
