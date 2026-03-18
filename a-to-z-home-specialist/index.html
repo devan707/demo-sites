@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A to Z HOME SPECIALIST | Professional Handyman Services in Vacaville</title>
+    <title>A to Z Home Specialist | Professional Handyman Services in Vacaville</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,110 +14,90 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #34495e;
-            --primary-light: #4a6278;
-            --primary-dark: #2c3e50;
-            --accent: #3498db;
-            --accent-light: #5dade2;
-            --success: #27ae60;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --border: #ecf0f1;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
+        /* Header & Navigation */
         header {
-            background: var(--white);
-            padding: 1.5rem 1rem;
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
         }
 
-        .header-container {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #34495e;
+            letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: var(--accent);
+        .header-contact {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .contact-info {
+        .header-phone {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .phone-link {
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            gap: 0.5rem;
+            color: #34495e;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
-        .phone-link:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        .star-icon {
+            color: #f39c12;
+            font-size: 0.85rem;
         }
 
         @media (max-width: 768px) {
-            .contact-info {
-                gap: 0.5rem;
+            .header-contact {
+                gap: 1rem;
             }
 
-            .phone-link {
-                padding: 0.5rem 1rem;
+            .header-phone {
                 font-size: 0.85rem;
+            }
+
+            .header-phone span:first-child {
+                display: none;
             }
         }
 
-        /* HERO SECTION */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.75), rgba(44, 62, 80, 0.75)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%232c3e50"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 70px;
-            position: relative;
             overflow: hidden;
+            color: white;
         }
 
         .hero::before {
@@ -127,631 +107,79 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(52, 73, 94, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
-            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
             max-width: 800px;
-            z-index: 10;
-            animation: fadeInUp 1s ease;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            color: var(--white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
             margin-bottom: 1rem;
-            font-weight: 700;
+            line-height: 1.1;
             letter-spacing: -1px;
         }
 
-        .hero .tagline {
-            font-size: 1.5rem;
-            color: #ecf0f1;
+        .hero-tagline {
+            font-size: clamp(1rem, 3vw, 1.5rem);
             font-style: italic;
             margin-bottom: 2.5rem;
-            font-weight: 400;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
-        .cta-group {
+        .hero-ctas {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        .cta-btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .btn {
             display: inline-block;
-        }
-
-        .cta-btn-primary {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .cta-btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-        }
-
-        .cta-btn-secondary {
-            background: var(--white);
-            color: var(--primary);
-            border: 2px solid var(--white);
-        }
-
-        .cta-btn-secondary:hover {
-            background: transparent;
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                margin-top: 60px;
-                min-height: 80vh;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .cta-group {
-                gap: 1rem;
-            }
-
-            .cta-btn {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 2rem 1rem;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .stats-container {
-                gap: 1rem;
-            }
-
-            .stat-item h3 {
-                font-size: 1.5rem;
-            }
-
-            .stat-item p {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* SERVICES SECTION */
-        .services {
-            padding: 4rem 1rem;
-            background: var(--white);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid var(--border);
-            transition: all 0.3s ease;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .service-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.15);
-            background: var(--white);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: var(--white);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .services {
-                padding: 2.5rem 1rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .services-grid {
-                gap: 1.5rem;
-            }
-        }
-
-        /* WHY CHOOSE US SECTION */
-        .why-choose {
-            padding: 4rem 1rem;
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
-        }
-
-        .why-choose-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-prop {
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.3s ease;
-        }
-
-        .value-prop.fade-in {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .value-prop h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .value-prop p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .why-choose {
-                padding: 2.5rem 1rem;
-            }
-
-            .value-props {
-                gap: 1.5rem;
-            }
-        }
-
-        /* REVIEWS SECTION */
-        .reviews {
-            padding: 4rem 1rem;
-            background: var(--white);
-        }
-
-        .reviews-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid var(--border);
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.3s ease;
-        }
-
-        .review-card.fade-in {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .review-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.1);
-        }
-
-        .review-stars {
-            color: #f39c12;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .review-avatar {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .review-author-info {
-            flex: 1;
-        }
-
-        .review-author-info h4 {
-            font-size: 0.95rem;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .verified {
-            font-size: 0.75rem;
-            color: var(--success);
+            padding: 1rem 2rem;
+            border-radius: 8px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        @media (max-width: 768px) {
-            .reviews {
-                padding: 2.5rem 1rem;
-            }
-
-            .reviews-grid {
-                gap: 1.5rem;
-            }
-        }
-
-        /* ABOUT SECTION */
-        .about {
-            padding: 4rem 1rem;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: var(--white);
-        }
-
-        .about-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .about p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            opacity: 0.95;
-            margin-bottom: 1.5rem;
-        }
-
-        .about p:last-child {
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .about {
-                padding: 2.5rem 1rem;
-            }
-
-            .about h2 {
-                font-size: 1.8rem;
-            }
-
-            .about p {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* CONTACT SECTION */
-        .contact {
-            padding: 4rem 1rem;
-            background: var(--bg-light);
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-info-group {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .contact-info-group.fade-in {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.5s ease;
-        }
-
-        .contact-item {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .contact-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .contact-item a {
-            color: var(--accent);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-light);
-        }
-
-        .form-group {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-
-        .form-group.fade-in {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.5s ease;
-        }
-
-        .quote-form {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid var(--border);
-        }
-
-        .quote-form h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: #bdc3c7;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 0.8rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: var(--white);
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.95rem;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
         }
 
-        .form-submit:hover {
+        .btn-primary {
+            background: white;
+            color: #34495e;
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        @media (max-width: 768px) {
-            .contact {
-                padding: 2.5rem 1rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-info-group {
-                transform: translateX(0);
-            }
-
-            .form-group {
-                transform: translateX(0);
-            }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
 
-        /* FOOTER */
-        footer {
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 2rem 1rem;
-            text-align: center;
+        .btn-secondary:hover {
+            background: white;
+            color: #34495e;
+            transform: translateY(-2px);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
-        .copyright {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* FLOATING CALL BUTTON */
-        .floating-call-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            z-index: 99;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .floating-call-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call-btn {
-                width: 55px;
-                height: 55px;
-                bottom: 1.5rem;
-                right: 1.5rem;
-                font-size: 1.3rem;
-            }
-        }
-
-        /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -763,315 +191,789 @@
             }
         }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* UTILITY CLASSES */
-        .highlight {
-            color: var(--accent);
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem 0;
+        }
+
+        .stat-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 1rem;
+            background: #f8f9fa;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(52, 73, 94, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .value-prop.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .value-prop h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        .value-prop p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .value-prop::before {
+            content: '✓';
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 5rem 1rem;
+            background: #f8f9fa;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .review-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #34495e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .verified-badge {
+            background: #27ae60;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
             font-weight: 600;
         }
 
-        .divider {
-            height: 4px;
+        .review-stars {
+            color: #f39c12;
+            font-size: 0.9rem;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.7;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .quote-form h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            background: white;
+            color: #34495e;
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
             width: 60px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            margin: 0 auto 1.5rem;
+            height: 60px;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(52, 73, 94, 0.4);
+            transition: all 0.3s ease;
+            z-index: 50;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(52, 73, 94, 0.5);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(52, 73, 94, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 40px rgba(52, 73, 94, 0.6);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 56px;
+                height: 56px;
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
-        <div class="header-container">
-            <div class="logo">A to Z <span>HOME</span></div>
-            <div class="contact-info">
-                <a href="tel:707-365-9164" class="phone-link">📞 Call Now</a>
+        <div class="header-content">
+            <div class="logo">A to Z Home Specialist</div>
+            <div class="header-contact">
+                <div style="display: flex; gap: 0.3rem; align-items: center;">
+                    <span class="star-icon">★★★★★</span>
+                    <span style="color: #7f8c8d; font-size: 0.85rem;">3 Reviews</span>
+                </div>
+                <a href="tel:707-365-9164" class="header-phone">
+                    <span>📞</span>
+                    <span>707-365-9164</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>A to Z HOME SPECIALIST</h1>
-            <p class="tagline">Professional Handyman Services for Your Vacaville Home</p>
-            <div class="cta-group">
-                <a href="tel:707-365-9164" class="cta-btn cta-btn-primary">☎️ Call Now</a>
-                <a href="#contact" class="cta-btn cta-btn-secondary">Get Free Quote</a>
+            <h1>A to Z Home Specialist</h1>
+            <p class="hero-tagline">Professional Handyman Services for All Your Home Repairs & Maintenance</p>
+            <div class="hero-ctas">
+                <a href="tel:707-365-9164" class="btn btn-primary">📞 Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
+    <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="stats-container">
             <div class="stat-item">
-                <h3>⭐ 5.0 Stars</h3>
-                <p>Premium Rating</p>
+                <div class="stat-value">⭐ 5.0</div>
+                <div class="stat-label">Rating</div>
             </div>
             <div class="stat-item">
-                <h3>3</h3>
-                <p>Verified Reviews</p>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Customer Reviews</div>
             </div>
             <div class="stat-item">
-                <h3>100%</h3>
-                <p>Satisfaction Guaranteed</p>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction Guaranteed</div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- Services Section -->
     <section class="services" id="services">
-        <div class="services-container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <div class="divider"></div>
-                <p>Expert solutions for all your home maintenance needs</p>
-            </div>
+        <div class="section-container">
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🔨</div>
                     <h3>General Repairs</h3>
-                    <p>From drywall repair to fixture installation, we handle all your general handyman needs with precision and care.</p>
+                    <p>From minor fixes to major repairs, we handle all your general handyman needs with precision and care.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🚪</div>
-                    <h3>Door & Window</h3>
-                    <p>Professional installation and repair of doors and windows to improve security and energy efficiency.</p>
+                    <h3>Door & Lock Service</h3>
+                    <p>Installation, repair, and maintenance of doors, locks, and hardware for maximum security.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🛠️</div>
-                    <h3>Cabinet Work</h3>
-                    <p>Custom cabinet installation, repair, and refinishing to enhance your kitchen and bathroom spaces.</p>
+                    <h3>Drywall & Painting</h3>
+                    <p>Expert drywall installation, repair, and professional painting services for a fresh look.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💡</div>
-                    <h3>Electrical Work</h3>
-                    <p>Safe and reliable electrical installations, repairs, and upgrades performed by experienced professionals.</p>
+                    <div class="service-icon">🪟</div>
+                    <h3>Window Service</h3>
+                    <p>Window installation, repair, caulking, and maintenance to improve comfort and efficiency.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🚰</div>
+                    <div class="service-icon">🪜</div>
+                    <h3>Carpentry Work</h3>
+                    <p>Custom carpentry, shelving, trim work, and structural repairs built to last.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
                     <h3>Plumbing Repairs</h3>
-                    <p>Quick response to leaks, fixture repairs, and plumbing installations throughout your home.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Painting & Finishing</h3>
-                    <p>Professional interior and exterior painting services to refresh and protect your property.</p>
+                    <p>Leak detection, fixture repair, and general plumbing maintenance services available.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
-    <section class="why-choose" id="why-choose">
-        <div class="why-choose-container">
-            <div class="section-header">
-                <h2>Why Choose A to Z HOME SPECIALIST</h2>
-                <div class="divider"></div>
-                <p>Excellence in every project</p>
-            </div>
-            <div class="value-props">
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why">
+        <div class="section-container">
+            <h2 class="section-title">Why Choose A to Z Home Specialist?</h2>
+            <div class="why-grid">
                 <div class="value-prop">
-                    <h3>✓ Licensed & Insured</h3>
-                    <p>Full licensing and insurance coverage ensures your peace of mind on every project we undertake.</p>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed and insured for complete peace of mind. We stand behind every job we do with professional accountability and quality assurance.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>✓ Fast Response Time</h3>
-                    <p>We understand urgency. Quick response and same-day appointments available for emergency repairs.</p>
+                    <h3>Prompt & Reliable</h3>
+                    <p>We respect your time. Same-day scheduling available, on-time arrival guaranteed, and efficient service completion without cutting corners.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>✓ Transparent Pricing</h3>
-                    <p>No hidden fees or surprises. We provide detailed quotes upfront so you know exactly what to expect.</p>
+                    <h3>Transparent Pricing</h3>
+                    <p>No surprises or hidden fees. Free upfront quotes, fair pricing, and honest communication about what your project needs and costs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
+    <!-- Reviews Section -->
     <section class="reviews" id="reviews">
-        <div class="reviews-container">
-            <div class="section-header">
-                <h2>Customer Reviews</h2>
-                <div class="divider"></div>
-                <p>See what our satisfied customers have to say</p>
-            </div>
+        <div class="section-container">
+            <h2 class="section-title">What Our Customers Say</h2>
             <div class="reviews-grid">
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Matt was professional, efficient, and got the job done right the first time. Highly recommended for any handyman needs!"</p>
-                    <div class="review-author">
+                    <div class="review-header">
                         <div class="review-avatar">JM</div>
-                        <div class="review-author-info">
-                            <h4>James M.</h4>
-                            <div class="verified">✓ Verified Customer</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                John Martinez
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
+                    <p class="review-text">"Matt was incredibly professional and completed our cabinet installation faster than expected. The attention to detail was outstanding. Highly recommend A to Z Home Specialist!"</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Excellent work quality and amazing communication throughout the project. Will definitely hire again for future repairs."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">SR</div>
-                        <div class="review-author-info">
-                            <h4>Sarah R.</h4>
-                            <div class="verified">✓ Verified Customer</div>
+                    <div class="review-header">
+                        <div class="review-avatar">SL</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Sarah L.
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
+                    <p class="review-text">"We had multiple projects around our home, and Matt handled everything professionally. The pricing was fair and transparent. He's now our go-to handyman!"</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Very reliable and trustworthy. Matt takes pride in his work and always goes the extra mile. Five stars!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">DT</div>
-                        <div class="review-author-info">
-                            <h4>David T.</h4>
-                            <div class="verified">✓ Verified Customer</div>
+                    <div class="review-header">
+                        <div class="review-avatar">RC</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Robert Chen
+                                <span class="verified-badge">✓ Verified</span>
+                            </div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Professional service at fair prices. Matt completed our kitchen repairs ahead of schedule. Couldn't ask for more!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">KC</div>
-                        <div class="review-author-info">
-                            <h4>Karen C.</h4>
-                            <div class="verified">✓ Verified Customer</div>
-                        </div>
-                    </div>
+                    <p class="review-text">"From the initial quote to final walkthrough, everything was handled with professionalism and care. Matt's workmanship is excellent. Very satisfied with our experience!"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- About Section -->
     <section class="about" id="about">
-        <div class="about-container">
-            <h2>About Our Owner</h2>
-            <p>
-                A to Z HOME SPECIALIST is proudly owned and operated by <span class="highlight">Matt</span>, a seasoned professional with over 15 years of experience in the home services industry. Matt's commitment to quality craftsmanship, attention to detail, and customer satisfaction has built a stellar reputation throughout Vacaville.
-            </p>
-            <p>
-                Whether it's a quick repair or a complex renovation project, Matt brings dedication, expertise, and honesty to every job. His goal is simple: to be your trusted partner for all your home maintenance and improvement needs, ensuring your home remains safe, functional, and beautiful for years to come.
-            </p>
+        <div class="section-container">
+            <h2 class="section-title">About A to Z Home Specialist</h2>
+            <div class="about-content">
+                <p>A to Z Home Specialist is Vacaville's trusted handyman service, providing comprehensive home repair and maintenance solutions for homeowners who demand quality craftsmanship. Owner Matt brings years of hands-on experience in residential maintenance, carpentry, plumbing, and general repairs. His commitment to excellence, fair pricing, and customer satisfaction has earned a 5-star reputation built on reliability and professional results.</p>
+                <br>
+                <p>Whether you need a quick repair or a complete home project, Matt approaches every job with the same level of attention and care. We're fully licensed, insured, and dedicated to solving all your home maintenance challenges with expertise and integrity. Your home deserves the best—that's what A to Z Home Specialist delivers.</p>
+            </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <div class="divider"></div>
-                <p>Ready to experience professional handyman services?</p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <div class="contact-item">
+                    <strong>📞 Phone</strong>
+                    <a href="tel:707-365-9164">707-365-9164</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Service Area</strong>
+                    <p>Vacaville, CA and surrounding communities</p>
+                </div>
+                <div class="contact-item">
+                    <strong>🕐 Availability</strong>
+                    <p>Monday - Saturday<br>7:00 AM - 6:00 PM<br>Emergency service available</p>
+                </div>
+                <div class="contact-item">
+                    <strong>✓ Fully Licensed & Insured</strong>
+                    <p>Same-day scheduling available<br>Free quotes on all projects</p>
+                </div>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info-group">
-                    <div class="contact-item">
-                        <h3>📞 Phone</h3>
-                        <p><a href="tel:707-365-9164">707-365-9164</a></p>
+            <div>
+                <form class="quote-form" id="quoteForm">
+                    <h3>Request a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="contact-item">
-                        <h3>📍 Service Area</h3>
-                        <p>Vacaville, CA and surrounding areas</p>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    <div class="contact-item">
-                        <h3>⏰ Availability</h3>
-                        <p>Monday - Saturday: 7:00 AM - 6:00 PM<br>Emergency services available</p>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <form class="quote-form" onsubmit="handleFormSubmit(event)">
-                        <h3>Request a Free Quote</h3>
-                        <input type="text" class="form-input" placeholder="Your Name" required>
-                        <input type="email" class="form-input" placeholder="Your Email" required>
-                        <input type="tel" class="form-input" placeholder="Your Phone" required>
-                        <textarea class="form-input" placeholder="Describe your project..." rows="4" required></textarea>
-                        <button type="submit" class="form-submit">Get Free Quote</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="Describe the work needed..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your project..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Request Free Quote</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h3>A to Z HOME SPECIALIST</h3>
-            <p>Professional Handyman Services</p>
+            <p><strong>A to Z Home Specialist</strong></p>
             <p>Vacaville, CA</p>
-            <p><a href="tel:707-365-9164" style="color: var(--accent); text-decoration: none;">707-365-9164</a></p>
-            <div class="copyright">
-                <p>&copy; 2024 A to Z HOME SPECIALIST. All rights reserved.</p>
-            </div>
+            <p>📞 707-365-9164</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">&copy; 2024 A to Z Home Specialist. All rights reserved. Licensed & Insured.</p>
         </div>
     </footer>
 
-    <!-- FLOATING CALL BUTTON -->
-    <a href="tel:707-365-9164" class="floating-call-btn" title="Call Now">☎️</a>
+    <!-- Floating Call Button -->
+    <a href="tel:707-365-9164" class="floating-call" title="Call us now">📞</a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
         // Observe service cards
-        document.querySelectorAll('.service-card').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
         });
 
         // Observe value props
-        document.querySelectorAll('.value-prop').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.value-prop').forEach(prop => {
+            observer.observe(prop);
         });
 
         // Observe review cards
-        document.querySelectorAll('.review-card').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.review-card').forEach(card => {
+            observer.observe(card);
         });
 
-        // Observe contact info
-        document.querySelectorAll('.contact-info-group, .form-group').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form submission handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // In a real application, this would send data to a server
-            alert('Thank you! We will contact you shortly with your free quote.');
-            form.reset();
+        // Form submission
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(quoteForm);
+                const data = Object.fromEntries(formData);
+                
+                // Create phone-friendly message
+                const message = `New Quote Request from ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nService: ${data.service}\nDetails: ${data.message}`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Open phone or email
+                const phoneLink = `https://wa.me/17073659164?text=${encodedMessage}`;
+                window.open(phoneLink, '_blank');
+                
+                // Clear form
+                quoteForm.reset();
+            });
         }
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        // Stagger service card animations
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 100}ms`;
         });
     </script>
 </body>
