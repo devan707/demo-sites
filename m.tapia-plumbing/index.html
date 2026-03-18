@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.Tapia Plumbing | Professional Plumbing Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2980b9;
+            --primary-dark: #1f5fa8;
+            --primary-light: #3498db;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border: #e0e0e0;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .phone-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+        }
+
+        @media (max-width: 640px) {
+            .header-phone {
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5aa0 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse"><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats {
+            background: var(--bg-light);
+            padding: 2rem 1.5rem;
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 4rem 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .services-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 1.75rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .service-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose {
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 100%);
+        }
+
+        .why-choose-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-prop-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-prop-text {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ===== REVIEWS SECTION ===== */
+        .reviews {
+            padding: 4rem 1.5rem;
+            background: white;
+        }
+
+        .reviews-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star {
+            color: var(--warning);
+            font-size: 1.1rem;
+        }
+
+        .verified-badge {
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .review-quote {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .reviewer-info {
+            flex: 1;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .reviewer-role {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 4rem 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 2;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .about-highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 4rem 1.5rem;
+            background: white;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+        }
+
+        .contact-value {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--primary-dark);
+        }
+
+        .quote-form {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FLOATING CALL BUTTON ===== */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        .floating-call:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(41, 128, 185, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-business-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .footer-details a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-details a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                padding: 3rem 1rem;
+            }
+
+            .why-choose {
+                padding: 3rem 1rem;
+            }
+
+            .reviews {
+                padding: 3rem 1rem;
+            }
+
+            .about {
+                padding: 3rem 1rem;
+            }
+
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <a href="#home" class="logo">M.Tapia Plumbing</a>
+            <a href="tel:(831)201-8414" class="header-phone">
+                <svg class="phone-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                (831) 201-8414
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>M.Tapia Plumbing</h1>
+            <p class="hero-tagline">Expert plumbing solutions for your home and business</p>
+            <div class="hero-ctas">
+                <a href="tel:(831)201-8414" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats">
+        <div class="stats-content">
+            <div class="stat-item">
+                <div class="stat-number">★★★★★</div>
+                <div class="stat-label">5-Star Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Verified Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-content">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive plumbing solutions for all your needs</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Emergency Repairs</h3>
+                    <p class="service-description">24/7 emergency plumbing services to fix urgent issues quickly and professionally.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3 class="service-title">Leak Detection</h3>
+                    <p class="service-description">Advanced leak detection technology to identify and fix hidden leaks before they cause damage.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3 class="service-title">Drain Cleaning</h3>
+                    <p class="service-description">Professional drain cleaning and clearing services to keep your pipes flowing smoothly.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔩</div>
+                    <h3 class="service-title">Pipe Installation</h3>
+                    <p class="service-description">Expert installation of new plumbing systems using quality materials and modern techniques.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3 class="service-title">Water Heater Service</h3>
+                    <p class="service-description">Installation, repair, and maintenance of water heaters for consistent hot water supply.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛁</div>
+                    <h3 class="service-title">Bathroom Fixtures</h3>
+                    <p class="service-description">Installation and repair of sinks, faucets, toilets, and other bathroom plumbing fixtures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose">
+        <div class="why-choose-content">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose M.Tapia Plumbing</h2>
+                <p class="section-subtitle">Quality, reliability, and customer satisfaction guaranteed</p>
+            </div>
+
+            <div class="value-props">
+                <div class="value-prop">
+                    <h3 class="value-prop-title">Licensed & Insured</h3>
+                    <p class="value-prop-text">Fully licensed and insured professionals with years of experience in residential and commercial plumbing.</p>
+                </div>
+
+                <div class="value-prop">
+                    <h3 class="value-prop-title">Transparent Pricing</h3>
+                    <p class="value-prop-text">Honest, upfront pricing with no hidden fees. We provide detailed estimates before starting any work.</p>
+                </div>
+
+                <div class="value-prop">
+                    <h3 class="value-prop-title">Fast Response Time</h3>
+                    <p class="value-prop-text">Quick turnaround on appointments and emergency calls. We respect your time and schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="reviews-content">
+            <div class="section-header">
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">What our satisfied customers have to say</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <p class="review-quote">"Outstanding service! Mario fixed our leaking pipes quickly and professionally. He explained everything clearly and the price was fair. Highly recommend!"</p>
+                    <div class="review-footer">
+                        <div class="reviewer-avatar">JM</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">John Martinez</div>
+                            <div class="reviewer-role">Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <p class="review-quote">"Called for an emergency plumbing issue on a Sunday. Mario arrived within an hour and solved the problem immediately. Great service!"</p>
+                    <div class="review-footer">
+                        <div class="reviewer-avatar">SR</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Sarah Rodriguez</div>
+                            <div class="reviewer-role">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <p class="review-quote">"Professional, punctual, and knowledgeable. Mario installed our new water heater and the installation was flawless. Would definitely hire again."</p>
+                    <div class="review-footer">
+                        <div class="reviewer-avatar">DC</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">David Chen</div>
+                            <div class="reviewer-role">Property Manager</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <span class="verified-badge">✓ Verified</span>
+                    </div>
+                    <p class="review-quote">"Had a recurring drainage issue that other plumbers couldn't fix. Mario diagnosed the problem correctly and resolved it permanently. Five stars!"</p>
+                    <div class="review-footer">
+                        <div class="reviewer-avatar">EP</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Elena Perez</div>
+                            <div class="reviewer-role">Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <div class="about-content">
+            <div class="section-header">
+                <h2 class="section-title">About M.Tapia Plumbing</h2>
+            </div>
+            <p class="about-text">
+                M.Tapia Plumbing has been serving the community with <span class="about-highlight">professional plumbing solutions</span> for over a decade. Founded by Mario Tapia, a master plumber with extensive industry experience, our company is dedicated to delivering <span class="about-highlight">exceptional service</span> and quality workmanship on every project. We pride ourselves on building long-term relationships with our customers through honest communication, transparent pricing, and reliable results. Whether it's a simple repair or a complex installation, Mario and his team approach every job with the same level of professionalism and attention to detail that has earned us a reputation as one of the most trusted plumbing services in the region.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <label class="contact-label">📞 Phone</label>
+                    <div class="contact-value">
+                        <a href="tel:(831)201-8414">(831) 201-8414</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <label class="contact-label">📍 Service Area</label>
+                    <div class="contact-value">
+                        Monterey County and surrounding areas in Central California
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <label class="contact-label">⏰ Response Time</label>
+                    <div class="contact-value">
+                        Same-day service available for emergency calls
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <label class="contact-label">💬 Get in Touch</label>
+                    <div class="contact-value">
+                        Call us anytime for a free plumbing consultation or to schedule an appointment
+                    </div>
+                </div>
+            </div>
+
+            <form class="quote-form">
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark);">Request Free Quote</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-input" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" placeholder="(555) 123-4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Service Needed</label>
+                    <input type="text" class="form-input" placeholder="Describe your plumbing issue" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Additional Details</label>
+                    <textarea class="form-textarea" placeholder="Tell us more about your project..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit">Request Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:(831)201-8414" class="floating-call" title="Call M.Tapia Plumbing">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+        </svg>
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-business-name">M.Tapia Plumbing</div>
+            <div class="footer-details">
+                <div><a href="tel:(831)201-8414">(831) 201-8414</a></div>
+                <div>Serving Monterey County and Central California</div>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2024 M.Tapia Plumbing. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-scroll');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards, value props, and review cards
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-text').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('.quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your quote request! We will contact you shortly at the phone number provided.');
+            this.reset();
+        });
+
+        // Add scroll animation to header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
