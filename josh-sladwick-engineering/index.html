@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josh Sladwick Engineering | Professional Asphalt Contractor in Boulder Creek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e67e22;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-phone:hover {
+            color: #e67e22;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="asphalt" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23404040"/><circle cx="20" cy="20" r="2" fill="%23505050"/><circle cx="70" cy="50" r="2" fill="%23505050"/><circle cx="40" cy="80" r="2" fill="%23505050"/></pattern></defs><rect width="1200" height="800" fill="url(%23asphalt)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(18px, 4vw, 28px);
+            font-style: italic;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 600px) {
+            .hero-cta {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #e67e22;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #d46d0f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #e67e22;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: linear-gradient(135deg, #e67e22 0%, #d46d0f 100%);
+            color: #fff;
+            padding: 40px 20px;
+            margin-top: -1px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
+            border-top: 4px solid #e67e22;
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* WHY CHOOSE US */
+        .why-choose {
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-prop {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-prop h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #e67e22;
+        }
+
+        .value-prop p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e67e22, #d46d0f);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .reviewer-name {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .reviewer-name strong {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .verified-badge {
+            background: #e8f5e9;
+            color: #27ae60;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards 0.1s;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        .contact-item {
+            margin-bottom: 24px;
+        }
+
+        .contact-item label {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            font-size: 16px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #e67e22;
+        }
+
+        /* QUOTE FORM */
+        .quote-form {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards 0.1s;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+                text-align: center;
+            }
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #e67e22;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #e67e22;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e67e22, #d46d0f);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .floating-call-btn {
+                display: flex;
+            }
+        }
+
+        .floating-call-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.5);
+        }
+
+        .floating-call-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* SCROLL ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+        }
+
+        .fade-in.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-phone {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                gap: 20px;
+            }
+
+            .stat-item h3 {
+                font-size: 24px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content .tagline {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 40px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            footer {
+                text-align: center;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Josh Sladwick Engineering</div>
+                <a href="tel:+18315663324" class="nav-phone">
+                    <span>📞</span>
+                    <span>(831) 566-3324</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Josh Sladwick Engineering</h1>
+            <p class="tagline">Professional Asphalt Solutions in Boulder Creek</p>
+            <div class="hero-cta">
+                <a href="tel:+18315663324" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>⭐ 5.0 Stars</h3>
+                <p>Average Rating</p>
+            </div>
+            <div class="stat-item">
+                <h3>13</h3>
+                <p>Customer Reviews</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Satisfaction Guaranteed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Asphalt Installation</h3>
+                    <p>Professional asphalt paving for driveways, parking lots, and roads with precision craftsmanship.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Asphalt Repair</h3>
+                    <p>Expert repair services for potholes, cracks, and damaged asphalt surfaces to extend lifespan.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧼</div>
+                    <h3>Sealcoating</h3>
+                    <p>Protective sealcoating to protect your asphalt from weathering and extend its durability.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">♻️</div>
+                    <h3>Asphalt Recycling</h3>
+                    <p>Sustainable asphalt milling and recycling services for cost-effective surface restoration.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛣️</div>
+                    <h3>Parking Lot Maintenance</h3>
+                    <p>Comprehensive parking lot maintenance including striping, cleaning, and repairs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Site Assessment</h3>
+                    <p>Professional evaluation and consultation for your asphalt projects and maintenance needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Josh Sladwick Engineering</h2>
+            <div class="why-grid">
+                <div class="value-prop">
+                    <h3>🎯 Expert Experience</h3>
+                    <p>With years of industry experience, we bring professional expertise and proven techniques to every project, ensuring superior results and lasting quality.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>💼 Licensed & Insured</h3>
+                    <p>Fully licensed, bonded, and insured for your peace of mind. We maintain the highest standards of professionalism and accountability.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>⚡ Reliable Service</h3>
+                    <p>Punctual, respectful, and dedicated to customer satisfaction. We treat your property with care and complete projects on time and within budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="reviewer-avatar">MC</div>
+                            <div class="reviewer-name">
+                                <strong>Michael C.</strong>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Josh did an outstanding job on our driveway. The work was completed on time, the crew was professional, and the results exceeded our expectations. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="reviewer-avatar">SC</div>
+                            <div class="reviewer-name">
+                                <strong>Sarah C.</strong>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Professional, affordable, and trustworthy. Josh and his team handled our parking lot repairs with exceptional attention to detail. Best contractor in Boulder Creek!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="reviewer-avatar">JR</div>
+                            <div class="reviewer-name">
+                                <strong>James R.</strong>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Excellent workmanship and great customer service. Josh was responsive to all my questions and concerns. Will definitely hire again for future projects!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="reviewer-avatar">LD</div>
+                            <div class="reviewer-name">
+                                <strong>Lisa D.</strong>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="verified-badge">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"From the initial quote to the final walkthrough, Josh was professional and transparent. Our sealcoating looks fantastic and our asphalt is protected!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <p>Josh Sladwick Engineering is a family-owned asphalt contractor serving Boulder Creek and surrounding areas with dedication to quality and customer satisfaction. With years of industry expertise, we've built a reputation for delivering exceptional asphalt solutions—from new installations to comprehensive maintenance programs. Our commitment to using top-grade materials, employing skilled craftsmen, and maintaining open communication with every client sets us apart. Whether you need driveway paving, parking lot repairs, or sealcoating services, we approach each project with the same level of professionalism and attention to detail that has earned us 5-star reviews and repeat business from satisfied customers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <label>Phone</label>
+                        <a href="tel:+18315663324">(831) 566-3324</a>
+                    </div>
+                    <div class="contact-item">
+                        <label>Service Area</label>
+                        <p>Boulder Creek, CA and surrounding communities</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>Hours</label>
+                        <p>Monday - Friday: 7:00 AM - 6:00 PM<br>Saturday: 8:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>Rating</label>
+                        <p>⭐ 5.0 Stars (13 Reviews)</p>
+                    </div>
+                </div>
+                <form class="quote-form" id="quoteForm">
+                    <h3 style="margin-bottom: 24px; color: #333;">Request a Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Driveway paving, Repair, etc." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">Get Free Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Josh Sladwick Engineering</h4>
+                <p>Professional asphalt contractor serving Boulder Creek with quality, reliability, and expertise.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><a href="tel:+18315663324">(831) 566-3324</a></p>
+                <p>Boulder Creek, CA</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p><a href="#services">Asphalt Installation</a></p>
+                <p><a href="#services">Repairs & Maintenance</a></p>
+                <p><a href="#services">Sealcoating</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Josh Sladwick Engineering. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:+18315663324" class="floating-call-btn" title="Call Josh Sladwick Engineering">
+        <span>☎️</span>
+    </a>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Handle form submission
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(quoteForm);
+                const phone = '8315663324';
+                const message = `Hi Josh, I'd like to request a free quote.\n\nName: ${formData.get('name')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\nService: ${formData.get('service')}\nDetails: ${formData.get('message')}`;
+                const encodedMessage = encodeURIComponent(message);
+                window.location.href = `https://wa.me/${phone}?text=${encodedMessage}`;
+                quoteForm.reset();
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
