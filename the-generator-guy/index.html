@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Generator Guy | Professional Electrical Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232980b9" opacity="0.05" width="1200" height="600"/><circle cx="100" cy="100" r="80" fill="%232980b9" opacity="0.03"/><circle cx="1100" cy="500" r="120" fill="%232980b9" opacity="0.03"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-style: italic;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #2980b9;
+            color: white;
+            box-shadow: 0 4px 15px rgba(41, 128, 185, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #1f5f99;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(41, 128, 185, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: linear-gradient(90deg, #2980b9 0%, #1f5f99 100%);
+            color: white;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+            margin-top: -1px;
+        }
+
+        .stat-item {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .stat-value {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(41, 128, 185, 0.15);
+            border-top: 4px solid #2980b9;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* WHY CHOOSE US */
+        .why-us {
+            padding: 80px 20px;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .why-us-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .why-us-card:nth-child(1) { animation-delay: 0.1s; }
+        .why-us-card:nth-child(2) { animation-delay: 0.2s; }
+        .why-us-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .why-us-card h3 {
+            font-size: 1.4rem;
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .why-us-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .why-us-icon {
+            font-size: 2.5rem;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #2980b9;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .verified-badge {
+            color: #2980b9;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 80px 20px;
+            background: white;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .about-text:nth-of-type(1) { animation-delay: 0.1s; }
+        .about-text:nth-of-type(2) { animation-delay: 0.2s; }
+        .about-text:nth-of-type(3) { animation-delay: 0.3s; }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #2980b9 0%, #1f5f99 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            opacity: 0.8;
+        }
+
+        .quote-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+        }
+
+        .quote-form h3 {
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            transition: background 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group button {
+            background: white;
+            color: #2980b9;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #2980b9;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            text-align: center;
+        }
+
+        /* FLOATING CALL BUTTON */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #2980b9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(41, 128, 185, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .floating-call:hover {
+            background: #1f5f99;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(41, 128, 185, 0.5);
+        }
+
+        .floating-call.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(41, 128, 185, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(41, 128, 185, 0.7);
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .services {
+                padding: 60px 20px;
+            }
+
+            .why-us {
+                padding: 60px 20px;
+            }
+
+            .reviews {
+                padding: 60px 20px;
+            }
+
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .about {
+                padding: 60px 20px;
+            }
+
+            .quote-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 25px 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .why-us-grid {
+                gap: 30px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                padding: 0;
+            }
+
+            .floating-call {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.5rem;
+                margin-bottom: 25px;
+            }
+
+            .quote-form {
+                margin-top: 20px;
+            }
+
+            .quote-form h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>The Generator Guy</h1>
+            <p class="tagline">Professional Electrical Solutions You Can Trust</p>
+            <div class="hero-ctas">
+                <a href="tel:(831) 529-4869" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-value">5★</span>
+            <span class="stat-label">Perfect Rating</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">22</span>
+            <span class="stat-label">Customer Reviews</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Satisfaction Guaranteed</span>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Expert Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Generator Installation</h3>
+                    <p>Professional installation of backup generators to keep your home or business powered during outages.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Generator Maintenance</h3>
+                    <p>Regular maintenance and inspections to ensure your generator operates at peak performance year-round.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Generator Repair</h3>
+                    <p>Fast, reliable repair services for all generator brands and models. Emergency service available.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Electrical Wiring</h3>
+                    <p>Expert electrical wiring installation and upgrades for residential and commercial properties.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Panel Installation</h3>
+                    <p>Professional electrical panel installation, replacement, and upgrades with full code compliance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Electrical Inspections</h3>
+                    <p>Comprehensive electrical inspections to identify potential hazards and ensure safety compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose The Generator Guy?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed electrician with comprehensive insurance coverage. All work meets local codes and regulations for your complete peace of mind.</p>
+                </div>
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Fast Response Times</h3>
+                    <p>We understand that electrical emergencies can't wait. Quick response and same-day service available for urgent repairs.</p>
+                </div>
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>5-Star Service</h3>
+                    <p>22 verified customer reviews with a perfect 5-star rating. Our commitment to excellence and customer satisfaction is unmatched.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                John Martinez
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The Generator Guy installed our backup generator and it's been a lifesaver during power outages. Professional, reliable, and fair pricing. Couldn't be happier!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">SC</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Sarah Chen
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Had an electrical emergency and they came out the same day. Fixed everything correctly and took time to explain the issue. Highly recommended!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RP</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Robert Palmer
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Been using The Generator Guy for maintenance for two years now. Always professional, shows up on time, and keeps our generator running perfectly."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">EM</div>
+                        <div class="review-meta">
+                            <div class="review-name">
+                                Emily Morrison
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Had him do electrical panel work and new wiring. Excellent craftsmanship, clean work area, and very knowledgeable. A true professional!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About The Generator Guy</h2>
+            <p class="about-text">
+                With over a decade of experience in the electrical industry, The Generator Guy has built a reputation for exceptional service and customer satisfaction. Our team specializes in generator installation, maintenance, and repair, as well as comprehensive electrical services for both residential and commercial clients.
+            </p>
+            <p class="about-text">
+                We understand that reliable power is essential for your home and business. Whether you're looking for a backup power solution during outages, need emergency electrical repairs, or want to upgrade your electrical systems, we have the expertise and dedication to get the job done right the first time.
+            </p>
+            <p class="about-text">
+                Licensed, insured, and backed by our 100% satisfaction guarantee, The Generator Guy is your trusted partner for all electrical needs. Our commitment to excellence, combined with our fast response times and competitive pricing, makes us the preferred choice for customers throughout the region.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <div class="contact-item">
+                    <span class="contact-label">📞 Phone</span>
+                    <div class="contact-value">
+                        <a href="tel:(831) 529-4869">(831) 529-4869</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">⏰ Available</span>
+                    <div class="contact-value">
+                        Monday - Saturday<br>7:00 AM - 6:00 PM
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">🚨 Emergency</span>
+                    <div class="contact-value">
+                        Same-Day Service Available
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">📍 Service Area</span>
+                    <div class="contact-value">
+                        Monterey County & Surrounding Areas
+                    </div>
+                </div>
+            </div>
+            <form class="quote-form" id="quoteForm">
+                <h3>Request a Free Quote</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <input type="text" id="service" name="service" placeholder="e.g., Generator Installation" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us more about your project..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Request Quote</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>The Generator Guy</h4>
+                <p>Professional electrical services and generator specialists serving Monterey County.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: <a href="tel:(831) 529-4869" style="color: #2980b9;">(831) 529-4869</a></p>
+                <p>Hours: Mon-Sat, 7AM-6PM</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p>Generator Installation & Repair<br>Electrical Wiring & Panel Work<br>Emergency Services Available</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2024 The Generator Guy. All rights reserved. | Licensed & Insured Electrician</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:(831) 529-4869" class="floating-call pulse" title="Call The Generator Guy">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .review-card, .why-us-card, .about-text, .contact-item, .quote-form').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const text = `Hi! I'd like a quote for ${service}. Name: ${name}, Phone: ${phone}. Details: ${message}`;
+            const encodedText = encodeURIComponent(text);
+            window.location.href = `tel:(831) 529-4869`;
+            
+            setTimeout(() => {
+                this.reset();
+            }, 500);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu optimization
+        const floatingCall = document.querySelector('.floating-call');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            lastScroll = window.scrollY;
+            if (lastScroll < 100) {
+                floatingCall.classList.add('pulse');
+            }
+        });
+    </script>
+
+</body>
+</html>
