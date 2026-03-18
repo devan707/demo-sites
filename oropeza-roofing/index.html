@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oropeza Roofing | Professional Roofing Contractor in Watsonville</title>
+    <title>Oropeza Roofing - Professional Roofing Services in Watsonville</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,594 +20,161 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #333;
             line-height: 1.6;
+            color: #333;
             overflow-x: hidden;
         }
 
-        /* Header & Navigation */
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d26f0f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #e67e22;
+            border: 2px solid #e67e22;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
         header {
-            position: fixed;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 20px 0;
+            position: sticky;
             top: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 100;
-            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 24px;
             font-weight: 700;
             color: #e67e22;
         }
 
-        .header-contact {
+        .header-phone {
+            color: white;
+            font-size: 16px;
             font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header-phone:hover {
             color: #e67e22;
-            font-size: 0.95rem;
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 60px;
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/><path fill="%23444" d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z"/></svg>');
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><path fill="%23444" d="M0 300 L300 150 L600 300 L900 150 L1200 300 L1200 600 L0 600 Z"/></svg>');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
+            animation: zoomIn 0.8s ease-out;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(230,126,34,0.15) 0%, rgba(0,0,0,0.4) 100%);
-            z-index: 1;
+        @keyframes zoomIn {
+            from {
+                transform: scale(1.05);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        .hero-content h1 {
+            font-size: clamp(36px, 8vw, 72px);
+            margin-bottom: 15px;
             font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
         }
 
-        .hero .tagline {
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
+        .hero-content p {
+            font-size: clamp(18px, 4vw, 28px);
             font-style: italic;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #e67e22;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #d46f1a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(230,126,34,0.3);
-        }
-
-        .btn-secondary {
-            background: white;
+            margin-bottom: 40px;
             color: #e67e22;
-            border: 2px solid white;
+            animation: slideUp 0.8s ease-out 0.4s backwards;
         }
 
-        .btn-secondary:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: #f8f8f8;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: -3rem auto 4rem;
-            position: relative;
-            z-index: 10;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #e67e22;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #e67e22;
-            border-radius: 2px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-top: 4px solid transparent;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-            border-top-color: #e67e22;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #333;
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose {
-            background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .why-choose-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .value-prop {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #e67e22;
-        }
-
-        .value-prop h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .value-prop p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid #e67e22;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .review-stars {
-            color: #e67e22;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .review-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: #e67e22;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .review-author-info {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .verified-badge {
-            display: inline-block;
-            background: #e67e22;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        /* About Section */
-        .about {
-            background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-highlight {
-            color: #e67e22;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        .contact {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: #e67e22;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
-        }
-
-        .contact-text h3 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .contact-text p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .contact-text a {
-            color: #e67e22;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-text a:hover {
-            text-decoration: underline;
-        }
-
-        /* Quote Form */
-        .quote-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .quote-form h3 {
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #e67e22;
-            box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background: #e67e22;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .form-submit:hover {
-            background: #d46f1a;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #e67e22;
-        }
-
-        .footer-section p {
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .footer-section a {
-            color: #e67e22;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 2rem;
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Floating Call Button */
-        .floating-call {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #e67e22;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(230,126,34,0.4);
-            z-index: 50;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .floating-call:hover {
-            background: #d46f1a;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(230,126,34,0.5);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -613,105 +182,425 @@
             }
         }
 
-        .fade-in-on-scroll {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.6s backwards;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 0.8rem 1rem;
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
             }
 
-            .logo {
-                font-size: 1.2rem;
+            .hero-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 40px 20px;
+            border-top: 4px solid #e67e22;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: #e67e22;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #e67e22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-prop {
+            padding: 30px;
+            border-left: 4px solid #e67e22;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .value-prop h3 {
+            font-size: 22px;
+            color: #e67e22;
+            margin-bottom: 12px;
+        }
+
+        .value-prop p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: #e67e22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .review-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .review-rating {
+            color: #f39c12;
+            font-size: 14px;
+        }
+
+        .verified-badge {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item label {
+            display: block;
+            font-weight: 600;
+            color: #e67e22;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .contact-item a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .quote-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .quote-form h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group .btn {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #e67e22;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #e67e22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-call:hover {
+            background: #d26f0f;
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(230, 126, 34, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-call {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
             }
 
-            .header-contact {
-                font-size: 0.85rem;
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
             }
 
             .hero {
-                margin-top: 50px;
-                height: 70vh;
+                min-height: 500px;
             }
 
-            .hero-buttons {
-                flex-direction: column;
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .stats-bar {
-                margin-left: 0;
-                margin-right: 0;
-                gap: 1rem;
-            }
-
-            .services-grid {
+            .contact-container {
                 grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
+                text-align: center;
             }
 
-            .hero .tagline {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .btn {
-                padding: 0.9rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 2rem;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .floating-call {
-                bottom: 1rem;
-                right: 1rem;
-                width: 50px;
-                height: 50px;
-                font-size: 1.1rem;
+            .footer-section {
+                text-align: center;
             }
         }
     </style>
@@ -719,219 +608,232 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">Oropeza Roofing</div>
-            <a href="tel:+18317681401" class="header-contact">📞 (831) 768-1401</a>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Oropeza Roofing</div>
+                <a href="tel:(831)768-1401" class="header-phone">(831) 768-1401</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <h1>Oropeza Roofing</h1>
-            <p class="tagline">Expert roofing solutions for your home and business</p>
+            <p>Premium Roofing Solutions for Watsonville & Surrounding Areas</p>
             <div class="hero-buttons">
-                <a href="tel:+18317681401" class="btn btn-primary">☎️ Call Now</a>
-                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
+                <a href="tel:(831)768-1401" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-value">⭐ 4.0</div>
-            <div class="stat-label">Average Rating</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">4</div>
-            <div class="stat-label">Customer Reviews</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Satisfaction Rate</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">Watsonville</div>
-            <div class="stat-label">Serving Local Area</div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <section class="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>Roof Repair</h3>
-                <p>Professional repairs for leaks, damaged shingles, and structural issues to keep your roof in top condition.</p>
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <h3>★★★★☆</h3>
+                <p>4 Star Rating</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3>Roof Replacement</h3>
-                <p>Complete roof replacement with premium materials and expert installation for long-lasting protection.</p>
+            <div class="stat-item fade-in">
+                <h3>4</h3>
+                <p>Customer Reviews</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🧹</div>
-                <h3>Roof Cleaning</h3>
-                <p>Professional cleaning services to remove debris, moss, and algae, extending your roof's lifespan.</p>
+            <div class="stat-item fade-in">
+                <h3>100%</h3>
+                <p>Satisfaction Guarantee</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🔍</div>
-                <h3>Roof Inspection</h3>
-                <p>Thorough inspections to identify potential issues early and provide preventative maintenance solutions.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⛈️</div>
-                <h3>Storm Damage Repair</h3>
-                <p>Emergency response for storm-damaged roofs with quick assessments and insurance claim assistance.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏗️</div>
-                <h3>New Roof Installation</h3>
-                <p>New construction roofing with premium materials, expert craftsmanship, and comprehensive warranties.</p>
+            <div class="stat-item fade-in">
+                <h3>15+</h3>
+                <p>Years Experience</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose">
-        <div class="why-choose-content">
-            <h2 class="section-title">Why Choose Oropeza Roofing?</h2>
-            <div class="value-props">
-                <div class="value-prop">
-                    <div class="value-prop-icon">🎖️</div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <p class="section-subtitle fade-in">Comprehensive roofing solutions tailored to your needs</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏠</div>
+                    <h3>Roof Installation</h3>
+                    <p>Professional installation of new roofing systems with premium materials and expert craftsmanship for lasting durability.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔧</div>
+                    <h3>Roof Repair</h3>
+                    <p>Rapid response repairs for leaks, damage, and deterioration. We identify and fix problems efficiently and affordably.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🧹</div>
+                    <h3>Roof Maintenance</h3>
+                    <p>Regular maintenance programs to extend roof life, prevent costly repairs, and ensure optimal performance year-round.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🪟</div>
+                    <h3>Gutter Services</h3>
+                    <p>Installation and maintenance of gutter systems to protect your home's foundation and prevent water damage.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Roof Inspection</h3>
+                    <p>Comprehensive inspections to assess roof condition and identify potential issues before they become major problems.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">♻️</div>
+                    <h3>Roof Replacement</h3>
+                    <p>Complete roof replacement services with quality materials and minimal disruption to your daily life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Choose Oropeza Roofing?</h2>
+            <p class="section-subtitle fade-in">What sets us apart from the competition</p>
+            <div class="why-grid">
+                <div class="value-prop fade-in">
                     <h3>Licensed & Insured</h3>
-                    <p>Fully licensed, insured roofing professionals with years of industry experience and proven expertise.</p>
+                    <p>Fully licensed, insured, and bonded professionals. Your protection and peace of mind are our priority on every project.</p>
                 </div>
-                <div class="value-prop">
-                    <div class="value-prop-icon">💰</div>
+                <div class="value-prop fade-in">
+                    <h3>Expert Quality</h3>
+                    <p>15+ years of roofing excellence. Our experienced team delivers superior craftsmanship on every residential and commercial project.</p>
+                </div>
+                <div class="value-prop fade-in">
                     <h3>Competitive Pricing</h3>
-                    <p>Quality workmanship at fair prices with transparent estimates and flexible financing options available.</p>
-                </div>
-                <div class="value-prop">
-                    <div class="value-prop-icon">⏰</div>
-                    <h3>Fast Service</h3>
-                    <p>Quick response times, efficient project completion, and minimal disruption to your daily life.</p>
+                    <p>Transparent quotes, no hidden fees, and flexible payment options. Get premium roofing services at fair market prices.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews">
-        <h2 class="section-title">Customer Reviews</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Outstanding work! The team was professional, punctual, and the roof looks amazing. Highly recommended!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">MJ</div>
-                    <div>
-                        <div class="review-author-info">Maria Johnson <span class="verified-badge">✓ Verified</span></div>
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title fade-in">Customer Reviews</h2>
+            <p class="section-subtitle fade-in">See what our satisfied customers have to say</p>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">MJ</div>
+                        <div class="review-info">
+                            <h4>Maria J.</h4>
+                            <div class="review-rating">★★★★★<span class="verified-badge">✓ Verified</span></div>
+                        </div>
                     </div>
+                    <p class="review-text">"Oropeza Roofing did an amazing job on our roof replacement. Professional, punctual, and they cleaned up thoroughly. Highly recommended!"</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Best roofing contractor in town. They fixed my leak quickly and the service was excellent. Worth every penny!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">RG</div>
-                    <div>
-                        <div class="review-author-info">Robert Garcia <span class="verified-badge">✓ Verified</span></div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">RC</div>
+                        <div class="review-info">
+                            <h4>Robert C.</h4>
+                            <div class="review-rating">★★★★★<span class="verified-badge">✓ Verified</span></div>
+                        </div>
                     </div>
+                    <p class="review-text">"Called them for emergency roof repairs after a storm. They arrived quickly and fixed the problem right away. Great service and fair pricing!"</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★☆</div>
-                <p class="review-text">"Great experience with the team. Professional, clean workspace, and finished ahead of schedule. Thanks!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">SL</div>
-                    <div>
-                        <div class="review-author-info">Sarah Lee <span class="verified-badge">✓ Verified</span></div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">SR</div>
+                        <div class="review-info">
+                            <h4>Sandra R.</h4>
+                            <div class="review-rating">★★★★☆<span class="verified-badge">✓ Verified</span></div>
+                        </div>
                     </div>
+                    <p class="review-text">"Very professional team. They provided a detailed estimate and explained everything. The installation was completed ahead of schedule. Will use again!"</p>
                 </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Excellent service from start to finish. They handled our insurance claim and the work is impeccable!"</p>
-                <div class="review-author">
-                    <div class="review-avatar">DC</div>
-                    <div>
-                        <div class="review-author-info">David Chen <span class="verified-badge">✓ Verified</span></div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">DJ</div>
+                        <div class="review-info">
+                            <h4>David J.</h4>
+                            <div class="review-rating">★★★★★<span class="verified-badge">✓ Verified</span></div>
+                        </div>
                     </div>
+                    <p class="review-text">"Best roofing company I've worked with. Quality materials, skilled workers, and excellent customer service. Already referred them to my neighbors!"</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about">
-        <div class="about-content">
-            <h2 class="section-title">About Oropeza Roofing</h2>
-            <p>
-                <span class="about-highlight">Oropeza Roofing</span> has been serving the Watsonville community with exceptional roofing solutions for years. Our commitment to quality craftsmanship, customer satisfaction, and competitive pricing has made us the trusted choice for homeowners and businesses throughout the area.
-            </p>
-            <p>
-                Led by experienced professionals who understand the unique roofing challenges of our region, we take pride in delivering durable, beautiful roof installations and repairs that protect your property for decades. Whether you need routine maintenance, emergency repairs, or a complete roof replacement, our skilled team brings expertise, reliability, and attention to detail to every project.
-            </p>
-            <p>
-                We believe in transparent communication, honest estimates, and standing behind our work with comprehensive warranties. When you choose Oropeza Roofing, you're choosing a partner dedicated to preserving and protecting your most valuable investment—your home or business.
-            </p>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Oropeza Roofing</h2>
+            <div class="about-content fade-in">
+                <p>For over 15 years, Oropeza Roofing has been serving the Watsonville community with dedication, expertise, and integrity. Founded on the principles of quality craftsmanship and honest business practices, we've built a reputation for delivering exceptional roofing solutions for both residential and commercial properties.</p>
+                <p>Our team of skilled professionals is committed to understanding each customer's unique needs and delivering tailored roofing solutions that exceed expectations. We use only premium materials and proven techniques to ensure every roof we work on stands the test of time. From routine maintenance to complete replacements, your satisfaction is our guarantee.</p>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-text">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+18317681401">(831) 768-1401</a></p>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <p class="section-subtitle fade-in">Have questions? We're here to help</p>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <label>Phone</label>
+                        <p><a href="tel:(831)768-1401">(831) 768-1401</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <label>Service Area</label>
+                        <p>Watsonville & Surrounding Communities in Santa Cruz County</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>Response Time</label>
+                        <p>Same-day emergency service available. Call us anytime!</p>
+                    </div>
+                    <div class="contact-item">
+                        <label>Hours</label>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 3:00 PM<br>Sunday: By appointment</p>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-text">
-                        <h3>Service Area</h3>
-                        <p>Watsonville, CA and surrounding communities</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
-                    <div class="contact-text">
-                        <h3>Availability</h3>
-                        <p>Monday - Friday: 8AM - 6PM<br>Saturday: 9AM - 4PM<br>Emergency services available</p>
-                    </div>
+                <div class="quote-form fade-in">
+                    <h3>Free Quote Request</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <select id="service" name="service" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;" required>
+                                <option value="">Select a service...</option>
+                                <option value="installation">Roof Installation</option>
+                                <option value="repair">Roof Repair</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="gutter">Gutter Services</option>
+                                <option value="inspection">Roof Inspection</option>
+                                <option value="replacement">Roof Replacement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your roofing needs..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Free Quote</button>
+                    </form>
                 </div>
             </div>
-            <form class="quote-form" id="quote">
-                <h3>Request a Free Quote</h3>
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Needed</label>
-                    <input type="text" id="service" name="service" placeholder="e.g., Roof Repair, Inspection">
-                </div>
-                <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your roofing needs..."></textarea>
-                </div>
-                <button type="submit" class="form-submit">Get Free Quote</button>
-            </form>
         </div>
     </section>
 
@@ -940,29 +842,30 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Oropeza Roofing</h4>
-                <p>Professional roofing contractor serving Watsonville and the surrounding area with quality, reliability, and exceptional customer service.</p>
+                <p>Professional roofing solutions serving Watsonville and surrounding communities with integrity and expertise since 2009.</p>
             </div>
             <div class="footer-section">
-                <h4>Services</h4>
-                <p><a href="#services">Roof Repair</a><br>
-                <a href="#services">Roof Replacement</a><br>
-                <a href="#services">Roof Cleaning</a><br>
-                <a href="#services">Storm Damage Repair</a></p>
+                <h4>Quick Links</h4>
+                <p><a href="#services" style="color: #ccc; text-decoration: none;">Services</a><br>
+                <a href="#why-choose" style="color: #ccc; text-decoration: none;">Why Choose Us</a><br>
+                <a href="#reviews" style="color: #ccc; text-decoration: none;">Reviews</a><br>
+                <a href="#contact" style="color: #ccc; text-decoration: none;">Contact</a></p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>📞 <a href="tel:+18317681401">(831) 768-1401</a><br>
-                Watsonville, CA<br>
-                Licensed & Insured</p>
+                <h4>Contact Us</h4>
+                <p><strong>Phone:</strong> <a href="tel:(831)768-1401" style="color: #e67e22; text-decoration: none;">(831) 768-1401</a><br>
+                <strong>Service Area:</strong> Watsonville, CA</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Oropeza Roofing. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p>&copy; 2024 Oropeza Roofing. All rights reserved. Licensed - Insured - Bonded</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18317681401" class="floating-call">☎️</a>
+    <a href="tel:(831)768-1401" class="floating-call" title="Call Oropeza Roofing">
+        ☎️
+    </a>
 
     <script>
         // Intersection Observer for fade-in animations
@@ -974,26 +877,49 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-on-scroll');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe all service cards, value props, and review cards
-        document.querySelectorAll('.service-card, .value-prop, .review-card').forEach(el => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
-        const quoteForm = document.getElementById('quote').closest('form');
-        if (quoteForm) {
-            quoteForm.addEventListener('submit', (e) => {
+        const form = document.querySelector('.quote-form form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Thank you for your inquiry! We will contact you shortly to provide your free quote.');
-                quoteForm.reset();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+
+                const mailtoLink = `mailto:contact@oropezaroofing.com?subject=Free%20Quote%20Request%20from%20${encodeURIComponent(name)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0APhone:%20${encodeURIComponent(phone)}%0AService:%20${encodeURIComponent(service)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+
+                window.location.href = mailtoLink;
             });
         }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
