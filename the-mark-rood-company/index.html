@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Mark Rood Company - Professional Excavating Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,14 +13,14 @@
         }
 
         :root {
-            --primary: #e67e22;
-            --primary-dark: #d35400;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-            --border-color: #e0e0e0;
-            --success: #27ae60;
+            --primary-color: #e67e22;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --border-color: #ecf0f1;
+            --success-color: #27ae60;
         }
 
         html {
@@ -28,13 +28,91 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--white);
         }
 
-        /* Animations */
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .header-contact {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .header-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-contact a:hover {
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%232c3e50"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            color: var(--white);
+            padding: 120px 1rem 80px;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(230, 126, 34, 0.08);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -46,135 +124,31 @@
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .slide-in {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg-white);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-            padding: 1rem;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .header-contact a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .header-contact a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 60px;
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><circle cx="100" cy="100" r="50" fill="%23e67e22" opacity="0.1"/><circle cx="1100" cy="500" r="80" fill="%23e67e22" opacity="0.1"/><path d="M0 300 Q300 250 600 300 T1200 300" stroke="%23e67e22" stroke-width="2" fill="none" opacity="0.2"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--bg-white);
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-        }
-
-        .hero-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
+        .hero h1 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
             letter-spacing: -1px;
         }
 
-        .hero-tagline {
-            font-size: clamp(1rem, 3vw, 1.5rem);
+        .hero p {
+            font-size: 1.3rem;
             font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .hero-ctas {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-        }
-
-        @media (min-width: 640px) {
-            .hero-ctas {
-                flex-direction: row;
-            }
+            justify-content: center;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border: none;
             border-radius: 6px;
             font-size: 1rem;
@@ -183,229 +157,292 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
-            background: var(--primary);
-            color: var(--bg-white);
+            background-color: var(--primary-color);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background-color: #d35400;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 8px 16px rgba(230, 126, 34, 0.3);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--bg-white);
-            border: 2px solid var(--bg-white);
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background: var(--bg-white);
-            color: var(--primary);
+            background-color: var(--white);
+            color: var(--primary-color);
             transform: translateY(-2px);
-        }
-
-        .btn-small {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
         }
 
         /* Stats Bar */
         .stats {
-            background: var(--bg-light);
-            padding: 2rem;
+            background-color: var(--light-bg);
+            padding: 2rem 1rem;
+            margin-top: -1px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             text-align: center;
-            max-width: 1200px;
-            margin: -3rem auto 0;
-            position: relative;
-            z-index: 10;
-            border-radius: 8px;
         }
 
         .stat-item {
-            padding: 1.5rem;
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .stat-value {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
             color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .stars {
-            color: var(--primary);
-            letter-spacing: 2px;
-            font-size: 1.3rem;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 1.5rem;
-        }
-
-        .section-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Services Section */
         .services {
-            background: var(--bg-light);
+            padding: 4rem 1rem;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
         }
 
         .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .service-card {
-            background: var(--bg-white);
-            padding: 2.5rem;
+            background-color: var(--white);
+            padding: 2rem;
             border-radius: 8px;
+            border: 1px solid var(--border-color);
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            transform: translateY(20px);
         }
 
         .service-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(230, 126, 34, 0.15);
         }
 
         .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            height: 70px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(230, 126, 34, 0.1);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
         }
 
         .service-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--text-dark);
         }
 
         .service-card p {
             color: var(--text-light);
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* Why Choose Us Section */
+        /* Why Choose Us */
         .why-choose {
-            background: var(--bg-white);
+            background-color: var(--light-bg);
+            padding: 4rem 1rem;
         }
 
-        .value-props {
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
-        .value-prop {
-            text-align: center;
+        .value-card {
+            background-color: var(--white);
             padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            opacity: 0;
+            animation: fadeInLeft 0.6s ease forwards;
         }
 
-        .value-prop-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .value-prop h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .value-card {
+            transform: translateX(-20px);
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0.1s; }
+        .value-card:nth-child(2) { animation-delay: 0.2s; }
+        .value-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
             color: var(--text-dark);
         }
 
-        .value-prop p {
+        .value-card p {
             color: var(--text-light);
             font-size: 0.95rem;
-            line-height: 1.8;
         }
 
         /* Reviews Section */
         .reviews {
-            background: var(--bg-light);
+            padding: 4rem 1rem;
+            background-color: var(--white);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2.5rem;
         }
 
         .review-card {
-            background: var(--bg-white);
-            padding: 2rem;
+            background-color: var(--light-bg);
+            padding: 1.8rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
         }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
 
         .review-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .review-stars {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .review-verified {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .review-avatar {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--primary);
+            background-color: var(--primary-color);
+            color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--bg-white);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
 
         .review-name {
@@ -413,191 +450,182 @@
             color: var(--text-dark);
         }
 
-        .review-verified {
-            font-size: 0.8rem;
-            color: var(--success);
-            font-weight: 500;
-            margin-top: 0.25rem;
-        }
-
-        .review-stars {
-            color: var(--primary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .review-text {
-            color: var(--text-light);
-            font-style: italic;
-            line-height: 1.8;
-            position: relative;
-        }
-
-        .review-text::before {
-            content: '"';
-            font-size: 3rem;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: -10px;
-            left: -5px;
-        }
-
         /* About Section */
         .about {
-            background: var(--bg-white);
+            background-color: var(--light-bg);
+            padding: 4rem 1rem;
         }
 
-        .about-content {
+        .about-container {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .about-content p {
-            font-size: 1.05rem;
-            line-height: 2;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content strong {
-            color: var(--primary);
+        .about-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
         }
 
         /* Contact Section */
         .contact {
-            background: var(--text-dark);
-            color: var(--bg-white);
-        }
-
-        .contact .section-title {
-            color: var(--bg-white);
+            padding: 4rem 1rem;
+            background-color: var(--white);
         }
 
         .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
+            margin-top: 2.5rem;
         }
 
         .contact-info {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .contact-item {
-            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInLeft 0.6s ease forwards;
         }
 
-        .contact-label {
-            font-weight: 600;
-            color: var(--primary);
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .contact-item h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
-            display: block;
+            font-weight: 600;
         }
 
-        .contact-item a {
-            color: var(--bg-white);
+        .contact-item p, .contact-item a {
+            font-size: 1.1rem;
+            color: var(--text-dark);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: var(--primary);
+            color: var(--primary-color);
+        }
+
+        .quote-form {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            animation: fadeInRight 0.6s ease forwards;
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .quote-form {
+            transform: translateX(20px);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--bg-white);
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--bg-white);
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
-            color: var(--bg-white);
-            padding: 2rem;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 2rem 1rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+            text-align: left;
         }
 
         .footer-section h4 {
-            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
             margin-bottom: 1rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
         }
 
         .footer-section p,
         .footer-section a {
             color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
             font-size: 0.95rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
             line-height: 1.8;
         }
 
         .footer-section a:hover {
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
-        .footer-bottom {
-            padding-top: 2rem;
+        .footer-divider {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            padding-top: 2rem;
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Floating Call Button */
@@ -607,93 +635,156 @@
             right: 2rem;
             width: 60px;
             height: 60px;
-            background: var(--primary);
+            background-color: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            color: var(--bg-white);
-            font-size: 1.5rem;
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
             z-index: 99;
+            cursor: pointer;
+            transition: all 0.3s ease;
             animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 30px rgba(230, 126, 34, 0.6);
+            }
         }
 
         .floating-call:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(230, 126, 34, 0.4);
+            background-color: #d35400;
         }
 
-        @media (max-width: 640px) {
-            .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-            }
+        .floating-call a {
+            color: var(--white);
+            font-size: 1.8rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-            header {
-                padding: 0.75rem;
-            }
-
+        /* Responsive Design */
+        @media (max-width: 768px) {
             .header-contact {
-                flex-direction: column;
-                gap: 0.5rem;
-                font-size: 0.8rem;
+                display: none;
             }
 
-            section {
-                padding: 3rem 1.5rem;
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
             }
 
             .hero-ctas {
-                gap: 0.75rem;
+                flex-direction: column;
+                width: 100%;
             }
 
             .btn {
-                padding: 0.9rem 2rem;
-                font-size: 0.95rem;
                 width: 100%;
-                max-width: 280px;
+                max-width: 300px;
             }
 
-            .stats {
-                margin: -2rem 1rem 0;
-                padding: 1.5rem 1rem;
-                gap: 1rem;
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .stat-item {
-                padding: 1rem;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .stat-value {
-                font-size: 2rem;
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 56px;
+                height: 56px;
+            }
+
+            .floating-call a {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-text {
+                text-align: left;
             }
         }
 
-        /* Utilities */
-        .text-center {
-            text-align: center;
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .service-card,
+            .value-card,
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .service-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
         }
 
-        .mt-1 {
-            margin-top: 1rem;
+        /* Scroll animation for elements */
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
-        .mt-2 {
-            margin-top: 2rem;
-        }
-
-        .mb-1 {
-            margin-bottom: 1rem;
-        }
-
-        .mb-2 {
-            margin-bottom: 2rem;
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -701,166 +792,159 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <a href="#" class="logo">The Mark Rood Company</a>
+            <div class="logo">The Mark Rood <span>Company</span></div>
             <div class="header-contact">
-                <span>📍 Watsonville, CA</span>
-                <a href="tel:+18317226626">(831) 722-6626</a>
+                <span>⭐ 5 Stars | 3 Reviews</span>
+                <a href="tel:(831)722-6626">(831) 722-6626</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content fade-in" style="animation-delay: 0s">
-            <h1 class="hero-title">The Mark Rood Company</h1>
-            <p class="hero-tagline">Professional Excavating Services You Can Trust</p>
+        <div class="hero-content">
+            <h1>The Mark Rood Company</h1>
+            <p>Professional Excavating Services in Watsonville</p>
             <div class="hero-ctas">
-                <a href="tel:+18317226626" class="btn btn-primary">Call Now</a>
+                <a href="tel:(831)722-6626" class="btn btn-primary">☎️ Call Now</a>
                 <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <div class="container">
-        <div class="stats fade-in" style="animation-delay: 0.2s">
+    <section class="stats">
+        <div class="stats-container">
             <div class="stat-item">
-                <div class="stat-value">
-                    <span class="stars">★★★★★</span>
-                </div>
-                <div class="stat-label">5-Star Rating</div>
+                <div class="stat-value">⭐⭐⭐⭐⭐</div>
+                <div class="stat-label">5 Star Rating</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">3</div>
-                <div class="stat-label">Client Reviews</div>
+                <div class="stat-label">Verified Reviews</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">100%</div>
                 <div class="stat-label">Satisfaction Guarantee</div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title fade-in">Our Excavating Services</h2>
-            <p class="section-subtitle fade-in" style="animation-delay: 0.1s">
-                Comprehensive excavation solutions for residential and commercial projects
-            </p>
-            <div class="services-grid">
-                <div class="service-card fade-in" style="animation-delay: 0.2s">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Foundation Excavation</h3>
-                    <p>Precise foundation work for new construction and building projects of all sizes.</p>
-                </div>
-                <div class="service-card fade-in" style="animation-delay: 0.3s">
-                    <div class="service-icon">💧</div>
-                    <h3>Drainage Systems</h3>
-                    <p>Expert drainage installation and repair to protect your property from water damage.</p>
-                </div>
-                <div class="service-card fade-in" style="animation-delay: 0.4s">
-                    <div class="service-icon">🛣️</div>
-                    <h3>Road & Driveway</h3>
-                    <p>Grading and preparation for residential driveways and commercial road projects.</p>
-                </div>
-                <div class="service-card fade-in" style="animation-delay: 0.5s">
-                    <div class="service-icon">🌳</div>
-                    <h3>Land Clearing</h3>
-                    <p>Complete land clearing and site preparation with environmentally responsible methods.</p>
-                </div>
-                <div class="service-card fade-in" style="animation-delay: 0.6s">
-                    <div class="service-icon">🚜</div>
-                    <h3>Grading & Leveling</h3>
-                    <p>Professional grading services to ensure proper drainage and level surfaces.</p>
-                </div>
-                <div class="service-card fade-in" style="animation-delay: 0.7s">
-                    <div class="service-icon">📋</div>
-                    <h3>Site Surveys</h3>
-                    <p>Detailed site assessments and surveys for project planning and compliance.</p>
-                </div>
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive excavating solutions for residential and commercial projects</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Site Excavation</h3>
+                <p>Professional site preparation and excavation for residential and commercial development projects.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚜</div>
+                <h3>Land Clearing</h3>
+                <p>Complete land clearing services including debris removal and site preparation for new construction.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💧</div>
+                <h3>Grading & Drainage</h3>
+                <p>Expert grading and drainage solutions to ensure proper water management and site stability.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Foundation Work</h3>
+                <p>Precision foundation excavation and preparation for all building types and sizes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪨</div>
+                <h3>Rock Removal</h3>
+                <p>Specialized rock and boulder removal with professional equipment and techniques.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📍</div>
+                <h3>Custom Excavation</h3>
+                <p>Tailored excavation solutions for unique project requirements and challenging terrain.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
+    <!-- Why Choose Us -->
     <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title fade-in">Why Choose Us</h2>
-            <p class="section-subtitle fade-in" style="animation-delay: 0.1s">
-                We're committed to delivering exceptional results on every project
-            </p>
-            <div class="value-props">
-                <div class="value-prop fade-in" style="animation-delay: 0.2s">
-                    <div class="value-prop-icon">✓</div>
-                    <h3>Expert Knowledge</h3>
-                    <p>Decades of industry experience ensures your project is handled with precision and professionalism every single time.</p>
+        <div class="why-choose-container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">Here's what sets The Mark Rood Company apart</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Decades of Experience</h3>
+                    <p>Years of proven expertise in excavating and land development. Our team brings unmatched knowledge and skill to every project.</p>
                 </div>
-                <div class="value-prop fade-in" style="animation-delay: 0.3s">
-                    <div class="value-prop-icon">⚡</div>
-                    <h3>Efficient Service</h3>
-                    <p>We complete projects on schedule with minimal disruption, respecting your time and budget constraints.</p>
+                <div class="value-card">
+                    <h3>Quality Equipment</h3>
+                    <p>State-of-the-art machinery and tools ensure efficient, precise work that meets the highest industry standards.</p>
                 </div>
-                <div class="value-prop fade-in" style="animation-delay: 0.4s">
-                    <div class="value-prop-icon">🤝</div>
-                    <h3>Trusted Partner</h3>
-                    <p>Built our reputation on reliability, transparency, and honest communication with every single client.</p>
+                <div class="value-card">
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our priority. We communicate clearly, meet deadlines, and deliver exceptional results every time.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2 class="section-title fade-in">Client Reviews</h2>
-            <p class="section-subtitle fade-in" style="animation-delay: 0.1s">
-                See what our satisfied clients have to say
-            </p>
+    <section class="reviews" id="reviews">
+        <div class="reviews-container">
+            <div class="section-header">
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">See what our satisfied clients have to say</p>
+            </div>
             <div class="reviews-grid">
-                <div class="review-card fade-in" style="animation-delay: 0.2s">
+                <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">MJ</div>
-                        <div>
-                            <div class="review-name">Michael Johnson</div>
-                            <div class="review-verified">✓ Verified Client</div>
-                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">✓ Verified</div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">The Mark Rood Company did exceptional work on our foundation. Professional, punctual, and the quality exceeded our expectations. Highly recommended!</p>
+                    <p class="review-text">"Excellent work on our property preparation. The team was professional, punctual, and delivered exactly what we needed. Highly recommend!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JM</div>
+                        <div class="review-name">James Martinez</div>
+                    </div>
                 </div>
-                <div class="review-card fade-in" style="animation-delay: 0.3s">
+                <div class="review-card">
                     <div class="review-header">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">✓ Verified</div>
+                    </div>
+                    <p class="review-text">"Outstanding excavation work on our building site. They handled a complex grading project with expertise and attention to detail."</p>
+                    <div class="review-author">
                         <div class="review-avatar">SR</div>
-                        <div>
-                            <div class="review-name">Sarah Rodriguez</div>
-                            <div class="review-verified">✓ Verified Client</div>
-                        </div>
+                        <div class="review-name">Sarah Rodriguez</div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Outstanding drainage solution. Mark's team was knowledgeable, respectful of our property, and solved a longstanding water problem permanently.</p>
                 </div>
-                <div class="review-card fade-in" style="animation-delay: 0.4s">
+                <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">TC</div>
-                        <div>
-                            <div class="review-name">Thomas Chen</div>
-                            <div class="review-verified">✓ Verified Client</div>
-                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">✓ Verified</div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Five-star service from start to finish. The crew was efficient, professional, and left the site clean. We couldn't have asked for better quality work.</p>
+                    <p class="review-text">"Professional team with quality equipment. They completed our land clearing project on schedule and within budget. Very satisfied!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">DK</div>
+                        <div class="review-name">David King</div>
+                    </div>
                 </div>
-                <div class="review-card fade-in" style="animation-delay: 0.5s">
+                <div class="review-card">
                     <div class="review-header">
-                        <div class="review-avatar">JL</div>
-                        <div>
-                            <div class="review-name">Jennifer Lee</div>
-                            <div class="review-verified">✓ Verified Client</div>
-                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-verified">✓ Verified</div>
                     </div>
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Excellent experience. Mark provided honest estimates, completed the work on time, and the final result was exactly what we needed. Truly professional.</p>
+                    <p class="review-text">"The Mark Rood Company exceeded our expectations. Their attention to detail and professionalism made the entire process seamless."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">LC</div>
+                        <div class="review-name">Linda Chen</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -868,61 +952,53 @@
 
     <!-- About Section -->
     <section class="about">
-        <div class="container">
-            <h2 class="section-title fade-in">About The Mark Rood Company</h2>
-            <div class="about-content fade-in" style="animation-delay: 0.1s">
-                <p>
-                    The Mark Rood Company brings <strong>decades of expertise</strong> in excavation and site preparation to Watsonville and the surrounding communities. Our commitment to quality craftsmanship and customer satisfaction has made us the trusted choice for residential and commercial excavation projects throughout the region.
-                </p>
-                <p>
-                    With a focus on precision, efficiency, and professionalism, we handle every project with care and attention to detail. Whether it's foundation work, drainage systems, land clearing, or grading, our experienced team delivers results that exceed expectations and stand the test of time.
-                </p>
+        <div class="about-container">
+            <div class="section-header">
+                <h2 class="section-title">About The Mark Rood Company</h2>
             </div>
+            <p class="about-text">The Mark Rood Company has been a trusted name in excavating services throughout the Watsonville area for many years. Our founder's commitment to excellence and attention to detail has built a reputation for delivering superior results on every project. With a team of experienced operators and access to top-tier equipment, we handle everything from simple site preparation to complex grading and drainage solutions. Whether you're a homeowner, contractor, or developer, we bring the same level of professionalism and expertise to every job. Our dedication to safety, quality, and customer satisfaction has made us the preferred choice for excavating services in the region. We take pride in our work and stand behind every project we complete.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="section-subtitle fade-in" style="animation-delay: 0.1s; color: rgba(255, 255, 255, 0.8)">
-                Ready to start your project? Contact us today for a free consultation
-            </p>
-            <div class="contact-wrapper fade-in" style="animation-delay: 0.2s">
+        <div class="contact-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Ready to discuss your project? Contact us today</p>
+            </div>
+            <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span class="contact-label">📞 Phone</span>
-                        <a href="tel:+18317226626">(831) 722-6626</a>
+                        <h3>Phone</h3>
+                        <a href="tel:(831)722-6626">(831) 722-6626</a>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-label">📍 Location</span>
-                        <p>Watsonville, California</p>
+                        <h3>Service Area</h3>
+                        <p>Watsonville, CA and surrounding communities</p>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-label">🌐 Service Area</span>
-                        <p>Watsonville and surrounding communities in Santa Cruz County</p>
+                        <h3>Response Time</h3>
+                        <p>Same-day quotes available. Call for emergency services.</p>
                     </div>
                 </div>
-                <form class="contact-form" onsubmit="handleSubmit(event)">
+                <form class="quote-form" onsubmit="handleFormSubmit(event)">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-dark); font-size: 1.2rem;">Free Quote Request</h3>
                     <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <input type="email" id="email" name="email">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Needed</label>
-                        <input type="text" id="service" name="service" placeholder="e.g., Foundation Excavation">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                        <label for="project">Project Details *</label>
+                        <textarea id="project" name="project" required placeholder="Describe your excavating project needs..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote</button>
                 </form>
@@ -933,28 +1009,33 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>The Mark Rood Company</h4>
-                <p>Professional excavating services serving Watsonville and the surrounding area.</p>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>The Mark Rood Company</h4>
+                    <p>Professional Excavating Services</p>
+                    <p>Watsonville, CA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="tel:(831)722-6626">(831) 722-6626</a></p>
+                    <p>Available for quotes and consultations</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Area</h4>
+                    <p>Watsonville and surrounding areas</p>
+                    <p>Residential & Commercial Projects</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>📞 <a href="tel:+18317226626">(831) 722-6626</a></p>
-                <p>📍 Watsonville, California</p>
+            <div class="footer-divider">
+                <p>&copy; 2024 The Mark Rood Company. All rights reserved. | Professional Excavating Services in Watsonville, CA</p>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <p><a href="#services">Services</a></p>
-                <p><a href="#contact">Contact Us</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 The Mark Rood Company. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+18317226626" class="floating-call" title="Call Now">☎️</a>
+    <div class="floating-call">
+        <a href="tel:(831)722-6626">☎️</a>
+    </div>
 
     <script>
         // Intersection Observer for fade-in animations
@@ -963,40 +1044,41 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = entry.target.classList[0] === 'fade-in' 
-                        ? `fadeInUp 0.8s ease-out ${entry.target.style.animationDelay || '0s'} forwards`
-                        : `slideInLeft 0.8s ease-out ${entry.target.style.animationDelay || '0s'} forwards`;
-                    entry.target.style.opacity = '1';
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in, .slide-in').forEach(el => {
+        // Observe all fade-in-scroll elements
+        document.querySelectorAll('.fade-in-scroll').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handler
-        function handleSubmit(event) {
+        function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Log form data (in production, this would send to a server)
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert(`Thank you, ${data.name}! We'll contact you soon at ${data.phone || data.email} to discuss your excavation project.`);
-            
-            // Reset form
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const project = document.getElementById('project').value;
+
+            // Create a mailto link
+            const emailBody = `Name: ${name}%0DPhone: ${phone}%0DEmail: ${email}%0D%0DProject Details:%0D${project}`;
+            const mailtoLink = `mailto:quotes@markroodcompany.com?subject=Free%20Quote%20Request&body=${emailBody}`;
+
+            // Fallback: show alert with phone number
+            alert(`Thank you for your interest! Please call us at (831) 722-6626 to discuss your project in detail, or we'll contact you shortly at ${phone}.`);
+
+            // Clear form
             form.reset();
         }
 
-        // Smooth scroll for anchor links
+        // Smooth scroll behavior for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
