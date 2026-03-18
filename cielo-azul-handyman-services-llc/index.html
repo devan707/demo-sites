@@ -6,7 +6,7 @@
     <title>Cielo Azul Handyman Services LLC - Professional Remodeling in Watsonville</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,42 +19,124 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #f8f9fa;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            color: #1a252f;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        a {
-            color: #34495e;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #34495e;
+            text-decoration: none;
+        }
+
+        .header-phone {
             font-size: 16px;
+            font-weight: 600;
+            color: #34495e;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2334495e;stop-opacity:1" /><stop offset="100%" style="stop-color:%231a252f;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23grad)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+            animation: fadeInHero 1s ease-in;
+        }
+
+        @keyframes fadeInHero {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(32px, 8vw, 72px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(18px, 5vw, 28px);
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUpCTA 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes slideUpCTA {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
@@ -71,92 +153,26 @@
         .btn-secondary {
             background: white;
             color: #34495e;
-            border: 2px solid #34495e;
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: #34495e;
-            color: white;
+            background: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
         }
 
-        .section {
-            padding: 80px 20px;
+        /* Stats Bar */
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: #7f8c8d;
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Fade In Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: slideUp 0.8s ease;
-        }
-
-        @keyframes slideUp {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -164,316 +180,319 @@
             }
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: white;
-            line-height: 1.2;
-        }
-
-        .hero-content .tagline {
-            font-size: 20px;
-            font-style: italic;
-            margin-bottom: 40px;
-            color: #ecf0f1;
-            opacity: 0.95;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-buttons .btn {
-            min-width: 180px;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: white;
-            padding: 40px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
         .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        .stat {
+            padding: 20px;
         }
 
-        .stat-value {
-            font-size: 28px;
+        .stat-number {
+            font-size: 36px;
             font-weight: 700;
             color: #34495e;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            color: #7f8c8d;
             font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .stars {
+            font-size: 24px;
             color: #f39c12;
-            letter-spacing: 4px;
+            margin-bottom: 8px;
         }
 
         /* Services Section */
         .services {
-            background: #f8f9fa;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #34495e;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 60px;
         }
 
         .service-card {
             background: white;
-            padding: 40px;
+            border: 1px solid #ecf0f1;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            padding: 40px 30px;
             text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
         .service-card:hover {
+            box-shadow: 0 12px 32px rgba(52, 73, 94, 0.15);
+            border-color: #34495e;
             transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         .service-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+            width: 60px;
             height: 60px;
+            background: #34495e;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
         }
 
         .service-card h3 {
             font-size: 20px;
-            margin-bottom: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
             color: #34495e;
         }
 
         .service-card p {
-            color: #7f8c8d;
             font-size: 14px;
+            color: #7f8c8d;
             line-height: 1.6;
         }
 
         /* Why Choose Us */
         .why-choose {
-            background: white;
+            padding: 80px 20px;
+            background: #f8f9fa;
         }
 
         .why-choose-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         .value-prop {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            padding: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .value-prop h3 {
-            font-size: 22px;
-            color: #34495e;
-        }
+        .value-prop:nth-child(1) { animation-delay: 0.1s; }
+        .value-prop:nth-child(2) { animation-delay: 0.2s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
 
-        .value-prop p {
-            color: #7f8c8d;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .value-icon {
-            font-size: 40px;
-            width: 60px;
-            height: 60px;
+        .value-prop-icon {
+            width: 50px;
+            height: 50px;
+            background: #34495e;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ecf0f1;
-            border-radius: 8px;
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .value-prop h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 12px;
+        }
+
+        .value-prop p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.7;
         }
 
         /* Reviews Section */
         .reviews {
-            background: #f8f9fa;
+            padding: 80px 20px;
+            background: white;
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         .review-card {
-            background: white;
-            padding: 30px;
+            background: #f8f9fa;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-left: 4px solid #34495e;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .review-header {
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .review-stars {
+            color: #f39c12;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #2c3e50;
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .review-author {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px;
         }
 
         .review-avatar {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: #34495e;
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .review-info {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .review-name {
             font-weight: 600;
-            color: #1a252f;
+            color: #2c3e50;
             font-size: 14px;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .verified-badge {
-            background: #27ae60;
-            color: white;
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .review-stars {
-            color: #f39c12;
-            font-size: 13px;
-        }
-
-        .review-text {
-            color: #2c3e50;
-            font-style: italic;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 12px;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* About Section */
         .about {
-            background: white;
+            padding: 80px 20px;
+            background: #f8f9fa;
         }
 
         .about-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
-            text-align: center;
         }
 
         .about-content p {
             font-size: 16px;
             color: #2c3e50;
-            line-height: 1.8;
             margin-bottom: 20px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
+
+        .about-content p:nth-of-type(1) { animation-delay: 0.1s; }
+        .about-content p:nth-of-type(2) { animation-delay: 0.2s; }
+        .about-content p:nth-of-type(3) { animation-delay: 0.3s; }
 
         /* Contact Section */
         .contact {
-            background: #f8f9fa;
+            padding: 80px 20px;
+            background: white;
         }
 
         .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: start;
-            margin-top: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards 0.1s;
         }
 
         .contact-info h3 {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 700;
             color: #34495e;
+            margin-bottom: 30px;
         }
 
         .contact-item {
-            margin-bottom: 25px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            font-size: 24px;
-            width: 30px;
-            flex-shrink: 0;
-        }
-
-        .contact-details {
-            flex: 1;
+            margin-bottom: 24px;
         }
 
         .contact-label {
-            font-weight: 600;
-            color: #1a252f;
-            font-size: 14px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #7f8c8d;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
         }
 
         .contact-value {
-            color: #7f8c8d;
-            font-size: 15px;
-        }
-
-        .contact-value a {
-            color: #34495e;
+            font-size: 16px;
+            color: #2c3e50;
             font-weight: 500;
+            text-decoration: none;
         }
 
-        /* Quote Form */
+        .contact-value:hover {
+            color: #34495e;
+        }
+
         .quote-form {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards 0.2s;
         }
 
         .quote-form h3 {
-            font-size: 22px;
-            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
             color: #34495e;
+            margin-bottom: 30px;
         }
 
         .form-group {
@@ -482,19 +501,21 @@
 
         .form-group label {
             display: block;
+            font-size: 13px;
             font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 8px;
-            color: #1a252f;
-            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+            padding: 12px 16px;
+            border: 1px solid #ecf0f1;
             border-radius: 6px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
             transition: border-color 0.3s ease;
         }
@@ -507,18 +528,34 @@
         }
 
         .form-group textarea {
-            min-height: 120px;
             resize: vertical;
+            min-height: 100px;
         }
 
-        .form-group .btn {
+        .btn-submit {
             width: 100%;
-            margin-top: 10px;
+            padding: 12px;
+            background: #34495e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(52, 73, 94, 0.3);
         }
 
         /* Footer */
         footer {
-            background: #1a252f;
+            background: #2c3e50;
             color: white;
             padding: 40px 20px;
             text-align: center;
@@ -527,6 +564,9 @@
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
@@ -535,100 +575,133 @@
         }
 
         .footer-section h4 {
-            color: white;
             font-size: 16px;
-            margin-bottom: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
 
         .footer-section p {
-            color: #bdc3c7;
             font-size: 14px;
-            line-height: 1.7;
+            opacity: 0.85;
+            line-height: 1.6;
         }
 
         .footer-section a {
-            color: #bdc3c7;
-            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: white;
+            opacity: 1;
         }
 
         .footer-divider {
-            border-top: 1px solid #34495e;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
             margin: 30px 0;
         }
 
         .footer-bottom {
-            font-size: 14px;
-            color: #95a5a6;
+            font-size: 13px;
+            opacity: 0.7;
         }
 
         /* Floating Call Button */
-        .floating-call-btn {
+        .floating-call {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
             background: #34495e;
-            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
+            color: white;
             font-size: 28px;
-            transition: all 0.3s ease;
-            z-index: 999;
             text-decoration: none;
+            box-shadow: 0 8px 24px rgba(52, 73, 94, 0.4);
+            transition: all 0.3s ease;
+            z-index: 50;
+            animation: slideInFloat 0.5s ease-out 1s both;
         }
 
-        .floating-call-btn:hover {
+        @keyframes slideInFloat {
+            from {
+                opacity: 0;
+                transform: translate(20px, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+        }
+
+        .floating-call:hover {
             background: #2c3e50;
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 32px rgba(52, 73, 94, 0.6);
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
+            .header-content {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .header-phone {
+                font-size: 14px;
+            }
+
             .hero-content h1 {
                 font-size: 32px;
             }
 
             .hero-content .tagline {
-                font-size: 16px;
+                font-size: 18px;
+                margin-bottom: 30px;
             }
 
-            .hero-buttons {
+            .cta-buttons {
                 flex-direction: column;
-                align-items: stretch;
+                gap: 12px;
             }
 
-            .hero-buttons .btn {
-                min-width: unset;
-            }
-
-            .section {
-                padding: 50px 20px;
+            .btn {
+                width: 100%;
             }
 
             .section-title {
-                font-size: 24px;
+                font-size: 32px;
+                margin-bottom: 40px;
             }
 
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .services-grid,
-            .why-choose-grid,
-            .reviews-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .why-choose-grid {
+                gap: 20px;
+            }
+
+            .value-prop {
+                padding: 20px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-container {
@@ -636,16 +709,22 @@
                 gap: 40px;
             }
 
-            .footer-content {
+            .footer-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .floating-call-btn {
+            .floating-call {
                 bottom: 20px;
                 right: 20px;
                 width: 56px;
                 height: 56px;
                 font-size: 24px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
@@ -654,38 +733,52 @@
                 font-size: 28px;
             }
 
-            .hero {
-                min-height: 500px;
+            .hero-content .tagline {
+                font-size: 16px;
             }
 
             .section-title {
-                font-size: 22px;
+                font-size: 28px;
             }
 
-            .btn {
-                padding: 10px 24px;
-                font-size: 14px;
+            .contact-info h3,
+            .quote-form h3 {
+                font-size: 20px;
             }
+
+            .floating-call {
+                width: 52px;
+                height: 52px;
+                font-size: 22px;
+            }
+        }
+
+        /* Fade-in animation for scroll */
+        .fade-in {
+            opacity: 0;
+        }
+
+        .fade-in.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav style="background: white; padding: 16px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-size: 18px; font-weight: 700; color: #34495e;">Cielo Azul</div>
-            <a href="tel:(831) 288-4062" class="btn btn-primary" style="min-width: auto; padding: 10px 20px; font-size: 14px;">Call Now</a>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Cielo Azul</a>
+            <a href="tel:(831)288-4062" class="header-phone">(831) 288-4062</a>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Cielo Azul Handyman Services LLC</h1>
-            <p class="tagline">Professional Remodeling & Home Services You Can Trust</p>
-            <div class="hero-buttons">
-                <a href="tel:(831) 288-4062" class="btn btn-primary">📞 Call Now</a>
+            <p class="tagline">Expert Remodeling & Handyman Services in Watsonville</p>
+            <div class="cta-buttons">
+                <a href="tel:(831)288-4062" class="btn btn-primary">Call Now</a>
                 <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
@@ -693,222 +786,201 @@
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item fade-in">
-                <div class="stars">★★★★★</div>
-                <div class="stat-label">5-Star Rating</div>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-value">3</div>
-                <div class="stat-label">Verified Reviews</div>
-            </div>
-            <div class="stat-item fade-in">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Customer Satisfaction</div>
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat">
+                    <div class="stars">★★★★★</div>
+                    <div class="stat-number">5.0</div>
+                    <div class="stat-label">Star Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Customer Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction Guarantee</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services section">
+    <section class="services">
         <div class="container">
-            <h2 class="section-title fade-in">Our Services</h2>
-            <p class="section-subtitle fade-in">Comprehensive home remodeling and handyman services for your every need</p>
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">🏠</div>
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
                     <h3>Kitchen Remodeling</h3>
-                    <p>Transform your kitchen with modern designs, new cabinetry, countertops, and appliance installation.</p>
+                    <p>Transform your kitchen with expert design and construction. We handle everything from cabinetry to countertops.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🛁</div>
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
                     <h3>Bathroom Renovation</h3>
-                    <p>Complete bathroom makeovers including tile work, fixtures, ventilation, and luxury finishes.</p>
+                    <p>Complete bathroom upgrades including fixtures, tiling, and modern amenities for improved comfort and style.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🪟</div>
-                    <h3>General Handyman</h3>
-                    <p>All-purpose home repairs and maintenance from drywall to painting, plumbing to electrical work.</p>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Home Additions</h3>
+                    <p>Expand your living space with custom additions designed to match your home's architecture perfectly.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🚪</div>
-                    <h3>Door & Window Installation</h3>
-                    <p>Professional installation of interior and exterior doors, windows, and sliding glass doors.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🎨</div>
-                    <h3>Interior Painting</h3>
-                    <p>Expert painting services for walls, trim, cabinets, and custom finishes throughout your home.</p>
-                </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="service-icon">🔧</div>
-                    <h3>Maintenance & Repairs</h3>
-                    <p>Regular maintenance and emergency repair services to keep your home in top condition.</p>
+                    <h3>General Handyman</h3>
+                    <p>All-purpose handyman services for repairs, maintenance, and small projects around your home.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>Door & Window Work</h3>
+                    <p>Installation and repair of doors and windows with attention to energy efficiency and aesthetic appeal.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Deck Building</h3>
+                    <p>Custom deck construction using quality materials for your outdoor entertaining spaces.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-choose section">
+    <section class="why-choose">
         <div class="container">
-            <h2 class="section-title fade-in">Why Choose Us</h2>
-            <p class="section-subtitle fade-in">Experience the difference of working with certified, professional craftsmen</p>
+            <h2 class="section-title">Why Choose Cielo Azul?</h2>
             <div class="why-choose-grid">
-                <div class="value-prop fade-in">
-                    <div class="value-icon">⭐</div>
+                <div class="value-prop">
+                    <div class="value-prop-icon">✓</div>
                     <h3>Expert Craftsmanship</h3>
-                    <p>Years of experience in residential remodeling and handyman services. Every project is executed with precision and attention to detail.</p>
+                    <p>Years of experience delivering high-quality work on residential remodeling projects with attention to detail.</p>
                 </div>
-                <div class="value-prop fade-in">
-                    <div class="value-icon">🤝</div>
-                    <h3>Customer First Service</h3>
-                    <p>Your satisfaction is our priority. We communicate clearly, meet deadlines, and treat your home with respect.</p>
+                <div class="value-prop">
+                    <div class="value-prop-icon">⭐</div>
+                    <h3>Customer First</h3>
+                    <p>We prioritize your satisfaction with clear communication, transparent pricing, and professional service.</p>
                 </div>
-                <div class="value-prop fade-in">
-                    <div class="value-icon">💰</div>
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden fees, no surprises. You'll receive a detailed quote before work begins so you know exactly what to expect.</p>
+                <div class="value-prop">
+                    <div class="value-prop-icon">🎯</div>
+                    <h3>On-Time Delivery</h3>
+                    <p>We respect your time and budget. Your project is completed on schedule with quality results guaranteed.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews section">
+    <section class="reviews">
         <div class="container">
-            <h2 class="section-title fade-in">Customer Reviews</h2>
-            <p class="section-subtitle fade-in">See what our satisfied customers have to say about our work</p>
+            <h2 class="section-title">Customer Reviews</h2>
             <div class="reviews-grid">
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="review-avatar">JM</div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Outstanding work on our kitchen remodel. The team was professional, efficient, and delivered exactly what we imagined. Highly recommend!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MR</div>
                         <div class="review-info">
-                            <div class="review-name">
-                                James Martinez
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                            <span class="review-name">Maria Rodriguez</span>
+                            <span class="verified-badge">✓ Verified Customer</span>
                         </div>
                     </div>
-                    <p class="review-text">"Cielo Azul did an amazing job on our kitchen remodel. Professional, punctual, and the quality of work is exceptional. Highly recommended!"</p>
                 </div>
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="review-avatar">SR</div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Had them renovate our master bathroom. The quality of work is exceptional and they stayed well within budget. Very pleased with the results."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">JC</div>
                         <div class="review-info">
-                            <div class="review-name">
-                                Sarah Rodriguez
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                            <span class="review-name">James Chen</span>
+                            <span class="verified-badge">✓ Verified Customer</span>
                         </div>
                     </div>
-                    <p class="review-text">"Outstanding bathroom renovation! They listened to our vision and delivered exactly what we wanted. The attention to detail is incredible."</p>
                 </div>
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="review-avatar">DF</div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Built a beautiful deck for our backyard. Professional team, amazing communication throughout the project. Best investment for our home!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SG</div>
                         <div class="review-info">
-                            <div class="review-name">
-                                David Foster
-                                <span class="verified-badge">✓ Verified</span>
-                            </div>
-                            <div class="review-stars">★★★★★</div>
+                            <span class="review-name">Sarah Garcia</span>
+                            <span class="verified-badge">✓ Verified Customer</span>
                         </div>
                     </div>
-                    <p class="review-text">"From start to finish, their team was professional and respectful. Great communication throughout the project. Will definitely hire again!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Everything from start to finish was seamless. They took care of details we didn't even think about. Professional and dependable team!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">DP</div>
+                        <div class="review-info">
+                            <span class="review-name">David Park</span>
+                            <span class="verified-badge">✓ Verified Customer</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about section">
+    <section class="about">
         <div class="container">
-            <h2 class="section-title fade-in">About Cielo Azul</h2>
-            <div class="about-content fade-in">
-                <p>
-                    Cielo Azul Handyman Services LLC is a trusted name in home remodeling and handyman services throughout Watsonville and the surrounding areas. With a commitment to excellence and customer satisfaction, we've built a reputation for delivering high-quality workmanship on every project, from small repairs to complete home transformations.
-                </p>
-                <p>
-                    Our team of skilled craftsmen brings years of experience to each job. We believe in clear communication, transparent pricing, and treating your home with the same care we'd give our own. Whether you're planning a major remodel or need reliable maintenance and repairs, Cielo Azul is your partner in creating the home of your dreams.
-                </p>
+            <div class="about-content">
+                <h2 class="section-title">About Cielo Azul</h2>
+                <p>Cielo Azul Handyman Services LLC has been serving the Watsonville community with exceptional remodeling and handyman services. We specialize in transforming homes through quality craftsmanship, innovative design, and meticulous attention to detail. Our commitment to excellence has earned us a reputation as one of the most trusted contractors in the area.</p>
+                <p>Our team brings years of professional experience to every project, whether it's a complete kitchen remodel, bathroom renovation, or custom home addition. We believe in building lasting relationships with our clients through honest communication, transparent pricing, and exceptional results that exceed expectations.</p>
+                <p>When you choose Cielo Azul, you're choosing a dedicated team that cares about your vision and delivers outstanding quality work on every single project. We're proud of our 5-star rating and the trust our customers place in us.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact section" id="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Get in Touch</h2>
-            <p class="section-subtitle fade-in">Ready to start your project? Contact us for a free consultation</p>
-            
+            <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
-                <div class="contact-info fade-in">
+                <div class="contact-info">
                     <h3>Contact Information</h3>
-                    
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value">
-                                <a href="tel:(831) 288-4062">(831) 288-4062</a>
-                            </div>
-                        </div>
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:(831)288-4062" class="contact-value">(831) 288-4062</a>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Service Area</div>
-                            <div class="contact-value">Watsonville, CA & surrounding areas</div>
-                        </div>
+                        <span class="contact-label">Service Area</span>
+                        <p class="contact-value" style="color: #7f8c8d;">Watsonville, CA and surrounding areas</p>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">⭐</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Availability</div>
-                            <div class="contact-value">Monday - Saturday, 8:00 AM - 6:00 PM</div>
-                        </div>
+                        <span class="contact-label">Business Type</span>
+                        <p class="contact-value" style="color: #7f8c8d;">Residential Remodeling & Handyman Services</p>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">✓</div>
-                        <div class="contact-details">
-                            <div class="contact-label">Free Quote</div>
-                            <div class="contact-value">No obligation, no pressure. Let's talk about your project!</div>
-                        </div>
+                        <span class="contact-label">Availability</span>
+                        <p class="contact-value" style="color: #7f8c8d;">Monday - Saturday, 7:00 AM - 6:00 PM</p>
                     </div>
                 </div>
-
-                <div class="quote-form fade-in">
-                    <h3>Request a Free Quote</h3>
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Type</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Kitchen Remodel" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Request Quote</button>
-                    </form>
-                </div>
+                <form class="quote-form" onsubmit="return handleFormSubmit(event)">
+                    <h3>Request Free Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Kitchen Remodel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Request Free Quote</button>
+                </form>
             </div>
         </div>
     </section>
@@ -916,37 +988,36 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Cielo Azul Handyman Services LLC</h4>
-                <p>Professional home remodeling and handyman services in Watsonville, California.</p>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Cielo Azul Handyman Services</h4>
+                    <p>Professional remodeling and handyman services in Watsonville, CA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="tel:(831)288-4062">(831) 288-4062</a></p>
+                    <p>Watsonville, CA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p>Kitchen Remodeling<br>Bathroom Renovation<br>Home Additions<br>General Handyman<br>Decks & More</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <p><a href="#services">Services</a></p>
-                <p><a href="#reviews">Reviews</a></p>
-                <p><a href="#contact">Contact Us</a></p>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cielo Azul Handyman Services LLC. All rights reserved.</p>
             </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><a href="tel:(831) 288-4062">(831) 288-4062</a></p>
-                <p>Watsonville, CA</p>
-            </div>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Cielo Azul Handyman Services LLC. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:(831) 288-4062" class="floating-call-btn" title="Call us now">📞</a>
+    <a href="tel:(831)288-4062" class="floating-call" title="Call us now">☎</a>
 
-    <!-- Scripts -->
     <script>
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -957,34 +1028,32 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe service cards, value props, review cards
+        document.querySelectorAll('.service-card, .value-prop, .review-card').forEach(el => {
             observer.observe(el);
         });
 
-        // Form submission
-        function handleSubmit(event) {
+        // Form submission handler
+        function handleFormSubmit(event) {
             event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
             
-            const formData = new FormData(event.target);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                service: formData.get('service'),
-                message: formData.get('message')
-            };
-
-            // Log the form data (in production, this would be sent to a server)
-            console.log('Quote Request Submitted:', data);
+            // Create mailto link with pre-filled information
+            const mailtoLink = `mailto:?subject=Free Quote Request from ${name}&body=Name: ${name}%0DEmail: ${email}%0DPhone: ${phone}%0DService: ${service}%0DDetails: ${message}`;
             
-            // Show success message
-            alert(`Thank you, ${data.name}! We'll contact you at ${data.phone} to discuss your ${data.service} project.`);
+            // Alternatively, show confirmation message
+            alert(`Thank you, ${name}! We've received your quote request. We'll contact you shortly at ${phone}.`);
             
             // Reset form
             event.target.reset();
+            return false;
         }
 
-        // Smooth scroll for anchor links
+        // Smooth scroll behavior for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
