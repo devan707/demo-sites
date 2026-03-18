@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santos Hauling - Professional Demolition Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,20 +14,20 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1a1a1a;
+            color: #2c3e50;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Header & Navigation */
         header {
-            background: white;
+            background: #fff;
             padding: 1rem 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: sticky;
@@ -43,64 +45,46 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #e67e22;
-            letter-spacing: -0.5px;
         }
 
         .header-contact {
             display: flex;
             align-items: center;
             gap: 1rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .phone-link {
+        .header-phone {
             color: #e67e22;
-            text-decoration: none;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            text-decoration: none;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="1200" height="800" fill="%232c3e50"/><rect width="1200" height="800" fill="url(%23grid)"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23475569" width="1200" height="800"/><g fill="%23e67e22" opacity="0.1"><rect x="0" y="0" width="400" height="400"/><rect x="400" y="400" width="400" height="400"/><rect x="800" y="0" width="400" height="400"/></g></svg>');
             background-size: cover;
-            position: relative;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
         .hero-content {
-            position: relative;
             z-index: 2;
-            text-align: center;
-            color: white;
-            padding: 2rem;
-            max-width: 800px;
             animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: -1px;
         }
@@ -121,47 +105,46 @@
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.9rem 2rem;
             font-size: 1rem;
             font-weight: 600;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
             text-decoration: none;
             display: inline-block;
-            letter-spacing: 0.3px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .btn-primary {
             background: #e67e22;
-            color: white;
+            color: #fff;
         }
 
         .btn-primary:hover {
-            background: #d66d11;
+            background: #d66a0f;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
         }
 
         .btn-secondary {
-            background: white;
+            background: #fff;
             color: #e67e22;
-            border: 2px solid white;
+            border: 2px solid #fff;
         }
 
         .btn-secondary:hover {
             background: transparent;
-            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
         }
 
         /* Stats Bar */
         .stats-bar {
-            background: white;
+            background: #f8f9fa;
             padding: 2rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 3px solid #e67e22;
         }
 
         .stats-container {
@@ -174,321 +157,304 @@
         }
 
         .stat-item {
+            animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .stat-item:nth-child(1) { animation-delay: 0.1s; }
         .stat-item:nth-child(2) { animation-delay: 0.2s; }
         .stat-item:nth-child(3) { animation-delay: 0.3s; }
 
-        .stat-number {
+        .stat-value {
             font-size: 2.5rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #e67e22;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: #666;
             font-size: 0.95rem;
+            color: #7f8c8d;
             font-weight: 500;
-        }
-
-        .stars {
-            color: #f39c12;
-            letter-spacing: 2px;
         }
 
         /* Services Section */
         .services {
             padding: 4rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .section-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-header {
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
             margin-bottom: 3rem;
+            color: #2c3e50;
         }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
+        .section-title span {
+            color: #e67e22;
         }
 
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.15);
-            border-top: 4px solid #e67e22;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us */
-        .why-choose {
-            padding: 4rem 1.5rem;
-            background: white;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-        }
-
-        .value-prop {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .value-prop:nth-child(1) { animation-delay: 0.1s; }
-        .value-prop:nth-child(2) { animation-delay: 0.2s; }
-        .value-prop:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-prop h3 {
-            font-size: 1.4rem;
-            color: #e67e22;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .value-prop p {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 4rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .review-card {
-            background: white;
-            border-radius: 12px;
+        .service-card {
+            background: #fff;
             padding: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
             opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        .review-card:nth-child(1) { animation-delay: 0.1s; }
-        .review-card:nth-child(2) { animation-delay: 0.2s; }
-        .review-card:nth-child(3) { animation-delay: 0.3s; }
-        .review-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(230, 126, 34, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #e67e22;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: #f8f9fa;
+            padding: 4rem 1.5rem;
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-prop {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #e67e22;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .value-prop h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .value-prop p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
 
         .review-header {
             display: flex;
             align-items: center;
+            gap: 1rem;
             margin-bottom: 1rem;
-            justify-content: space-between;
         }
 
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .reviewer-avatar {
-            width: 40px;
-            height: 40px;
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: #e67e22;
+            color: #fff;
             border-radius: 50%;
-            background: linear-gradient(135deg, #e67e22, #f39c12);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-stars {
+            color: #f39c12;
             font-size: 0.9rem;
+            margin-bottom: 0.3rem;
         }
 
-        .reviewer-name {
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .verified-badge {
+        .verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
             background: #d4edda;
             color: #155724;
-            padding: 0.3rem 0.7rem;
+            padding: 0.25rem 0.7rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
-            display: inline-block;
-        }
-
-        .stars-rating {
-            color: #f39c12;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
         }
 
         .review-text {
-            color: #555;
+            color: #2c3e50;
             font-style: italic;
+            margin: 1.5rem 0;
             line-height: 1.7;
-            margin-bottom: 0.8rem;
+        }
+
+        .review-name {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-style: normal;
         }
 
         /* About Section */
         .about {
+            background: #f8f9fa;
             padding: 4rem 1.5rem;
-            background: white;
         }
 
-        .about-content {
+        .about-container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .about-content h2 {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            margin-bottom: 2rem;
-            font-weight: 800;
-            color: #1a1a1a;
-        }
-
-        .about-content p {
-            color: #555;
+        .about p {
             font-size: 1.05rem;
-            line-height: 1.9;
+            line-height: 1.8;
+            color: #2c3e50;
             margin-bottom: 1.5rem;
             opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards;
         }
+
+        .about p:nth-child(2) { animation-delay: 0.1s; }
+        .about p:nth-child(3) { animation-delay: 0.2s; }
 
         /* Contact Section */
         .contact {
             padding: 4rem 1.5rem;
-            background: #f8f9fa;
-        }
-
-        .contact-wrapper {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .contact-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
+        .contact-info {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .contact-item {
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ecf0f1;
         }
 
-        .contact-item:nth-child(1) { animation-delay: 0.1s; }
-        .contact-item:nth-child(2) { animation-delay: 0.2s; }
-        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:last-child {
+            border-bottom: none;
+        }
 
         .contact-label {
-            color: #e67e22;
-            font-weight: 600;
-            font-size: 0.9rem;
             display: block;
-            margin-bottom: 0.3rem;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .contact-value {
-            color: #333;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .contact-value a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
         }
 
         .quote-form {
-            background: white;
-            border-radius: 12px;
+            background: #f8f9fa;
             padding: 2rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-
-        .quote-form h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
+            border-radius: 10px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 0.1s;
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 500;
+            font-weight: 600;
+            color: #2c3e50;
             font-size: 0.95rem;
         }
 
@@ -515,53 +481,24 @@
             min-height: 100px;
         }
 
-        .form-group button {
+        .form-submit {
             width: 100%;
+            padding: 1rem;
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
         }
 
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h4 {
-            color: #e67e22;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .footer-col p {
-            color: #aaa;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .footer-col a {
-            color: #e67e22;
-            text-decoration: none;
-        }
-
-        .footer-col a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-            color: #888;
-            font-size: 0.9rem;
+        .form-submit:hover {
+            background: #d66a0f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
         }
 
         /* Floating Call Button */
@@ -572,22 +509,52 @@
             width: 60px;
             height: 60px;
             background: #e67e22;
+            color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.4);
-            transition: all 0.3s ease;
-            z-index: 99;
-            text-decoration: none;
-            color: white;
             font-size: 1.5rem;
+            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            z-index: 50;
         }
 
         .floating-call:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.6);
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-info a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
         }
 
         /* Animations */
@@ -602,102 +569,83 @@
             }
         }
 
-        /* Responsive Design */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .header-contact {
                 flex-direction: column;
                 gap: 0.5rem;
-                font-size: 0.8rem;
-            }
-
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                gap: 1rem;
             }
 
             .cta-buttons {
                 flex-direction: column;
+                width: 100%;
             }
 
             .btn {
                 width: 100%;
             }
 
-            .footer-content {
+            .contact-content {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
 
             .floating-call {
-                bottom: 1.5rem;
-                right: 1.5rem;
+                bottom: 1rem;
+                right: 1rem;
                 width: 55px;
                 height: 55px;
-                font-size: 1.2rem;
-            }
-
-            .service-card,
-            .review-card {
-                margin: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1rem;
-            }
-
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .hero {
-                height: 80vh;
+                font-size: 1.3rem;
             }
 
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero .tagline {
-                font-size: 1rem;
-            }
-
-            .stat-number {
+            .section-title {
                 font-size: 2rem;
             }
+        }
 
-            .services,
-            .why-choose,
-            .reviews,
-            .about,
-            .contact {
-                padding: 2.5rem 1rem;
+        @media (max-width: 480px) {
+            header {
+                padding: 0.8rem 1rem;
             }
 
-            .section-header h2,
-            .about-content h2 {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .header-contact {
+                font-size: 0.8rem;
+            }
+
+            .stat-value {
                 font-size: 1.8rem;
             }
 
-            .services-grid,
-            .reviews-grid,
-            .value-props {
-                gap: 1.5rem;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .floating-call {
-                width: 50px;
-                height: 50px;
-                font-size: 1rem;
+            .value-props {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .tagline {
+                margin-bottom: 1.5rem;
             }
         }
     </style>
@@ -708,8 +656,8 @@
         <div class="header-container">
             <div class="logo">Santos Hauling</div>
             <div class="header-contact">
-                <span>📍 Serving Monterey County</span>
-                <a href="tel:8312525353" class="phone-link">📞 (831) 252-5353</a>
+                <span>Call us</span>
+                <a href="tel:(831) 252-5353" class="header-phone">(831) 252-5353</a>
             </div>
         </div>
     </header>
@@ -718,10 +666,10 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Santos Hauling</h1>
-            <p class="tagline">Professional Demolition & Hauling Services You Can Trust</p>
+            <p class="tagline">Professional Demolition Services You Can Trust</p>
             <div class="cta-buttons">
-                <a href="tel:8312525353" class="btn btn-primary">📞 Call Now</a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
+                <a href="tel:(831) 252-5353" class="btn btn-primary">☎ Call Now</a>
+                <a href="#quote" class="btn btn-secondary">Get Free Quote</a>
             </div>
         </div>
     </section>
@@ -730,81 +678,73 @@
     <section class="stats-bar">
         <div class="stats-container">
             <div class="stat-item">
-                <div class="stat-number"><span class="stars">★★★★★</span></div>
-                <div class="stat-label">5-Star Rating</div>
+                <div class="stat-value">⭐ 5.0</div>
+                <div class="stat-label">Rating</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Customer Reviews</div>
+                <div class="stat-value">10</div>
+                <div class="stat-label">Reviews</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Satisfaction Guaranteed</div>
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Satisfaction</div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Complete demolition and hauling solutions for residential and commercial projects</p>
+        <h2 class="section-title">Our <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Building Demolition</h3>
+                <p>Complete building demolition services with expert planning and safe execution for residential and commercial properties.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏚️</div>
-                    <h3>Residential Demolition</h3>
-                    <p>Expert house and building demolition with careful debris removal and site cleanup</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Commercial Demolition</h3>
-                    <p>Large-scale commercial and industrial demolition with environmental compliance</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚚</div>
-                    <h3>Junk Hauling</h3>
-                    <p>Efficient removal and disposal of unwanted items, debris, and construction waste</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">♻️</div>
-                    <h3>Recycling Services</h3>
-                    <p>Responsible recycling and material recovery for sustainable demolition practices</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🧹</div>
-                    <h3>Site Cleanup</h3>
-                    <p>Thorough site preparation and cleanup after demolition projects</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h3>Permit & Planning</h3>
-                    <p>Professional guidance through permits and project planning from start to finish</p>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">♻️</div>
+                <h3>Debris Removal</h3>
+                <p>Professional debris removal and hauling with environmentally responsible disposal and recycling practices.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏚️</div>
+                <h3>Selective Demolition</h3>
+                <p>Precise selective demolition allowing you to preserve valuable materials and salvageable items.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Heavy Hauling</h3>
+                <p>Reliable heavy equipment hauling and material transportation for construction and demolition projects.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧹</div>
+                <h3>Site Cleanup</h3>
+                <p>Comprehensive site cleanup and restoration after demolition, leaving your property ready for next steps.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Consultation</h3>
+                <p>Expert consultation on demolition planning, permits, timelines, and cost-effective project solutions.</p>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
     <section class="why-choose">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Why Choose Santos Hauling</h2>
-                <p>We deliver exceptional results with professionalism and integrity</p>
-            </div>
+        <div class="why-choose-container">
+            <h2 class="section-title">Why Choose <span>Santos Hauling</span></h2>
             <div class="value-props">
                 <div class="value-prop">
-                    <h3>⚡ Fast & Efficient</h3>
-                    <p>Quick turnaround times without compromising quality. We understand the importance of keeping your project on schedule and within budget.</p>
+                    <h3>✓ Expert Experience</h3>
+                    <p>Years of proven demolition expertise with a track record of safe, efficient, and professional project execution.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>🛡️ Fully Licensed</h3>
-                    <p>Complete licensing and insurance coverage. Your peace of mind is our priority with certified professionals on every job.</p>
+                    <h3>✓ Safety First</h3>
+                    <p>Fully licensed, insured, and committed to highest safety standards protecting your property and our team.</p>
                 </div>
                 <div class="value-prop">
-                    <h3>💼 Expert Team</h3>
-                    <p>Experienced demolition specialists with years of industry knowledge. We handle every project with skill and attention to detail.</p>
+                    <h3>✓ Fair Pricing</h3>
+                    <p>Transparent, competitive pricing with detailed quotes and no hidden fees. Quality work at honest rates.</p>
                 </div>
             </div>
         </div>
@@ -812,184 +752,168 @@
 
     <!-- Reviews Section -->
     <section class="reviews">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>Customer Reviews</h2>
-                <p>What our clients have to say about our work</p>
+        <h2 class="section-title">Customer <span>Reviews</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">MJ</div>
+                    <div class="review-meta">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <span class="verified">✓ Verified</span>
+                    </div>
+                </div>
+                <p class="review-text">"Santos Hauling did an outstanding job on our demolition project. Professional, on time, and incredibly thorough. Highly recommended!"</p>
+                <p class="review-name">— Marcus J.</p>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">JM</div>
-                            <div>
-                                <div class="reviewer-name">John Martinez</div>
-                            </div>
-                        </div>
-                        <span class="verified-badge">✓ Verified</span>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">RD</div>
+                    <div class="review-meta">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <span class="verified">✓ Verified</span>
                     </div>
-                    <div class="stars-rating">★★★★★</div>
-                    <p class="review-text">"Santos Hauling did an outstanding job with our home demolition. Professional, fast, and incredibly thorough with cleanup. Highly recommend!"</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">SC</div>
-                            <div>
-                                <div class="reviewer-name">Sarah Chen</div>
-                            </div>
-                        </div>
-                        <span class="verified-badge">✓ Verified</span>
+                <p class="review-text">"Best experience with a demolition contractor. They handled everything from permits to cleanup with precision and care."</p>
+                <p class="review-name">— Rachel D.</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">TM</div>
+                    <div class="review-meta">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <span class="verified">✓ Verified</span>
                     </div>
-                    <div class="stars-rating">★★★★★</div>
-                    <p class="review-text">"Great communication throughout the entire project. They handled everything professionally and kept their word on pricing. Will definitely use again!"</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">RL</div>
-                            <div>
-                                <div class="reviewer-name">Robert Lee</div>
-                            </div>
-                        </div>
-                        <span class="verified-badge">✓ Verified</span>
+                <p class="review-text">"Fair pricing and exceptional work quality. Santos Hauling made a complicated demolition look easy. Will definitely use again!"</p>
+                <p class="review-name">— Tony M.</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">SK</div>
+                    <div class="review-meta">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <span class="verified">✓ Verified</span>
                     </div>
-                    <div class="stars-rating">★★★★★</div>
-                    <p class="review-text">"Best demolition crew in the area. They arrived on time, worked efficiently, and left the site spotless. Couldn't be happier with the results."</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">MG</div>
-                            <div>
-                                <div class="reviewer-name">Maria Garcia</div>
-                            </div>
-                        </div>
-                        <span class="verified-badge">✓ Verified</span>
-                    </div>
-                    <div class="stars-rating">★★★★★</div>
-                    <p class="review-text">"Fantastic experience from start to finish. The team was knowledgeable, responsive, and delivered exactly what we needed. Truly professional service!"</p>
-                </div>
+                <p class="review-text">"Professional team that takes pride in their work. Great communication throughout the project and final results exceeded expectations."</p>
+                <p class="review-name">— Sarah K.</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about">
-        <div class="section-container">
-            <div class="about-content">
-                <h2>About Santos Hauling</h2>
-                <p>
-                    Santos Hauling has been serving the Monterey County community with professional demolition and hauling services for years. Founded on principles of integrity, safety, and customer satisfaction, we've built our reputation by consistently delivering exceptional results on every project, no matter the size or complexity. Our team of certified professionals brings years of industry expertise to residential and commercial demolition work. We're committed to responsible practices, including recycling and sustainable waste management. When you choose Santos Hauling, you're choosing a company that values your project as much as you do.
-                </p>
-            </div>
+        <div class="about-container">
+            <h2 class="section-title">About <span>Santos Hauling</span></h2>
+            <p>Santos Hauling was founded on the principle of delivering honest, professional demolition services with a commitment to safety and customer satisfaction. Our team brings decades of combined experience in residential and commercial demolition projects.</p>
+            <p>We believe in treating every project with the same attention to detail and care, whether it's a small residential demolition or a large commercial development. Our reputation is built on reliability, transparency, and consistently exceeding client expectations.</p>
+            <p>When you choose Santos Hauling, you're choosing a partner dedicated to bringing your vision to reality safely, efficiently, and affordably.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="section-container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">Phone</span>
-                        <div class="contact-value"><a href="tel:8312525353" style="color: inherit; text-decoration: none;">(831) 252-5353</a></div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">Service Area</span>
-                        <div class="contact-value">Monterey County & Surrounding Areas</div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <span class="contact-label">Availability</span>
-                        <div class="contact-value">Monday - Saturday, 7am - 6pm</div>
+    <section class="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <div class="contact-value">
+                        <a href="tel:(831) 252-5353">(831) 252-5353</a>
                     </div>
                 </div>
-
-                <div class="quote-form">
-                    <h3>Free Quote Request</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Type *</label>
-                            <input type="text" id="service" name="service" placeholder="e.g., Home Demolition" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="details">Project Details</label>
-                            <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Request Quote</button>
-                    </form>
+                <div class="contact-item">
+                    <span class="contact-label">Service Area</span>
+                    <div class="contact-value">Monterey County & Surrounding Areas</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Available</span>
+                    <div class="contact-value">Mon - Sun, 7am - 6pm</div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Response Time</span>
+                    <div class="contact-value">24-48 Hours</div>
                 </div>
             </div>
+            <form class="quote-form" id="quote">
+                <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Request Free Quote</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Type</label>
+                    <input type="text" id="service" name="service" placeholder="e.g., Building Demolition">
+                </div>
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Get Free Quote</button>
+            </form>
         </div>
     </section>
+
+    <!-- Floating Call Button -->
+    <a href="tel:(831) 252-5353" class="floating-call" title="Call Santos Hauling">
+        ☎
+    </a>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-col">
-                <h4>Santos Hauling</h4>
-                <p>Professional demolition and hauling services throughout Monterey County. Licensed, insured, and committed to excellence.</p>
+            <div class="footer-info">
+                <strong>Santos Hauling</strong> — Professional Demolition Services
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <p><a href="#services">Services</a><br><a href="#why-choose">Why Us</a><br><a href="#contact">Contact</a></p>
+            <div class="footer-info">
+                Phone: <a href="tel:(831) 252-5353">(831) 252-5353</a>
             </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p><strong>Phone:</strong> <a href="tel:8312525353">(831) 252-5353</a><br><strong>Service Area:</strong> Monterey County & Surrounding</p>
+            <div class="copyright">
+                &copy; 2024 Santos Hauling. All rights reserved.
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Santos Hauling. All rights reserved. | Licensed & Insured Demolition Services</p>
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <a href="tel:8312525353" class="floating-call" title="Call Santos Hauling">☎️</a>
-
-    <!-- Intersection Observer for Animations -->
     <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                    observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.1
+        });
 
-        document.querySelectorAll('.service-card, .review-card, .value-prop, .contact-item, .about-content p').forEach(el => {
-            el.style.opacity = '0';
+        // Observe service cards and other elements
+        document.querySelectorAll('.service-card, .review-card, .value-prop, .about p').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission handling
-        document.querySelector('form').addEventListener('submit', (e) => {
+        document.querySelector('.quote-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your request! We will contact you shortly with a quote.');
+            alert('Thank you for your interest! We will contact you within 24 hours.');
             e.target.reset();
+        });
+
+        // Mobile menu smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                }
+            });
         });
     </script>
 </body>
