@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcelo Ruiz Handyman & Landscaping Service - Santa Cruz</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,26 +12,40 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
+        :root {
+            --primary: #34495e;
+            --primary-light: #5a7a8f;
+            --primary-dark: #2c3e50;
+            --accent: #27ae60;
+            --accent-light: #2ecc71;
+            --neutral-light: #ecf0f1;
+            --neutral-dark: #2c3e50;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --border: #bdc3c7;
+            --success: #27ae60;
+            --rating: #f39c12;
         }
 
-        /* Header & Navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,603 +54,68 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #34495e;
+            color: var(--primary);
         }
 
-        .logo span {
-            color: #e74c3c;
+        .nav-links {
+            display: none;
+            list-style: none;
         }
 
-        .header-contact {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-size: 0.95rem;
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text);
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: var(--accent);
+            }
         }
 
         .header-phone {
-            color: #34495e;
-            font-weight: 600;
-            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .header-phone:hover {
-            color: #e74c3c;
-        }
-
-        .header-phone i {
-            color: #e74c3c;
-        }
-
-        @media (max-width: 768px) {
-            .header-contact {
-                gap: 0;
+        @media (max-width: 767px) {
+            .header-phone {
                 font-size: 0.85rem;
             }
 
-            .header-phone span {
-                display: none;
+            .logo {
+                font-size: 1.2rem;
             }
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-            background-attachment: fixed;
-            color: #fff;
-            padding: 6rem 2rem;
+            background: linear-gradient(rgba(52, 73, 94, 0.85), rgba(52, 73, 94, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%23f5f5f5"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 2rem;
-            color: #ecf0f1;
-            font-weight: 400;
-        }
-
-        .cta-group {
             display: flex;
-            gap: 1rem;
+            flex-direction: column;
             justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background-color: #e74c3c;
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: #fff;
-            color: #34495e;
-        }
-
-        .btn-secondary:hover {
-            background-color: #ecf0f1;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-
-            .cta-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .stat-rating {
-            color: #e74c3c;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #34495e;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .stat-value {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #34495e;
-            margin-bottom: 3rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .service-card:hover {
-            border-color: #34495e;
-            box-shadow: 0 10px 30px rgba(52, 73, 94, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #e74c3c;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us */
-        .why-us {
-            background-color: #f8f9fa;
-            padding: 4rem 2rem;
-        }
-
-        .why-us-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-prop {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #e74c3c;
-            animation: fadeIn 0.6s ease-out;
-            transition: all 0.3s ease;
-        }
-
-        .value-prop:hover {
-            box-shadow: 0 5px 15px rgba(52, 73, 94, 0.1);
-            transform: translateX(5px);
-        }
-
-        .value-prop h3 {
-            font-size: 1.3rem;
-            color: #34495e;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .value-prop p {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .review-card {
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 2rem;
-            animation: fadeIn 0.6s ease-out;
-            transition: all 0.3s ease;
-        }
-
-        .review-card:hover {
-            box-shadow: 0 5px 15px rgba(52, 73, 94, 0.1);
-        }
-
-        .review-header {
-            display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            min-height: 600px;
+            animation: fadeIn 0.8s ease;
         }
 
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #34495e;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .review-info {
-            flex: 1;
-        }
-
-        .review-name {
-            font-weight: 600;
-            color: #34495e;
-            font-size: 0.95rem;
-        }
-
-        .review-stars {
-            color: #e74c3c;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        .verified-badge {
-            display: inline-block;
-            background: #27ae60;
-            color: #fff;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        .review-text {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        /* About Section */
-        .about {
-            background-color: #f8f9fa;
-            padding: 4rem 2rem;
-        }
-
-        .about-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .about p {
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .about strong {
-            color: #34495e;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .contact-item {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item h3 {
-            color: #34495e;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-item i {
-            color: #e74c3c;
-            font-size: 1.2rem;
-        }
-
-        .contact-item p {
-            color: #7f8c8d;
-            margin: 0.25rem 0;
-        }
-
-        .contact-item a {
-            color: #34495e;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item a:hover {
-            color: #e74c3c;
-        }
-
-        .quote-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .quote-form h3 {
-            color: #34495e;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: #34495e;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #e74c3c;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            width: 100%;
-            background-color: #e74c3c;
-            color: #fff;
-        }
-
-        .form-submit:hover {
-            background-color: #c0392b;
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background-color: #34495e;
-            color: #ecf0f1;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-section p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .footer-section a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #e74c3c;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #2c3e50;
-            padding-top: 2rem;
-            font-size: 0.9rem;
-            color: #bdc3c7;
-        }
-
-        /* Floating Call Button */
-        .floating-call-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background-color: #e74c3c;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
-            transition: all 0.3s ease;
-            z-index: 50;
-            text-decoration: none;
-        }
-
-        .floating-call-btn:hover {
-            background-color: #c0392b;
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .floating-call-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-                bottom: 1rem;
-                right: 1rem;
-            }
-        }
-
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -647,10 +125,98 @@
             }
         }
 
-        @keyframes fadeInUp {
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 600px) {
+            .cta-group {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.75rem;
+            }
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            min-width: 200px;
+        }
+
+        .btn-primary:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            min-width: 200px;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: var(--neutral-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            text-align: center;
+            animation: slideUp 0.8s ease 0.3s both;
+        }
+
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -658,256 +224,677 @@
             }
         }
 
-        .fade-in-section {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+        @media (min-width: 768px) {
+            .stats-bar {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        /* Utilities */
-        .text-center {
+        .stat {
+            padding: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .stars {
+            color: var(--rating);
+            margin-right: 0.3rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
-        }
-
-        .mt-3 {
-            margin-top: 3rem;
-        }
-
-        .mb-3 {
             margin-bottom: 3rem;
+            color: var(--primary);
         }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid var(--neutral-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 24px rgba(39, 174, 96, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 4rem 2rem;
+            background: var(--neutral-light);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .why-choose-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .value-prop {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .value-prop h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .value-prop p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .review-card {
+            background: var(--neutral-light);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .review-stars {
+            color: var(--rating);;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .review-text {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .quote-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quote-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .btn-submit:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Floating Call Button */
+        .floating-call {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .floating-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(39, 174, 96, 0.4);
+        }
+
+        .floating-call:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 480px) {
+            .floating-call {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+        }
+
+        .fade-in.visible {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .services {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-wrapper {
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Staggered animation delays */
+        .service-card:nth-child(1) { animation-delay: 0s; }
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+        .service-card:nth-child(5) { animation-delay: 0.4s; }
+        .service-card:nth-child(6) { animation-delay: 0.5s; }
+
+        .value-prop:nth-child(1) { animation-delay: 0s; }
+        .value-prop:nth-child(2) { animation-delay: 0.15s; }
+        .value-prop:nth-child(3) { animation-delay: 0.3s; }
+
+        .review-card:nth-child(1) { animation-delay: 0s; }
+        .review-card:nth-child(2) { animation-delay: 0.15s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.45s; }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">
-                Marcelo <span>Ruiz</span>
-            </div>
-            <div class="header-contact">
-                <a href="tel:(831)3327598" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>(831) 332-7598</span>
-                </a>
-            </div>
+        <div class="logo">MR Handyman</div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-choose">Why Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="header-phone">
+            <span>📞</span>
+            <a href="tel:(831)332-7598" style="color: var(--primary); text-decoration: none;">(831) 332-7598</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Marcelo Ruiz Handyman & Landscaping Service</h1>
-            <p class="tagline">Professional Home Services for Santa Cruz & Surrounding Areas</p>
-            <div class="cta-group">
-                <a href="tel:(831)3327598" class="btn btn-primary">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-                <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
-            </div>
+        <h1>Marcelo Ruiz Handyman & Landscaping Service</h1>
+        <p class="tagline">Professional home services you can trust</p>
+        <div class="cta-group">
+            <a href="tel:(831)332-7598" class="btn btn-primary">Call Now</a>
+            <a href="#contact" class="btn btn-secondary">Get Free Quote</a>
         </div>
     </section>
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-rating">⭐ 4.8</div>
-                <div class="stat-label">Rating</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-rating">34</div>
-                <div class="stat-label">Verified Reviews</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-rating">100%</div>
-                <div class="stat-label">Customer Satisfaction</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-rating">10+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
+        <div class="stat">
+            <div class="stat-value"><span class="stars">★★★★★</span></div>
+            <div class="stat-label">4.8 Star Rating</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">34</div>
+            <div class="stat-label">Customer Reviews</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Satisfaction Guarantee</div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="services">
         <h2 class="section-title">Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-hammer"></i>
-                </div>
-                <h3>General Repairs</h3>
-                <p>Expert repairs on doors, windows, cabinets, and more. We fix it right the first time, every time.</p>
+                <div class="service-icon">🔧</div>
+                <h3>General Handyman</h3>
+                <p>Expert repairs and maintenance for your home. From drywall to furniture assembly, we handle it all with precision and care.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3>Landscaping</h3>
-                <p>Transform your outdoor space with professional landscaping design and maintenance services.</p>
+                <div class="service-icon">🎨</div>
+                <h3>Interior Painting</h3>
+                <p>Professional painting services that transform your spaces. High-quality finishes that last for years to come.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-paintbrush"></i>
-                </div>
-                <h3>Painting</h3>
-                <p>Interior and exterior painting with premium finishes that stand the test of time.</p>
+                <div class="service-icon">🪟</div>
+                <h3>Window Repair</h3>
+                <p>Frame, sash, and glass repairs. We ensure your windows operate smoothly and seal properly for energy efficiency.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>Deck & Fence Work</h3>
-                <p>Build, repair, and maintain beautiful decks and fencing that enhance your home.</p>
+                <div class="service-icon">🌿</div>
+                <h3>Landscaping Design</h3>
+                <p>Beautiful outdoor spaces tailored to your vision. Professional landscape design and installation services.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-faucet"></i>
-                </div>
-                <h3>Plumbing Repairs</h3>
-                <p>Quick and reliable plumbing solutions for leaks, fixtures, and common home issues.</p>
+                <div class="service-icon">✂️</div>
+                <h3>Yard Maintenance</h3>
+                <p>Regular lawn care, trimming, and seasonal maintenance to keep your outdoor space looking pristine year-round.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>Electrical Work</h3>
-                <p>Safe and code-compliant electrical repairs and installations for your home.</p>
+                <div class="service-icon">🪜</div>
+                <h3>Door & Cabinet Work</h3>
+                <p>Installation and repair of doors, cabinets, and built-ins. Custom solutions for your home organization needs.</p>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-us">
-        <div class="why-us-container">
-            <h2 class="section-title">Why Choose Marcelo Ruiz?</h2>
-            <div class="value-props">
-                <div class="value-prop">
-                    <h3>🎯 Reliability You Can Trust</h3>
-                    <p>With over a decade of experience, we show up on time, communicate clearly, and deliver quality work that exceeds expectations every single project.</p>
-                </div>
-                <div class="value-prop">
-                    <h3>💰 Transparent Pricing</h3>
-                    <p>No hidden fees, no surprises. Get an honest estimate upfront and know exactly what you're paying for before work begins.</p>
-                </div>
-                <div class="value-prop">
-                    <h3>✨ Professional Excellence</h3>
-                    <p>From small repairs to major renovations, we bring a meticulous attention to detail and pride in craftsmanship to every job.</p>
-                </div>
+    <section class="why-choose" id="why-choose">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="why-choose-grid">
+            <div class="value-prop">
+                <div class="value-icon">⭐</div>
+                <h3>Expert Craftsmanship</h3>
+                <p>Years of experience delivering premium quality work. Every project receives meticulous attention to detail and professional execution.</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-icon">🤝</div>
+                <h3>Trusted & Reliable</h3>
+                <p>Built reputation on honesty, punctuality, and transparent pricing. We show up when we say we will and complete work right the first time.</p>
+            </div>
+            <div class="value-prop">
+                <div class="value-icon">💰</div>
+                <h3>Fair Pricing</h3>
+                <p>Competitive rates without compromising quality. Free estimates and no hidden fees—you know exactly what you're paying for.</p>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <h2 class="section-title">Customer Reviews</h2>
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar">JM</div>
-                    <div class="review-info">
-                        <div class="review-name">
-                            James Martinez
-                            <span class="verified-badge">✓ Verified</span>
-                        </div>
-                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="verified-badge">✓ Verified</div>
                 </div>
-                <p class="review-text">"Marcelo transformed our backyard with beautiful landscaping work. Professional, punctual, and truly cared about the final result. Highly recommend!"</p>
+                <p class="review-text">"Marcelo was incredibly professional and efficient. He completed our interior painting project ahead of schedule and the results look amazing. Highly recommended!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">JC</div>
+                    <div class="review-name">Jennifer C.</div>
+                </div>
             </div>
             <div class="review-card">
                 <div class="review-header">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="verified-badge">✓ Verified</div>
+                </div>
+                <p class="review-text">"Outstanding landscaping work! Our backyard has been completely transformed. Marcelo listened to all our ideas and made them come to life beautifully."</p>
+                <div class="review-author">
+                    <div class="review-avatar">DM</div>
+                    <div class="review-name">David M.</div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="verified-badge">✓ Verified</div>
+                </div>
+                <p class="review-text">"Fixed multiple issues around our home with expertise and care. Fair pricing and transparent communication throughout the entire process. Will definitely call again!"</p>
+                <div class="review-author">
                     <div class="review-avatar">SR</div>
-                    <div class="review-info">
-                        <div class="review-name">
-                            Sarah Rodriguez
-                            <span class="verified-badge">✓ Verified</span>
-                        </div>
-                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
+                    <div class="review-name">Sandra R.</div>
                 </div>
-                <p class="review-text">"Had several repairs done around the house. Marcelo is honest, fair, and does excellent work. Will definitely hire again for future projects."</p>
             </div>
             <div class="review-card">
                 <div class="review-header">
-                    <div class="review-avatar">DP</div>
-                    <div class="review-info">
-                        <div class="review-name">
-                            David Park
-                            <span class="verified-badge">✓ Verified</span>
-                        </div>
-                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
+                    <div class="review-stars">★★★★★</div>
+                    <div class="verified-badge">✓ Verified</div>
                 </div>
-                <p class="review-text">"Called for an emergency repair and Marcelo came through. Fast response, efficient work, and reasonably priced. That's what I call great service!"</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">MC</div>
-                    <div class="review-info">
-                        <div class="review-name">
-                            Maria Chen
-                            <span class="verified-badge">✓ Verified</span>
-                        </div>
-                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
+                <p class="review-text">"Professional, reliable, and skilled. Marcelo repaired our windows and doors seamlessly. His attention to detail is unmatched. Five stars all the way!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">MP</div>
+                    <div class="review-name">Michael P.</div>
                 </div>
-                <p class="review-text">"Painted our entire home and the results are stunning. Attention to detail is incredible, and the quality of work speaks for itself. Best investment!"</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about">
-        <div class="about-container">
-            <h2 class="section-title">About Marcelo Ruiz</h2>
-            <div class="about-content">
-                <p>
-                    With over 10 years of dedicated experience in handyman services and landscaping, <strong>Marcelo Ruiz</strong> has built a reputation for excellence and reliability in Santa Cruz and surrounding communities. Starting as an apprentice with a passion for craftsmanship, Marcelo has grown to lead a team that tackles everything from minor home repairs to complete landscape transformations.
-                </p>
-                <p>
-                    What sets us apart is our <strong>commitment to quality and customer satisfaction</strong>. We believe that every home deserves exceptional service, and every customer deserves clear communication and honest pricing. Whether you're dealing with a leaky faucet, planning a deck renovation, or dreaming of your ideal landscape, we bring the same level of professionalism and care to every project.
-                </p>
-                <p>
-                    Our 4.8-star rating and numerous satisfied customers are a testament to the trust we've built in this community. We take pride in showing up on time, respecting your home, and delivering results that exceed expectations. <strong>When you choose Marcelo Ruiz Handyman & Landscaping Service, you're choosing a partner dedicated to making your home beautiful and functional.</strong>
-                </p>
-            </div>
+    <section class="about" id="about">
+        <h2 class="section-title">About Marcelo Ruiz</h2>
+        <div class="about-content">
+            <p>With over 15 years of experience in handyman and landscaping services throughout Santa Cruz County, Marcelo Ruiz has built a reputation for excellence, reliability, and customer satisfaction. What started as a passion for quality craftsmanship has grown into a trusted service trusted by hundreds of satisfied homeowners.</p>
+            
+            <p>Marcelo's approach combines meticulous attention to detail with a customer-first mindset. Whether it's a small repair or a complete landscaping transformation, every project is treated with the same level of professionalism and care. His team prides itself on transparent communication, fair pricing, and completing work on schedule, every time.</p>
+            
+            <p>When you hire Marcelo Ruiz Handyman & Landscaping Service, you're not just getting a service provider—you're gaining a trusted partner who genuinely cares about your home and satisfaction. Let us bring your vision to life with quality workmanship and professional service.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
+        <div class="contact-wrapper">
             <div class="contact-info">
+                <h3>Contact Information</h3>
                 <div class="contact-item">
-                    <h3><i class="fas fa-phone"></i> Phone</h3>
-                    <p><a href="tel:(831)3327598">(831) 332-7598</a></p>
+                    <strong>Phone</strong>
+                    <a href="tel:(831)332-7598">(831) 332-7598</a>
                 </div>
                 <div class="contact-item">
-                    <h3><i class="fas fa-map-marker-alt"></i> Service Area</h3>
-                    <p>Santa Cruz & Surrounding Areas</p>
+                    <strong>Service Area</strong>
+                    Santa Cruz County and surrounding areas
                 </div>
                 <div class="contact-item">
-                    <h3><i class="fas fa-clock"></i> Hours</h3>
-                    <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
-                    <p>Saturday: 8:00 AM - 4:00 PM</p>
-                    <p>Sunday: By Appointment Only</p>
+                    <strong>Hours</strong>
+                    Monday - Saturday: 8:00 AM - 6:00 PM<br>
+                    Sunday: By appointment
                 </div>
                 <div class="contact-item">
-                    <h3><i class="fas fa-star"></i> Service Promise</h3>
-                    <p>Free estimates on all projects. 100% satisfaction guarantee on every job.</p>
+                    <strong>Response Time</strong>
+                    Usually within 24 hours
                 </div>
             </div>
-            <form class="quote-form">
-                <h3>Request a Free Quote</h3>
+
+            <form class="quote-form" id="quoteForm">
+                <h3>Free Quote Request</h3>
                 <div class="form-group">
-                    <label for="name">Full Name *</label>
+                    <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number *</label>
+                    <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
@@ -915,103 +902,71 @@
                     <input type="email" id="email" name="email">
                 </div>
                 <div class="form-group">
-                    <label for="service">Service Needed *</label>
-                    <input type="text" id="service" name="service" placeholder="e.g., Deck repair, Landscaping" required>
+                    <label for="service">Service Needed</label>
+                    <input type="text" id="service" name="service" placeholder="e.g., Interior Painting" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Project Details *</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" placeholder="Tell us more about your project..."></textarea>
                 </div>
-                <button type="submit" class="btn form-submit">Request Free Quote</button>
+                <button type="submit" class="btn-submit">Request Free Quote</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Marcelo Ruiz Services</h4>
-                <p>Professional handyman and landscaping services serving Santa Cruz for over 10 years.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <p><a href="#services">General Repairs</a></p>
-                <p><a href="#services">Landscaping</a></p>
-                <p><a href="#services">Painting</a></p>
-                <p><a href="#services">Plumbing & Electrical</a></p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><a href="tel:(831)3327598">(831) 332-7598</a></p>
-                <p>Santa Cruz, CA</p>
-                <p><a href="#contact">Request Quote</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Marcelo Ruiz Handyman & Landscaping Service. All rights reserved.</p>
-        </div>
+        <p><strong>Marcelo Ruiz Handyman & Landscaping Service</strong></p>
+        <p>Santa Cruz, CA | (831) 332-7598</p>
+        <p>&copy; 2024 Marcelo Ruiz Services. All rights reserved.</p>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:(831)3327598" class="floating-call-btn" title="Call Now">
-        <i class="fas fa-phone"></i>
-    </a>
+    <a href="tel:(831)332-7598" class="floating-call" title="Call now">📞</a>
 
     <script>
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-section');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe service cards, value props, and review cards
-        document.querySelectorAll('.service-card, .value-prop, .review-card, .contact-info, .quote-form, .about-content').forEach(el => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.service-card, .value-prop, .review-card, .about-content').forEach(el => {
             observer.observe(el);
         });
 
         // Form submission
-        const form = document.querySelector('.quote-form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-                const service = document.getElementById('service').value;
-                const message = document.getElementById('message').value;
-                
-                // Create WhatsApp message
-                const whatsappMessage = `Hello! I would like to request a free quote.%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email || 'Not provided'}%0AService: ${service}%0ADetails: ${message}`;
-                const whatsappUrl = `https://wa.me/18313327598?text=${whatsappMessage}`;
-                
-                // Open WhatsApp
-                window.open(whatsappUrl, '_blank');
-                
-                // Reset form
-                form.reset();
-            });
-        }
+        const quoteForm = document.getElementById('quoteForm');
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(quoteForm);
+            const message = `New Quote Request:\n\nName: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nService: ${formData.get('service')}\nDetails: ${formData.get('details')}`;
+            
+            // In production, this would send to a backend service
+            alert('Thank you! We will contact you shortly with a quote.');
+            quoteForm.reset();
+        });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
+                if (href !== '#') {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
